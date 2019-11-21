@@ -1,0 +1,12 @@
+(gdb) bt
+#0  nvme_pci_map_queues (set=0xffff88813a65a008) at ../drivers/nvme/host/pci.c:448
+#1  0xffffffff81534183 in blk_mq_update_queue_map (set=0xffff88813a65a008) at ../block/blk-mq.c:3024
+#2  0xffffffff8153884f in blk_mq_alloc_tag_set (set=0xffff88813a65a008) at ../block/blk-mq.c:3099
+#3  0xffffffff817ce013 in nvme_dev_add (dev=<optimized out>) at ../drivers/nvme/host/pci.c:2277
+#4  nvme_reset_work (work=0xffff88813a65a5d8) at ../drivers/nvme/host/pci.c:2579
+#5  0xffffffff811262df in process_one_work (worker=0xffff88813aa1c600, work=0xffff88813a65a5d8) at ../kernel/workqueue.c:2269
+#6  0xffffffff81126713 in process_scheduled_works (worker=<optimized out>) at ../kernel/workqueue.c:2331
+#7  worker_thread (__worker=0xffff88813aa1c600) at ../kernel/workqueue.c:2420
+#8  0xffffffff8112c420 in kthread (_create=0xffff88813aa01100) at ../kernel/kthread.c:255
+#9  0xffffffff81e00215 in ret_from_fork () at ../arch/x86/entry/entry_64.S:352
+

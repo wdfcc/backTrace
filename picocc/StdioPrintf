@@ -1,0 +1,15 @@
+(gdb) bt
+#0  StdioPrintf (Parser=0x7fffffffc6a0, ReturnValue=0x55555557e3e8, Param=0x55555557e438, NumArgs=1) at cstdlib/stdio.c:530
+#1  0x0000555555566908 in ExpressionParseFunctionCall (Parser=0x7fffffffc6a0, StackTop=0x7fffffffc3e0, FuncName=0x55555559fb88 "printf", RunIt=1) at expression.c:1560
+#2  0x0000555555565b00 in ExpressionParse (Parser=0x7fffffffc6a0, Result=0x7fffffffc508) at expression.c:1251
+#3  0x00005555555610d8 in ParseStatement (Parser=0x7fffffffc6a0, CheckTrailingSemicolon=1) at parse.c:653
+#4  0x0000555555560d96 in ParseBlock (Parser=0x7fffffffc6a0, AbsorbOpenBrace=0, Condition=1) at parse.c:536
+#5  0x000055555556111e in ParseStatement (Parser=0x7fffffffc6a0, CheckTrailingSemicolon=1) at parse.c:659
+#6  0x000055555556682f in ExpressionParseFunctionCall (Parser=0x7fffffffc9c0, StackTop=0x7fffffffc820, FuncName=0x55555559fb58 "main", RunIt=1) at expression.c:1545
+#7  0x0000555555565b00 in ExpressionParse (Parser=0x7fffffffc9c0, Result=0x7fffffffc948) at expression.c:1251
+#8  0x00005555555610d8 in ParseStatement (Parser=0x7fffffffc9c0, CheckTrailingSemicolon=1) at parse.c:653
+#9  0x0000555555561dfd in PicocParse (pc=0x7fffffffcaa0, FileName=0x55555557478d "startup", Source=0x5555555747b7 "__exit_value = main();", SourceLen=22, RunIt=1, CleanupNow=1, CleanupSource=0, 
+    EnableDebugger=1) at parse.c:966
+#10 0x000055555556a293 in PicocCallMain (pc=0x7fffffffcaa0, argc=0, argv=0x7fffffffdfe8) at platform.c:86
+#11 0x000055555555bef0 in main (argc=2, argv=0x7fffffffdfd8) at picoc.c:57
+

@@ -1,0 +1,27 @@
+(top-gdb) bt
+#0  print_frame_args (func=0x55b314231f20, frame=frame@entry=0x55b314175ab0, num=num@entry=-1, stream=0x55b3141daf30) at stack.c:541
+#1  0x000055b312566313 in print_frame (print_args=<optimized out>, print_what=LOCATION, print_level=<optimized out>, frame=0x55b314175ab0, sal=...) at stack.c:1210
+#2  print_frame_info (frame=0x55b314175ab0, print_level=<optimized out>, print_what=LOCATION, print_args=<optimized out>, set_current_sal=0) at stack.c:867
+#3  0x000055b312567990 in backtrace_command_1 (from_tty=1, no_filters=<optimized out>, flags=..., count_exp=<optimized out>) at stack.c:1882
+#4  backtrace_command (arg=<optimized out>, from_tty=1) at stack.c:1957
+#5  0x000055b31235ff62 in cmd_func (During symbol reading: No DW_FORM_block* DW_AT_call_value for DW_TAG_call_site child DIE 0x37cd3f1 [in module /home/sdk/gdb-8.3/gdb/gdb]
+During symbol reading: inner block (0x55b3125b8fd0-0x55b3125b8ff2) not inside outer block (0x55b3125b8ff2-0x55b3125b9012)
+cmd=<optimized out>, args=<optimized out>, from_tty=<optimized out>) at cli/cli-decode.c:1892
+#6  0x000055b3125b94e0 in execute_command (p=<optimized out>, p@entry=0x55b314061cf0 "bt", from_tty=1) at top.c:630
+#7  0x000055b312404f5c in command_handler (command=0x55b314061cf0 "bt") at event-top.c:583
+#8  0x000055b312405bbd in command_line_handler (rl=...) at event-top.c:770
+#9  0x000055b312404710 in gdb_rl_callback_handler (rl=0x55b314237c40 "bt") at /usr/include/c++/8/bits/unique_ptr.h:149
+#10 0x000055b312618e0f in rl_callback_read_char () at callback.c:220
+#11 0x000055b312404626 in gdb_rl_callback_read_char_wrapper_noexcept () at event-top.c:175
+#12 0x000055b3124046a9 in gdb_rl_callback_read_char_wrapper (client_data=<optimized out>) at event-top.c:191
+#13 0x000055b312404bc0 in stdin_event_handler (error=<optimized out>, client_data=0x55b314059c90) at event-top.c:511
+#14 0x000055b312403a4d in gdb_wait_for_event (block=<optimized out>) at event-loop.c:859
+#15 gdb_wait_for_event (block=<optimized out>) at event-loop.c:746
+#16 0x000055b312403bf8 in gdb_do_one_event () at event-loop.c:347
+#17 0x000055b312403d0e in gdb_do_one_event () at event-loop.c:371
+#18 start_event_loop () at event-loop.c:371
+#19 0x000055b31249bdbb in captured_command_loop () at main.c:331
+#20 0x000055b31249cef5 in captured_main (data=<optimized out>) at main.c:1182
+#21 gdb_main (args=<optimized out>) at main.c:1198
+#22 0x000055b3122d7c7b in main (argc=<optimized out>, argv=<optimized out>) at gdb.c:32
+

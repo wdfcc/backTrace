@@ -1,0 +1,36 @@
+#0  gimplify_modify_expr (expr_p=0x7ffff7972310, pre_p=0x7fffffffe3d0, post_p=0x7fffffffe3c8, want_value=0 '\000') at ../.././gcc/gimplify.c:3288
+#1  0x0000000000489dca in gimplify_expr (expr_p=0x7ffff7972310, pre_p=0x7fffffffe3d0, post_p=0x7fffffffe3c8, gimple_test_f=0x481c46 <is_gimple_stmt>, fallback=fb_none) at ../.././gcc/gimplify.c:4192
+#2  0x00000000004898d6 in gimplify_stmt (stmt_p=0x7ffff7972310) at ../.././gcc/gimplify.c:4021
+#3  0x0000000000488917 in gimplify_statement_list (expr_p=0x7ffff7ecf680) at ../.././gcc/gimplify.c:3483
+#4  0x000000000048a5ae in gimplify_expr (expr_p=0x7ffff7ecf680, pre_p=0x7fffffffe520, post_p=0x7fffffffe518, gimple_test_f=0x481c46 <is_gimple_stmt>, fallback=fb_none) at ../.././gcc/gimplify.c:4445
+#5  0x00000000004898d6 in gimplify_stmt (stmt_p=0x7ffff7ecf680) at ../.././gcc/gimplify.c:4021
+#6  0x00000000004898f0 in gimplify_to_stmt_list (stmt_p=0x7ffff7ecf680) at ../.././gcc/gimplify.c:4029
+#7  0x0000000000483fd5 in gimplify_bind_expr (expr_p=0x7ffff796dab0, temp=0x0, pre_p=0x7fffffffe6b0) at ../.././gcc/gimplify.c:939
+#8  0x000000000048a0d9 in gimplify_expr (expr_p=0x7ffff796dab0, pre_p=0x7fffffffe6b0, post_p=0x7fffffffe6a8, gimple_test_f=0x481c46 <is_gimple_stmt>, fallback=fb_none) at ../.././gcc/gimplify.c:4298
+#9  0x00000000004898d6 in gimplify_stmt (stmt_p=0x7ffff796dab0) at ../.././gcc/gimplify.c:4021
+#10 0x000000000048b2fd in gimplify_body (body_p=0x7ffff796dab0, fndecl=0x7ffff796da00, do_parms=1 '\001') at ../.././gcc/gimplify.c:4924
+#11 0x000000000048b52d in gimplify_function_tree (fndecl=0x7ffff796da00) at ../.././gcc/gimplify.c:4999
+#12 0x0000000000464801 in c_genericize (fndecl=0x7ffff796da00) at ../.././gcc/c-gimplify.c:106
+#13 0x0000000000412855 in finish_function () at ../.././gcc/c-decl.c:6626
+#14 0x000000000045a1b9 in c_parser_declaration_or_fndef (parser=0x7ffff7ecf410, fndef_ok=1 '\001', empty_ok=1 '\001', nested=0 '\000', start_attr_ok=1 '\001') at ../.././gcc/c-parser.c:1307
+#15 0x0000000000459b4c in c_parser_external_declaration (parser=0x7ffff7ecf410) at ../.././gcc/c-parser.c:1071
+#16 0x00000000004598c3 in c_parser_translation_unit (parser=0x7ffff7ecf410) at ../.././gcc/c-parser.c:977
+#17 0x0000000000464510 in c_parse_file () at ../.././gcc/c-parser.c:6258
+#18 0x000000000044e215 in c_common_parse_file (set_yydebug=0) at ../.././gcc/c-opts.c:1143
+#19 0x000000000080cce7 in compile_file () at ../.././gcc/toplev.c:991
+#20 0x000000000080e50d in do_compile () at ../.././gcc/toplev.c:1949
+#21 0x000000000080e57c in toplev_main (argc=11, argv=0x7fffffffeb58) at ../.././gcc/toplev.c:1981
+#22 0x000000000046b1f0 in main (argc=11, argv=0x7fffffffeb58) at ../.././gcc/main.c:35
+
+3288	  tree *from_p = &TREE_OPERAND (*expr_p, 1);
+(gdb) p expr_p.exp.common.code 
+$98 = MODIFY_EXPR
+(gdb) p expr_p.exp.operands[0].var_decl.common.common.common.common.name.identifier.id
+$99 = {str = 0xe01737 "a", len = 1, hash_value = 4294967281}
+(gdb) p expr_p.exp.operands[1].exp.common.code                                                        
+$100 = PLUS_EXPR
+(gdb) p expr_p.exp.operands[1].exp.operands[0].var_decl.common.common.common.common.name.identifier.id
+$101 = {str = 0xe01737 "a", len = 1, hash_value = 4294967281}
+(gdb) p expr_p.exp.operands[1].exp.operands[1].var_decl.common.common.common.common.name.identifier.id
+$102 = {str = 0xe01739 "b", len = 1, hash_value = 4294967282}
+(gdb) 

@@ -1,0 +1,12 @@
+create_elf_tables (interp_load_addr=<optimized out>, load_addr=<optimized out>, exec=<optimized out>, bprm=<optimized out>) at ../fs/binfmt_elf.c:314
+#1  load_elf_binary (bprm=<optimized out>) at ../fs/binfmt_elf.c:1126
+#2  0xffffffff813345f1 in search_binary_handler (bprm=<optimized out>) at ../fs/exec.c:1658
+#3  search_binary_handler (bprm=0xffff888138a0b800) at ../fs/exec.c:1635
+#4  0xffffffff813360c4 in exec_binprm (bprm=<optimized out>) at ../fs/exec.c:1701
+#5  __do_execve_file (fd=<optimized out>, filename=0xffff88813a962000, flags=0, file=<optimized out>, argv=..., envp=...) at ../fs/exec.c:1821
+#6  0xffffffff813365f9 in do_execveat_common (flags=<optimized out>, filename=<optimized out>, fd=<optimized out>, argv=..., envp=...) at ../fs/exec.c:1885
+#7  do_execve (__envp=<optimized out>, __argv=<optimized out>, filename=<optimized out>) at ../fs/exec.c:1885
+#8  __do_sys_execve (envp=<optimized out>, argv=<optimized out>, filename=<optimized out>) at ../fs/exec.c:1961
+#9  __se_sys_execve (envp=<optimized out>, argv=<optimized out>, filename=<optimized out>) at ../fs/exec.c:1956
+#10 __x64_sys_execve (regs=<optimized out>) at ../fs/exec.c:1956
+

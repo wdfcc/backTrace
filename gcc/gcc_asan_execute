@@ -1,0 +1,15 @@
+(gdb) bt
+#0  (anonymous namespace)::pass_asan::execute(function*) () at ../../gcc/asan.c:3631
+#1  0x000000000099d68a in execute_one_pass(opt_pass*) () at ../../gcc/passes.c:2483
+#2  0x000000000099dd60 in execute_pass_list_1(opt_pass*) () at ../../gcc/passes.c:2569
+#3  0x000000000099dd99 in execute_pass_list(function*, opt_pass*) () at ../../gcc/passes.c:2580
+#4  0x00000000006f7f02 in cgraph_node::expand() () at ../../gcc/context.h:48
+#5  0x00000000006f8f34 in output_in_order () at ../../gcc/cgraphunit.c:2440
+#6  symbol_table::compile() [clone .part.0] () at ../../gcc/cgraphunit.c:2684
+#7  0x00000000006fad6d in symbol_table::compile (this=0x7ffff6600100) at ../../gcc/cgraphunit.c:2863
+#8  symbol_table::finalize_compilation_unit (this=0x7ffff6600100) at ../../gcc/cgraphunit.c:2863
+#9  0x0000000000a5f31d in compile_file () at ../../gcc/toplev.c:481
+#10 0x00000000005be4bd in do_compile () at ../../gcc/toplev.c:2176
+#11 toplev::main(int, char**) () at ../../gcc/toplev.c:2311
+#12 0x00000000005c1acf in main (argc=16, argv=0x7fffffffe188) at ../../gcc/main.c:39
+

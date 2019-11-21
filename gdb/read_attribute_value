@@ -1,0 +1,24 @@
+(gdb) bt
+#0  read_attribute_value (reader=0x7fffffffd980, attr=0x555555f9a7e8, form=14, implicit_const=-1, info_ptr=0x555555f4676c "\346\001") at dwarf2read.c:19054
+#1  0x000055555573c142 in read_attribute (info_ptr=<optimized out>, abbrev=<optimized out>, attr=0x555555f9a7e8, reader=0x7fffffffd980) at dwarf2read.c:19309
+#2  read_full_die_1 (reader=0x7fffffffd980, diep=0x7fffffffd968, info_ptr=<optimized out>, has_children=0x7fffffffd95c, num_extra_attrs=<optimized out>) at dwarf2read.c:18113
+#3  0x0000555555741739 in read_full_die (reader=0x7fffffffd980, diep=0x7fffffffd968, info_ptr=0x555555f4676b "\001\346\001", has_children=<optimized out>) at dwarf2read.c:18133
+#4  0x0000555555743990 in init_cutu_and_read_dies (this_cu=0x555555f312a0, abbrev_table=0x555555f2c8b0, use_existing_cu=<optimized out>, keep=0, skip_partial=<optimized out>, 
+    die_reader_func=0x5555557515e0 <process_psymtab_comp_unit_reader(die_reader_specs const*, gdb_byte const*, die_info*, int, void*)>, data=0x7fffffffda20) at dwarf2read.c:7642
+#5  0x0000555555747240 in process_psymtab_comp_unit (this_cu=0x555555f312a0, want_partial_unit=0, pretend_language=language_minimal) at dwarf2read.c:8138
+#6  0x0000555555755c26 in dwarf2_build_psymtabs_hard (dwarf2_per_objfile=0x555555f30ec0) at dwarf2read.c:8505
+#7  dwarf2_build_psymtabs (objfile=0x555555f7fb10) at dwarf2read.c:6342
+#8  0x0000555555851a76 in require_partial_symbols (objfile=objfile@entry=0x555555f7fb10, verbose=verbose@entry=0) at psymtab.c:119
+#9  0x00005555558da402 in read_symbols (objfile=0x555555f7fb10, add_flags=...) at symfile.c:821
+#10 0x00005555558d9dcd in syms_from_objfile_1 (add_flags=..., addrs=0x7fffffffdc30, objfile=0x555555f7fb10) at symfile.c:1000
+#11 syms_from_objfile (add_flags=..., addrs=<optimized out>, objfile=0x555555f7fb10) at symfile.c:1017
+#12 symbol_file_add_with_addrs (abfd=<optimized out>, name=0x7fffffffe30c "/home/sdk/a", add_flags=..., addrs=<optimized out>, flags=..., parent=<optimized out>) at symfile.c:1124
+#13 0x00005555558db047 in symbol_file_add_from_bfd (parent=0x0, flags=..., addrs=0x0, add_flags=..., name=0x7fffffffe30c "/home/sdk/a", abfd=<optimized out>) at symfile.c:1216
+#14 symbol_file_add (name=0x7fffffffe30c "/home/sdk/a", add_flags=..., addrs=0x0, flags=...) at symfile.c:1216
+#15 0x00005555558db0c2 in symbol_file_add_main_1 (args=0x7fffffffe30c "/home/sdk/a", add_flags=..., flags=..., reloff=0) at symfile.c:1240
+#16 0x0000555555802e28 in catch_command_errors (command=0x555555802d80 <symbol_file_add_main_adapter(char const*, int)>, arg=0x7fffffffe30c "/home/sdk/a", from_tty=1) at main.c:380
+#17 0x0000555555803d1f in captured_main_1 (context=<optimized out>) at main.c:1061
+#18 captured_main (data=<optimized out>) at main.c:1172
+#19 gdb_main (args=<optimized out>) at main.c:1198
+#20 0x000055555563ec7b in main (argc=<optimized out>, argv=<optimized out>) at gdb.c:32
+

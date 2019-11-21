@@ -1,0 +1,20 @@
+#5  0x00000000007df268 in final_scan_insn_1 (insn=0x7ffff68f1480, file=<optimized out>, seen=<optimized out>, nopeepholes=<optimized out>, optimize_p=<optimized out>) at ../../gcc/final.c:2677
+#6  0x00000000007df40c in final_scan_insn (insn=<optimized out>, file=<optimized out>, optimize_p=<optimized out>, nopeepholes=<optimized out>, seen=<optimized out>) at ../../gcc/final.c:3153
+#7  0x00000000007df6e5 in final_1 (first=0x7ffff6a99ce8, file=0x1dec460, seen=<optimized out>, optimize_p=0) at ../../gcc/final.c:2021
+#8  0x00000000007e00c5 in rest_of_handle_final () at ../../gcc/final.c:4659
+#9  (anonymous namespace)::pass_final::execute (this=<optimized out>) at ../../gcc/final.c:4737
+#10 0x00000000009b2eca in execute_one_pass (pass=0x1ddb300) at ../../gcc/passes.c:2487
+#11 0x00000000009b35b0 in execute_pass_list_1 (pass=0x1ddb300) at ../../gcc/passes.c:2573
+#12 0x00000000009b35c2 in execute_pass_list_1 (pass=0x1ddae20) at ../../gcc/passes.c:2574
+#13 0x00000000009b35c2 in execute_pass_list_1 (pass=0x1dd9120) at ../../gcc/passes.c:2574
+#14 0x00000000009b35e9 in execute_pass_list (fn=0x7ffff6a7d420, pass=<optimized out>) at ../../gcc/passes.c:2584
+#15 0x00000000007078d2 in cgraph_node::expand (this=0x7ffff6a7f708) at ../../gcc/context.h:48
+#16 0x00000000007088b4 in output_in_order () at ../../gcc/cgraphunit.c:2442
+#17 symbol_table::compile (this=0x7ffff68e0100) at ../../gcc/cgraphunit.c:2686
+#18 0x000000000070a84d in symbol_table::compile (this=0x7ffff68e0100) at ../../gcc/cgraphunit.c:2865
+#19 symbol_table::finalize_compilation_unit (this=0x7ffff68e0100) at ../../gcc/cgraphunit.c:2865
+#20 0x0000000000a741cd in compile_file () at ../../gcc/toplev.c:481
+#21 0x00000000005ccbad in do_compile () at ../../gcc/toplev.c:2205
+#22 toplev::main (this=this@entry=0x7fffffffdd5e, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffde58) at ../../gcc/toplev.c:2340
+#23 0x00000000005d04df in main (argc=14, argv=0x7fffffffde58) at ../../gcc/main.c:39
+

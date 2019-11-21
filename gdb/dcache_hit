@@ -1,0 +1,42 @@
+#2  0x000055555571059c in dcache_hit (dcache=0x555555fd4320, dcache=0x555555fd4320, addr=140737488346821) at dcache.c:396
+#3  dcache_peek_byte (ptr=0x555556011f21 "", addr=140737488346821, dcache=0x555555fd4320) at dcache.c:396
+#4  dcache_read_memory_partial (ops=ops@entry=0x555555d6fce8 <the_amd64_linux_nat_target>, dcache=0x555555fd4320, memaddr=memaddr@entry=140737488346820, myaddr=myaddr@entry=0x555556011f20 "\004", len=4, 
+    xfered_len=xfered_len@entry=0x7fffffffd3f0) at dcache.c:483
+#5  0x0000555555912ba6 in memory_xfer_partial_1 (ops=ops@entry=0x555555d6fce8 <the_amd64_linux_nat_target>, object=object@entry=TARGET_OBJECT_STACK_MEMORY, readbuf=readbuf@entry=0x555556011f20 "\004", 
+    writebuf=writebuf@entry=0x0, memaddr=memaddr@entry=140737488346820, len=len@entry=4, xfered_len=0x7fffffffd3f0) at target.c:1079
+#6  0x0000555555912cda in memory_xfer_partial (xfered_len=0x7fffffffd3f0, len=4, memaddr=140737488346820, writebuf=0x0, readbuf=0x555556011f20 "\004", object=TARGET_OBJECT_STACK_MEMORY, 
+    ops=0x555555d6fce8 <the_amd64_linux_nat_target>) at target.c:1122
+#7  target_xfer_partial (ops=0x555555d6fce8 <the_amd64_linux_nat_target>, object=object@entry=TARGET_OBJECT_STACK_MEMORY, annex=annex@entry=0x0, readbuf=readbuf@entry=0x555556011f20 "\004", 
+    writebuf=writebuf@entry=0x0, offset=offset@entry=140737488346820, len=<optimized out>, xfered_len=0x7fffffffd3f0) at target.c:1179
+#8  0x000055555594ef22 in read_value_memory (val=val@entry=0x555556011c40, bit_offset=bit_offset@entry=0, stack=<optimized out>, memaddr=memaddr@entry=140737488346820, buffer=0x555556011f20 "\004", length=4)
+    at valops.c:955
+#9  0x000055555595e14f in value_fetch_lazy_memory (val=0x555556011c40) at value.c:1375
+#10 value_fetch_lazy (val=0x555556011c40) at value.c:3894
+#11 0x000055555595e41d in value_entirely_covered_by_range_vector (value=value@entry=0x555556011c40, ranges=...) at value.c:417
+#12 0x000055555595e439 in value_entirely_optimized_out (value=value@entry=0x555556011c40) at value.c:441
+#13 0x00005555559560b1 in value_check_printable (val=val@entry=0x555556011c40, stream=stream@entry=0x7fffffffd5d0, options=<optimized out>) at valprint.c:1086
+#14 0x00005555559564b6 in common_val_print (val=0x555556011c40, stream=stream@entry=0x7fffffffd5d0, recurse=recurse@entry=2, options=options@entry=0x7fffffffd580, 
+    language=language@entry=0x555555d3ff60 <c_language_defn>) at valprint.c:1137
+#15 0x00005555558cae34 in print_frame_arg (arg=0x7fffffffd680) at stack.c:298
+#16 0x00005555558cbb03 in print_frame_args (func=<optimized out>, frame=frame@entry=0x555555ec38d0, num=num@entry=-1, stream=0x555555f78f90) at stack.c:688
+#17 0x00005555558cd313 in print_frame (print_args=<optimized out>, print_what=SRC_AND_LOC, print_level=<optimized out>, frame=0x555555ec38d0, sal=...) at stack.c:1210
+#18 print_frame_info (frame=0x555555ec38d0, print_level=<optimized out>, print_what=SRC_AND_LOC, print_args=<optimized out>, set_current_sal=1) at stack.c:867
+#19 0x00005555558cd936 in print_stack_frame (frame=0x555555ec38d0, print_level=0, print_what=SRC_AND_LOC, set_current_sal=1) at stack.c:180
+#20 0x00005555557c3e92 in print_stop_location (ws=<synthetic pointer>) at infrun.c:7849
+#21 print_stop_event (uiout=0x555555f42790) at infrun.c:7866
+#22 0x0000555555935c16 in tui_on_normal_stop (bs=<optimized out>, print_frame=<optimized out>) at tui/tui-interp.c:98
+#23 0x00005555557c43f7 in std::function<void (bpstats*, int)>::operator()(bpstats*, int) const (__args#1=<optimized out>, __args#0=<optimized out>, this=0x555555e982c0)
+    at /usr/include/c++/8/bits/std_function.h:682
+#24 gdb::observers::observable<bpstats*, int>::notify (args#1=<optimized out>, args#0=0x555555fd6760, this=<optimized out>) at common/observable.h:106
+#25 normal_stop () at infrun.c:8138
+#26 0x00005555557cc46a in fetch_inferior_event (client_data=<optimized out>) at infrun.c:3789
+#27 0x000055555576aa4d in gdb_wait_for_event (block=<optimized out>) at event-loop.c:859
+#28 gdb_wait_for_event (block=<optimized out>) at event-loop.c:746
+#29 0x000055555576abc7 in gdb_do_one_event () at event-loop.c:322
+#30 0x000055555576ad0e in gdb_do_one_event () at event-loop.c:371
+#31 start_event_loop () at event-loop.c:371
+#32 0x0000555555802dbb in captured_command_loop () at main.c:331
+#33 0x0000555555803ef5 in captured_main (data=<optimized out>) at main.c:1182
+#34 gdb_main (args=<optimized out>) at main.c:1198
+#35 0x000055555563ec7b in main (argc=<optimized out>, argv=<optimized out>) at gdb.c:32
+

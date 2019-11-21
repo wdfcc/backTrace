@@ -1,0 +1,12 @@
+(gdb) bt
+#0  x86_cpu_common_class_init (oc=0x5555565200b0, data=<optimized out>) at /home/sdk/qemu/target/i386/cpu.c:5918
+#1  0x0000555555bbe02d in type_initialize (ti=0x5555564e16f0) at qom/object.c:304
+#2  type_initialize (ti=ti@entry=0x5555564e6440) at qom/object.c:300
+#3  0x0000555555bbe62b in type_initialize (ti=0x5555564e6440) at qom/object.c:959
+#4  object_class_foreach_tramp (key=<optimized out>, value=0x5555564e6440, opaque=0x7fffffffdba0) at qom/object.c:959
+#5  0x00007ffff7ddc4b6 in g_hash_table_foreach () from /lib/x86_64-linux-gnu/libglib-2.0.so.0
+#6  0x0000555555bbeb18 in object_class_foreach (fn=fn@entry=0x555555bbd370 <object_class_get_list_tramp>, implements_type=<optimized out>, include_abstract=<optimized out>, opaque=opaque@entry=0x7fffffffdbe0) at qom/object.c:81
+#7  0x0000555555bbebb2 in object_class_get_list (implements_type=<optimized out>, include_abstract=<optimized out>) at qom/object.c:1035
+#8  0x0000555555826bd4 in select_machine () at vl.c:3857
+#9  main (argc=<optimized out>, argv=0x7fffffffde28, envp=<optimized out>) at vl.c:3857
+

@@ -1,0 +1,23 @@
+(gdb) bt
+#0  0x0000555555a10343 in nvme_write_bar (size=4, data=0, offset=20, n=0x5555574e1610) at hw/block/nvme.c:1266
+#1  0x0000555555a10343 in nvme_mmio_write (opaque=0x5555574e1610, addr=20, data=0, size=4) at hw/block/nvme.c:1266
+#2  0x0000555555880a81 in memory_region_write_accessor (mr=0x5555574e1ef0, addr=20, value=<optimized out>, size=4, shift=<optimized out>, mask=<optimized out>, attrs=...) at /home/sdk/qemu/memory.c:508
+#3  0x000055555587e636 in access_with_adjusted_size
+    (addr=addr@entry=20, value=value@entry=0x7fffe6fe4fd8, size=size@entry=4, access_size_min=<optimized out>, access_size_max=<optimized out>, access_fn=access_fn@entry=
+    0x555555880a00 <memory_region_write_accessor>, mr=0x5555574e1ef0, attrs=...) at /home/sdk/qemu/memory.c:574
+#4  0x000055555588305c in memory_region_dispatch_write (mr=mr@entry=0x5555574e1ef0, addr=addr@entry=20, data=<optimized out>, data@entry=0, size=size@entry=4, attrs=...) at /home/sdk/qemu/memory.c:1502
+#5  0x0000555555894ff3 in io_writex
+    (env=env@entry=0x55555661c3e0, mmu_idx=mmu_idx@entry=2, val=val@entry=0, addr=addr@entry=4273930260, retaddr=140735744718977, size=4, iotlbentry=<optimized out>, iotlbentry=<optimized out>)
+    at /home/sdk/qemu/accel/tcg/cputlb.c:950
+#6  0x0000555555899111 in store_helper (big_endian=false, size=4, retaddr=140735744718977, oi=34, val=0, addr=4273930260, env=0x55555661c3e0) at /home/sdk/qemu/include/exec/cpu-all.h:439
+#7  0x0000555555899111 in helper_le_stl_mmu (env=0x55555661c3e0, addr=4273930260, val=0, oi=34, retaddr=140735744718977) at /home/sdk/qemu/accel/tcg/cputlb.c:1660
+#8  0x00007fff98123881 in code_gen_buffer ()
+#9  0x00005555558ad6ee in cpu_tb_exec (itb=<optimized out>, cpu=0x7fff98123740 <code_gen_buffer+1193747>) at /home/sdk/qemu/accel/tcg/cpu-exec.c:173
+#10 0x00005555558ad6ee in cpu_loop_exec_tb (tb_exit=<synthetic pointer>, last_tb=<synthetic pointer>, tb=<optimized out>, cpu=0x7fff98123740 <code_gen_buffer+1193747>) at /home/sdk/qemu/accel/tcg/cpu-exec.c:621
+#11 0x00005555558ad6ee in cpu_exec (cpu=cpu@entry=0x555556613b90) at /home/sdk/qemu/accel/tcg/cpu-exec.c:732
+#12 0x00005555558738df in tcg_cpu_exec (cpu=0x555556613b90) at /home/sdk/qemu/cpus.c:1435
+#13 0x0000555555875c5b in qemu_tcg_cpu_thread_fn (arg=arg@entry=0x555556613b90) at /home/sdk/qemu/cpus.c:1743
+#14 0x0000555555cbabca in qemu_thread_start (args=<optimized out>) at util/qemu-thread-posix.c:502
+#15 0x00007ffff5227182 in start_thread (arg=<optimized out>) at pthread_create.c:486
+#16 0x00007ffff5150b1f in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:95
+

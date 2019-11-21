@@ -1,0 +1,82 @@
+(top-gdb) bt
+#0  0x0000555555885c81 in map_regcache_remote_table (gdbarch=0x555555f5d000, regs=0x5555563296e0) at remote.c:1330
+#1  0x0000555555888300 in remote_arch_state::remote_arch_state (this=0x5555562a64e0, gdbarch=0x555555f5d000) at /usr/include/c++/8/bits/unique_ptr.h:593
+#2  0x000055555589f372 in std::pair<gdbarch* const, remote_arch_state>::pair<gdbarch*&, 0ul, gdbarch*&, 0ul> (__tuple2=..., __tuple1=..., this=0x5555562a64d8) at /usr/include/c++/8/bits/move.h:74
+#3  std::pair<gdbarch* const, remote_arch_state>::pair<gdbarch*&, gdbarch*&> (__second=..., __first=..., this=0x5555562a64d8) at /usr/include/c++/8/tuple:1657
+#4  __gnu_cxx::new_allocator<std::__detail::_Hash_node<std::pair<gdbarch* const, remote_arch_state>, false> >::construct<std::pair<gdbarch* const, remote_arch_state>, std::piecewise_construct_t const&, std::tuple<gdbarch*&>, std::tuple<gdbarch*&> > (this=0x555555f61790, 
+    __p=0x5555562a64d8) at /usr/include/c++/8/ext/new_allocator.h:136
+#5  std::allocator_traits<std::allocator<std::__detail::_Hash_node<std::pair<gdbarch* const, remote_arch_state>, false> > >::construct<std::pair<gdbarch* const, remote_arch_state>, std::piecewise_construct_t const&, std::tuple<gdbarch*&>, std::tuple<gdbarch*&> > (__a=..., 
+    __p=0x5555562a64d8) at /usr/include/c++/8/bits/alloc_traits.h:475
+#6  std::__detail::_Hashtable_alloc<std::allocator<std::__detail::_Hash_node<std::pair<gdbarch* const, remote_arch_state>, false> > >::_M_allocate_node<std::piecewise_construct_t const&, std::tuple<gdbarch*&>, std::tuple<gdbarch*&> > (this=0x555555f61790)
+    at /usr/include/c++/8/bits/hashtable_policy.h:2082
+#7  std::_Hashtable<gdbarch*, std::pair<gdbarch* const, remote_arch_state>, std::allocator<std::pair<gdbarch* const, remote_arch_state> >, std::__detail::_Select1st, std::equal_to<gdbarch*>, std::hash<gdbarch*>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_emplace<std::piecewise_construct_t const&, std::tuple<gdbarch*&>, std::tuple<gdbarch*&> > (this=0x555555f61790, __args#0=..., __args#1=..., __args#2=...)
+    at /usr/include/c++/8/bits/hashtable.h:1660
+#8  0x0000555555888c6c in std::_Hashtable<gdbarch*, std::pair<gdbarch* const, remote_arch_state>, std::allocator<std::pair<gdbarch* const, remote_arch_state> >, std::__detail::_Select1st, std::equal_to<gdbarch*>, std::hash<gdbarch*>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::emplace<std::piecewise_construct_t const&, std::tuple<gdbarch*&>, std::tuple<gdbarch*&> > (this=0x555555f61790) at /usr/include/c++/8/bits/hashtable.h:747
+#9  std::unordered_map<gdbarch*, remote_arch_state, std::hash<gdbarch*>, std::equal_to<gdbarch*>, std::allocator<std::pair<gdbarch* const, remote_arch_state> > >::emplace<std::piecewise_construct_t const&, std::tuple<gdbarch*&>, std::tuple<gdbarch*&> > (this=0x555555f61790)
+    at /usr/include/c++/8/bits/unordered_map.h:388
+#10 remote_state::get_remote_arch_state (this=0x555555f61558, gdbarch=<optimized out>) at remote.c:1211
+#11 0x0000555555891d2b in remote_target::get_remote_state (this=0x555555f61550) at remote.c:5511
+#12 remote_target::open_1 (During symbol reading: Duplicate PC 0x55555590f48c for DW_TAG_call_site DIE 0x36dcacf [in module /home/sdk/gdb-8.3/gdb/gdb]
+name=0x5555567c6b0e "localhost:1234", from_tty=1, extended_p=0) at remote.c:5511
+#13 0x0000555555910f06 in open_target (args=0x5555567c6b0e "localhost:1234", from_tty=1, command=<optimized out>) at target.c:256
+#14 0x00005555556c0bd2 in cmd_func (During symbol reading: inner block (0x555555919c40-0x555555919c62) not inside outer block (0x555555919c62-0x555555919c82)
+cmd=<optimized out>, args=<optimized out>, from_tty=<optimized out>) at cli/cli-decode.c:1892
+#15 0x000055555591a150 in execute_command (p=<optimized out>, p@entry=0x5555567c6b00 "", from_tty=1) at top.c:630
+#16 0x0000555555765bcc in command_handler (command=0x5555567c6b00 "") at event-top.c:583
+#17 0x000055555576682d in command_line_handler (rl=...) at event-top.c:770
+#18 0x0000555555765380 in gdb_rl_callback_handler (rl=0x55555635eea0 "target remote localhost:1234") at /usr/include/c++/8/bits/unique_ptr.h:149
+#19 0x0000555555979a7f in rl_callback_read_char () at callback.c:220
+#20 0x0000555555765296 in gdb_rl_callback_read_char_wrapper_noexcept () at event-top.c:175
+#21 0x0000555555765319 in gdb_rl_callback_read_char_wrapper (client_data=<optimized out>) at event-top.c:191
+#22 0x0000555555765830 in stdin_event_handler (error=<optimized out>, client_data=0x555555d7bc90) at event-top.c:511
+#23 0x00005555557646bd in gdb_wait_for_event (block=<optimized out>) at event-loop.c:859
+#24 gdb_wait_for_event (block=<optimized out>) at event-loop.c:746
+#25 0x0000555555764868 in gdb_do_one_event () at event-loop.c:347
+#26 0x000055555576497e in gdb_do_one_event () at event-loop.c:371
+#27 start_event_loop () at event-loop.c:371
+#28 0x00005555557fca2b in captured_command_loop () at main.c:331
+#29 0x00005555557fdb65 in captured_main (data=<optimized out>) at main.c:1182
+#30 gdb_main (args=<optimized out>) at main.c:1198
+#31 0x000055555563896b in main (argc=<optimized out>, argv=<optimized out>) at gdb.c:32
+(top-gdb) 
+
+(top-gdb) bt
+#0  0x0000555f1a988300 in remote_arch_state::remote_arch_state (this=0x555f1f012a70, gdbarch=0x555f1f06a280) at /usr/include/c++/8/bits/unique_ptr.h:593
+#1  0x0000555f1a99f372 in std::pair<gdbarch* const, remote_arch_state>::pair<gdbarch*&, 0ul, gdbarch*&, 0ul> (__tuple2=..., __tuple1=..., this=0x555f1f012a68) at /usr/include/c++/8/bits/move.h:74
+#2  std::pair<gdbarch* const, remote_arch_state>::pair<gdbarch*&, gdbarch*&> (__second=..., __first=..., this=0x555f1f012a68) at /usr/include/c++/8/tuple:1657
+#3  __gnu_cxx::new_allocator<std::__detail::_Hash_node<std::pair<gdbarch* const, remote_arch_state>, false> >::construct<std::pair<gdbarch* const, remote_arch_state>, std::piecewise_construct_t const&, std::tuple<gdbarch*&>, std::tuple<gdbarch*&> > (this=0x555f1cdaa920, 
+    __p=0x555f1f012a68) at /usr/include/c++/8/ext/new_allocator.h:136
+#4  std::allocator_traits<std::allocator<std::__detail::_Hash_node<std::pair<gdbarch* const, remote_arch_state>, false> > >::construct<std::pair<gdbarch* const, remote_arch_state>, std::piecewise_construct_t const&, std::tuple<gdbarch*&>, std::tuple<gdbarch*&> > (__a=..., 
+    __p=0x555f1f012a68) at /usr/include/c++/8/bits/alloc_traits.h:475
+#5  std::__detail::_Hashtable_alloc<std::allocator<std::__detail::_Hash_node<std::pair<gdbarch* const, remote_arch_state>, false> > >::_M_allocate_node<std::piecewise_construct_t const&, std::tuple<gdbarch*&>, std::tuple<gdbarch*&> > (this=0x555f1cdaa920, 
+    this@entry=0x555f1f012c98) at /usr/include/c++/8/bits/hashtable_policy.h:2082
+#6  std::_Hashtable<gdbarch*, std::pair<gdbarch* const, remote_arch_state>, std::allocator<std::pair<gdbarch* const, remote_arch_state> >, std::__detail::_Select1st, std::equal_to<gdbarch*>, std::hash<gdbarch*>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_emplace<std::piecewise_construct_t const&, std::tuple<gdbarch*&>, std::tuple<gdbarch*&> > (this=this@entry=0x555f1cdaa920, __args#0=..., __args#1=..., __args#2=...)
+    at /usr/include/c++/8/bits/hashtable.h:1660
+#7  0x0000555f1a988c6c in std::_Hashtable<gdbarch*, std::pair<gdbarch* const, remote_arch_state>, std::allocator<std::pair<gdbarch* const, remote_arch_state> >, std::__detail::_Select1st, std::equal_to<gdbarch*>, std::hash<gdbarch*>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::emplace<std::piecewise_construct_t const&, std::tuple<gdbarch*&>, std::tuple<gdbarch*&> > (this=0x555f1cdaa920) at /usr/include/c++/8/bits/hashtable.h:747
+#8  std::unordered_map<gdbarch*, remote_arch_state, std::hash<gdbarch*>, std::equal_to<gdbarch*>, std::allocator<std::pair<gdbarch* const, remote_arch_state> > >::emplace<std::piecewise_construct_t const&, std::tuple<gdbarch*&>, std::tuple<gdbarch*&> > (this=0x555f1cdaa920)
+    at /usr/include/c++/8/bits/unordered_map.h:388
+#9  remote_state::get_remote_arch_state (this=this@entry=0x555f1cdaa6e8, gdbarch=<optimized out>) at remote.c:1211
+#10 0x0000555f1a99c1f4 in remote_target::get_remote_state (this=this@entry=0x555f1cdaa6e0) at remote.c:13172
+#11 remote_target::get_trace_status (this=this@entry=0x555f1cdaa6e0, ts=0x555f1ae5e220 <trace_status>) at remote.c:13172
+#12 0x0000555f1a99171a in remote_target::start_remote (this=this@entry=0x555f1cdaa6e0, from_tty=from_tty@entry=1, extended_p=extended_p@entry=0) at remote.c:4660
+#13 0x0000555f1a991ecb in remote_target::open_1 (name=<optimized out>, from_tty=1, extended_p=0) at remote.c:5615
+#14 0x0000555f1aa10f06 in open_target (args=0x555f1ee0b60e "localhost:1234", from_tty=1, command=<optimized out>) at target.c:256
+#15 0x0000555f1a7c0bd2 in cmd_func (cmd=<optimized out>, args=<optimized out>, from_tty=<optimized out>) at cli/cli-decode.c:1892
+#16 0x0000555f1aa1a150 in execute_command (p=<optimized out>, p@entry=0x555f1ee0b600 "", from_tty=1) at top.c:630
+#17 0x0000555f1a865bcc in command_handler (command=0x555f1ee0b600 "") at event-top.c:583
+#18 0x0000555f1a86682d in command_line_handler (rl=...) at event-top.c:770
+#19 0x0000555f1a865380 in gdb_rl_callback_handler (rl=0x555f1e446fb0 "target remote localhost:1234") at /usr/include/c++/8/bits/unique_ptr.h:149
+#20 0x0000555f1aa79a7f in rl_callback_read_char () at callback.c:220
+#21 0x0000555f1a865296 in gdb_rl_callback_read_char_wrapper_noexcept () at event-top.c:175
+#22 0x0000555f1a865319 in gdb_rl_callback_read_char_wrapper (client_data=<optimized out>) at event-top.c:191
+#23 0x0000555f1a865830 in stdin_event_handler (error=<optimized out>, client_data=0x555f1cbc4c90) at event-top.c:511
+#24 0x0000555f1a8646bd in gdb_wait_for_event (block=<optimized out>) at event-loop.c:859
+#25 gdb_wait_for_event (block=<optimized out>) at event-loop.c:746
+#26 0x0000555f1a864868 in gdb_do_one_event () at event-loop.c:347
+#27 0x0000555f1a86497e in gdb_do_one_event () at event-loop.c:371
+#28 start_event_loop () at event-loop.c:371
+#29 0x0000555f1a8fca2b in captured_command_loop () at main.c:331
+#30 0x0000555f1a8fdb65 in captured_main (data=<optimized out>) at main.c:1182
+#31 gdb_main (args=<optimized out>) at main.c:1198
+#32 0x0000555f1a73896b in main (argc=<optimized out>, argv=<optimized out>) at gdb.c:32
+

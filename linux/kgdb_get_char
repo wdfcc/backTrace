@@ -1,0 +1,21 @@
+#0  serial8250_get_poll_char (port=0xffffffff82fa77a0 <serial8250_ports>) at ../drivers/tty/serial/8250/8250_port.c:2065
+#1  0xffffffff816d5d6c in uart_poll_get_char (driver=<optimized out>, line=<optimized out>) at ../drivers/tty/serial/serial_core.c:2427
+#2  0xffffffff816e6f7e in kgdboc_get_char () at ../drivers/tty/serial/kgdboc.c:223
+#3  0xffffffff811e0bd9 in dbg_io_get_char () at ../kernel/debug/debug_core.c:1113
+#4  0xffffffff811e305a in kdb_read_get_key (bufsize=<optimized out>, buffer=<optimized out>) at ../kernel/debug/kdb/kdb_io.c:79
+#5  kdb_read (buffer=<optimized out>, bufsize=<optimized out>) at ../kernel/debug/kdb/kdb_io.c:236
+#6  0xffffffff811e2c5e in vkdb_printf (src=<optimized out>, fmt=<optimized out>, ap=<optimized out>) at ../kernel/debug/kdb/kdb_io.c:784
+#7  0xffffffff811e2f6d in kdb_printf (fmt=<optimized out>) at ../kernel/debug/kdb/kdb_io.c:861
+#8  0xffffffff811e3e5b in kdb_help (argc=<optimized out>, argv=<optimized out>) at ../kernel/debug/kdb/kdb_main.c:2441
+#9  0xffffffff811e6f45 in kdb_parse (cmdstr=<optimized out>) at ../kernel/debug/kdb/kdb_main.c:1054
+#10 0xffffffff811e78f9 in kdb_local (error=<optimized out>, db_result=<optimized out>, regs=<optimized out>, reason=<optimized out>) at ../kernel/debug/kdb/kdb_main.c:1338
+#11 kdb_main_loop (reason=<optimized out>, reason2=KDB_REASON_KEYBOARD, error=<optimized out>, db_result=<optimized out>, regs=<optimized out>) at ../kernel/debug/kdb/kdb_main.c:1422
+#12 0xffffffff811ea9bf in kdb_stub (ks=0xffffc9000063bbe0) at ../kernel/debug/kdb/kdb_debugger.c:134
+#13 0xffffffff811e03f6 in kgdb_cpu_enter (ks=0xffffc9000063bbe0, regs=<optimized out>, exception_state=<optimized out>) at ../kernel/debug/debug_core.c:685
+#14 0xffffffff811e080a in kgdb_handle_exception (evector=3, signo=<optimized out>, ecode=<optimized out>, regs=0xffffc9000063bcd8) at ../kernel/debug/debug_core.c:782
+#15 0xffffffff810dff51 in __kgdb_notify (args=0xffffc9000063bc80, cmd=<optimized out>) at ../arch/x86/kernel/kgdb.c:556
+#16 0xffffffff810e0036 in kgdb_ll_trap (cmd=<optimized out>, str=<optimized out>, regs=<optimized out>, err=<optimized out>, trap=<optimized out>, sig=<optimized out>) at ../arch/x86/kernel/kgdb.c:579
+#17 0xffffffff8109ffcb in do_int3 (error_code=<optimized out>, regs=<optimized out>) at ../arch/x86/kernel/traps.c:597
+#18 do_int3 (regs=0xffffffff82fa77a0 <serial8250_ports>, error_code=2) at ../arch/x86/kernel/traps.c:573
+#19 0xffffffff81e00fc3 in int3 () at ../arch/x86/entry/entry_64.S:1146
+

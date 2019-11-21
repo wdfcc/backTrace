@@ -1,0 +1,32 @@
+(gdb) bt
+#0  dwarf_expr_context::execute_stack_op (this=0x7fffffffd450, op_ptr=<optimized out>, op_end=0x555555e99aea "\023b") at dwarf2expr.c:849
+#1  0x0000555555729234 in dwarf_expr_context::eval (this=0x7fffffffd450, addr=<optimized out>, len=<optimized out>) at dwarf2expr.c:301
+#2  0x000055555572c0e4 in dwarf2_evaluate_loc_desc_full (type=0x555555fc3e90, frame=0x555555ec38d0, data=0x555555e99ae8 "\221l\023b", size=2, per_cu=0x555555f31280, 
+    subobj_type=0x555555fc3e90, subobj_byte_offset=0) at dwarf2loc.c:2170
+#3  0x000055555572cc01 in dwarf2_evaluate_loc_desc (per_cu=<optimized out>, size=<optimized out>, data=<optimized out>, frame=<optimized out>, type=<optimized out>)
+    at dwarf2loc.c:3503
+#4  locexpr_read_variable (symbol=<optimized out>, frame=<optimized out>) at dwarf2loc.c:3503
+#5  0x0000555555777e4c in default_read_var_value (var=0x555555fc6c90, var_block=<optimized out>, frame=0x555555ec38d0) at findvar.c:610
+#6  0x00005555558cb1f4 in read_frame_arg (sym=0x555555fc6c90, frame=0x555555ec38d0, argp=0x7fffffffd680, entryargp=0x7fffffffd6a0) at stack.c:353
+#7  0x00005555558cbc83 in print_frame_args (func=<optimized out>, frame=frame@entry=0x555555ec38d0, num=num@entry=-1, stream=0x555555f78f90) at stack.c:685
+#8  0x00005555558cd313 in print_frame (print_args=<optimized out>, print_what=SRC_AND_LOC, print_level=<optimized out>, frame=0x555555ec38d0, sal=...) at stack.c:1210
+#9  print_frame_info (frame=0x555555ec38d0, print_level=<optimized out>, print_what=SRC_AND_LOC, print_args=<optimized out>, set_current_sal=1) at stack.c:867
+#10 0x00005555558cd936 in print_stack_frame (frame=0x555555ec38d0, print_level=0, print_what=SRC_AND_LOC, set_current_sal=1) at stack.c:180
+#11 0x00005555557c3e92 in print_stop_location (ws=<synthetic pointer>) at infrun.c:7849
+#12 print_stop_event (uiout=0x555555f42790) at infrun.c:7866
+#13 0x0000555555935c16 in tui_on_normal_stop (bs=<optimized out>, print_frame=<optimized out>) at tui/tui-interp.c:98
+#14 0x00005555557c43f7 in std::function<void (bpstats*, int)>::operator()(bpstats*, int) const (__args#1=<optimized out>, __args#0=<optimized out>, this=0x555555e982c0)
+    at /usr/include/c++/8/bits/std_function.h:682
+#15 gdb::observers::observable<bpstats*, int>::notify (args#1=<optimized out>, args#0=0x555555f49e40, this=<optimized out>) at common/observable.h:106
+#16 normal_stop () at infrun.c:8138
+#17 0x00005555557cc46a in fetch_inferior_event (client_data=<optimized out>) at infrun.c:3789
+#18 0x000055555576aa4d in gdb_wait_for_event (block=<optimized out>) at event-loop.c:859
+#19 gdb_wait_for_event (block=<optimized out>) at event-loop.c:746
+#20 0x000055555576abc7 in gdb_do_one_event () at event-loop.c:322
+#21 0x000055555576ad0e in gdb_do_one_event () at event-loop.c:371
+#22 start_event_loop () at event-loop.c:371
+#23 0x0000555555802dbb in captured_command_loop () at main.c:331
+#24 0x0000555555803ef5 in captured_main (data=<optimized out>) at main.c:1182
+#25 gdb_main (args=<optimized out>) at main.c:1198
+#26 0x000055555563ec7b in main (argc=<optimized out>, argv=<optimized out>) at gdb.c:32
+

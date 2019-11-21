@@ -1,0 +1,5 @@
+(gdb) bt
+#0  handle_common_deferred_options () at ../../gcc/opts-global.c:334
+#1  0x00000000005cc823 in toplev::main (this=this@entry=0x7fffffffdcde, argc=<optimized out>, argc@entry=15, argv=<optimized out>, argv@entry=0x7fffffffddd8) at ../../gcc/toplev.c:2323
+#2  0x00000000005d04df in main (argc=15, argv=0x7fffffffddd8) at ../../gcc/main.c:39
+

@@ -1,0 +1,12 @@
+(gdb) bt
+#0  exec_command () at main.c:856
+#1  0x000055ca12361b2a in main_loop () at main.c:826
+#2  0x000055ca125c2c63 in captured_command_loop (data=data@entry=0x0) at main.c:258
+#3  0x000055ca125c136a in catch_errors (func=func@entry=0x55ca125c2c50 <captured_command_loop>, func_args=func_args@entry=0x0, errstring=errstring@entry=0x55ca1281cd49 "", mask=mask@entry=6) at exceptions.c:557
+#4  0x000055ca125c3d76 in captured_main (data=data@entry=0x7ffecf334370) at main.c:1064
+#5  0x000055ca125c136a in catch_errors (func=func@entry=0x55ca125c2f30 <captured_main>, func_args=func_args@entry=0x7ffecf334370, errstring=errstring@entry=0x55ca1281cd49 "", mask=mask@entry=6)
+    at exceptions.c:557
+#6  0x000055ca125c40b1 in gdb_main (args=0x7ffecf334370) at main.c:1079
+#7  gdb_main_entry (argc=<optimized out>, argv=<optimized out>) at main.c:1099
+#8  0x000055ca123600c4 in main (argc=1, argv=0x7ffecf3344d8) at main.c:707
+

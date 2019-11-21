@@ -1,0 +1,14 @@
+(gdb) bt
+#0  parse_sanitizer_options (p=p@entry=0x7fffffffe22b "trace-pc", loc=loc@entry=0, scode=scode@entry=1005, flags=0, value=value@entry=1, complain=complain@entry=true) at ../../gcc/opts.c:1864
+#1  0x0000000001277343 in common_handle_option (opts=0x1d97b00 <global_options>, opts_set=0x1d96b60 <global_options_set>, decoded=0x1db1320, lang_mask=16, kind=0, loc=0, handlers=0x7fffffffdb70, dc=0x1d98ba0 <global_diagnostic_context>, 
+    target_option_override_hook=0xd343f0 <ix86_option_override()>) at ../../gcc/opts.c:2312
+#2  0x000000000127acec in handle_option (opts=opts@entry=0x1d97b00 <global_options>, opts_set=0x1d96b60 <global_options_set>, decoded=decoded@entry=0x1db1320, lang_mask=lang_mask@entry=16, kind=kind@entry=0, loc=loc@entry=0, handlers=0x7fffffffdb70, generated_p=false, 
+    dc=0x1d98ba0 <global_diagnostic_context>) at ../../gcc/opts-common.c:1106
+#3  0x000000000127ae39 in read_cmdline_option (opts=0x1d97b00 <global_options>, opts_set=<optimized out>, decoded=0x1db1320, loc=0, lang_mask=16, handlers=0x7fffffffdb70, dc=0x1d98ba0 <global_diagnostic_context>) at ../../gcc/opts-common.c:1356
+#4  0x00000000009af745 in read_cmdline_options (dc=0x1d98ba0 <global_diagnostic_context>, handlers=0x7fffffffdb70, lang_mask=16, loc=0, decoded_options_count=<optimized out>, decoded_options=<optimized out>, opts_set=0x1d96b60 <global_options_set>, opts=0x1d97b00 <global_options>)
+    at ../../gcc/opts-global.c:231
+#5  decode_options (opts=0x1d97b00 <global_options>, opts_set=0x1d96b60 <global_options_set>, decoded_options=<optimized out>, decoded_options_count=<optimized out>, loc=loc@entry=0, dc=0x1d98ba0 <global_diagnostic_context>, 
+    target_option_override_hook=0xd343f0 <ix86_option_override()>) at ../../gcc/opts-global.c:312
+#6  0x00000000005cc81e in toplev::main (this=this@entry=0x7fffffffdcbe, argc=<optimized out>, argc@entry=16, argv=<optimized out>, argv@entry=0x7fffffffddb8) at ../../gcc/toplev.c:2318
+#7  0x00000000005d04df in main (argc=16, argv=0x7fffffffddb8) at ../../gcc/main.c:39
+

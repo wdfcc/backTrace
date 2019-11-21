@@ -1,0 +1,13 @@
+(gdb) bt
+#0  0xffffffff810e3e88 in __wrmsr (high=<optimized out>, low=<optimized out>, msr=<optimized out>) at ../arch/x86/include/asm/msr.h:162
+#1  native_write_msr (msr=3221225729, low=1000341504, high=4294936705) at ../arch/x86/include/asm/msr.h:162
+#2  0xffffffff810b390c in paravirt_write_msr (high=<optimized out>, low=<optimized out>, msr=<optimized out>) at ../arch/x86/include/asm/paravirt.h:212
+#3  wrmsrl (val=<optimized out>, msr=<optimized out>) at ../arch/x86/include/asm/paravirt.h:212
+#4  load_percpu_segment (cpu=<optimized out>) at ../arch/x86/kernel/cpu/common.c:506
+#5  0xffffffff810b3923 in switch_to_new_gdt (cpu=0) at ../arch/x86/kernel/cpu/common.c:547
+#6  0xffffffff82b00d87 in setup_per_cpu_areas () at ../arch/x86/kernel/setup_percpu.c:265
+#7  0xffffffff82ae3e78 in start_kernel () at ../init/main.c:576
+#8  0xffffffff82ae34be in x86_64_start_reservations (real_mode_data=<optimized out>) at ../arch/x86/kernel/head64.c:470
+#9  0xffffffff82ae3534 in x86_64_start_kernel (real_mode_data=0x147d0 <bts_ctx+10192> <error: Cannot access memory at address 0x147d0>) at ../arch/x86/kernel/head64.c:451
+#10 0xffffffff810000d4 in secondary_startup_64 () at ../arch/x86/kernel/head_64.S:243
+

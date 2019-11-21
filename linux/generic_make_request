@@ -1,0 +1,26 @@
+(gdb) bt
+#0  generic_make_request (bio=0xffff88813800a780) at ../block/blk-core.c:964
+#1  0xffffffff8152b1e9 in submit_bio (bio=0xffff88813800a780) at ../block/blk-core.c:1129
+#2  0xffffffff81411581 in ext4_mpage_readpages (mapping=<optimized out>, pages=<optimized out>, page=0xffffea0004bd1080, nr_pages=4096, is_readahead=<optimized out>) at ../fs/ext4/readpage.c:293
+#3  0xffffffff813efa8a in ext4_readpages (file=<optimized out>, mapping=<optimized out>, pages=<optimized out>, nr_pages=<optimized out>) at ../fs/ext4/inode.c:3372
+#4  0xffffffff812859eb in read_pages (mapping=0xffff888134d6ebd0, filp=<optimized out>, pages=0xffffc90000ddbc10, nr_pages=3, gfp=<optimized out>) at ../mm/readahead.c:126
+#5  0xffffffff81285c7b in __do_page_cache_readahead (mapping=<optimized out>, filp=<optimized out>, offset=<optimized out>, nr_to_read=<optimized out>, lookahead_size=<optimized out>) at ../mm/readahead.c:212
+#6  0xffffffff81285e22 in ra_submit (filp=<optimized out>, mapping=<optimized out>, ra=<optimized out>) at ../mm/internal.h:62
+#7  ondemand_readahead (mapping=0xffff888134d6ebd0, ra=0xffff888139666c98, filp=0xffff888139666c00, hit_readahead_marker=<optimized out>, offset=0, req_size=<optimized out>) at ../mm/readahead.c:492
+#8  0xffffffff812861e1 in page_cache_sync_readahead (req_size=<optimized out>, offset=<optimized out>, filp=<optimized out>, ra=<optimized out>, mapping=<optimized out>) at ../mm/readahead.c:527
+#9  page_cache_sync_readahead (mapping=0xffff888134d6ebd0, ra=0xffff888139666c98, filp=0xffff888139666c00, offset=0, req_size=32) at ../mm/readahead.c:509
+#10 0xffffffff8127c49f in generic_file_buffered_read (written=<optimized out>, iter=<optimized out>, iocb=<optimized out>) at ../mm/filemap.c:2024
+#11 generic_file_read_iter (iocb=<optimized out>, iter=<optimized out>) at ../mm/filemap.c:2297
+#12 0xffffffff813e3da4 in ext4_file_read_iter (iocb=0xffff88813800a780, to=0x18 <fixed_percpu_data+24>) at ../fs/ext4/file.c:77
+#13 0xffffffff8132aa22 in call_read_iter (file=<optimized out>, iter=<optimized out>, kio=<optimized out>) at ../include/linux/fs.h:1866
+#14 new_sync_read (filp=0xffff888139666c00, buf=<optimized out>, len=<optimized out>, ppos=0xffffc90000ddbee8) at ../fs/read_write.c:414
+#15 0xffffffff8132d9e9 in __vfs_read (file=<optimized out>, buf=<optimized out>, count=<optimized out>, pos=<optimized out>) at ../fs/read_write.c:427
+#16 0xffffffff8132da99 in vfs_read (pos=<optimized out>, count=<optimized out>, buf=<optimized out>, file=<optimized out>) at ../fs/read_write.c:461
+#17 vfs_read (file=0xffff888139666c00, buf=0x7efd0bfdc000 <error: Cannot access memory at address 0x7efd0bfdc000>, count=131072, pos=0xffffc90000ddbee8) at ../fs/read_write.c:446
+#18 0xffffffff8132de11 in ksys_read (fd=<optimized out>, buf=0x7efd0bfdc000 <error: Cannot access memory at address 0x7efd0bfdc000>, count=131072) at ../fs/read_write.c:587
+#19 0xffffffff8132deaa in __do_sys_read (count=<optimized out>, buf=<optimized out>, fd=<optimized out>) at ../fs/read_write.c:597
+#20 __se_sys_read (count=<optimized out>, buf=<optimized out>, fd=<optimized out>) at ../fs/read_write.c:595
+#21 __x64_sys_read (regs=<optimized out>) at ../fs/read_write.c:595
+#22 0xffffffff810042ea in do_syscall_64 (nr=<optimized out>, regs=0x18 <fixed_percpu_data+24>) at ../arch/x86/entry/common.c:301
+#23 0xffffffff81e0008c in entry_SYSCALL_64 () at ../arch/x86/entry/entry_64.S:175
+

@@ -1,0 +1,51 @@
+(gdb) bt
+#0  0x0000555555c171d6 in raw_co_prw (bs=0x5555565fb390, offset=0, bytes=512, qiov=0x7fffffffd5a0, type=1) at block/file-posix.c:1907
+#1  0x0000555555c20bf3 in bdrv_driver_preadv (bs=bs@entry=0x5555565fb390, offset=offset@entry=0, bytes=bytes@entry=512, qiov=qiov@entry=0x7fffffffd5a0, flags=0) at block/io.c:1060
+#2  0x0000555555c244f3 in bdrv_aligned_preadv
+    (child=child@entry=0x5555564a02d0, req=req@entry=0x7fffe7a5de70, offset=offset@entry=0, bytes=bytes@entry=512, align=align@entry=1, qiov=qiov@entry=0x7fffffffd5a0, flags=0) at block/io.c:1376
+#3  0x0000555555c2488d in bdrv_co_preadv (child=0x5555564a02d0, offset=offset@entry=0, bytes=bytes@entry=512, qiov=qiov@entry=0x7fffffffd5a0, flags=flags@entry=0) at block/io.c:1472
+#4  0x0000555555c11f2a in blk_co_preadv (blk=0x5555566008c0, offset=0, bytes=512, qiov=0x7fffffffd5a0, flags=0) at block/block-backend.c:1152
+#5  0x0000555555c11ffc in blk_read_entry (opaque=0x7fffffffd580) at block/block-backend.c:1200
+#6  0x0000555555cce25b in coroutine_trampoline (i0=<optimized out>, i1=<optimized out>) at util/coroutine-ucontext.c:115
+#7  0x00007ffff508f160 in __start_context () at /lib/x86_64-linux-gnu/libc.so.6
+
+(gdb) bt
+#0  0x0000555555c172e0 in handle_aiocb_rw_linear (aiocb=aiocb@entry=0x7fffe7a5dc70, buf=0x7fffffffd610 "\300\b`VUU") at block/file-posix.c:1318
+#1  0x0000555555c175bc in handle_aiocb_rw (opaque=0x7fffe7a5dc70) at block/file-posix.c:1365
+#2  0x0000555555cb5b7c in worker_thread (opaque=opaque@entry=0x555556519710) at util/thread-pool.c:104
+#3  0x0000555555cbabca in qemu_thread_start (args=<optimized out>) at util/qemu-thread-posix.c:502
+#4  0x00007ffff5227182 in start_thread (arg=<optimized out>) at pthread_create.c:486
+#5  0x00007ffff5150b1f in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:95
+
+(gdb) bt
+#0  0x0000555555c12aa0 in blk_aio_prwv
+    (blk=0x5555565f3b40, offset=0, bytes=4096, iobuf=0x7fffdc3297b0, co_entry=co_entry@entry=0x555555c12010 <blk_aio_read_entry>, flags=0, cb=0x5555559b5f50 <dma_blk_cb>, opaque=0x7fffdc329750)
+    at block/block-backend.c:1338
+#1  0x0000555555c12bc0 in blk_aio_preadv (blk=<optimized out>, offset=<optimized out>, qiov=<optimized out>, flags=<optimized out>, cb=<optimized out>, opaque=<optimized out>) at block/block-backend.c:1445
+#2  0x00005555559b6086 in dma_blk_cb (ret=<optimized out>, opaque=0x7fffdc329750) at dma-helpers.c:170
+#3  0x00005555559b6086 in dma_blk_cb (opaque=0x7fffdc329750, ret=<optimized out>) at dma-helpers.c:126
+#4  0x00005555559b6597 in dma_blk_io
+    (ctx=0x5555565e00c0, sg=sg@entry=0x55555720fed8, offset=offset@entry=0, align=align@entry=512, io_func=io_func@entry=0x5555559b5f10 <dma_blk_read_io_func>, io_func_opaque=io_func_opaque@entry=0x5555565f3b40, cb=0x555555a614b0 <ide_dma_cb>, opaque=0x55555720fbb0, dir=DMA_DIRECTION_FROM_DEVICE) at dma-helpers.c:227
+#5  0x00005555559b668a in dma_blk_read (blk=0x5555565f3b40, sg=sg@entry=0x55555720fed8, offset=offset@entry=0, align=align@entry=512, cb=cb@entry=0x555555a614b0 <ide_dma_cb>, opaque=opaque@entry=0x55555720fbb0)
+    at dma-helpers.c:245
+#6  0x0000555555a6170f in ide_dma_cb (ret=<optimized out>, opaque=0x55555720fbb0) at hw/ide/core.c:909
+#7  0x0000555555a6170f in ide_dma_cb (opaque=0x55555720fbb0, ret=<optimized out>) at hw/ide/core.c:835
+#8  0x0000555555a6684f in bmdma_cmd_writeb (bm=bm@entry=0x555557210d00, val=val@entry=9) at /home/sdk/qemu/include/hw/ide/pci.h:59
+#9  0x0000555555a672ca in bmdma_write (opaque=0x555557210d00, addr=<optimized out>, val=9, size=<optimized out>) at hw/ide/piix.c:76
+#10 0x0000555555880a81 in memory_region_write_accessor (mr=0x555557210e50, addr=0, value=<optimized out>, size=1, shift=<optimized out>, mask=<optimized out>, attrs=...) at /home/sdk/qemu/memory.c:508
+#11 0x000055555587e636 in access_with_adjusted_size
+    (addr=addr@entry=0, value=value@entry=0x7fffe6fe5078, size=size@entry=1, access_size_min=<optimized out>, access_size_max=<optimized out>, access_fn=access_fn@entry=
+    0x555555880a00 <memory_region_write_accessor>, mr=0x555557210e50, attrs=...) at /home/sdk/qemu/memory.c:574
+#12 0x000055555588305c in memory_region_dispatch_write (mr=mr@entry=0x555557210e50, addr=0, data=<optimized out>, data@entry=9, size=size@entry=1, attrs=attrs@entry=...) at /home/sdk/qemu/memory.c:1502
+#13 0x0000555555836dfd in address_space_stb (as=<optimized out>, addr=<optimized out>, val=9, attrs=..., result=0x0) at /home/sdk/qemu/memory_ldst.inc.c:411
+#14 0x00007fff99e7632f in code_gen_buffer ()
+#15 0x00005555558ad6ee in cpu_tb_exec (itb=<optimized out>, cpu=0x7fff9a173d00 <code_gen_buffer+35077331>) at /home/sdk/qemu/accel/tcg/cpu-exec.c:173
+#16 0x00005555558ad6ee in cpu_loop_exec_tb (tb_exit=<synthetic pointer>, last_tb=<synthetic pointer>, tb=<optimized out>, cpu=0x7fff9a173d00 <code_gen_buffer+35077331>)
+    at /home/sdk/qemu/accel/tcg/cpu-exec.c:621
+#17 0x00005555558ad6ee in cpu_exec (cpu=cpu@entry=0x555556611330) at /home/sdk/qemu/accel/tcg/cpu-exec.c:732
+#18 0x00005555558738df in tcg_cpu_exec (cpu=0x555556611330) at /home/sdk/qemu/cpus.c:1435
+#19 0x0000555555875c5b in qemu_tcg_cpu_thread_fn (arg=arg@entry=0x555556611330) at /home/sdk/qemu/cpus.c:1743
+#20 0x0000555555cbabca in qemu_thread_start (args=<optimized out>) at util/qemu-thread-posix.c:502
+#21 0x00007ffff5227182 in start_thread (arg=<optimized out>) at pthread_create.c:486
+#22 0x00007ffff5150b1f in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:95
+

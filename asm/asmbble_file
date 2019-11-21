@@ -1,0 +1,3 @@
+assemble_file (fname=0x5555556e8de0 "test/sreg.asm", depend_ptr=0x0) at asm/nasm.c:1453
+#1  0x00005555555a6c23 in main (argc=<optimized out>, argv=<optimized out>) at asm/nasm.c:617
+

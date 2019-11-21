@@ -1,0 +1,37 @@
+#0  0x00007ffff5231490 in __libc_open64 (file=file@entry=0x5555565fb3c1 "/home/sdk/stretch.img", oflag=oflag@entry=524290) at ../sysdeps/unix/sysv/linux/open64.c:37
+#1  0x0000555555cb2e44 in open64 (__oflag=524290, __path=0x5555565fb3c1 "/home/sdk/stretch.img") at /usr/include/x86_64-linux-gnu/bits/fcntl2.h:59
+#2  0x0000555555cb2e44 in qemu_open (name=name@entry=0x5555565fb3c1 "/home/sdk/stretch.img", flags=2) at util/osdep.c:335
+#3  0x0000555555c18271 in raw_reconfigure_getfd
+    (bs=bs@entry=0x5555565fb390, flags=<optimized out>, open_flags=open_flags@entry=0x7fffffffd614, perm=perm@entry=3, force_dup=force_dup@entry=false, errp=errp@entry=0x7fffffffd850) at block/file-posix.c:923
+#4  0x0000555555c18465 in raw_check_perm (bs=0x5555565fb390, perm=3, shared=29, errp=0x7fffffffd850) at block/file-posix.c:2797
+#5  0x0000555555bc5d15 in bdrv_check_perm (bs=bs@entry=0x5555565fb390, q=0x0, 
+    q@entry=0x7431e48431080300, cumulative_perms=3, cumulative_shared_perms=29, ignore_children=ignore_children@entry=0x555556585600 = {...}, tighten_restrictions=tighten_restrictions@entry=0x7fffffffd787, errp=0x7fffffffd850) at block.c:1850
+#6  0x0000555555bc5a3e in bdrv_check_update_perm (bs=0x5555565fb390, q=0x7431e48431080300, 
+    q@entry=0x0, new_used_perm=new_used_perm@entry=3, new_shared_perm=new_shared_perm@entry=29, ignore_children=ignore_children@entry=0x555556585600 = {...}, tighten_restrictions=tighten_restrictions@entry=0x7fffffffd787, errp=<optimized out>) at block.c:2059
+#7  0x0000555555bc5bc2 in bdrv_child_check_perm (c=c@entry=0x5555564a0d50, q=q@entry=0x0, perm=3, shared=29, ignore_children=0x555556585600 = {...}, 
+    ignore_children@entry=0x555556599d90 = {...}, tighten_restrictions=tighten_restrictions@entry=0x7fffffffd787, errp=0x7fffffffd850) at block.c:2073
+#8  0x0000555555bc5da7 in bdrv_check_perm (bs=0x5555565f3df0, bs@entry=0x1005555565f3df0, q=0x0, 
+    q@entry=0x7431e48431080300, cumulative_perms=3, cumulative_shared_perms=29, ignore_children=ignore_children@entry=0x555556599d90 = {...}, tighten_restrictions=0x7fffffffd84f, 
+    tighten_restrictions@entry=0x3, errp=0x7fffffffd850) at block.c:1861
+#9  0x0000555555bc5a3e in bdrv_check_update_perm (bs=0x1005555565f3df0, q=0x7431e48431080300, 
+    q@entry=0x0, new_used_perm=new_used_perm@entry=3, new_shared_perm=new_shared_perm@entry=29, ignore_children=ignore_children@entry=0x555556599d90 = {...}, tighten_restrictions=0x3, 
+    tighten_restrictions@entry=0x7fffffffd84f, errp=<optimized out>) at block.c:2059
+#10 0x0000555555bc5bc2 in bdrv_child_check_perm (c=c@entry=0x5555564a02d0, q=q@entry=0x0, perm=perm@entry=3, shared=shared@entry=29, ignore_children=0x555556599d90 = {...}, 
+    ignore_children@entry=0x0, tighten_restrictions=tighten_restrictions@entry=0x7fffffffd84f, errp=0x7fffffffd850) at block.c:2073
+#11 0x0000555555bc63cc in bdrv_child_try_set_perm (c=0x5555564a02d0, perm=3, shared=29, errp=0x7fffffffd940) at block.c:2129
+#12 0x0000555555c1139d in blk_set_perm (blk=blk@entry=0x5555565f3b40, perm=3, shared_perm=29, errp=<optimized out>) at block/block-backend.c:830
+#13 0x0000555555a047de in blkconf_apply_backend_options (conf=conf@entry=0x55555660ae10, readonly=readonly@entry=false, resizable=resizable@entry=true, errp=errp@entry=0x7fffffffd940) at hw/block/block.c:111
+#14 0x0000555555a65a2d in ide_dev_initfn (dev=0x55555660ad90, kind=IDE_HD, errp=0x7fffffffd940) at hw/ide/qdev.c:199
+#15 0x0000555555a20884 in device_set_realized (obj=<optimized out>, value=<optimized out>, errp=0x7fffffffda30) at hw/core/qdev.c:834
+#16 0x0000555555bbd6c7 in property_set_bool (obj=0x55555660ad90, v=<optimized out>, name=<optimized out>, opaque=0x555557212fc0, errp=0x7fffffffda30) at qom/object.c:2076
+#17 0x0000555555bc1c9f in object_property_set_qobject (obj=obj@entry=0x55555660ad90, value=value@entry=0x5555573d3260, name=name@entry=0x555555dbaa2d "realized", errp=errp@entry=0x7fffffffda30)
+    at qom/qom-qobject.c:26
+#18 0x0000555555bbf5f5 in object_property_set_bool (obj=0x55555660ad90, value=<optimized out>, name=0x555555dbaa2d "realized", errp=0x7fffffffda30) at qom/object.c:1334
+#19 0x0000555555a1f812 in qdev_init_nofail (dev=dev@entry=0x55555660ad90) at hw/core/qdev.c:321
+#20 0x0000555555a65df4 in ide_create_drive (bus=bus@entry=0x55555720fb30, unit=unit@entry=0, drive=0x5555565f29d0) at hw/ide/qdev.c:131
+#21 0x0000555555a66962 in pci_ide_create_devs (dev=dev@entry=0x55555720f250, hd_table=hd_table@entry=0x7fffffffdb00) at hw/ide/pci.c:489
+#22 0x0000555555a675f5 in pci_piix3_ide_init (bus=<optimized out>, hd_table=0x7fffffffdb00, devfn=<optimized out>) at hw/ide/piix.c:230
+#23 0x000055555591eedd in pc_init1 (machine=0x5555565e0450, pci_type=0x555555d8138f "i440FX", host_type=0x555555d7f437 "i440FX-pcihost") at /home/sdk/qemu/hw/i386/pc_piix.c:256
+#24 0x0000555555a26aab in machine_run_board_init (machine=0x5555565e0450) at hw/core/machine.c:1148
+#25 0x000055555582a5fe in main (argc=<optimized out>, argv=<optimized out>, envp=<optimized out>) at vl.c:4348
+

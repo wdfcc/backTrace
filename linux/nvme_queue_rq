@@ -1,0 +1,179 @@
+(gdb) bt
+#0  nvme_queue_rq (hctx=0xffff888139472000, bd=0xffffc90000993b88) at ../drivers/nvme/host/pci.c:889
+#1  0xffffffff815363aa in __blk_mq_issue_directly (last=<optimized out>, cookie=<optimized out>, rq=<optimized out>, hctx=<optimized out>) at ../block/blk-mq.c:1793
+#2  __blk_mq_try_issue_directly (hctx=0xffff888139472000, rq=0xffff888139bca800, cookie=0xffffc90000993be4, bypass_insert=<optimized out>, last=false) at ../block/blk-mq.c:1845
+#3  0xffffffff81536feb in blk_mq_request_issue_directly (rq=0xffff888139472000, last=<optimized out>) at ../block/blk-mq.c:1881
+#4  0xffffffff815370c6 in blk_mq_try_issue_list_directly (hctx=0xffff888139472000, list=0xffffc90000993b88) at ../include/linux/list.h:254
+#5  0xffffffff8153b717 in blk_mq_sched_insert_requests (hctx=0xffff888139472000, ctx=<optimized out>, list=0xffffc90000993cb8, run_queue_async=false) at ../block/blk-mq-sched.c:436
+#6  0xffffffff81536f07 in blk_mq_flush_plug_list (plug=<optimized out>, from_schedule=<optimized out>) at ../block/blk-mq.c:1762
+#7  0xffffffff8152c192 in blk_flush_plug_list (plug=0xffffc90000993d90, from_schedule=<optimized out>) at ../block/blk-core.c:1709
+#8  0xffffffff8152c1e6 in blk_finish_plug (plug=<optimized out>) at ../block/blk-core.c:1726
+#9  blk_finish_plug (plug=<optimized out>) at ../block/blk-core.c:1722
+#10 0xffffffff81362595 in wb_writeback (wb=0xffff88813a7ac058, work=0xffffc90000993e10) at ../fs/fs-writeback.c:1831
+#11 0xffffffff81362f6b in wb_check_old_data_flush (wb=<optimized out>) at ../fs/fs-writeback.c:1899
+#12 wb_do_writeback (wb=<optimized out>) at ../fs/fs-writeback.c:1952
+#13 wb_workfn (work=0xffff88813a7ac1e8) at ../fs/fs-writeback.c:1981
+#14 0xffffffff811262df in process_one_work (worker=0xffff88813a93e9c0, work=0xffff88813a7ac1e8) at ../kernel/workqueue.c:2269
+#15 0xffffffff81126514 in worker_thread (__worker=0xffff88813a93e9c0) at ../kernel/workqueue.c:2415
+#16 0xffffffff8112c420 in kthread (_create=0xffff88813a940a80) at ../kernel/kthread.c:255
+#17 0xffffffff81e00215 in ret_from_fork () at ../arch/x86/entry/entry_64.S:352
+
+(gdb) bt
+#0  nvme_queue_rq (hctx=0xffff888139472c00, bd=0xffffc90000cdba18) at ../drivers/nvme/host/pci.c:889
+#1  0xffffffff815363aa in __blk_mq_issue_directly (last=<optimized out>, cookie=<optimized out>, rq=<optimized out>, hctx=<optimized out>) at ../block/blk-mq.c:1793
+#2  __blk_mq_try_issue_directly (hctx=0xffff888139472c00, rq=0xffff888139b60f00, cookie=0xffffc90000cdba74, bypass_insert=<optimized out>, last=true) at ../block/blk-mq.c:1845
+#3  0xffffffff81536feb in blk_mq_request_issue_directly (rq=0xffff888139472c00, last=<optimized out>) at ../block/blk-mq.c:1881
+#4  0xffffffff815370c6 in blk_mq_try_issue_list_directly (hctx=0xffff888139472c00, list=0xffffc90000cdba18) at ../include/linux/list.h:254
+#5  0xffffffff8153b717 in blk_mq_sched_insert_requests (hctx=0xffff888139472c00, ctx=<optimized out>, list=0xffffc90000cdbb48, run_queue_async=false) at ../block/blk-mq-sched.c:436
+#6  0xffffffff81536f07 in blk_mq_flush_plug_list (plug=<optimized out>, from_schedule=<optimized out>) at ../block/blk-mq.c:1762
+#7  0xffffffff8152c192 in blk_flush_plug_list (plug=0xffffc90000cdbc70, from_schedule=<optimized out>) at ../block/blk-core.c:1709
+#8  0xffffffff8152c1e6 in blk_finish_plug (plug=<optimized out>) at ../block/blk-core.c:1726
+#9  blk_finish_plug (plug=<optimized out>) at ../block/blk-core.c:1722
+#10 0xffffffff813f646a in ext4_writepages (mapping=0xffff88813b0b9cf0, wbc=<optimized out>) at ../fs/ext4/inode.c:2942
+#11 0xffffffff812850e1 in do_writepages (mapping=0xffff888139472c00, wbc=0xffffc90000cdba18) at ../mm/page-writeback.c:2342
+#12 0xffffffff8127ba05 in __filemap_fdatawrite_range (mapping=0xffff8881329c5280, start=<optimized out>, end=<optimized out>, sync_mode=<optimized out>) at ../mm/filemap.c:419
+#13 0xffffffff8127ce2a in file_write_and_wait_range (file=0xffff8881397a2200, lstart=0, lend=9223372036854775807) at ../mm/filemap.c:755
+#14 0xffffffff813e59c1 in ext4_sync_file (file=0xffff888139472c00, start=<optimized out>, end=<optimized out>, datasync=967057568) at ../fs/ext4/fsync.c:128
+#15 0xffffffff81366dc8 in vfs_fsync_range (file=0xffff8881397a2200, start=0, end=<optimized out>, datasync=<optimized out>) at ../fs/sync.c:197
+#16 0xffffffff81366e5d in vfs_fsync (datasync=<optimized out>, file=<optimized out>) at ../fs/sync.c:221
+#17 do_fsync (fd=<optimized out>, datasync=0) at ../fs/sync.c:221
+#18 0xffffffff81366ea4 in __do_sys_fsync (fd=<optimized out>) at ../fs/sync.c:229
+#19 __se_sys_fsync (fd=<optimized out>) at ../fs/sync.c:227
+#20 __x64_sys_fsync (regs=<optimized out>) at ../fs/sync.c:227
+#21 0xffffffff810042ea in do_syscall_64 (nr=<optimized out>, regs=0xffffc90000cdba18) at ../arch/x86/entry/common.c:301
+#22 0xffffffff81e0008c in entry_SYSCALL_64 () at ../arch/x86/entry/entry_64.S:175
+
+(gdb) bt
+#0  nvme_queue_rq (hctx=0xffff888139423c00, bd=0xffffc90000ebf968) at ../drivers/nvme/host/pci.c:889
+#1  0xffffffff815363aa in __blk_mq_issue_directly (last=<optimized out>, cookie=<optimized out>, rq=<optimized out>, hctx=<optimized out>) at ../block/blk-mq.c:1793
+#2  __blk_mq_try_issue_directly (hctx=0xffff888139423c00, rq=0xffff888139ab0c00, cookie=0xffffc90000ebf9c4, bypass_insert=<optimized out>, last=true) at ../block/blk-mq.c:1845
+#3  0xffffffff81536feb in blk_mq_request_issue_directly (rq=0xffff888139423c00, last=<optimized out>) at ../block/blk-mq.c:1881
+#4  0xffffffff815370c6 in blk_mq_try_issue_list_directly (hctx=0xffff888139423c00, list=0xffffc90000ebf968) at ../include/linux/list.h:254
+#5  0xffffffff8153b717 in blk_mq_sched_insert_requests (hctx=0xffff888139423c00, ctx=<optimized out>, list=0xffffc90000ebfa98, run_queue_async=false) at ../block/blk-mq-sched.c:436
+#6  0xffffffff81536f07 in blk_mq_flush_plug_list (plug=<optimized out>, from_schedule=<optimized out>) at ../block/blk-mq.c:1762
+#7  0xffffffff8152c192 in blk_flush_plug_list (plug=0xffffc90000ebfb60, from_schedule=<optimized out>) at ../block/blk-core.c:1709
+#8  0xffffffff8152c1e6 in blk_finish_plug (plug=<optimized out>) at ../block/blk-core.c:1726
+#9  blk_finish_plug (plug=<optimized out>) at ../block/blk-core.c:1722
+#10 0xffffffff812859ff in read_pages (mapping=0xffff888134d6df28, filp=<optimized out>, pages=0xffffc90000ebfc10, nr_pages=1, gfp=<optimized out>) at ../mm/readahead.c:142
+#11 0xffffffff81285c7b in __do_page_cache_readahead (mapping=<optimized out>, filp=<optimized out>, offset=<optimized out>, nr_to_read=<optimized out>, lookahead_size=<optimized out>) at ../mm/readahead.c:212
+#12 0xffffffff81285e22 in ra_submit (filp=<optimized out>, mapping=<optimized out>, ra=<optimized out>) at ../mm/internal.h:62
+#13 ondemand_readahead (mapping=0xffff888134d6df28, ra=0xffff888139666898, filp=0xffff888139666800, hit_readahead_marker=<optimized out>, offset=0, req_size=<optimized out>) at ../mm/readahead.c:492
+#14 0xffffffff812861e1 in page_cache_sync_readahead (req_size=<optimized out>, offset=<optimized out>, filp=<optimized out>, ra=<optimized out>, mapping=<optimized out>) at ../mm/readahead.c:527
+#15 page_cache_sync_readahead (mapping=0xffff888134d6df28, ra=0xffff888139666898, filp=0xffff888139666800, offset=0, req_size=32) at ../mm/readahead.c:509
+#16 0xffffffff8127c49f in generic_file_buffered_read (written=<optimized out>, iter=<optimized out>, iocb=<optimized out>) at ../mm/filemap.c:2024
+#17 generic_file_read_iter (iocb=<optimized out>, iter=<optimized out>) at ../mm/filemap.c:2297
+#18 0xffffffff813e3da4 in ext4_file_read_iter (iocb=0xffff888139423c00, to=0xffffc90000ebf968) at ../fs/ext4/file.c:77
+#19 0xffffffff8132aa22 in call_read_iter (file=<optimized out>, iter=<optimized out>, kio=<optimized out>) at ../include/linux/fs.h:1866
+#20 new_sync_read (filp=0xffff888139666800, buf=<optimized out>, len=<optimized out>, ppos=0xffffc90000ebfee8) at ../fs/read_write.c:414
+#21 0xffffffff8132d9e9 in __vfs_read (file=<optimized out>, buf=<optimized out>, count=<optimized out>, pos=<optimized out>) at ../fs/read_write.c:427
+#22 0xffffffff8132da99 in vfs_read (pos=<optimized out>, count=<optimized out>, buf=<optimized out>, file=<optimized out>) at ../fs/read_write.c:461
+#23 vfs_read (file=0xffff888139666800, buf=0x7f576eaf9000 <error: Cannot access memory at address 0x7f576eaf9000>, count=131072, pos=0xffffc90000ebfee8) at ../fs/read_write.c:446
+#24 0xffffffff8132de11 in ksys_read (fd=<optimized out>, buf=0x7f576eaf9000 <error: Cannot access memory at address 0x7f576eaf9000>, count=131072) at ../fs/read_write.c:587
+#25 0xffffffff8132deaa in __do_sys_read (count=<optimized out>, buf=<optimized out>, fd=<optimized out>) at ../fs/read_write.c:597
+#26 __se_sys_read (count=<optimized out>, buf=<optimized out>, fd=<optimized out>) at ../fs/read_write.c:595
+#27 __x64_sys_read (regs=<optimized out>) at ../fs/read_write.c:595
+#28 0xffffffff810042ea in do_syscall_64 (nr=<optimized out>, regs=0xffffc90000ebf968) at ../arch/x86/entry/common.c:301
+#29 0xffffffff81e0008c in entry_SYSCALL_64 () at ../arch/x86/entry/entry_64.S:175
+
+(gdb) bt
+#0  nvme_queue_rq (hctx=0xffff8881398ce000, bd=0xffffc900007cfa28) at ../drivers/nvme/host/pci.c:889
+#1  0xffffffff81535c99 in blk_mq_dispatch_rq_list (q=<optimized out>, list=0xffffc900007cfa78, got_budget=<optimized out>) at ../block/blk-mq.c:1263
+#2  0xffffffff8153b3d3 in blk_mq_sched_dispatch_requests (hctx=0xffff8881398ce000) at ../block/blk-mq-sched.c:222
+#3  0xffffffff81533b9a in __blk_mq_run_hw_queue (hctx=0xffff8881398ce000) at ../block/blk-mq.c:1393
+#4  0xffffffff815340aa in __blk_mq_delay_run_hw_queue (hctx=0xffff8881398ce000, async=<optimized out>, msecs=<optimized out>) at ../block/blk-mq.c:1461
+#5  0xffffffff81534db0 in blk_mq_run_hw_queue (hctx=0xffff8881398ce000, async=<optimized out>) at ../block/blk-mq.c:1498
+#6  0xffffffff8153b600 in blk_mq_sched_insert_request (rq=0xffff888139b4de00, at_head=<optimized out>, run_queue=true, async=<optimized out>) at ../block/blk-mq-sched.c:409
+#7  0xffffffff8152fd28 in blk_execute_rq_nowait (q=<optimized out>, bd_disk=<optimized out>, rq=<optimized out>, at_head=<optimized out>, done=<optimized out>) at ../block/blk-exec.c:62
+#8  0xffffffff8152fd80 in blk_execute_rq (q=<optimized out>, bd_disk=<optimized out>, rq=<optimized out>, at_head=<optimized out>) at ../block/blk-exec.c:84
+#9  0xffffffff817c1db1 in __nvme_submit_sync_cmd (q=0xffff888139b69878, cmd=<optimized out>, result=0x0 <fixed_percpu_data>, buffer=<optimized out>, bufflen=4096, timeout=<optimized out>, qid=-1, at_head=0, 
+    flags=0, poll=<optimized out>) at ../drivers/nvme/host/core.c:793
+#10 0xffffffff817c1f5f in nvme_submit_sync_cmd (bufflen=<optimized out>, buffer=<optimized out>, cmd=<optimized out>, q=<optimized out>) at ../drivers/nvme/host/core.c:1000
+#11 nvme_identify_ctrl (id=0xffffc900007cfd20, dev=<optimized out>) at ../drivers/nvme/host/core.c:1000
+#12 0xffffffff817c4c72 in nvme_init_identify (ctrl=0xffff88813a74a1f8) at ../drivers/nvme/host/core.c:2535
+#13 0xffffffff817cd58f in nvme_reset_work (work=0xffff88813a74a5d8) at ../drivers/nvme/host/pci.c:2534
+#14 0xffffffff811262df in process_one_work (worker=0xffff88813a9ddb40, work=0xffff88813a74a5d8) at ../kernel/workqueue.c:2269
+#15 0xffffffff81126713 in process_scheduled_works (worker=<optimized out>) at ../kernel/workqueue.c:2331
+#16 worker_thread (__worker=0xffff88813a9ddb40) at ../kernel/workqueue.c:2420
+#17 0xffffffff8112c420 in kthread (_create=0xffff88813a9c2f40) at ../kernel/kthread.c:255
+#18 0xffffffff81e00215 in ret_from_fork () at ../arch/x86/entry/entry_64.S:352
+
+(gdb) bt
+#0  nvme_queue_rq (hctx=0xffff8881398ce000, bd=0xffffc900007cfa98) at ../drivers/nvme/host/pci.c:889
+#1  0xffffffff81535c99 in blk_mq_dispatch_rq_list (q=<optimized out>, list=0xffffc900007cfae8, got_budget=<optimized out>) at ../block/blk-mq.c:1263
+#2  0xffffffff8153b3d3 in blk_mq_sched_dispatch_requests (hctx=0xffff8881398ce000) at ../block/blk-mq-sched.c:222
+#3  0xffffffff81533b9a in __blk_mq_run_hw_queue (hctx=0xffff8881398ce000) at ../block/blk-mq.c:1393
+#4  0xffffffff815340aa in __blk_mq_delay_run_hw_queue (hctx=0xffff8881398ce000, async=<optimized out>, msecs=<optimized out>) at ../block/blk-mq.c:1461
+#5  0xffffffff81534db0 in blk_mq_run_hw_queue (hctx=0xffff8881398ce000, async=<optimized out>) at ../block/blk-mq.c:1498
+#6  0xffffffff8153b600 in blk_mq_sched_insert_request (rq=0xffff888139b4df80, at_head=<optimized out>, run_queue=true, async=<optimized out>) at ../block/blk-mq-sched.c:409
+#7  0xffffffff8152fd28 in blk_execute_rq_nowait (q=<optimized out>, bd_disk=<optimized out>, rq=<optimized out>, at_head=<optimized out>, done=<optimized out>) at ../block/blk-exec.c:62
+#8  0xffffffff8152fd80 in blk_execute_rq (q=<optimized out>, bd_disk=<optimized out>, rq=<optimized out>, at_head=<optimized out>) at ../block/blk-exec.c:84
+#9  0xffffffff817c1db1 in __nvme_submit_sync_cmd (q=0xffff888139b69878, cmd=<optimized out>, result=0xffffc900007cfcf8, buffer=<optimized out>, bufflen=0, timeout=<optimized out>, qid=-1, at_head=0, flags=0, 
+    poll=<optimized out>) at ../drivers/nvme/host/core.c:793
+#10 0xffffffff817c211e in nvme_set_features (fid=<optimized out>, dword11=<optimized out>, buffer=0x0 <fixed_percpu_data>, buflen=<optimized out>, result=0xffffc900007cfd6c, dev=<optimized out>)
+    at ../drivers/nvme/host/core.c:1128
+#11 0xffffffff817c2198 in nvme_set_queue_count (ctrl=0xffff88813a74a1f8, count=0xffffc900007cfe08) at ../drivers/nvme/host/core.c:1141
+#12 0xffffffff817cd632 in nvme_setup_io_queues (dev=<optimized out>) at ../drivers/nvme/host/pci.c:2107
+#13 nvme_reset_work (work=0xffff88813a74a5d8) at ../drivers/nvme/host/pci.c:2562
+#14 0xffffffff811262df in process_one_work (worker=0xffff88813a9ddb40, work=0xffff88813a74a5d8) at ../kernel/workqueue.c:2269
+#15 0xffffffff81126713 in process_scheduled_works (worker=<optimized out>) at ../kernel/workqueue.c:2331
+#16 worker_thread (__worker=0xffff88813a9ddb40) at ../kernel/workqueue.c:2420
+#17 0xffffffff8112c420 in kthread (_create=0xffff88813a9c2f40) at ../kernel/kthread.c:255
+#18 0xffffffff81e00215 in ret_from_fork () at ../arch/x86/entry/entry_64.S:352
+
+
+(gdb) bt
+#0  nvme_queue_rq (hctx=0xffff8881394f9400, bd=0xffffc90000df7b38) at ../drivers/nvme/host/pci.c:889
+#1  0xffffffff815363aa in __blk_mq_issue_directly (last=<optimized out>, cookie=<optimized out>, rq=<optimized out>, hctx=<optimized out>) at ../block/blk-mq.c:1793
+#2  __blk_mq_try_issue_directly (hctx=0xffff8881394f9400, rq=0xffff888139434c80, cookie=0xffffc90000df7b94, bypass_insert=<optimized out>, last=true) at ../block/blk-mq.c:1845
+#3  0xffffffff81536feb in blk_mq_request_issue_directly (rq=0xffff8881394f9400, last=<optimized out>) at ../block/blk-mq.c:1881
+#4  0xffffffff815370c6 in blk_mq_try_issue_list_directly (hctx=0xffff8881394f9400, list=0xffffc90000df7b38) at ../include/linux/list.h:254
+#5  0xffffffff8153b717 in blk_mq_sched_insert_requests (hctx=0xffff8881394f9400, ctx=<optimized out>, list=0xffffc90000df7c68, run_queue_async=false) at ../block/blk-mq-sched.c:436
+#6  0xffffffff81536f07 in blk_mq_flush_plug_list (plug=<optimized out>, from_schedule=<optimized out>) at ../block/blk-mq.c:1762
+#7  0xffffffff8152c192 in blk_flush_plug_list (plug=0xffffc90000df7dd0, from_schedule=<optimized out>) at ../block/blk-core.c:1709
+#8  0xffffffff8152c1e6 in blk_finish_plug (plug=<optimized out>) at ../block/blk-core.c:1726
+#9  blk_finish_plug (plug=<optimized out>) at ../block/blk-core.c:1722
+#10 0xffffffff81436f1c in jbd2_journal_commit_transaction (journal=0xffff88813969b800) at ../fs/jbd2/commit.c:780
+#11 0xffffffff8143ba88 in kjournald2 (arg=0xffff88813969b800) at ../fs/jbd2/journal.c:213
+#12 0xffffffff8112c420 in kthread (_create=0xffff8881395afc40) at ../kernel/kthread.c:255
+#13 0xffffffff81e00215 in ret_from_fork () at ../arch/x86/entry/entry_64.S:352
+
+(gdb) bt
+#0  nvme_queue_rq (hctx=0xffff8881394f9400, bd=0xffffc90000863cf8) at ../drivers/nvme/host/pci.c:889
+#1  0xffffffff81535c99 in blk_mq_dispatch_rq_list (q=<optimized out>, list=0xffffc90000863d48, got_budget=<optimized out>) at ../block/blk-mq.c:1263
+#2  0xffffffff8153b371 in blk_mq_sched_dispatch_requests (hctx=0xffff8881394f9400) at ../block/blk-mq-sched.c:209
+#3  0xffffffff81533b9a in __blk_mq_run_hw_queue (hctx=0xffff8881394f9400) at ../block/blk-mq.c:1393
+#4  0xffffffff815340aa in __blk_mq_delay_run_hw_queue (hctx=0xffff8881394f9400, async=<optimized out>, msecs=<optimized out>) at ../block/blk-mq.c:1461
+#5  0xffffffff81534db0 in blk_mq_run_hw_queue (hctx=0xffff8881394f9400, async=<optimized out>) at ../block/blk-mq.c:1498
+#6  0xffffffff81534e79 in blk_mq_run_hw_queues (q=0xffff8881394f9400, async=false) at ../block/blk-mq.c:1515
+#7  0xffffffff81536bc0 in blk_mq_requeue_work (work=<optimized out>) at ../block/blk-mq.c:768
+#8  0xffffffff811262df in process_one_work (worker=0xffff88813a93e6c0, work=0xffff888139b6c638) at ../kernel/workqueue.c:2269
+#9  0xffffffff81126514 in worker_thread (__worker=0xffff88813a93e6c0) at ../kernel/workqueue.c:2415
+#10 0xffffffff8112c420 in kthread (_create=0xffff88813a4e23c0) at ../kernel/kthread.c:255
+#11 0xffffffff81e00215 in ret_from_fork () at ../arch/x86/entry/entry_64.S:352
+
+(gdb) bt
+#0  nvme_queue_rq (hctx=0xffff888139423c00, bd=0xffffc90000e7f9e8) at ../drivers/nvme/host/pci.c:889
+#1  0xffffffff815363aa in __blk_mq_issue_directly (last=<optimized out>, cookie=<optimized out>, rq=<optimized out>, hctx=<optimized out>) at ../block/blk-mq.c:1793
+#2  __blk_mq_try_issue_directly (hctx=0xffff888139423c00, rq=0xffff888139ab0900, cookie=0xffffc90000e7fa7c, bypass_insert=<optimized out>, last=true) at ../block/blk-mq.c:1845
+#3  0xffffffff8153648b in blk_mq_try_issue_directly (hctx=0xffff888139423c00, rq=0xffffc90000e7f9e8, cookie=0xffffffff) at ../block/blk-mq.c:1864
+#4  0xffffffff8153689a in blk_mq_make_request (q=0xffff88813a77d190, bio=0xffffc90000e7f9e8) at ../block/blk-mq.c:2034
+#5  0xffffffff8152af5f in generic_make_request (bio=0xffff88813800a780) at ../block/blk-core.c:1021
+#6  generic_make_request (bio=0xffff88813800a780) at ../block/blk-core.c:963
+#7  0xffffffff8152b1e9 in submit_bio (bio=0xffff888139423c00) at ../block/blk-core.c:1129
+#8  0xffffffff8136fc45 in submit_bh_wbc (op=<optimized out>, op_flags=15202792, bh=0xffffffff, write_hint=<optimized out>, wbc=0x1 <fixed_percpu_data+1>) at ../fs/buffer.c:3099
+#9  0xffffffff81370812 in submit_bh (bh=<optimized out>, op_flags=<optimized out>, op=<optimized out>) at ../fs/buffer.c:3155
+#10 ll_rw_block (op=0, op_flags=12288, nr=<optimized out>, bhs=<optimized out>) at ../fs/buffer.c:3155
+#11 0xffffffff813f37f6 in ext4_bread (handle=<optimized out>, inode=<optimized out>, block=<optimized out>, map_flags=<optimized out>) at ../fs/ext4/inode.c:1023
+#12 0xffffffff81409a74 in __ext4_read_dirblock (inode=0xffff888134d69a38, block=0, type=DIRENT, func=<optimized out>, line=983) at ../fs/ext4/namei.c:102
+#13 0xffffffff8140a208 in htree_dirblock_to_tree (dir_file=<optimized out>, dir=0xffff888134d69a38, block=<optimized out>, hinfo=0xffffc90000e7fd48, start_hash=<optimized out>, start_minor_hash=<optimized out>)
+    at ../fs/ext4/namei.c:983
+#14 0xffffffff8140b109 in ext4_htree_fill_tree (dir_file=0xffff888139423c00, start_hash=15202792, start_minor_hash=4294967295, next_hash=<optimized out>) at ../fs/ext4/namei.c:1102
+#15 0xffffffff813d71ca in ext4_dx_readdir (ctx=<optimized out>, file=<optimized out>) at ../fs/ext4/dir.c:575
+#16 ext4_readdir (file=<optimized out>, ctx=0xffffc90000e7fed0) at ../fs/ext4/dir.c:122
+#17 0xffffffff813439ea in iterate_dir (file=0xffff888139423c00, ctx=0xffffc90000e7f9e8) at ../fs/readdir.c:51
+#18 0xffffffff81344666 in __do_sys_getdents (count=<optimized out>, dirent=<optimized out>, fd=<optimized out>) at ../fs/readdir.c:231
+#19 __se_sys_getdents (count=<optimized out>, dirent=<optimized out>, fd=<optimized out>) at ../fs/readdir.c:212
+#20 __x64_sys_getdents (regs=<optimized out>) at ../fs/readdir.c:212
+#21 0xffffffff810042ea in do_syscall_64 (nr=<optimized out>, regs=0xffffc90000e7f9e8) at ../arch/x86/entry/common.c:301
+#22 0xffffffff81e0008c in entry_SYSCALL_64 () at ../arch/x86/entry/entry_64.S:175
+

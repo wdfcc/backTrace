@@ -1,0 +1,25 @@
+(gdb) bt
+#0  default_read_var_value (var=<optimized out>, frame=<optimized out>) at findvar.c:629
+#1  0x000055ca125753d6 in evaluate_subexp_standard (expect_type=expect_type@entry=0x0, exp=exp@entry=0x55ca13cef760, pos=pos@entry=0x7ffecf33330c, noside=<optimized out>, noside@entry=EVAL_NORMAL) at eval.c:767
+#2  0x000055ca1264c4ec in evaluate_subexp_c (expect_type=0x0, exp=0x55ca13cef760, pos=0x7ffecf33330c, noside=EVAL_NORMAL) at c-lang.c:708
+#3  0x000055ca125748e2 in evaluate_subexp (noside=EVAL_NORMAL, pos=0x7ffecf33330c, exp=<optimized out>, expect_type=0x0) at eval.c:146
+#4  evaluate_expression (exp=<optimized out>) at eval.c:146
+#5  0x000055ca1258b54f in print_command_1 (exp=<optimized out>, voidprint=1) at ./printcmd.c:975
+#6  0x000055ca1267c48d in execute_command (p=<optimized out>, from_tty=1) at top.c:484
+#7  0x000055ca125953a7 in gdb_command_funnel (req=req@entry=0x55ca12caaaa0 <shared_bufs>) at symtab.c:5174
+#8  0x000055ca123fc152 in gdb_interface (req=req@entry=0x55ca12caaaa0 <shared_bufs>) at gdb_interface.c:397
+#9  0x000055ca123fc8f4 in gdb_pass_through (cmd=cmd@entry=0x7ffecf333b20 "p init_mm", fptr=fptr@entry=0x0, flags=flags@entry=8) at gdb_interface.c:332
+#10 0x000055ca12433f0e in process_gdb_output (gdb_request=0x7ffecf333b20 "p init_mm", radix=radix@entry=0, leader=leader@entry=0x55ca1371fbcc "init_mm", do_load_module_filter=do_load_module_filter@entry=0)
+    at symbols.c:7304
+#11 0x000055ca1243dcf0 in cmd_p () at symbols.c:7286
+#12 0x000055ca123618fc in exec_command () at main.c:879
+#13 0x000055ca12361b2a in main_loop () at main.c:826
+#14 0x000055ca125c2c63 in captured_command_loop (data=data@entry=0x0) at main.c:258
+#15 0x000055ca125c136a in catch_errors (func=func@entry=0x55ca125c2c50 <captured_command_loop>, func_args=func_args@entry=0x0, errstring=errstring@entry=0x55ca1281cd49 "", mask=mask@entry=6) at exceptions.c:557
+#16 0x000055ca125c3d76 in captured_main (data=data@entry=0x7ffecf334370) at main.c:1064
+#17 0x000055ca125c136a in catch_errors (func=func@entry=0x55ca125c2f30 <captured_main>, func_args=func_args@entry=0x7ffecf334370, errstring=errstring@entry=0x55ca1281cd49 "", mask=mask@entry=6)
+    at exceptions.c:557
+#18 0x000055ca125c40b1 in gdb_main (args=0x7ffecf334370) at main.c:1079
+#19 gdb_main_entry (argc=<optimized out>, argv=<optimized out>) at main.c:1099
+#20 0x000055ca123600c4 in main (argc=1, argv=0x7ffecf3344d8) at main.c:707
+

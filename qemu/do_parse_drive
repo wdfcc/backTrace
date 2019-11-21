@@ -1,0 +1,17 @@
+#0  0x0000555555a2b310 in do_parse_drive (dev=0x555556d1ccb0, str=0x5555570ef100 "floppy0", ptr=0x555556d1cf70, propname=0x555555db4c26 "driveA", iothread=false, errp=0x55555644b910 <error_fatal>)
+    at hw/core/qdev-properties-system.c:79
+#1  0x0000555555a2b5ac in set_pointer (obj=<optimized out>, v=0x5555570ef030, prop=0x555556391c58 <isa_fdc_properties+216>, parse=
+    0x555555a2b4e0 <parse_drive>, name=0x555555db4c26 "driveA", errp=0x55555644b910 <error_fatal>) at hw/core/qdev-properties-system.c:66
+#2  0x0000555555bc1c9f in object_property_set_qobject (obj=obj@entry=0x555556d1ccb0, value=value@entry=0x5555570eee50, name=name@entry=0x555555db4c26 "driveA", errp=errp@entry=0x55555644b910 <error_fatal>)
+    at qom/qom-qobject.c:26
+#3  0x0000555555bbf494 in object_property_set_str (obj=0x555556d1ccb0, value=<optimized out>, name=0x555555db4c26 "driveA", errp=0x55555644b910 <error_fatal>) at qom/object.c:1276
+#4  0x00000000004d7cec in  ()
+#5  0x0000555555a08607 in fdctrl_init_isa (bus=bus@entry=0x5555564a7670, fds=fds@entry=0x7fffffffda30) at hw/block/fdc.c:2571
+#6  0x000055555591c75d in pc_superio_init (no_vmport=false, create_fdctrl=<optimized out>, isa_bus=0x5555564a7670) at /home/sdk/qemu/hw/i386/pc.c:2020
+#7  0x000055555591c75d in pc_basic_device_init
+    (isa_bus=0x5555564a7670, gsi=<optimized out>, rtc_state=rtc_state@entry=0x7fffffffdac8, create_fdctrl=create_fdctrl@entry=true, no_vmport=<optimized out>, has_pit=<optimized out>, hpet_irqs=4)
+    at /home/sdk/qemu/hw/i386/pc.c:2115
+#8  0x000055555591ea5b in pc_init1 (machine=0x5555565cf800, pci_type=0x555555d8138f "i440FX", host_type=0x555555d7f437 "i440FX-pcihost") at /home/sdk/qemu/hw/i386/pc_piix.c:244
+#9  0x0000555555a26aab in machine_run_board_init (machine=0x5555565cf800) at hw/core/machine.c:1148
+#10 0x000055555582a5fe in main (argc=<optimized out>, argv=<optimized out>, envp=<optimized out>) at vl.c:4348
+

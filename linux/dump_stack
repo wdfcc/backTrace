@@ -1,0 +1,21 @@
+#3  __unwind_start (state=0xffffc9000091fcd0, task=<optimized out>, regs=<optimized out>, first_frame=0xffffc9000091fd70) at ../arch/x86/kernel/unwind_frame.c:434
+#4  0xffffffff810a3896 in unwind_start (first_frame=<optimized out>, regs=<optimized out>, task=<optimized out>, state=<optimized out>) at ../arch/x86/include/asm/unwind.h:60
+#5  show_trace_log_lvl (task=0xffff888139b61780, regs=0x0 <fixed_percpu_data>, stack=0xffffc9000091fd70, log_lvl=0xffffffff825a79b7 "") at ../arch/x86/kernel/dumpstack.c:173
+#6  0xffffffff810a3b24 in show_stack (task=<optimized out>, sp=<optimized out>) at ../arch/x86/kernel/dumpstack.c:293
+#7  0xffffffff81d157e9 in __dump_stack () at ../lib/dump_stack.c:77
+#8  dump_stack () at ../lib/dump_stack.c:113
+#9  0xffffffff81106d0a in panic (fmt=0xffffffff82613909 "sysrq triggered crash\n") at ../kernel/panic.c:219
+#10 0xffffffff816c5145 in sysrq_handle_crash (key=<optimized out>) at ../drivers/tty/sysrq.c:140
+#11 0xffffffff816c5a96 in __handle_sysrq.cold.8 () at ../drivers/tty/sysrq.c:556
+#12 0xffffffff816c594f in write_sysrq_trigger (file=<optimized out>, buf=<optimized out>, count=0, ppos=<optimized out>) at ../drivers/tty/sysrq.c:1105
+#13 0xffffffff813b97ae in proc_reg_write (file=<optimized out>, buf=<optimized out>, count=<optimized out>, ppos=<optimized out>) at ../fs/proc/inode.c:235
+#14 0xffffffff8132ac8b in __vfs_write (file=<optimized out>, p=<optimized out>, count=<optimized out>, pos=<optimized out>) at ../fs/read_write.c:494
+#15 0xffffffff8132dc5b in vfs_write (pos=<optimized out>, count=2, buf=<optimized out>, file=<optimized out>) at ../fs/read_write.c:558
+#16 vfs_write (file=0xffff8881382dfc00, buf=0xbb6408 "c\n", '\337' <repeats 197 times>, <incomplete sequence \337>..., count=<optimized out>, pos=0xffffc9000091fee8) at ../fs/read_write.c:542
+#17 0xffffffff8132df31 in ksys_write (fd=<optimized out>, buf=0xbb6408 "c\n", '\337' <repeats 197 times>, <incomplete sequence \337>..., count=2) at ../fs/read_write.c:611
+#18 0xffffffff8132dfca in __do_sys_write (count=<optimized out>, buf=<optimized out>, fd=<optimized out>) at ../fs/read_write.c:623
+#19 __se_sys_write (count=<optimized out>, buf=<optimized out>, fd=<optimized out>) at ../fs/read_write.c:620
+#20 __x64_sys_write (regs=<optimized out>) at ../fs/read_write.c:620
+#21 0xffffffff810042ea in do_syscall_64 (nr=<optimized out>, regs=0xffffc9000091ff58) at ../arch/x86/entry/common.c:301
+#22 0xffffffff81e0008c in entry_SYSCALL_64 () at ../arch/x86/entry/entry_64.S:175
+

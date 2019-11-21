@@ -1,0 +1,23 @@
+#0  e1000_probe (pdev=0xffff88810b524400, ent=0xffffffff845f2720 <e1000_pci_tbl+224>) at ../drivers/net/ethernet/intel/e1000/e1000_main.c:921
+#1  0xffffffff82390683 in local_pci_probe (_ddi=0xffff88810bc3fa18) at ../drivers/pci/pci-driver.c:306
+#2  0xffffffff8239369e in pci_call_probe (id=<optimized out>, dev=<optimized out>, drv=<optimized out>) at ../drivers/pci/pci-driver.c:360
+#3  __pci_device_probe (pci_dev=<optimized out>, drv=<optimized out>) at ../drivers/pci/pci-driver.c:385
+#4  pci_device_probe (dev=0xffff88810b5244b0) at ../drivers/pci/pci-driver.c:425
+#5  0xffffffff8283c720 in really_probe (dev=0xffff88810b5244b0, drv=0xffffffff851d35d0 <e1000_driver+112>) at ../drivers/base/dd.c:509
+#6  0xffffffff8283d3f0 in driver_probe_device (drv=0xffffffff851d35d0 <e1000_driver+112>, dev=0xffff88810b5244b0) at ../drivers/base/dd.c:670
+#7  0xffffffff8283dc5a in device_driver_attach (drv=0xffffffff851d35d0 <e1000_driver+112>, dev=0xffff88810b5244b0) at ../drivers/base/dd.c:944
+#8  0xffffffff8283ddfe in __driver_attach (dev=0xffff88810b5244b0, data=0xffffffff851d35d0 <e1000_driver+112>) at ../drivers/base/dd.c:1021
+#9  0xffffffff8283650b in bus_for_each_dev (bus=<optimized out>, start=<optimized out>, data=0xffffffff851d35d0 <e1000_driver+112>, fn=0xffffffff8283dca0 <__driver_attach>) at ../drivers/base/bus.c:304
+#10 0xffffffff8283b522 in driver_attach (drv=0xffffffff851d35d0 <e1000_driver+112>) at ../drivers/base/dd.c:1037
+#11 0xffffffff8283a10b in bus_add_driver (drv=0xffffffff851d35d0 <e1000_driver+112>) at ../drivers/base/bus.c:645
+#12 0xffffffff8283fdfd in driver_register (drv=0xffffffff851d35d0 <e1000_driver+112>) at ../drivers/base/driver.c:170
+#13 0xffffffff8238c60f in __pci_register_driver (drv=0xffffffff851d3560 <e1000_driver>, owner=0x0 <fixed_percpu_data>, mod_name=<optimized out>) at ../drivers/pci/pci-driver.c:1417
+#14 0xffffffff855ee505 in e1000_init_module () at ../drivers/net/ethernet/intel/e1000/e1000_main.c:230
+#15 0xffffffff810038d3 in do_one_initcall (fn=0xffffffff855ee4b2 <e1000_init_module>) at ../init/main.c:915
+#16 0xffffffff855055f4 in do_initcall_level (level=<optimized out>) at ../include/linux/compiler.h:305
+#17 do_initcalls () at ../init/main.c:991
+#18 do_basic_setup () at ../init/main.c:1009
+#19 kernel_init_freeable () at ../init/main.c:1169
+#20 0xffffffff83dd47fc in kernel_init (unused=<optimized out>) at ../init/main.c:1087
+#21 0xffffffff83e00215 in ret_from_fork () at ../arch/x86/entry/entry_64.S:352
+

@@ -1,0 +1,14 @@
+#0  nvme_dev_open (inode=0xffff8881398ad0f0, file=0xffff8881331f9300) at ../drivers/nvme/host/core.c:2692
+#1  0xffffffff813321f3 in chrdev_open (inode=0xffff8881398ad0f0, filp=<optimized out>) at ../fs/char_dev.c:413
+#2  0xffffffff813281e3 in do_dentry_open (f=0xffff8881331f9300, inode=0xffff8881398ad0f0, open=0xffffffff81332120 <chrdev_open>) at ../fs/open.c:778
+#3  0xffffffff8132987d in vfs_open (path=<optimized out>, file=<optimized out>) at ../include/linux/dcache.h:545
+#4  0xffffffff8133dc74 in do_last (op=<optimized out>, file=<optimized out>, nd=<optimized out>) at ../fs/namei.c:3416
+#5  path_openat (nd=0xffffc90000a7bdc0, op=0xffffc90000a7bed4, flags=<optimized out>) at ../fs/namei.c:3533
+#6  0xffffffff81340533 in do_filp_open (dfd=<optimized out>, pathname=<optimized out>, op=0xffffc90000a7bed4) at ../fs/namei.c:3563
+#7  0xffffffff81329ba4 in do_sys_open (dfd=-100, filename=<optimized out>, flags=<optimized out>, mode=<optimized out>) at ../fs/open.c:1070
+#8  0xffffffff81329c71 in __do_sys_open (mode=<optimized out>, flags=<optimized out>, filename=<optimized out>) at ../fs/open.c:1088
+#9  __se_sys_open (mode=<optimized out>, flags=<optimized out>, filename=<optimized out>) at ../fs/open.c:1083
+#10 __x64_sys_open (regs=<optimized out>) at ../fs/open.c:1083
+#11 0xffffffff810042ea in do_syscall_64 (nr=<optimized out>, regs=0xffff8881331f9300) at ../arch/x86/entry/common.c:301
+#12 0xffffffff81e0008c in entry_SYSCALL_64 () at ../arch/x86/entry/entry_64.S:175
+

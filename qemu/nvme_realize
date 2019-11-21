@@ -1,0 +1,13 @@
+(gdb) bt
+#0  0x0000555555a0d0ed in nvme_realize (pci_dev=0x5555574e1490, errp=0x7fffffffd8f0) at hw/block/nvme.c:1314
+#1  0x0000555555ab4d70 in pci_qdev_realize (qdev=0x5555574e1490, errp=<optimized out>) at hw/pci/pci.c:2092
+#2  0x0000555555a20884 in device_set_realized (obj=<optimized out>, value=<optimized out>, errp=0x7fffffffdab8) at hw/core/qdev.c:834
+#3  0x0000555555bbd6c7 in property_set_bool (obj=0x5555574e1490, v=<optimized out>, name=<optimized out>, opaque=0x5555574e1320, errp=0x7fffffffdab8) at qom/object.c:2076
+#4  0x0000555555bc1c9f in object_property_set_qobject (obj=obj@entry=0x5555574e1490, value=value@entry=0x5555574e43c0, name=name@entry=0x555555dbaa2d "realized", errp=errp@entry=0x7fffffffdab8)
+    at qom/qom-qobject.c:26
+#5  0x0000555555bbf5f5 in object_property_set_bool (obj=0x5555574e1490, value=<optimized out>, name=0x555555dbaa2d "realized", errp=0x7fffffffdab8) at qom/object.c:1334
+#6  0x00005555559b43d4 in qdev_device_add (opts=0x55555651db90, errp=<optimized out>) at qdev-monitor.c:634
+#7  0x00005555559b69ff in device_init_func (opaque=<optimized out>, opts=<optimized out>, errp=<optimized out>) at vl.c:2191
+#8  0x0000555555cc958a in qemu_opts_foreach (list=<optimized out>, func=0x5555559b69f0 <device_init_func>, opaque=0x0, errp=0x55555644b910 <error_fatal>) at util/qemu-option.c:1170
+#9  0x000055555582a6a2 in main (argc=<optimized out>, argv=<optimized out>, envp=<optimized out>) at vl.c:4372
+

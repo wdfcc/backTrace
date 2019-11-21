@@ -1,0 +1,15 @@
+此法可调kdb,可以利用stdio 和kdb交互命令
+qemu-system-x86_64  -smp 4 -kernel bzImage -m 4096 -hda ~/linux-4.13.12/wheezy.img -serial stdio -append "earlyprintk=serial console=ttyS0 root=/dev/sda kgdboc=ttyS0 kgdbwait" -enable-kvm -cpu host -display none -s -S
+次法可以完全调试linux内核移植gdb命令参数解析过程
+qemu-system-x86_64  -smp 4 -kernel bzImage -m 4096 -hda ~/linux-4.13.12/wheezy.img -serial stdio -serial pty -append "earlyprintk=serial console=ttyS0 root=/dev/sda  kgdboc=ttyS1  kgdbwait" -enable-kvm -cpu host -display none -s -S
+
+#0  gdb_serial_stub (ks=0xffff88013fc07e60) at ../kernel/debug/gdbstub.c:945
+#1  0xffffffff811a34b4 in kgdb_cpu_enter (ks=0xffff88013fc07e60, regs=<optimized out>, exception_state=<optimized out>)
+    at ../kernel/debug/debug_core.c:631
+#2  0xffffffff811a396e in kgdb_handle_exception (evector=<optimized out>, signo=5, ecode=2, regs=0xffff88013fc07f58)
+    at ../kernel/debug/debug_core.c:721
+#3  0xffffffff810c33dd in __kgdb_notify (args=0xffff88013fc07f00, cmd=<optimized out>) at ../arch/x86/kernel/kgdb.c:571
+#4  0xffffffff810c34e6 in kgdb_ll_trap (cmd=<optimized out>, str=<optimized out>, regs=<optimized out>, err=<optimized out>, trap=<optimized out>, 
+    sig=<optimized out>) at ../arch/x86/kernel/kgdb.c:594
+#5  0xffffffff810909c7 in do_int3 (regs=0xffff88013fc07e60, error_code=-2096794592) at ../arch/x86/kernel/traps.c:582
+#6  0xffffffff81b04a75 in int3 () at ../arch/x86/entry/entry_64.S:997

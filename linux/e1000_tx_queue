@@ -1,0 +1,63 @@
+(gdb) bt
+#0  e1000_tx_queue (adapter=<optimized out>, count=<optimized out>, tx_flags=<optimized out>, tx_ring=<optimized out>) at ../drivers/net/ethernet/intel/e1000/e1000_main.c:3258
+#1  e1000_xmit_frame (skb=0xffff888139544900, netdev=0xffff888139a08000) at ../drivers/net/ethernet/intel/e1000/e1000_main.c:3258
+#2  0xffffffff81a70f37 in __netdev_start_xmit (more=<optimized out>, dev=<optimized out>, skb=<optimized out>, ops=<optimized out>) at ../include/linux/netdevice.h:4406
+#3  netdev_start_xmit (more=<optimized out>, txq=<optimized out>, dev=<optimized out>, skb=<optimized out>) at ../include/linux/netdevice.h:4420
+#4  xmit_one (more=<optimized out>, txq=<optimized out>, dev=<optimized out>, skb=<optimized out>) at ../net/core/dev.c:3288
+#5  dev_hard_start_xmit (first=0xffff888139544900, dev=0xffff888139a08000, txq=0xffff88813984b200, ret=<optimized out>) at ../net/core/dev.c:3304
+#6  0xffffffff81ac4f06 in sch_direct_xmit (skb=0xffff888139544900, q=0xffff888136bbd000, dev=0xffff888139a08000, txq=0xffff88813984b200, root_lock=0x0 <fixed_percpu_data>, validate=<optimized out>)
+    at ../net/sched/sch_generic.c:308
+#7  0xffffffff81a71a8c in __dev_xmit_skb (txq=<optimized out>, dev=<optimized out>, q=<optimized out>, skb=<optimized out>) at ../net/core/dev.c:3485
+#8  __dev_queue_xmit (skb=0xffff888139544900, sb_dev=<optimized out>) at ../net/core/dev.c:3846
+#9  0xffffffff81a71b30 in dev_queue_xmit (skb=<optimized out>) at ../net/core/dev.c:3910
+#10 0xffffffff81ae83ac in neigh_hh_output (skb=<optimized out>, hh=<optimized out>) at ../include/net/neighbour.h:500
+#11 neigh_output (skip_cache=<optimized out>, skb=<optimized out>, n=<optimized out>) at ../include/net/neighbour.h:509
+#12 ip_finish_output2 (net=<optimized out>, sk=<optimized out>, skb=0xffff888139544900) at ../net/ipv4/ip_output.c:228
+#13 0xffffffff81ae8f9b in ip_finish_output (net=0xffffffff829e9ac0 <init_net>, sk=0xffff8881387b1b50, skb=0xffff888139544900) at ../net/ipv4/ip_output.c:315
+#14 0xffffffff81aea8bd in NF_HOOK_COND (pf=<optimized out>, hook=<optimized out>, in=<optimized out>, okfn=<optimized out>, cond=<optimized out>, out=<optimized out>, skb=<optimized out>, sk=<optimized out>, 
+    net=<optimized out>) at ../include/linux/netfilter.h:294
+#15 ip_output (net=0xffff888139544900, sk=0xffffc90000829000, skb=0xffff888139544900) at ../net/ipv4/ip_output.c:403
+#16 0xffffffff81ae9fab in dst_output (skb=<optimized out>, sk=<optimized out>, net=<optimized out>) at ../include/linux/skbuff.h:934
+#17 ip_local_out (net=0xffffffff829e9ac0 <init_net>, sk=0xffff8881387b1b50, skb=0xffff888139544900) at ../net/ipv4/ip_output.c:125
+#18 0xffffffff81aea0fe in ip_build_and_send_pkt (skb=0xffff888139544900, sk=0xffff888133d60000, saddr=<optimized out>, daddr=56009, opt=<optimized out>) at ../net/ipv4/ip_output.c:181
+#19 0xffffffff81b0f73c in tcp_v4_send_synack (sk=0xffff888139544900, dst=<optimized out>, fl=<optimized out>, req=0xdac9 <exception_stacks+15049>, foc=<optimized out>, synack_type=<optimized out>)
+    at ../net/ipv4/tcp_ipv4.c:948
+#20 0xffffffff81afd98b in tcp_conn_request (rsk_ops=<optimized out>, af_ops=0xffffffff82332fe0 <tcp_request_sock_ipv4_ops>, sk=0xffff888133d60000, skb=0xffff888139544000) at ../net/ipv4/tcp_input.c:6576
+#21 0xffffffff81b0c871 in tcp_v4_conn_request (skb=<optimized out>, sk=<optimized out>) at ../net/ipv4/tcp_ipv4.c:1386
+#22 tcp_v4_conn_request (sk=<optimized out>, skb=<optimized out>) at ../net/ipv4/tcp_ipv4.c:1380
+#23 0xffffffff81b02cf6 in tcp_rcv_state_process (sk=0xffff888133d60000, skb=0xffff888139544000) at ../net/ipv4/tcp_input.c:6085
+#24 0xffffffff81b0e98d in tcp_v4_do_rcv (sk=0xffff888133d60000, skb=0xffffc90000829000) at ../net/ipv4/tcp_ipv4.c:1558
+#25 0xffffffff81b10499 in tcp_v4_rcv (skb=0xffff888139544000) at ../net/ipv4/tcp_ipv4.c:1905
+#26 0xffffffff81ae4af1 in ip_protocol_deliver_rcu (net=0xffffffff829e9ac0 <init_net>, skb=0xffff888139544000, protocol=<optimized out>) at ../net/ipv4/ip_input.c:204
+#27 0xffffffff81ae4cd8 in ip_local_deliver_finish (net=<optimized out>, sk=<optimized out>, skb=<optimized out>) at ../include/linux/skbuff.h:2441
+#28 0xffffffff81ae4d4f in NF_HOOK (sk=<optimized out>, pf=<optimized out>, hook=<optimized out>, in=<optimized out>, out=<optimized out>, okfn=<optimized out>, skb=<optimized out>, net=<optimized out>)
+    at ../include/linux/netfilter.h:305
+#29 NF_HOOK (pf=<optimized out>, sk=<optimized out>, out=<optimized out>, okfn=<optimized out>, in=<optimized out>, skb=<optimized out>, net=<optimized out>, hook=<optimized out>)
+    at ../include/linux/netfilter.h:299
+#30 ip_local_deliver (skb=0xffff888139544000) at ../net/ipv4/ip_input.c:252
+#31 0xffffffff81ae4484 in dst_input (skb=<optimized out>) at ../include/linux/skbuff.h:934
+#32 ip_rcv_finish (net=0xffffffff829e9ac0 <init_net>, sk=<optimized out>, skb=0xffff888139544000) at ../net/ipv4/ip_input.c:413
+#33 0xffffffff81ae4e8c in NF_HOOK (sk=<optimized out>, pf=<optimized out>, hook=<optimized out>, in=<optimized out>, out=<optimized out>, okfn=<optimized out>, skb=<optimized out>, net=<optimized out>)
+    at ../include/linux/netfilter.h:305
+#34 NF_HOOK (pf=<optimized out>, sk=<optimized out>, out=<optimized out>, okfn=<optimized out>, in=<optimized out>, skb=<optimized out>, net=<optimized out>, hook=<optimized out>)
+    at ../include/linux/netfilter.h:299
+#35 ip_rcv (skb=0xffff888139544000, dev=0xffff888139a08000, pt=<optimized out>, orig_dev=<optimized out>) at ../net/ipv4/ip_input.c:523
+#36 0xffffffff81a72ee4 in __netif_receive_skb_one_core (skb=0xffff888139544000, pfmemalloc=<optimized out>) at ../net/core/dev.c:4981
+#37 0xffffffff81a72f38 in __netif_receive_skb (skb=<optimized out>) at ../net/core/dev.c:5095
+#38 0xffffffff81a72fc0 in netif_receive_skb_internal (skb=<optimized out>) at ../net/core/dev.c:5185
+#39 netif_receive_skb_internal (skb=0xffff888139544900) at ../net/core/dev.c:5163
+#40 0xffffffff81a73e4a in napi_skb_finish (skb=<optimized out>, ret=GRO_NORMAL) at ../net/core/dev.c:5648
+#41 napi_gro_receive (napi=0xffff888139a08b70, skb=0xffff888139544000) at ../net/core/dev.c:5681
+--Type <RET> for more, q to quit, c to continue without paging--
+#42 0xffffffff817f69d4 in e1000_receive_skb (skb=<optimized out>, vlan=<optimized out>, status=<optimized out>, adapter=<optimized out>) at ../drivers/net/ethernet/intel/e1000/e1000_main.c:3999
+#43 e1000_clean_rx_irq (adapter=0xffff888139a088c0, rx_ring=<optimized out>, work_done=<optimized out>, work_to_do=<optimized out>) at ../drivers/net/ethernet/intel/e1000/e1000_main.c:4455
+#44 0xffffffff817f7390 in e1000_clean (napi=0xffff888139a08b70, budget=64) at ../drivers/net/ethernet/intel/e1000/e1000_main.c:3799
+#45 0xffffffff81a734c0 in napi_poll (repoll=<optimized out>, n=<optimized out>) at ../net/core/dev.c:6329
+#46 net_rx_action (h=<optimized out>) at ../net/core/dev.c:6395
+#47 0xffffffff820000dc in __do_softirq () at ../kernel/softirq.c:292
+#48 0xffffffff8110d471 in invoke_softirq () at ../kernel/softirq.c:373
+#49 irq_exit () at ../kernel/softirq.c:413
+#50 0xffffffff81e01cca in exiting_irq () at ../arch/x86/include/asm/apic.h:536
+#51 do_IRQ (regs=0xffffc900006abdc8) at ../arch/x86/kernel/irq.c:259
+#52 0xffffffff81e0094f in common_interrupt () at ../arch/x86/entry/entry_64.S:583
+

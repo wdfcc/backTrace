@@ -1,0 +1,32 @@
+(gdb) bt
+#0  unpack_long (type=0x555555f9da50, valaddr=0x5555560243a0 "\310\336\377\377\377\177") at value.c:2743
+#1  0x000055555572c52e in dwarf2_evaluate_loc_desc_full (type=0x555555fc3e80, frame=0x555555ec38d0, data=0x555555e99af5 "\221h\023c", size=<optimized out>, per_cu=<optimized out>, subobj_type=0x555555fc3e80, 
+    subobj_byte_offset=0) at dwarf2loc.c:2271
+#2  0x000055555572cc01 in dwarf2_evaluate_loc_desc (per_cu=<optimized out>, size=<optimized out>, data=<optimized out>, frame=<optimized out>, type=<optimized out>) at dwarf2loc.c:3503
+#3  locexpr_read_variable (symbol=<optimized out>, frame=<optimized out>) at dwarf2loc.c:3503
+#4  0x0000555555777e4c in default_read_var_value (var=0x555555fc6cf0, var_block=<optimized out>, frame=0x555555ec38d0) at findvar.c:610
+#5  0x0000555555848205 in print_variable_and_value (name=name@entry=0x555555e99a45 "b", var=var@entry=0x555555fc6cf0, frame=0x555555ec38d0, stream=0x555555f78f90, indent=0) at printcmd.c:2187
+#6  0x00005555558ca3ee in do_print_variable_and_value (print_name=0x555555e99a45 "b", sym=0x555555fc6cf0, cb_data=0x7fffffffd930) at stack.c:2103
+#7  0x00005555558ced07 in iterate_over_block_arg_vars (b=0x555555fc6dd0, cb=cb@entry=0x5555558ca390 <do_print_variable_and_value(char const*, symbol*, void*)>, cb_data=cb_data@entry=0x7fffffffd930)
+    at stack.c:2239
+#8  0x00005555558cf106 in print_frame_arg_vars (stream=0x555555f78f90, t_regexp=0x0, regexp=0x0, quiet=false, frame=0x555555ec38d0) at stack.c:2290
+#9  info_args_command (args=<optimized out>, from_tty=<optimized out>) at stack.c:2320
+#10 0x00005555556c6f62 in cmd_func (cmd=<optimized out>, args=<optimized out>, from_tty=<optimized out>) at cli/cli-decode.c:1892
+#11 0x00005555559204e0 in execute_command (p=<optimized out>, p@entry=0x555555dafcf0 "info args ", from_tty=1) at top.c:630
+#12 0x000055555576bf5c in command_handler (command=0x555555dafcf0 "info args ") at event-top.c:583
+#13 0x000055555576cbbd in command_line_handler (rl=...) at event-top.c:770
+#14 0x000055555576b710 in gdb_rl_callback_handler (rl=0x555555f80120 "info args ") at /usr/include/c++/8/bits/unique_ptr.h:149
+#15 0x000055555597fe0f in rl_callback_read_char () at callback.c:220
+#16 0x000055555576b626 in gdb_rl_callback_read_char_wrapper_noexcept () at event-top.c:175
+#17 0x000055555576b6a9 in gdb_rl_callback_read_char_wrapper (client_data=<optimized out>) at event-top.c:191
+#18 0x000055555576bbc0 in stdin_event_handler (error=<optimized out>, client_data=0x555555da7c90) at event-top.c:511
+#19 0x000055555576aa4d in gdb_wait_for_event (block=<optimized out>) at event-loop.c:859
+#20 gdb_wait_for_event (block=<optimized out>) at event-loop.c:746
+#21 0x000055555576abf8 in gdb_do_one_event () at event-loop.c:347
+#22 0x000055555576ad0e in gdb_do_one_event () at event-loop.c:371
+#23 start_event_loop () at event-loop.c:371
+#24 0x0000555555802dbb in captured_command_loop () at main.c:331
+#25 0x0000555555803ef5 in captured_main (data=<optimized out>) at main.c:1182
+#26 gdb_main (args=<optimized out>) at main.c:1198
+#27 0x000055555563ec7b in main (argc=<optimized out>, argv=<optimized out>) at gdb.c:32
+

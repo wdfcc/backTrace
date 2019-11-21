@@ -1,0 +1,49 @@
+(gdb) bt
+#0  e1000_xmit_frame (skb=0xffff8881394a72e0, netdev=0xffff888139b2c000) at ../drivers/net/ethernet/intel/e1000/e1000_main.c:3099
+#1  0xffffffff81a70f37 in __netdev_start_xmit (more=<optimized out>, dev=<optimized out>, skb=<optimized out>, ops=<optimized out>) at ../include/linux/netdevice.h:4406
+#2  netdev_start_xmit (more=<optimized out>, txq=<optimized out>, dev=<optimized out>, skb=<optimized out>) at ../include/linux/netdevice.h:4420
+#3  xmit_one (more=<optimized out>, txq=<optimized out>, dev=<optimized out>, skb=<optimized out>) at ../net/core/dev.c:3288
+#4  dev_hard_start_xmit (first=0xffff8881394a72e0, dev=0xffff888139b2c000, txq=0xffff888139a08200, ret=<optimized out>) at ../net/core/dev.c:3304
+#5  0xffffffff81ac4f06 in sch_direct_xmit (skb=0xffff8881394a72e0, q=0xffff888133bdb000, dev=0xffff888139b2c000, txq=0xffff888139a08200, root_lock=0x0 <fixed_percpu_data>, validate=<optimized out>)
+    at ../net/sched/sch_generic.c:308
+#6  0xffffffff81a71a8c in __dev_xmit_skb (txq=<optimized out>, dev=<optimized out>, q=<optimized out>, skb=<optimized out>) at ../net/core/dev.c:3485
+#7  __dev_queue_xmit (skb=0xffff8881394a72e0, sb_dev=<optimized out>) at ../net/core/dev.c:3846
+#8  0xffffffff81a71b30 in dev_queue_xmit (skb=<optimized out>) at ../net/core/dev.c:3910
+#9  0xffffffff81ae83ac in neigh_hh_output (skb=<optimized out>, hh=<optimized out>) at ../include/net/neighbour.h:500
+#10 neigh_output (skip_cache=<optimized out>, skb=<optimized out>, n=<optimized out>) at ../include/net/neighbour.h:509
+#11 ip_finish_output2 (net=<optimized out>, sk=<optimized out>, skb=0xffff8881394a72e0) at ../net/ipv4/ip_output.c:228
+#12 0xffffffff81ae8f9b in ip_finish_output (net=0xffffffff829e9ac0 <init_net>, sk=0xffff88813867d780, skb=0xffff8881394a72e0) at ../net/ipv4/ip_output.c:315
+#13 0xffffffff81aea8bd in NF_HOOK_COND (pf=<optimized out>, hook=<optimized out>, in=<optimized out>, okfn=<optimized out>, cond=<optimized out>, out=<optimized out>, skb=<optimized out>, sk=<optimized out>, 
+    net=<optimized out>) at ../include/linux/netfilter.h:294
+#14 ip_output (net=0xffff8881394a72e0, sk=0xffff888139b2c000, skb=0xffff8881394a72e0) at ../net/ipv4/ip_output.c:403
+#15 0xffffffff81ae9fab in dst_output (skb=<optimized out>, sk=<optimized out>, net=<optimized out>) at ../include/linux/skbuff.h:934
+#16 ip_local_out (net=0xffffffff829e9ac0 <init_net>, sk=0xffff88813867d780, skb=0xffff8881394a72e0) at ../net/ipv4/ip_output.c:125
+#17 0xffffffff81aea310 in __ip_queue_xmit (sk=0xffff8881394a72e0, skb=0xffff888139b2c000, fl=<optimized out>, tos=<optimized out>) at ../net/ipv4/ip_output.c:503
+#18 0xffffffff81b0b970 in ip_queue_xmit (sk=<optimized out>, skb=<optimized out>, fl=<optimized out>) at ../include/net/inet_sock.h:287
+#19 0xffffffff81b05b47 in __tcp_transmit_skb (sk=0xffff88813867d780, skb=0xffff8881394a72e0, clone_it=<optimized out>, gfp_mask=<optimized out>, rcv_nxt=<optimized out>) at ../net/ipv4/tcp_output.c:1156
+#20 0xffffffff81b06475 in tcp_transmit_skb (gfp_mask=<optimized out>, clone_it=<optimized out>, skb=<optimized out>, sk=<optimized out>) at ../include/linux/tcp.h:424
+#21 tcp_write_xmit (sk=0xffff88813867d780, mss_now=1460, nonagle=<optimized out>, push_one=<optimized out>, gfp=<optimized out>) at ../net/ipv4/tcp_output.c:2397
+#22 0xffffffff81b07187 in __tcp_push_pending_frames (sk=0xffff88813867d780, cur_mss=<optimized out>, nonagle=<optimized out>) at ../include/net/sock.h:858
+#23 0xffffffff81af2738 in tcp_push (sk=<optimized out>, flags=<optimized out>, mss_now=<optimized out>, nonagle=<optimized out>, size_goal=<optimized out>) at ../net/ipv4/tcp.c:719
+#24 0xffffffff81af7c17 in tcp_sendmsg_locked (sk=0xffff88813867d780, msg=0xffffc9000087bd98, size=<optimized out>) at ../net/ipv4/tcp.c:1377
+#25 0xffffffff81af80bc in tcp_sendmsg (sk=0xffff88813867d780, msg=0xffffc9000087bd98, size=44) at ../net/ipv4/tcp.c:1415
+#26 0xffffffff81b29787 in inet_sendmsg (sock=<optimized out>, msg=<optimized out>, size=<optimized out>) at ../net/ipv4/af_inet.c:798
+#27 0xffffffff81a4e216 in sock_sendmsg_nosec (msg=<optimized out>, sock=<optimized out>) at ../include/linux/uio.h:243
+#28 sock_sendmsg (sock=0xffff8881375ea080, msg=0xffffc9000087bd98) at ../net/socket.c:665
+#29 0xffffffff81a4e2bc in sock_write_iter (iocb=<optimized out>, from=0xffffc9000087be20) at ../net/socket.c:994
+#30 0xffffffff8132abd5 in call_write_iter (file=<optimized out>, iter=<optimized out>, kio=<optimized out>) at ../include/linux/fs.h:1872
+#31 new_sync_write (filp=0xffff88813853e200, buf=<optimized out>, len=<optimized out>, ppos=0xffffc9000087bee8) at ../fs/read_write.c:483
+#32 0xffffffff8132ac99 in __vfs_write (file=<optimized out>, p=<optimized out>, count=<optimized out>, pos=<optimized out>) at ../fs/read_write.c:496
+#33 0xffffffff8132dc5b in vfs_write (pos=<optimized out>, count=44, buf=<optimized out>, file=<optimized out>) at ../fs/read_write.c:558
+#34 vfs_write (file=0xffff88813853e200, buf=0x5576f7644fec "<\247ٸx21\036", count=<optimized out>, pos=0xffffc9000087bee8) at ../fs/read_write.c:542
+#35 0xffffffff8132df31 in ksys_write (fd=<optimized out>, buf=0x5576f7644fec "<\247ٸx21\036", count=44) at ../fs/read_write.c:611
+#36 0xffffffff8132dfca in __do_sys_write (count=<optimized out>, buf=<optimized out>, fd=<optimized out>) at ../fs/read_write.c:623
+#37 __se_sys_write (count=<optimized out>, buf=<optimized out>, fd=<optimized out>) at ../fs/read_write.c:620
+#38 __x64_sys_write (regs=<optimized out>) at ../fs/read_write.c:620
+#39 0xffffffff810042ea in do_syscall_64 (nr=<optimized out>, regs=0xffff888139b2c000) at ../arch/x86/entry/common.c:301
+#40 0xffffffff81e0008c in entry_SYSCALL_64 () at ../arch/x86/entry/entry_64.S:175
+#41 0x00005576f7640fb0 in ?? ()
+#42 0x00005576f763f980 in ?? ()
+#43 0x0000000000000000 in ?? ()
+(gdb) 
+

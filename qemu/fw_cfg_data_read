@@ -1,0 +1,18 @@
+#0  0x0000555555aa8750 in fw_cfg_data_read (opaque=0x555556835a00, addr=1, size=1) at hw/nvram/fw_cfg.c:300
+#1  0x0000555555880cde in memory_region_read_accessor (mr=0x555556835e60, addr=1, value=0x7fffe78eb110, size=1, shift=0, mask=255, attrs=...) at /home/sdk/qemu/memory.c:444
+#2  0x000055555587e636 in access_with_adjusted_size (addr=addr@entry=1, value=value@entry=0x7fffe78eb110, size=size@entry=1, access_size_min=<optimized out>, access_size_max=<optimized out>, access_fn=
+    0x555555880ca0 <memory_region_read_accessor>, mr=0x555556835e60, attrs=...) at /home/sdk/qemu/memory.c:574
+#3  0x0000555555882f07 in memory_region_dispatch_read1 (attrs=..., size=1, pval=0x7fffe78eb110, addr=1, mr=0x555556835e60) at /home/sdk/qemu/memory.c:1425
+#4  0x0000555555882f07 in memory_region_dispatch_read (mr=mr@entry=0x555556835e60, addr=1, pval=pval@entry=0x7fffe78eb110, size=size@entry=1, attrs=attrs@entry=...) at /home/sdk/qemu/memory.c:1452
+#5  0x0000555555835c0f in address_space_ldub (as=<optimized out>, addr=<optimized out>, attrs=..., result=result@entry=0x0) at /home/sdk/qemu/memory_ldst.inc.c:191
+#6  0x0000555555986520 in helper_inb (env=<optimized out>, port=<optimized out>) at /home/sdk/qemu/target/i386/cpu.h:1863
+#7  0x00007fffa0030e05 in code_gen_buffer ()
+#8  0x00005555558ad6ee in cpu_tb_exec (itb=<optimized out>, cpu=0x7fffa0030d00 <code_gen_buffer+199891>) at /home/sdk/qemu/accel/tcg/cpu-exec.c:173
+#9  0x00005555558ad6ee in cpu_loop_exec_tb (tb_exit=<synthetic pointer>, last_tb=<synthetic pointer>, tb=<optimized out>, cpu=0x7fffa0030d00 <code_gen_buffer+199891>) at /home/sdk/qemu/accel/tcg/cpu-exec.c:621
+#10 0x00005555558ad6ee in cpu_exec (cpu=cpu@entry=0x555556603820) at /home/sdk/qemu/accel/tcg/cpu-exec.c:732
+#11 0x00005555558738df in tcg_cpu_exec (cpu=0x555556603820) at /home/sdk/qemu/cpus.c:1435
+#12 0x0000555555875c5b in qemu_tcg_cpu_thread_fn (arg=arg@entry=0x555556603820) at /home/sdk/qemu/cpus.c:1743
+#13 0x0000555555cbabca in qemu_thread_start (args=<optimized out>) at util/qemu-thread-posix.c:502
+#14 0x00007ffff522b182 in start_thread (arg=<optimized out>) at pthread_create.c:486
+#15 0x00007ffff5154b1f in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:95
+

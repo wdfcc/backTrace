@@ -1,0 +1,29 @@
+(gdb) bt
+#0  e1000_alloc_rx_buffers (adapter=0xffff8881399e88c0, rx_ring=0xffff888139974000, cleaned_count=255) at ../drivers/net/ethernet/intel/e1000/e1000_main.c:4555
+#1  0xffffffff817fb7aa in e1000_configure (adapter=0xffff8881399e88c0) at ../drivers/net/ethernet/intel/e1000/e1000_main.c:384
+#2  0xffffffff817fbcd3 in e1000_open (netdev=0xffff8881399e8000) at ../drivers/net/ethernet/intel/e1000/e1000_main.c:1388
+#3  0xffffffff81a75014 in __dev_open (dev=0xffff8881399e8000, extack=0x0 <fixed_percpu_data>) at ../net/core/dev.c:1405
+#4  0xffffffff81a7545f in __dev_change_flags (dev=0xffff8881399e8000, flags=4099, extack=<optimized out>) at ../net/core/dev.c:7550
+#5  0xffffffff81a754f7 in dev_change_flags (dev=0xffff8881399e8000, flags=<optimized out>, extack=<optimized out>) at ../net/core/dev.c:7621
+#6  0xffffffff81a8974a in do_setlink (skb=0xffff88813866d000, dev=0xffff8881399e8000, ifm=0xffff888138565410, extack=<optimized out>, tb=0xffffc900008bf8e8, ifname=0xffffc900008bfa88 "", status=0)
+    at ../net/core/rtnetlink.c:864
+#7  0xffffffff81a8e5d8 in __rtnl_newlink (skb=<optimized out>, nlh=<optimized out>, attr=<optimized out>, extack=0xffffc900008bfbc8) at ../net/core/rtnetlink.c:3120
+#8  0xffffffff81a8e9e8 in rtnl_newlink (skb=0xffff88813866d000, nlh=0xffff888138565400, extack=0xffffc900008bfbc8) at ../net/core/rtnetlink.c:3245
+#9  0xffffffff81a882d6 in rtnetlink_rcv_msg (skb=0xffff88813866d000, nlh=0xffff888138565400, extack=<optimized out>) at ../net/core/rtnetlink.c:5214
+#10 0xffffffff81ad819f in netlink_rcv_skb (skb=0xffff8881399e88c0, cb=0xffff888139974000) at ../net/netlink/af_netlink.c:2482
+#11 0xffffffff81a876d5 in rtnetlink_rcv (skb=<optimized out>) at ../net/core/rtnetlink.c:5232
+#12 0xffffffff81ad7a07 in netlink_unicast_kernel (ssk=<optimized out>, skb=<optimized out>, sk=<optimized out>) at ../net/netlink/af_netlink.c:1307
+#13 netlink_unicast (ssk=0xffff888135413000, skb=0xffff88813866d000, portid=0, nonblock=<optimized out>) at ../net/netlink/af_netlink.c:1333
+#14 0xffffffff81ad7c9d in netlink_sendmsg (sock=<optimized out>, msg=0xffff888139974000, len=<optimized out>) at ../net/netlink/af_netlink.c:1922
+#15 0xffffffff81a4e224 in sock_sendmsg_nosec (msg=<optimized out>, sock=<optimized out>) at ../include/linux/uio.h:243
+#16 sock_sendmsg (sock=0xffff88813b05c000, msg=0xffffc900008bfea0) at ../net/socket.c:665
+#17 0xffffffff81a4e95f in ___sys_sendmsg (sock=0xffff88813b05c000, msg=<optimized out>, msg_sys=0xffffc900008bfea0, flags=<optimized out>, used_address=0x0 <fixed_percpu_data>, 
+    allowed_msghdr_flags=<optimized out>) at ../net/socket.c:2286
+#18 0xffffffff81a5014c in __sys_sendmsg (fd=<optimized out>, msg=0xffff888139974000, flags=255, forbid_cmsg_compat=<optimized out>) at ../net/socket.c:2324
+#19 0xffffffff81a501af in __do_sys_sendmsg (flags=<optimized out>, msg=<optimized out>, fd=<optimized out>) at ../net/socket.c:2333
+#20 __se_sys_sendmsg (flags=<optimized out>, msg=<optimized out>, fd=<optimized out>) at ../net/socket.c:2331
+#21 __x64_sys_sendmsg (regs=<optimized out>) at ../net/socket.c:2331
+#22 0xffffffff810042ea in do_syscall_64 (nr=<optimized out>, regs=0xffff888139974000) at ../arch/x86/entry/common.c:301
+#23 0xffffffff81e0008c in entry_SYSCALL_64 () at ../arch/x86/entry/entry_64.S:175
+#24 0x0000000000000000 in ?? ()
+

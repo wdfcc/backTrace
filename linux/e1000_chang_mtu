@@ -1,0 +1,19 @@
+#0  e1000_change_mtu (netdev=0xffff888139a08000, new_mtu=1600) at ../drivers/net/ethernet/intel/e1000/e1000_main.c:3518
+#1  0xffffffff81a75611 in __dev_set_mtu (new_mtu=<optimized out>, dev=<optimized out>) at ../net/core/dev.c:7636
+#2  dev_set_mtu_ext (dev=0xffff888139a08000, new_mtu=1600, extack=<optimized out>) at ../net/core/dev.c:7679
+#3  0xffffffff81a75753 in dev_set_mtu (dev=0xffff888139a08000, new_mtu=<optimized out>) at ../net/core/dev.c:7703
+#4  0xffffffff81a9e627 in dev_ifsioc (net=<optimized out>, ifr=0xffffc900008a3da0, cmd=35106) at ../net/core/dev_ioctl.c:244
+#5  0xffffffff81a9eab9 in dev_ioctl (net=0xffffffff829e9ac0 <init_net>, cmd=35106, ifr=0xffffc900008a3da0, need_copyout=0xffffc900008a3d90) at ../net/core/dev_ioctl.c:489
+#6  0xffffffff81a4bb10 in sock_do_ioctl (net=0xffffffff829e9ac0 <init_net>, sock=<optimized out>, cmd=35106, arg=140725995957232) at ../net/socket.c:1066
+#7  0xffffffff81a4c19a in sock_ioctl (file=<optimized out>, cmd=35106, arg=140725995957232) at ../net/socket.c:1194
+#8  0xffffffff813432e9 in vfs_ioctl (arg=<optimized out>, cmd=<optimized out>, filp=<optimized out>) at ../fs/ioctl.c:46
+#9  file_ioctl (arg=<optimized out>, cmd=<optimized out>, filp=<optimized out>) at ../fs/ioctl.c:509
+#10 do_vfs_ioctl (filp=0xffff888139a08000, fd=<optimized out>, cmd=<optimized out>, arg=0) at ../fs/ioctl.c:696
+#11 0xffffffff813438e7 in ksys_ioctl (fd=4, cmd=35106, arg=140725995957232) at ../fs/ioctl.c:713
+#12 0xffffffff8134392a in __do_sys_ioctl (arg=<optimized out>, cmd=<optimized out>, fd=<optimized out>) at ../fs/ioctl.c:720
+#13 __se_sys_ioctl (arg=<optimized out>, cmd=<optimized out>, fd=<optimized out>) at ../fs/ioctl.c:718
+#14 __x64_sys_ioctl (regs=<optimized out>) at ../fs/ioctl.c:718
+#15 0xffffffff810042ea in do_syscall_64 (nr=<optimized out>, regs=0x640) at ../arch/x86/entry/common.c:301
+#16 0xffffffff81e0008c in entry_SYSCALL_64 () at ../arch/x86/entry/entry_64.S:175
+#17 0x0000000000000000 in ?? ()
+

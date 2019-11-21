@@ -1,0 +1,31 @@
+0:001> kn
+ # Child-SP          RetAddr           Call Site
+00 00000095`6f4fcf28 00007ff9`5106c46a dbgeng!MachineInfo::PrintStackArgumentsTitle
+01 00000095`6f4fcf30 00007ff9`510e9059 dbgeng!MachineInfo::PrintStackTraceHeaderLine+0x92
+02 00000095`6f4fcf60 00007ff9`510eb587 dbgeng!FrameInfo::OutputFrameOfTrace+0x31
+03 00000095`6f4fcfa0 00007ff9`510eb817 dbgeng!TargetInfo::GetTargetStackFrames+0xfb7
+04 00000095`6f4fdd50 00007ff9`5107df37 dbgeng!DoStackTrace+0x1f7
+05 00000095`6f4fde40 00007ff9`51080e6d dbgeng!WrapParseStackCmd+0x153
+06 00000095`6f4fdec0 00007ff9`51081d52 dbgeng!ProcessCommands+0xef5
+07 00000095`6f4fdfc0 00007ff9`50fa5b54 dbgeng!ProcessCommandsAndCatch+0xb6
+08 00000095`6f4fe010 00007ff9`50fa5e64 dbgeng!Execute+0x2b8
+09 00000095`6f4fe500 00007ff6`14159545 dbgeng!DebugClient::ExecuteWide+0x94
+0a 00000095`6f4fe560 00007ff6`1415993f windbg!ProcessCommand+0x2b1
+0b 00000095`6f4fe980 00007ff6`1415c243 windbg!ProcessEngineCommands+0xd7
+0c 00000095`6f4ff9d0 00007ff9`a9c07974 windbg!EngineLoop+0x553
+0d 00000095`6f4ffa50 00007ff9`aca3a271 KERNEL32!BaseThreadInitThunk+0x14
+0e 00000095`6f4ffa80 00000000`00000000 ntdll!RtlUserThreadStart+0x21
+
+
+00000095`6f4fde88 00007ff9`50feb5dc dbgeng!OutputCurrentFrame
+01 00000095`6f4fde90 00007ff9`51080cb0 dbgeng!DotCommand+0x80
+02 00000095`6f4fdec0 00007ff9`51081d52 dbgeng!ProcessCommands+0xd38
+03 00000095`6f4fdfc0 00007ff9`50fa5b54 dbgeng!ProcessCommandsAndCatch+0xb6
+04 00000095`6f4fe010 00007ff9`50fa5e64 dbgeng!Execute+0x2b8
+05 00000095`6f4fe500 00007ff6`14159545 dbgeng!DebugClient::ExecuteWide+0x94
+06 00000095`6f4fe560 00007ff6`1415993f windbg!ProcessCommand+0x2b1
+07 00000095`6f4fe980 00007ff6`1415c243 windbg!ProcessEngineCommands+0xd7
+08 00000095`6f4ff9d0 00007ff9`a9c07974 windbg!EngineLoop+0x553
+09 00000095`6f4ffa50 00007ff9`aca3a271 KERNEL32!BaseThreadInitThunk+0x14
+0a 00000095`6f4ffa80 00000000`00000000 ntdll!RtlUserThreadStart+0x21
+

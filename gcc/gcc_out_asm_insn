@@ -1,0 +1,22 @@
+(gdb) bt
+#0  output_asm_insn (templ=templ@entry=0x1c13386 "mov{q}\t{%1, %0|%0, %1}", operands=0x22a9280 <recog_data>) at ../.././gcc/final.c:3834
+#1  0x00000000009e3e41 in final_scan_insn_1(rtx_insn*, _IO_FILE*, int, int, int*) [clone .isra.0] () at ../.././gcc/final.c:3108
+#2  0x00000000009e436c in final_scan_insn(rtx_insn*, _IO_FILE*, int, int, int*) () at ../.././gcc/final.c:3154
+#3  0x00000000009e463a in final_1(rtx_insn*, _IO_FILE*, int, int) () at ../.././gcc/final.c:2021
+#4  0x00000000009e5245 in rest_of_handle_final () at ../.././gcc/final.c:4660
+#5  (anonymous namespace)::pass_final::execute(function*) () at ../.././gcc/final.c:4738
+#6  0x0000000000c025ba in execute_one_pass(opt_pass*) () at ../.././gcc/passes.c:2483
+#7  0x0000000000c02cf0 in execute_pass_list_1(opt_pass*) () at ../.././gcc/passes.c:2569
+#8  0x0000000000c02d02 in execute_pass_list_1(opt_pass*) () at ../.././gcc/passes.c:2570
+#9  0x0000000000c02d02 in execute_pass_list_1(opt_pass*) () at ../.././gcc/passes.c:2570
+#10 0x0000000000c02d29 in execute_pass_list(function*, opt_pass*) () at ../.././gcc/passes.c:2580
+#11 0x00000000008f4c50 in cgraph_node::expand() () at ../.././gcc/context.h:48
+#12 0x00000000008f5e04 in output_in_order () at ../.././gcc/cgraphunit.c:2440
+#13 symbol_table::compile() [clone .part.0] () at ../.././gcc/cgraphunit.c:2684
+#14 0x00000000008f817d in symbol_table::compile (this=0x7ffff6ba3100) at ../.././gcc/cgraphunit.c:2863
+#15 symbol_table::finalize_compilation_unit (this=0x7ffff6ba3100) at ../.././gcc/cgraphunit.c:2863
+#16 0x0000000000cdd8cd in compile_file () at ../.././gcc/toplev.c:481
+#17 0x000000000077b64a in do_compile () at ../.././gcc/toplev.c:2176
+#18 toplev::main(int, char**) () at ../.././gcc/toplev.c:2311
+#19 0x000000000077ec2f in main (argc=15, argv=0x7fffffffe1e8) at ../.././gcc/main.c:39
+

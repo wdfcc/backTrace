@@ -1,0 +1,7 @@
+                                             POINTER_PLUS_EXPR
+                                                   /              \
+                                         NOP_EXPR   NOP_EXPR
+                                               /                      \
+                                   ADDR_EXPR        COMPONENT_REF
+                                          /
+                                COMPONENT_REF

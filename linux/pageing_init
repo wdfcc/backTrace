@@ -1,0 +1,7 @@
+#0  paging_init () at ../arch/x86/mm/init_64.c:808
+#1  0xffffffff82afd8e8 in setup_arch (cmdline_p=<optimized out>) at ../arch/x86/kernel/setup.c:1212
+#2  0xffffffff82aebd76 in start_kernel () at ../init/main.c:572
+#3  0xffffffff82aeb4be in x86_64_start_reservations (real_mode_data=<optimized out>) at ../arch/x86/kernel/head64.c:470
+#4  0xffffffff82aeb534 in x86_64_start_kernel (real_mode_data=0x147d0 <bts_ctx+10192> <error: Cannot access memory at address 0x147d0>) at ../arch/x86/kernel/head64.c:451
+#5  0xffffffff810000d4 in secondary_startup_64 () at ../arch/x86/kernel/head_64.S:243
+

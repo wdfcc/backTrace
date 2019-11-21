@@ -1,0 +1,9 @@
+(gdb) bt
+#0  watchdog_enable (cpu=0) at ../kernel/watchdog.c:480
+#1  0xffffffff811eb7b5 in softlockup_start_fn (data=<optimized out>) at ../kernel/watchdog.c:542
+#2  0xffffffff811ab3ad in smp_call_on_cpu_callback (work=0xffffc9000063bdd0) at ../kernel/smp.c:781
+#3  0xffffffff811262df in process_one_work (worker=0xffff88813afc0c00, work=0xffffc9000063bdd0) at ../kernel/workqueue.c:2269
+#4  0xffffffff81126514 in worker_thread (__worker=0xffff88813afc0c00) at ../kernel/workqueue.c:2415
+#5  0xffffffff8112c420 in kthread (_create=0xffff88813b57dc80) at ../kernel/kthread.c:255
+#6  0xffffffff81e00215 in ret_from_fork () at ../arch/x86/entry/entry_64.S:352
+

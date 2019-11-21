@@ -1,0 +1,10 @@
+(gdb) bt
+#0  syscall_init () at ../arch/x86/include/asm/paravirt.h:179
+#1  0xffffffff810b49a3 in cpu_init () at ../arch/x86/kernel/cpu/common.c:1736
+#2  0xffffffff82afc2d0 in trap_init () at ../arch/x86/kernel/traps.c:948
+#3  0xffffffff82aebf3b in start_kernel () at ../init/main.c:602
+#4  0xffffffff82aeb4be in x86_64_start_reservations (real_mode_data=<optimized out>) at ../arch/x86/kernel/head64.c:470
+#5  0xffffffff82aeb534 in x86_64_start_kernel (real_mode_data=0x147d0 <bts_ctx+10192> <error: Cannot access memory at address 0x147d0>)
+    at ../arch/x86/kernel/head64.c:451
+#6  0xffffffff810000d4 in secondary_startup_64 () at ../arch/x86/kernel/head_64.S:243
+

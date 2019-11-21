@@ -1,0 +1,20 @@
+(gdb) bt
+#0  update_load_add (lw=<optimized out>, lw=<optimized out>, inc=<optimized out>) at ../kernel/sched/fair.c:687
+#1  sched_slice (se=0xffff88813a80c700, cfs_rq=<optimized out>) at ../kernel/sched/fair.c:687
+#2  0xffffffff8113f034 in sched_vslice (se=<optimized out>, cfs_rq=<optimized out>) at ../kernel/sched/fair.c:3815
+#3  place_entity (cfs_rq=<optimized out>, se=0x0 <fixed_percpu_data>, initial=<optimized out>) at ../kernel/sched/fair.c:3815
+#4  0xffffffff81143729 in task_fork_fair (p=0xffff88813a80c680) at ../kernel/sched/fair.c:10217
+#5  0xffffffff8113a292 in sched_fork (clone_flags=<optimized out>, p=0xffff88813a80c680) at ../kernel/sched/core.c:2347
+#6  0xffffffff811048da in copy_process (clone_flags=8389376, stack_start=<optimized out>, stack_size=<optimized out>, parent_tidptr=<optimized out>, child_tidptr=0x0 <fixed_percpu_data>, pid=<optimized out>, 
+    trace=<optimized out>, tls=<optimized out>, node=<optimized out>) at ../kernel/fork.c:2002
+#7  0xffffffff81105b16 in copy_process (pid=<optimized out>, node=<optimized out>, tls=<optimized out>, trace=<optimized out>, child_tidptr=<optimized out>, parent_tidptr=<optimized out>, 
+    stack_size=<optimized out>, stack_start=<optimized out>, clone_flags=<optimized out>) at ../kernel/fork.c:1800
+#8  _do_fork (clone_flags=8389376, stack_start=<optimized out>, stack_size=<optimized out>, parent_tidptr=<optimized out>, child_tidptr=<optimized out>, tls=<optimized out>) at ../kernel/fork.c:2369
+#9  0xffffffff81105ec9 in kernel_thread (fn=<optimized out>, arg=<optimized out>, flags=<optimized out>) at ../kernel/fork.c:2428
+#10 0xffffffff81d159a1 in rest_init () at ../init/main.c:417
+#11 0xffffffff82ae3cef in arch_call_rest_init () at ../init/main.c:548
+#12 0xffffffff82ae4213 in start_kernel () at ../init/main.c:761
+#13 0xffffffff82ae34be in x86_64_start_reservations (real_mode_data=<optimized out>) at ../arch/x86/kernel/head64.c:470
+#14 0xffffffff82ae3534 in x86_64_start_kernel (real_mode_data=0x147d0 <bts_ctx+10192> <error: Cannot access memory at address 0x147d0>) at ../arch/x86/kernel/head64.c:451
+#15 0xffffffff810000d4 in secondary_startup_64 () at ../arch/x86/kernel/head_64.S:243
+

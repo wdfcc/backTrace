@@ -1,0 +1,18 @@
+(gdb) bt
+#0  0x0000555555c11040 in monitor_add_blk
+    (blk=blk@entry=0x5555565f3c40, name=name@entry=0x5555565f2a30 "nv1", errp=errp@entry=0x7fffffffdb60) at block/block-backend.c:612
+#1  0x00005555559abf2e in blockdev_init (file=<optimized out>, 
+    file@entry=0x5555565f2620 "/home/sdk/stretch.img", bs_opts=bs_opts@entry=0x5555565f1600, errp=errp@entry=0x7fffffffdb60) at blockdev.c:631
+#2  0x00005555559acf89 in drive_new
+    (all_opts=<optimized out>, block_default_type=<optimized out>, errp=0x55555644b910 <error_fatal>) at blockdev.c:994
+#3  0x00005555559b77f1 in drive_init_func
+    (opaque=<optimized out>, opts=<optimized out>, errp=<optimized out>)
+    at vl.c:1142
+#4  0x0000555555cc958a in qemu_opts_foreach
+    (list=<optimized out>, func=0x5555559b77e0 <drive_init_func>, opaque=0x555556584fd0, errp=0x55555644b910 <error_fatal>) at util/qemu-option.c:1170
+#5  0x000055555582a0af in configure_blockdev
+    (snapshot=0, machine_class=0x555556584f20, bdo_queue=0x7fffffffdce0)
+--Type <RET> for more, q to quit, c to continue without paging--
+   l.c:1209
+#6  0x000055555582a0af in main (argc=<optimized out>, argv=0x7fffffffde48, envp=<optimized out>) at vl.c:4157
+

@@ -1,0 +1,21 @@
+(gdb) bt
+#0  crash_save_cpu (regs=0xffffc9000095fcd0, cpu=0) at ../kernel/kexec_core.c:1056
+#1  0xffffffff810dc595 in native_machine_crash_shutdown (regs=0xffffc9000095fcd0) at ../arch/x86/kernel/crash.c:180
+#2  0xffffffff810e3776 in kvm_crash_shutdown (regs=0xffffc9000095fcd0) at ../arch/x86/kernel/kvmclock.c:213
+#3  0xffffffff810cf9e5 in machine_crash_shutdown (regs=<optimized out>) at ../arch/x86/kernel/reboot.c:790
+#4  0xffffffff811b58c6 in __crash_kexec (regs=0x0 <fixed_percpu_data>) at ../kernel/kexec_core.c:954
+#5  0xffffffff81106d1a in panic (fmt=0xffffffff82613909 "sysrq triggered crash\n") at ../kernel/panic.c:232
+#6  0xffffffff816c5145 in sysrq_handle_crash (key=<optimized out>) at ../drivers/tty/sysrq.c:140
+#7  0xffffffff816c5a96 in __handle_sysrq.cold.8 () at ../drivers/tty/sysrq.c:556
+#8  0xffffffff816c594f in write_sysrq_trigger (file=<optimized out>, buf=<optimized out>, count=352, ppos=<optimized out>) at ../drivers/tty/sysrq.c:1105
+#9  0xffffffff813b97ae in proc_reg_write (file=<optimized out>, buf=<optimized out>, count=<optimized out>, ppos=<optimized out>) at ../fs/proc/inode.c:235
+#10 0xffffffff8132ac8b in __vfs_write (file=<optimized out>, p=<optimized out>, count=<optimized out>, pos=<optimized out>) at ../fs/read_write.c:494
+#11 0xffffffff8132dc5b in vfs_write (pos=<optimized out>, count=2, buf=<optimized out>, file=<optimized out>) at ../fs/read_write.c:558
+#12 vfs_write (file=0xffff88813ab5ce00, buf=0x26c4408 "c\n", '\337' <repeats 197 times>, <incomplete sequence \337>..., count=<optimized out>, pos=0xffffc9000095fee8) at ../fs/read_write.c:542
+#13 0xffffffff8132df31 in ksys_write (fd=<optimized out>, buf=0x26c4408 "c\n", '\337' <repeats 197 times>, <incomplete sequence \337>..., count=2) at ../fs/read_write.c:611
+#14 0xffffffff8132dfca in __do_sys_write (count=<optimized out>, buf=<optimized out>, fd=<optimized out>) at ../fs/read_write.c:623
+#15 __se_sys_write (count=<optimized out>, buf=<optimized out>, fd=<optimized out>) at ../fs/read_write.c:620
+#16 __x64_sys_write (regs=<optimized out>) at ../fs/read_write.c:620
+#17 0xffffffff810042ea in do_syscall_64 (nr=<optimized out>, regs=0x0 <fixed_percpu_data>) at ../arch/x86/entry/common.c:301
+#18 0xffffffff81e0008c in entry_SYSCALL_64 () at ../arch/x86/entry/entry_64.S:175
+

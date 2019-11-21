@@ -1,0 +1,33 @@
+(gdb) bt
+#0  nvme_open (bdev=0xffff888139f8a080, mode=1) at ../drivers/nvme/host/core.c:1440
+#1  0xffffffff81374675 in __blkdev_get (bdev=0xffff888139f8a080, mode=<optimized out>, for_part=<optimized out>) at ../fs/block_dev.c:1526
+#2  0xffffffff81374e1c in blkdev_get (bdev=0xffff888139f8a080, mode=1, holder=0xffff88813aadde00) at ../fs/block_dev.c:1664
+#3  0xffffffff8153e9c0 in register_disk (groups=<optimized out>, disk=<optimized out>, parent=<optimized out>) at ../block/genhd.c:655
+#4  __device_add_disk (parent=0xffff88813a647298, disk=0xffff888139956800, groups=<optimized out>, register_queue=true) at ../block/genhd.c:736
+#5  0xffffffff8153eb33 in device_add_disk (parent=<optimized out>, disk=<optimized out>, groups=<optimized out>) at ../block/genhd.c:754
+#6  0xffffffff817c4658 in nvme_alloc_ns (nsid=<optimized out>, ctrl=<optimized out>) at ../drivers/nvme/host/core.c:3318
+#7  nvme_validate_ns (ctrl=0xffff88813a6471f8, nsid=<optimized out>) at ../drivers/nvme/host/core.c:3378
+#8  0xffffffff817c625f in nvme_scan_ns_sequential (nn=<optimized out>, ctrl=<optimized out>) at ../drivers/nvme/host/core.c:3445
+#9  nvme_scan_work (work=<optimized out>) at ../drivers/nvme/host/core.c:3502
+#10 0xffffffff811262df in process_one_work (worker=0xffff88813a9ddcc0, work=0xffff88813a647ac0) at ../kernel/workqueue.c:2269
+#11 0xffffffff81126514 in worker_thread (__worker=0xffff88813a9ddcc0) at ../kernel/workqueue.c:2415
+#12 0xffffffff8112c420 in kthread (_create=0xffff88813a9c2ac0) at ../kernel/kthread.c:255
+#13 0xffffffff81e00215 in ret_from_fork () at ../arch/x86/entry/entry_64.S:352
+
+(gdb) bt
+#0  nvme_open (bdev=0xffff888139fba3c0, mode=134217821) at ../drivers/nvme/host/core.c:1440
+#1  0xffffffff81374a06 in __blkdev_get (bdev=0xffff888139fba3c0, mode=<optimized out>, for_part=<optimized out>) at ../fs/block_dev.c:1590
+#2  0xffffffff81374e1c in blkdev_get (bdev=0xffff888139fba3c0, mode=134217821, holder=0xffff88813ab3de00) at ../fs/block_dev.c:1664
+#3  0xffffffff81375367 in blkdev_open (inode=<optimized out>, filp=0xffff888138850f00) at ../fs/block_dev.c:1822
+#4  0xffffffff813281e3 in do_dentry_open (f=0xffff888138850f00, inode=0xffff88813945e6f0, open=0xffffffff813752e0 <blkdev_open>) at ../fs/open.c:778
+#5  0xffffffff8132987d in vfs_open (path=<optimized out>, file=<optimized out>) at ../include/linux/dcache.h:545
+#6  0xffffffff8133dc74 in do_last (op=<optimized out>, file=<optimized out>, nd=<optimized out>) at ../fs/namei.c:3416
+#7  path_openat (nd=0xffffc900008d3dc0, op=0xffffc900008d3ed4, flags=<optimized out>) at ../fs/namei.c:3533
+#8  0xffffffff81340533 in do_filp_open (dfd=<optimized out>, pathname=<optimized out>, op=0xffffc900008d3ed4) at ../fs/namei.c:3563
+#9  0xffffffff81329ba4 in do_sys_open (dfd=-100, filename=<optimized out>, flags=<optimized out>, mode=<optimized out>) at ../fs/open.c:1070
+#10 0xffffffff81329c71 in __do_sys_open (mode=<optimized out>, flags=<optimized out>, filename=<optimized out>) at ../fs/open.c:1088
+#11 __se_sys_open (mode=<optimized out>, flags=<optimized out>, filename=<optimized out>) at ../fs/open.c:1083
+#12 __x64_sys_open (regs=<optimized out>) at ../fs/open.c:1083
+#13 0xffffffff810042ea in do_syscall_64 (nr=<optimized out>, regs=0x800005d) at ../arch/x86/entry/common.c:301
+#14 0xffffffff81e0008c in entry_SYSCALL_64 () at ../arch/x86/entry/entry_64.S:175
+

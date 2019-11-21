@@ -1,0 +1,12 @@
+#0  update_rq_clock (rq=0xffff88813baaadc0) at ../kernel/sched/core.c:189
+#1  0xffffffff8113a9a0 in scheduler_tick () at ../kernel/sched/core.c:3034
+#2  0xffffffff81193762 in update_process_times (user_tick=0) at ../kernel/time/timer.c:1644
+#3  0xffffffff811a5649 in tick_sched_handle (ts=0xffff88813ba9e060, regs=0x80000000fffee8d5) at ../arch/x86/include/asm/ptrace.h:133
+#4  0xffffffff811a58dc in tick_sched_timer (timer=0xffff88813ba9e060) at ../kernel/time/tick-sched.c:1298
+#5  0xffffffff81194447 in __run_hrtimer (flags=<optimized out>, now=<optimized out>, timer=<optimized out>, base=<optimized out>, cpu_base=<optimized out>) at ../kernel/time/hrtimer.c:1389
+#6  __hrtimer_run_queues (cpu_base=<optimized out>, now=<optimized out>, flags=<optimized out>, active_mask=<optimized out>) at ../kernel/time/hrtimer.c:1451
+#7  0xffffffff81194c21 in hrtimer_interrupt (dev=<optimized out>) at ../kernel/time/hrtimer.c:1509
+#8  0xffffffff81e0256f in local_apic_timer_interrupt () at ../arch/x86/kernel/apic/apic.c:1041
+#9  smp_apic_timer_interrupt (regs=<optimized out>) at ../arch/x86/kernel/apic/apic.c:1066
+#10 0xffffffff81e01a8f in apic_timer_interrupt () at ../arch/x86/entry/entry_64.S:806
+

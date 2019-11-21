@@ -1,0 +1,15 @@
+(gdb) bt
+#0  pci_create_attr (pdev=0xffff88813b587000, num=0, write_combine=0) at ../drivers/pci/pci-sysfs.c:1275
+#1  0xffffffff815c3c99 in pci_create_resource_files (pdev=<optimized out>) at ../drivers/pci/pci-sysfs.c:1334
+#2  pci_create_sysfs_dev_files (pdev=<optimized out>) at ../drivers/pci/pci-sysfs.c:1496
+#3  pci_create_sysfs_dev_files (pdev=0xffff88813b587000) at ../drivers/pci/pci-sysfs.c:1480
+#4  0xffffffff82b3faf4 in pci_sysfs_init () at ../drivers/pci/pci-sysfs.c:1594
+#5  0xffffffff8100278a in do_one_initcall (fn=0xffffffff82b3fab8 <pci_sysfs_init>) at ../init/main.c:915
+#6  0xffffffff82aeb3ef in do_initcall_level (level=<optimized out>) at ../include/linux/compiler.h:305
+#7  do_initcalls () at ../init/main.c:991
+#8  do_basic_setup () at ../init/main.c:1009
+#9  kernel_init_freeable () at ../init/main.c:1169
+#10 0xffffffff81d297ee in kernel_init (unused=<optimized out>) at ../init/main.c:1087
+#11 0xffffffff81e00215 in ret_from_fork () at ../arch/x86/entry/entry_64.S:352
+#12 0x0000000000000000 in ?? ()
+

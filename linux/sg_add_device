@@ -1,0 +1,15 @@
+(gdb) bt
+#0  sg_add_device (cl_dev=0xffff88813a9eb448, cl_intf=0xffffffff829bac60 <sg_interface>) at ../drivers/scsi/sg.c:1497
+#1  0xffffffff8172e853 in device_add (dev=<optimized out>) at ../drivers/base/core.c:2126
+#2  0xffffffff817acaee in scsi_sysfs_add_sdev (sdev=0xffff88813a9eb000) at ../drivers/scsi/scsi_sysfs.c:1314
+#3  0xffffffff817a9361 in scsi_add_lun (async=<optimized out>, bflags=<optimized out>, inq_result=<optimized out>, sdev=<optimized out>) at ../drivers/scsi/scsi_scan.c:990
+#4  scsi_probe_and_add_lun (starget=<optimized out>, lun=<optimized out>, bflagsp=<optimized out>, sdevp=<optimized out>, rescan=<optimized out>, hostdata=<optimized out>) at ../drivers/scsi/scsi_scan.c:1157
+#5  0xffffffff817a9e0f in __scsi_add_device (shost=0xffff888139957800, channel=<optimized out>, id=<optimized out>, lun=0, hostdata=0x0 <fixed_percpu_data>) at ../drivers/scsi/scsi_scan.c:1480
+#6  0xffffffff817dd9fb in ata_scsi_scan_host (ap=0xffff88813a9eb448, sync=-2103727008) at ../drivers/ata/libata-scsi.c:4576
+#7  0xffffffff817d6c43 in async_port_probe (data=0xffff88813a9eb448, cookie=18446744071605824608) at ../drivers/ata/libata-core.c:6482
+#8  0xffffffff8112fe7c in async_run_entry_fn (work=0xffff88813a9eb448) at ../kernel/async.c:123
+#9  0xffffffff811262df in process_one_work (worker=0xffff88813afc00c0, work=0xffff8881398737a0) at ../kernel/workqueue.c:2269
+#10 0xffffffff81126514 in worker_thread (__worker=0xffff88813afc00c0) at ../kernel/workqueue.c:2415
+#11 0xffffffff8112c420 in kthread (_create=0xffff88813b57ddc0) at ../kernel/kthread.c:255
+#12 0xffffffff81e00215 in ret_from_fork () at ../arch/x86/entry/entry_64.S:352
+

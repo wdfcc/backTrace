@@ -1,0 +1,25 @@
+#0  pci_setup_device (dev=0xffff88813b57a000) at ../drivers/pci/probe.c:1710
+#1  0xffffffff815b5928 in pci_scan_device (devfn=<optimized out>, bus=<optimized out>) at ../drivers/pci/probe.c:2544
+#2  pci_scan_single_device (devfn=<optimized out>, bus=<optimized out>) at ../drivers/pci/probe.c:2716
+#3  pci_scan_single_device (bus=0xffff88813a582000, devfn=0) at ../drivers/pci/probe.c:2706
+#4  0xffffffff815b59a4 in pci_scan_slot (bus=0xffff88813a582000, devfn=0) at ../drivers/pci/probe.c:2799
+#5  0xffffffff815b6b37 in pci_scan_child_bus_extend (bus=0xffff88813a582000, available_buses=<optimized out>) at ../drivers/pci/probe.c:3016
+#6  0xffffffff815b6dc0 in pci_scan_child_bus (bus=<optimized out>) at ../drivers/pci/probe.c:3146
+#7  0xffffffff816202b2 in acpi_pci_root_create (root=0xffff88813a9dac80, ops=<optimized out>, info=0xffff88813a9da800, sysdata=<optimized out>) at ../drivers/acpi/pci_root.c:920
+#8  0xffffffff81a4da38 in pci_acpi_scan_root (root=0xffff88813a9dac80) at ../arch/x86/pci/acpi.c:368
+#9  0xffffffff81620458 in acpi_pci_root_add.cold () at ../drivers/acpi/pci_root.c:604
+#10 0xffffffff81617bdc in acpi_scan_attach_handler (device=<optimized out>) at ../drivers/acpi/scan.c:1941
+#11 acpi_bus_attach (device=0xffff88813a9ed000) at ../drivers/acpi/scan.c:1985
+#12 0xffffffff81617b50 in acpi_bus_attach (device=0xffff88813a9ec000) at ../drivers/acpi/scan.c:2006
+#13 0xffffffff81617b50 in acpi_bus_attach (device=0xffff88813a9e8800) at ../drivers/acpi/scan.c:2006
+#14 0xffffffff816197b7 in acpi_bus_scan (handle=0xffffffffffffffff) at ../drivers/acpi/scan.c:2058
+#15 0xffffffff82b40eb1 in acpi_scan_init () at ../drivers/acpi/scan.c:2211
+#16 0xffffffff82b40bc0 in acpi_init () at ../drivers/acpi/bus.c:1249
+#17 0xffffffff8100278a in do_one_initcall (fn=0xffffffff82b40909 <acpi_init>) at ../init/main.c:915
+#18 0xffffffff82ae93ef in do_initcall_level (level=<optimized out>) at ../include/linux/compiler.h:305
+#19 do_initcalls () at ../init/main.c:991
+#20 do_basic_setup () at ../init/main.c:1009
+#21 kernel_init_freeable () at ../init/main.c:1169
+#22 0xffffffff81d1a75e in kernel_init (unused=<optimized out>) at ../init/main.c:1087
+#23 0xffffffff81e00215 in ret_from_fork () at ../arch/x86/entry/entry_64.S:352
+

@@ -1,0 +1,10 @@
+(gdb) bt
+#0  gimplify_function_tree (fndecl=fndecl@entry=0x7ffff6ac0500) at ../../gcc/gimplify.c:13786
+#1  0x00000000007076a0 in cgraph_node::analyze (this=0x7ffff6a93708) at ../../gcc/cgraphunit.c:667
+#2  0x0000000000709be8 in analyze_functions (first_time=<optimized out>) at ../../gcc/cgraphunit.c:1126
+#3  0x000000000070a7d3 in symbol_table::finalize_compilation_unit (this=0x7ffff68db100) at ../../gcc/cgraphunit.c:2837
+#4  0x0000000000a741cd in compile_file () at ../../gcc/toplev.c:481
+#5  0x00000000005ccbad in do_compile () at ../../gcc/toplev.c:2205
+#6  toplev::main (this=this@entry=0x7fffffffdd3e, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffde38) at ../../gcc/toplev.c:2340
+#7  0x00000000005d04df in main (argc=14, argv=0x7fffffffde38) at ../../gcc/main.c:39
+

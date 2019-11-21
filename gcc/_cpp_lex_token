@@ -1,0 +1,13 @@
+#4  0x00000000012a99b1 in _cpp_lex_token (pfile=pfile@entry=0x1db0bf0) at ../../libcpp/lex.c:2597
+#5  0x00000000012b0910 in cpp_get_token_1 (pfile=0x1db0bf0, location=location@entry=0x7fffffffdaec) at ../../libcpp/macro.c:2703
+#6  0x00000000012b0dc5 in cpp_get_token_with_location (pfile=<optimized out>, loc=loc@entry=0x7fffffffdaec) at ../../libcpp/macro.c:2889
+#7  0x00000000006723df in c_lex_with_flags (value=value@entry=0x7fffffffdaf0, loc=loc@entry=0x7fffffffdaec, cpp_flags=cpp_flags@entry=0x7fffffffdaf8 "", lex_flags=0) at ../../gcc/c-family/c-lex.c:405
+#8  0x000000000060bb61 in c_lex_one_token (parser=parser@entry=0x7fffffffdae0, token=token@entry=0x7fffffffdae8) at ../../gcc/c/c-parser.c:249
+#9  0x0000000000632f41 in c_parser_peek_token (parser=0x7fffffffdae0) at ../../gcc/c/c-parser.c:19842
+#10 c_parse_file () at ../../gcc/c/c-parser.c:19842
+#11 0x000000000067899c in c_common_parse_file () at ../../gcc/c-family/c-opts.c:1156
+#12 0x0000000000a73f70 in compile_file () at ../../gcc/toplev.c:456
+#13 0x00000000005ccbad in do_compile () at ../../gcc/toplev.c:2205
+#14 toplev::main (this=this@entry=0x7fffffffdc5e, argc=<optimized out>, argc@entry=15, argv=<optimized out>, argv@entry=0x7fffffffdd58) at ../../gcc/toplev.c:2340
+#15 0x00000000005d04df in main (argc=15, argv=0x7fffffffdd58) at ../../gcc/main.c:39
+

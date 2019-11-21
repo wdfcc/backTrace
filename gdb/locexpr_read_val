@@ -1,0 +1,42 @@
+(gdb) bt
+#0  locexpr_read_variable (symbol=0x555555fc6c90, frame=0x555555ec38d0)
+    at dwarf2loc.c:3499
+#1  0x0000555555777e4c in default_read_var_value (var=0x555555fc6c90, 
+    var_block=<optimized out>, frame=0x555555ec38d0) at findvar.c:610
+#2  0x00005555558cb1f4 in read_frame_arg (sym=0x555555fc6c90, 
+    frame=0x555555ec38d0, argp=0x7fffffffd680, entryargp=0x7fffffffd6a0)
+    at stack.c:353
+#3  0x00005555558cbc83 in print_frame_args (func=<optimized out>, 
+    frame=frame@entry=0x555555ec38d0, num=num@entry=-1, stream=0x555555f78f90)
+    at stack.c:685
+#4  0x00005555558cd313 in print_frame (print_args=<optimized out>, 
+    print_what=SRC_AND_LOC, print_level=<optimized out>, frame=0x555555ec38d0, 
+    sal=...) at stack.c:1210
+#5  print_frame_info (frame=0x555555ec38d0, print_level=<optimized out>, 
+    print_what=SRC_AND_LOC, print_args=<optimized out>, set_current_sal=1)
+    at stack.c:867
+#6  0x00005555558cd936 in print_stack_frame (frame=0x555555ec38d0, 
+    print_level=0, print_what=SRC_AND_LOC, set_current_sal=1) at stack.c:180
+#7  0x00005555557c3e92 in print_stop_location (ws=<synthetic pointer>)
+    at infrun.c:7849
+#8  print_stop_event (uiout=0x555555f42790) at infrun.c:7866
+#9  0x0000555555935c16 in tui_on_normal_stop (bs=<optimized out>, 
+    print_frame=<optimized out>) at tui/tui-interp.c:98
+#10 0x00005555557c43f7 in std::function<void (bpstats*, int)>::operator()(bpstats*, int) const (__args#1=<optimized out>, __args#0=<optimized out>, 
+    this=0x555555e982c0) at /usr/include/c++/8/bits/std_function.h:682
+#11 gdb::observers::observable<bpstats*, int>::notify (args#1=<optimized out>, 
+    args#0=0x555555f49e40, this=<optimized out>) at common/observable.h:106
+#12 normal_stop () at infrun.c:8138
+#13 0x00005555557cc46a in fetch_inferior_event (client_data=<optimized out>)
+    at infrun.c:3789
+#14 0x000055555576aa4d in gdb_wait_for_event (block=<optimized out>)
+    at event-loop.c:859
+#15 gdb_wait_for_event (block=<optimized out>) at event-loop.c:746
+#16 0x000055555576abc7 in gdb_do_one_event () at event-loop.c:322
+#17 0x000055555576ad0e in gdb_do_one_event () at event-loop.c:371
+#18 start_event_loop () at event-loop.c:371
+#19 0x0000555555802dbb in captured_command_loop () at main.c:331
+#20 0x0000555555803ef5 in captured_main (data=<optimized out>) at main.c:1182
+#21 gdb_main (args=<optimized out>) at main.c:1198
+#22 0x000055555563ec7b in main (argc=<optimized out>, argv=<optimized out>)
+
