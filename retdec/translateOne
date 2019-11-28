@@ -1,0 +1,11 @@
+#0  retdec::capstone2llvmir::Capstone2LlvmIrTranslator_impl<cs_x86, cs_x86_op>::translateOne (this=0x555557b4b790, bytes=@0x7fffffffce40: 0x7ffff75ea014 "H\213\005\335/", size=@0x7fffffffce48: 19, a=..., irb=...) at /home/sdk/retdec/src/capstone2llvmir/capstone2llvmir_impl.cpp:251
+#1  0x000055555574f7f4 in retdec::bin2llvmir::Decoder::translate (this=0x555557a3d3f0, bytes=..., addr=..., irb=...) at /home/sdk/retdec/src/bin2llvmir/optimizations/decoder/decoder.cpp:341
+#2  0x000055555574f45f in retdec::bin2llvmir::Decoder::decodeJumpTarget (this=0x555557a3d3f0, jt=...) at /home/sdk/retdec/src/bin2llvmir/optimizations/decoder/decoder.cpp:299
+#3  0x000055555574eaec in retdec::bin2llvmir::Decoder::decode (this=0x555557a3d3f0) at /home/sdk/retdec/src/bin2llvmir/optimizations/decoder/decoder.cpp:153
+#4  0x000055555574ea41 in retdec::bin2llvmir::Decoder::run (this=0x555557a3d3f0) at /home/sdk/retdec/src/bin2llvmir/optimizations/decoder/decoder.cpp:116
+#5  0x000055555574e923 in retdec::bin2llvmir::Decoder::runCatcher (this=0x555557a3d3f0) at /home/sdk/retdec/src/bin2llvmir/optimizations/decoder/decoder.cpp:90
+#6  0x000055555574e85d in retdec::bin2llvmir::Decoder::runOnModule (this=0x555557a3d3f0, m=...) at /home/sdk/retdec/src/bin2llvmir/optimizations/decoder/decoder.cpp:59
+#7  0x00005555568655a0 in llvm::legacy::PassManagerImpl::run(llvm::Module&) ()
+#8  0x0000555555680e06 in _main (argc=143, argv=0x7fffffffd448) at /home/sdk/retdec/src/bin2llvmirtool/bin2llvmir.cpp:508
+#9  0x000055555568118b in main (argc=143, argv=0x7fffffffd448) at /home/sdk/retdec/src/bin2llvmirtool/bin2llvmir.cpp:526
+
