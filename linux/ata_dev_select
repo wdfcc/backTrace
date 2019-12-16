@@ -1,0 +1,33 @@
+(gdb) bt
+#0  iowrite8 (val=176 '\260', addr=0x101f6 <pmc_prev_left+86>) at ../lib/iomap.c:191
+#1  0xffffffff817e6f74 in ata_sff_dev_select (ap=0xffff888139fb4000, device=<optimized out>) at ../drivers/ata/libata-sff.c:311
+#2  0xffffffff817e7703 in ata_dev_select (ap=0xffff888139fb4000, device=1, can_sleep=<optimized out>, wait=<optimized out>)
+    at ../drivers/ata/libata-sff.c:344
+#3  0xffffffff817e7795 in ata_sff_qc_issue (qc=0xb0) at ../drivers/ata/libata-sff.c:1350
+#4  0xffffffff817e7a06 in ata_bmdma_qc_issue (qc=0xffff888139fb5f30) at ../drivers/ata/libata-sff.c:2724
+#5  0xffffffff817d29fc in ata_qc_issue (qc=0xffff888139fb5f30) at ../drivers/ata/libata-core.c:5447
+#6  0xffffffff817d2e08 in ata_exec_internal_sg (dev=0xffff888139fb6cc0, tf=0xffffc900008abc30, 
+    cdb=0x1 <fixed_percpu_data+1> <error: Cannot access memory at address 0x1>, dma_dir=<optimized out>, sgl=<optimized out>, 
+    n_elem=<optimized out>, timeout=0) at ../drivers/ata/libata-core.c:1619
+#7  0xffffffff817d3124 in ata_exec_internal (dev=0xffff888139fb6cc0, tf=0xffffc900008abc30, cdb=0x0 <fixed_percpu_data>, 
+    dma_dir=2, buf=<optimized out>, buflen=<optimized out>, timeout=0) at ../drivers/ata/libata-core.c:1738
+#8  0xffffffff817d3831 in ata_do_dev_read_id (id=<optimized out>, tf=<optimized out>, dev=<optimized out>)
+    at ../drivers/ata/libata-core.c:1886
+#9  ata_dev_read_id (dev=0xffff888139fb6cc0, p_class=<optimized out>, flags=<optimized out>, id=0xffff888139fb7040)
+    at ../drivers/ata/libata-core.c:1886
+#10 0xffffffff817e2729 in ata_eh_revalidate_and_attach (r_failed_dev=<optimized out>, link=<optimized out>)
+    at ../drivers/ata/libata-eh.c:3162
+#11 ata_eh_recover (ap=<optimized out>, prereset=<optimized out>, softreset=<optimized out>, hardreset=<optimized out>, 
+    postreset=<optimized out>, r_failed_link=<optimized out>) at ../drivers/ata/libata-eh.c:3873
+#12 0xffffffff817e3b95 in ata_do_eh (ap=0xffff888139fb4000, prereset=0xffffffff817f1470 <piix_pata_prereset>, 
+    softreset=0xffffffff817e61b0 <ata_sff_softreset>, hardreset=0x0 <fixed_percpu_data>, 
+    postreset=0xffffffff817e6360 <ata_sff_postreset>) at ../drivers/ata/libata-eh.c:4023
+#13 0xffffffff817e6500 in ata_sff_error_handler (ap=0xffff888139fb4000) at ../drivers/ata/libata-sff.c:2154
+#14 0xffffffff817e6ab7 in ata_bmdma_error_handler (ap=0xffff888139fb4000) at ../drivers/ata/libata-sff.c:2885
+#15 0xffffffff817e364e in ata_scsi_port_error_handler (host=<optimized out>, ap=0x101f6 <pmc_prev_left+86>)
+    at ../drivers/ata/libata-eh.c:695
+#16 0xffffffff817e3b15 in ata_scsi_error (host=0xffff888139f53000) at ../drivers/ata/libata-eh.c:539
+#17 0xffffffff817a3c88 in scsi_error_handler (data=0xb0) at ../drivers/scsi/scsi_error.c:2198
+#18 0xffffffff8112c420 in kthread (_create=0xffff888139d9afc0) at ../kernel/kthread.c:255
+#19 0xffffffff81e00215 in ret_from_fork () at ../arch/x86/entry/entry_64.S:352
+

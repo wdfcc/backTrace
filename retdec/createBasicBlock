@@ -1,0 +1,12 @@
+(gdb) bt
+#0  retdec::bin2llvmir::Decoder::createBasicBlock (this=0x555557a3d3f0, a=..., f=0x555557b0ef68, insertAfter=0x0) at /home/sdk/retdec/src/bin2llvmir/optimizations/decoder/bbs.cpp:142
+#1  0x000055555575dd18 in retdec::bin2llvmir::Decoder::createFunction (this=0x555557a3d3f0, a=..., declaration=false) at /home/sdk/retdec/src/bin2llvmir/optimizations/decoder/functions.cpp:146
+#2  0x0000555555743946 in retdec::bin2llvmir::Decoder::initJumpTargetsConfig (this=0x555557a3d3f0) at /home/sdk/retdec/src/bin2llvmir/optimizations/decoder/decoder_init.cpp:592
+#3  0x00005555557436a0 in retdec::bin2llvmir::Decoder::initJumpTargets (this=0x555557a3d3f0) at /home/sdk/retdec/src/bin2llvmir/optimizations/decoder/decoder_init.cpp:553
+#4  0x000055555574ea35 in retdec::bin2llvmir::Decoder::run (this=0x555557a3d3f0) at /home/sdk/retdec/src/bin2llvmir/optimizations/decoder/decoder.cpp:111
+#5  0x000055555574e923 in retdec::bin2llvmir::Decoder::runCatcher (this=0x555557a3d3f0) at /home/sdk/retdec/src/bin2llvmir/optimizations/decoder/decoder.cpp:90
+#6  0x000055555574e85d in retdec::bin2llvmir::Decoder::runOnModule (this=0x555557a3d3f0, m=...) at /home/sdk/retdec/src/bin2llvmir/optimizations/decoder/decoder.cpp:59
+#7  0x00005555568655a0 in llvm::legacy::PassManagerImpl::run(llvm::Module&) ()
+#8  0x0000555555680e06 in _main (argc=143, argv=0x7fffffffd448) at /home/sdk/retdec/src/bin2llvmirtool/bin2llvmir.cpp:508
+#9  0x000055555568118b in main (argc=143, argv=0x7fffffffd448) at /home/sdk/retdec/src/bin2llvmirtool/bin2llvmir.cpp:526
+

@@ -1,0 +1,60 @@
+(gdb) bt
+#0  iowrite8 (val=200 '\310', addr=0x101f7 <pmc_prev_left+87>) at ../lib/iomap.c:191
+#1  0xffffffff817e6fad in ata_sff_exec_command (ap=0xffff888139fb4000, tf=<optimized out>) at ../drivers/ata/libata-sff.c:503
+#2  0xffffffff817e6be6 in ata_bmdma_setup (qc=0xffff888139fb4130) at ../drivers/ata/libata-sff.c:2956
+#3  0xffffffff817e79d4 in ata_bmdma_qc_issue (qc=0xffff888139fb4130) at ../drivers/ata/libata-sff.c:2735
+#4  0xffffffff817d29fc in ata_qc_issue (qc=0xffff888139fb4130) at ../drivers/ata/libata-core.c:5447
+#5  0xffffffff817d9e28 in ata_scsi_translate (dev=0xffff888139fb64c0, cmd=0xffff88813980c118, 
+    xlat_func=0xffffffff817d9ae0 <ata_scsi_rw_xlat>) at ../drivers/ata/libata-scsi.c:2005
+#6  0xffffffff817dd2d5 in __ata_scsi_queuecmd (dev=<optimized out>, scmd=<optimized out>) at ../drivers/ata/libata-scsi.c:4321
+#7  ata_scsi_queuecmd (shost=<optimized out>, cmd=0xffff88813980c118) at ../drivers/ata/libata-scsi.c:4370
+#8  0xffffffff817a7a56 in scsi_dispatch_cmd (cmd=<optimized out>) at ../drivers/scsi/scsi_lib.c:1527
+#9  scsi_queue_rq (hctx=<optimized out>, bd=<optimized out>) at ../drivers/scsi/scsi_lib.c:1661
+#10 0xffffffff81535c99 in blk_mq_dispatch_rq_list (q=<optimized out>, list=0xffffc90000ae7908, got_budget=<optimized out>)
+    at ../block/blk-mq.c:1263
+#11 0xffffffff8153ac67 in blk_mq_do_dispatch_sched (hctx=0xffff888139fcbc00) at ../include/linux/list.h:66
+#12 0xffffffff8153b3a0 in blk_mq_sched_dispatch_requests (hctx=0xffff888139fcbc00) at ../block/blk-mq-sched.c:211
+#13 0xffffffff81533b9a in __blk_mq_run_hw_queue (hctx=0xc8) at ../block/blk-mq.c:1393
+#14 0xffffffff815340aa in __blk_mq_delay_run_hw_queue (hctx=0xffff888139fcbc00, async=<optimized out>, msecs=<optimized out>)
+    at ../block/blk-mq.c:1461
+#15 0xffffffff81534db0 in blk_mq_run_hw_queue (hctx=0xffff888139fcbc00, async=<optimized out>) at ../block/blk-mq.c:1498
+#16 0xffffffff8153b6da in blk_mq_sched_insert_requests (hctx=0xffff888139fcbc00, ctx=<optimized out>, 
+    list=0xc040 <exception_stacks+8256>, run_queue_async=<optimized out>) at ../block/blk-mq-sched.c:443
+#17 0xffffffff81536f07 in blk_mq_flush_plug_list (plug=<optimized out>, from_schedule=<optimized out>) at ../block/blk-mq.c:1762
+#18 0xffffffff8152c192 in blk_flush_plug_list (plug=0xffffc90000ae7b60, from_schedule=<optimized out>) at ../block/blk-core.c:1709
+#19 0xffffffff8152c1e6 in blk_finish_plug (plug=<optimized out>) at ../block/blk-core.c:1726
+#20 blk_finish_plug (plug=<optimized out>) at ../block/blk-core.c:1722
+#21 0xffffffff812859ff in read_pages (mapping=0xffff888135cba418, filp=<optimized out>, pages=0xffffc90000ae7c10, nr_pages=2, 
+    gfp=<optimized out>) at ../mm/readahead.c:142
+#22 0xffffffff81285c7b in __do_page_cache_readahead (mapping=<optimized out>, filp=<optimized out>, offset=<optimized out>, 
+    nr_to_read=<optimized out>, lookahead_size=<optimized out>) at ../mm/readahead.c:212
+#23 0xffffffff81285e22 in ra_submit (filp=<optimized out>, mapping=<optimized out>, ra=<optimized out>) at ../mm/internal.h:62
+#24 ondemand_readahead (mapping=0xffff888135cba418, ra=0xffff888136566898, filp=0xffff888136566800, 
+    hit_readahead_marker=<optimized out>, offset=0, req_size=<optimized out>) at ../mm/readahead.c:492
+#25 0xffffffff812861e1 in page_cache_sync_readahead (req_size=<optimized out>, offset=<optimized out>, filp=<optimized out>, 
+    ra=<optimized out>, mapping=<optimized out>) at ../mm/readahead.c:527
+#26 page_cache_sync_readahead (mapping=0xffff888135cba418, ra=0xffff888136566898, filp=0xffff888136566800, offset=0, req_size=32)
+    at ../mm/readahead.c:509
+#27 0xffffffff8127c49f in generic_file_buffered_read (written=<optimized out>, iter=<optimized out>, iocb=<optimized out>)
+    at ../mm/filemap.c:2024
+#28 generic_file_read_iter (iocb=<optimized out>, iter=<optimized out>) at ../mm/filemap.c:2297
+#29 0xffffffff813e3da4 in ext4_file_read_iter (iocb=0xc8, to=0x101f7 <pmc_prev_left+87>) at ../fs/ext4/file.c:77
+#30 0xffffffff8132aa22 in call_read_iter (file=<optimized out>, iter=<optimized out>, kio=<optimized out>) at ../include/linux/fs.h:1866
+#31 new_sync_read (filp=0xffff888136566800, buf=<optimized out>, len=<optimized out>, ppos=0xffffc90000ae7ee8) at ../fs/read_write.c:414
+#32 0xffffffff8132d9e9 in __vfs_read (file=<optimized out>, buf=<optimized out>, count=<optimized out>, pos=<optimized out>)
+    at ../fs/read_write.c:427
+#33 0xffffffff8132da99 in vfs_read (pos=<optimized out>, count=<optimized out>, buf=<optimized out>, file=<optimized out>)
+    at ../fs/read_write.c:461
+--Type <RET> for more, q to quit, c to continue without paging--
+#34 vfs_read (file=0xffff888136566800, buf=0x7f8eec952000 <error: Cannot access memory at address 0x7f8eec952000>, count=131072, 
+    pos=0xffffc90000ae7ee8) at ../fs/read_write.c:446
+#35 0xffffffff8132de11 in ksys_read (fd=<optimized out>, buf=0x7f8eec952000 <error: Cannot access memory at address 0x7f8eec952000>, 
+    count=131072) at ../fs/read_write.c:587
+#36 0xffffffff8132deaa in __do_sys_read (count=<optimized out>, buf=<optimized out>, fd=<optimized out>) at ../fs/read_write.c:597
+#37 __se_sys_read (count=<optimized out>, buf=<optimized out>, fd=<optimized out>) at ../fs/read_write.c:595
+#38 __x64_sys_read (regs=<optimized out>) at ../fs/read_write.c:595
+#39 0xffffffff810042ea in do_syscall_64 (nr=<optimized out>, regs=0x101f7 <pmc_prev_left+87>) at ../arch/x86/entry/common.c:301
+#40 0xffffffff81e0008c in entry_SYSCALL_64 () at ../arch/x86/entry/entry_64.S:175
+#41 0x0000000000001000 in ?? ()
+Backtrace stopped: Cannot access memory at address 0x1e540
+

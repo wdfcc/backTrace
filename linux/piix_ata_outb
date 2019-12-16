@@ -1,0 +1,41 @@
+(gdb) bt
+#0  0xffffffff8156df30 in outb (port=<optimized out>, value=<optimized out>) at ../arch/x86/include/asm/io.h:340
+#1  iowrite8 (val=0 '\000', addr=0x1c042 <timer_bases+2562>) at ../lib/iomap.c:191
+#2  0xffffffff817e596d in ata_bmdma_irq_clear (ap=<optimized out>) at ../drivers/ata/libata-sff.c:2927
+#3  0xffffffff817e588a in ata_sff_freeze (ap=0xffff888139fb0000) at ../drivers/ata/libata-sff.c:1677
+#4  0xffffffff817de17c in __ata_port_freeze (ap=0x0 <fixed_percpu_data>) at ../drivers/ata/libata-eh.c:1059
+#5  0xffffffff817de863 in ata_eh_freeze_port (ap=0xffff888139fb0000) at ../drivers/ata/libata-eh.c:1182
+#6  0xffffffff817df20c in ata_eh_freeze_port (ap=<optimized out>) at ../drivers/ata/libata-eh.c:1178
+#7  0xffffffff817d16b6 in ata_host_start (host=0xffff888139f7c3c0) at ../drivers/ata/libata-core.c:6391
+#8  0xffffffff817d1777 in ata_host_start (host=<optimized out>) at ../drivers/ata/libata-core.c:6352
+#9  0xffffffff817e67d6 in ata_pci_sff_activate_host (host=0xffff888139f7c3c0, 
+    irq_handler=0xffffffff817e8700 <ata_bmdma_interrupt>, sht=0xffffffff829c0a20 <piix_sht>) at ../drivers/ata/libata-sff.c:2351
+#10 0xffffffff817f19d2 in piix_init_one (pdev=0xffff88813b574000, ent=<optimized out>) at ../drivers/ata/ata_piix.c:1744
+#11 0xffffffff815c0be7 in local_pci_probe (_ddi=0xffffc90000637c50) at ../drivers/pci/pci-driver.c:306
+#12 0xffffffff815c1759 in pci_call_probe (id=<optimized out>, dev=<optimized out>, drv=<optimized out>)
+    at ../drivers/pci/pci-driver.c:360
+#13 __pci_device_probe (pci_dev=<optimized out>, drv=<optimized out>) at ../drivers/pci/pci-driver.c:385
+#14 pci_device_probe (dev=0xffff88813b5740b0) at ../drivers/pci/pci-driver.c:425
+#15 0xffffffff81733105 in really_probe (dev=0x0 <fixed_percpu_data>, drv=0x1c042 <timer_bases+2562>) at ../drivers/base/dd.c:509
+#16 0xffffffff8173359b in driver_probe_device (drv=0xffffffff829bfa50 <piix_pci_driver+112>, dev=0xffff88813b5740b0)
+    at ../drivers/base/dd.c:670
+#17 0xffffffff81733828 in device_driver_attach (drv=0xffffffff829bfa50 <piix_pci_driver+112>, dev=0xffff88813b5740b0)
+    at ../drivers/base/dd.c:944
+#18 0xffffffff817338bf in __driver_attach (dev=0xffff88813b5740b0, data=0xffffffff829bfa50 <piix_pci_driver+112>)
+    at ../drivers/base/dd.c:1021
+#19 0xffffffff81730ff9 in bus_for_each_dev (bus=<optimized out>, start=<optimized out>, data=0xc042 <exception_stacks+8258>, 
+    fn=0xffff888139d7bc60) at ../drivers/base/bus.c:304
+#20 0xffffffff81732a8e in driver_attach (drv=<optimized out>) at ../drivers/base/dd.c:1037
+#21 0xffffffff817323a1 in bus_add_driver (drv=0xffffffff829bfa50 <piix_pci_driver+112>) at ../drivers/base/bus.c:645
+#22 0xffffffff817343b0 in driver_register (drv=0xffffffff829bfa50 <piix_pci_driver+112>) at ../drivers/base/driver.c:170
+#23 0xffffffff815bf927 in __pci_register_driver (drv=<optimized out>, owner=<optimized out>, mod_name=<optimized out>)
+    at ../drivers/pci/pci-driver.c:1417
+#24 0xffffffff82b554a9 in piix_init () at ../drivers/ata/ata_piix.c:1773
+#25 0xffffffff8100278a in do_one_initcall (fn=0xffffffff82b5548b <piix_init>) at ../init/main.c:915
+#26 0xffffffff82aec3ef in do_initcall_level (level=<optimized out>) at ../include/linux/compiler.h:305
+#27 do_initcalls () at ../init/main.c:991
+#28 do_basic_setup () at ../init/main.c:1009
+#29 kernel_init_freeable () at ../init/main.c:1169
+#30 0xffffffff81d2e7ee in kernel_init (unused=<optimized out>) at ../init/main.c:1087
+#31 0xffffffff81e00215 in ret_from_fork () at ../arch/x86/entry/entry_64.S:352
+

@@ -1,0 +1,32 @@
+(gdb) bt
+#0  memcpy_orig () at ../arch/x86/lib/memcpy_64.S:74
+#1  0xffffffff8118bde4 in memcpy (size=<optimized out>, q=<optimized out>, p=<optimized out>) at ../include/linux/string.h:359
+#2  swiotlb_bounce (orig_addr=<optimized out>, tlb_addr=<optimized out>, size=<optimized out>, dir=<optimized out>) at ../kernel/dma/swiotlb.c:439
+#3  0xffffffff8118c944 in swiotlb_tbl_sync_single (hwdev=<optimized out>, tlb_addr=<optimized out>, size=<optimized out>, dir=<optimized out>, target=<optimized out>)
+    at ../kernel/dma/swiotlb.c:632
+#4  0xffffffff8118ae0e in dma_direct_sync_single_for_cpu (dev=<optimized out>, addr=<optimized out>, size=<optimized out>, dir=<optimized out>) at ../kernel/dma/direct.c:260
+#5  0xffffffff8118afc7 in dma_direct_unmap_page (dev=0xffff88813b5740b0, addr=<optimized out>, size=4096, dir=DMA_FROM_DEVICE, attrs=<optimized out>) at ../kernel/dma/direct.c:290
+#6  0xffffffff8118b016 in dma_direct_unmap_sg (dev=<optimized out>, sgl=0xffff8880beb96020, nents=4032, dir=DMA_FROM_DEVICE, attrs=7306093603886885155) at ../kernel/dma/direct.c:304
+#7  0xffffffff817d24f3 in dma_unmap_sg_attrs (attrs=<optimized out>, dir=<optimized out>, nents=<optimized out>, sg=<optimized out>, dev=<optimized out>)
+    at ../include/linux/dma-mapping.h:342
+#8  ata_sg_clean (qc=<optimized out>) at ../drivers/ata/libata-core.c:5027
+#9  __ata_qc_complete (qc=0xffff888139fb0130) at ../drivers/ata/libata-core.c:5168
+#10 0xffffffff817d263b in ata_qc_complete (qc=0xffff888139fb0130) at ../drivers/ata/libata-core.c:5266
+#11 0xffffffff817e7483 in ata_hsm_qc_complete (qc=0xffff888139fb0130, in_wq=<optimized out>) at ../drivers/ata/libata-sff.c:950
+#12 0xffffffff817e7d91 in ata_sff_hsm_move (ap=0xffff888139fb0000, qc=0xffff888139fb0130, status=<optimized out>, in_wq=0) at ../drivers/ata/libata-sff.c:1203
+#13 0xffffffff817e82ea in __ata_sff_port_intr (hsmv_on_idle=<optimized out>, qc=<optimized out>, ap=<optimized out>) at ../drivers/ata/libata-sff.c:1498
+#14 __ata_sff_port_intr (ap=0xffff888139fb0000, qc=0xffff888139fb0130, hsmv_on_idle=true) at ../drivers/ata/libata-sff.c:1454
+#15 0xffffffff817e8659 in ata_bmdma_port_intr (ap=0xffff88813568a020, qc=0xffff8880beb96020) at ../drivers/ata/libata-sff.c:2801
+#16 0xffffffff817e87db in __ata_sff_interrupt (irq=<optimized out>, port_intr=<optimized out>, dev_instance=<optimized out>) at ../drivers/ata/libata-sff.c:1543
+#17 ata_bmdma_interrupt (irq=<optimized out>, dev_instance=0xffff888139f7c240) at ../drivers/ata/libata-sff.c:2826
+#18 0xffffffff811733b4 in __handle_irq_event_percpu (desc=<optimized out>, flags=<optimized out>) at ../kernel/irq/handle.c:149
+#19 0xffffffff81173532 in handle_irq_event_percpu (desc=0xffff88813b566200) at ../kernel/irq/handle.c:189
+#20 0xffffffff811735bb in handle_irq_event (desc=0xffff88813b566200) at ../kernel/irq/handle.c:206
+#21 0xffffffff811777d7 in handle_edge_irq (desc=0xffff88813b566200) at ../kernel/irq/chip.c:822
+#22 0xffffffff810a2cd0 in generic_handle_irq_desc (desc=<optimized out>) at ../include/linux/irqdesc.h:156
+#23 handle_irq (desc=<optimized out>, regs=<optimized out>) at ../arch/x86/kernel/irq_64.c:34
+#24 0xffffffff81e01c8e in do_IRQ (regs=0xffffc90000003e98) at ../arch/x86/kernel/irq.c:247
+#25 0xffffffff81e0094f in common_interrupt () at ../arch/x86/entry/entry_64.S:583
+#26 0xffffc90000003e98 in ?? ()
+#27 0xffffffff81e0094a in common_interrupt () at ../arch/x86/entry/entry_64.S:581
+

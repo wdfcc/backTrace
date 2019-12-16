@@ -1,0 +1,22 @@
+(gdb) bt
+#0  copy_user_generic_unrolled () at ../arch/x86/lib/copy_user_64.S:66
+#1  0xffffffff81563aea in copy_user_generic (len=20, from=0xffff888131e9f000, to=0x7f12340d1000) at ../arch/x86/include/asm/uaccess_64.h:128
+#2  raw_copy_to_user (size=<optimized out>, src=<optimized out>, dst=<optimized out>) at ../arch/x86/include/asm/uaccess_64.h:128
+#3  copyout (to=0x7f12340d1000, from=0xffff888131e9f000, n=20) at ../lib/iov_iter.c:142
+#4  0xffffffff81566471 in copy_page_to_iter_iovec (i=<optimized out>, bytes=<optimized out>, offset=<optimized out>, page=<optimized out>) at ../lib/iov_iter.c:211
+#5  copy_page_to_iter (page=<optimized out>, offset=<optimized out>, bytes=<optimized out>, i=0x2 <fixed_percpu_data+2>) at ../lib/iov_iter.c:900
+#6  0xffffffff8127c116 in generic_file_buffered_read (written=<optimized out>, iter=<optimized out>, iocb=<optimized out>) at ../mm/filemap.c:2117
+#7  generic_file_read_iter (iocb=<optimized out>, iter=<optimized out>) at ../mm/filemap.c:2297
+#8  0xffffffff813e3da4 in ext4_file_read_iter (iocb=0x7f12340d1000, to=0xffff888131e9f000) at ../fs/ext4/file.c:77
+#9  0xffffffff8132aa22 in call_read_iter (file=<optimized out>, iter=<optimized out>, kio=<optimized out>) at ../include/linux/fs.h:1866
+#10 new_sync_read (filp=0xffff888136a0ea00, buf=<optimized out>, len=<optimized out>, ppos=0xffffc90000ae7ee8) at ../fs/read_write.c:414
+#11 0xffffffff8132d9e9 in __vfs_read (file=<optimized out>, buf=<optimized out>, count=<optimized out>, pos=<optimized out>) at ../fs/read_write.c:427
+#12 0xffffffff8132da99 in vfs_read (pos=<optimized out>, count=<optimized out>, buf=<optimized out>, file=<optimized out>) at ../fs/read_write.c:461
+#13 vfs_read (file=0xffff888136a0ea00, buf=0x7f12340d1000 <error: Cannot access memory at address 0x7f12340d1000>, count=131072, pos=0xffffc90000ae7ee8) at ../fs/read_write.c:446
+#14 0xffffffff8132de11 in ksys_read (fd=<optimized out>, buf=0x7f12340d1000 <error: Cannot access memory at address 0x7f12340d1000>, count=131072) at ../fs/read_write.c:587
+#15 0xffffffff8132deaa in __do_sys_read (count=<optimized out>, buf=<optimized out>, fd=<optimized out>) at ../fs/read_write.c:597
+#16 __se_sys_read (count=<optimized out>, buf=<optimized out>, fd=<optimized out>) at ../fs/read_write.c:595
+#17 __x64_sys_read (regs=<optimized out>) at ../fs/read_write.c:595
+#18 0xffffffff810042ea in do_syscall_64 (nr=<optimized out>, regs=0xffff888131e9f000) at ../arch/x86/entry/common.c:301
+#19 0xffffffff81e0008c in entry_SYSCALL_64 () at ../arch/x86/entry/entry_64.S:175
+

@@ -1,0 +1,22 @@
+#1  0x0000555558e80087 in llvm::sys::fs::<lambda()>::operator()(void) const (__closure=0x7fffffff9d70) at /home/sdk/llvm-project/llvm/lib/Support/Unix/Path.inc:927
+#2  0x0000555558e8169c in llvm::sys::RetryAfterSignal<int, llvm::sys::fs::openFile(const llvm::Twine&, int&, llvm::sys::fs::CreationDisposition, llvm::sys::fs::FileAccess, llvm::sys::fs::OpenFlags, unsigned int)::<lambda()> >(const int &, const llvm::sys::fs::<lambda()> &) (Fail=@0x7fffffff9d60: -1, F=...) at /home/sdk/llvm-project/llvm/include/llvm/Support/Errno.h:38
+#3  0x0000555558e8017b in llvm::sys::fs::openFile (Name=..., ResultFD=@0x7fffffffafd4: 21845, Disp=llvm::sys::fs::CD_OpenExisting, Access=llvm::sys::fs::FA_Read, Flags=llvm::sys::fs::OF_None, Mode=438)
+    at /home/sdk/llvm-project/llvm/lib/Support/Unix/Path.inc:928
+#4  0x0000555558e8035e in llvm::sys::fs::openFileForRead (Name=..., ResultFD=@0x7fffffffafd4: 21845, Flags=llvm::sys::fs::OF_None, RealPath=0x7fffffffb0a0)
+    at /home/sdk/llvm-project/llvm/lib/Support/Unix/Path.inc:955
+#5  0x0000555558e80593 in llvm::sys::fs::openNativeFileForRead (Name=..., Flags=llvm::sys::fs::OF_None, RealPath=0x7fffffffb0a0) at /home/sdk/llvm-project/llvm/lib/Support/Unix/Path.inc:992
+#6  0x000055555d10d85f in (anonymous namespace)::RealFileSystem::openFileForRead (this=0x5555620dc700, Name=...) at /home/sdk/llvm-project/llvm/lib/Support/VirtualFileSystem.cpp:300
+#7  0x0000555559103bd9 in clang::FileSystemStatCache::get (Path=..., Status=..., isFile=true, F=0x7fffffffb588, Cache=0x0, FS=...) at /home/sdk/llvm-project/clang/lib/Basic/FileSystemStatCache.cpp:61
+#8  0x00005555590f8dce in clang::FileManager::getStatValue (this=0x5555620dc840, Path=..., Status=..., isFile=true, F=0x7fffffffb588) at /home/sdk/llvm-project/clang/lib/Basic/FileManager.cpp:503
+#9  0x00005555590f7614 in clang::FileManager::getFileRef (this=0x5555620dc840, Filename=..., openFile=true, CacheFailure=true) at /home/sdk/llvm-project/clang/lib/Basic/FileManager.cpp:254
+#10 0x00005555598bdd2b in clang::CompilerInstance::InitializeSourceManager (Input=..., Diags=..., FileMgr=..., SourceMgr=..., HS=0x5555620dd970, DepOpts=..., Opts=...)
+    at /home/sdk/llvm-project/clang/lib/Frontend/CompilerInstance.cpp:843
+#11 0x00005555598bdae0 in clang::CompilerInstance::InitializeSourceManager (this=0x5555620d1880, Input=...) at /home/sdk/llvm-project/clang/lib/Frontend/CompilerInstance.cpp:814
+#12 0x0000555559925966 in clang::FrontendAction::BeginSourceFile (this=0x5555620d7980, CI=..., RealInput=...) at /home/sdk/llvm-project/clang/lib/Frontend/FrontendAction.cpp:751
+#13 0x00005555598be977 in clang::CompilerInstance::ExecuteAction (this=0x5555620d1880, Act=...) at /home/sdk/llvm-project/clang/lib/Frontend/CompilerInstance.cpp:963
+#14 0x0000555559a8c5c1 in clang::ExecuteCompilerInvocation (Clang=0x5555620d1880) at /home/sdk/llvm-project/clang/lib/FrontendTool/ExecuteCompilerInvocation.cpp:290
+#15 0x000055555781f67b in cc1_main (Argv=..., Argv0=0x7fffffffdeda "/usr/local/bin/clang-10", MainAddr=0x5555578137d6 <GetExecutablePath[abi:cxx11](char const*, bool)>)
+    at /home/sdk/llvm-project/clang/tools/driver/cc1_main.cpp:250
+#16 0x0000555557814f25 in ExecuteCC1Tool (argv=..., Tool=...) at /home/sdk/llvm-project/clang/tools/driver/driver.cpp:309
+#17 0x0000555557815608 in main (argc_=54, argv_=0x7fffffffd9d8) at /home/sdk/llvm-project/clang/tools/driver/driver.cpp:382
+

@@ -1,0 +1,53 @@
+(gdb) bt
+#0  iowrite8 (val=1 '\001', addr=0x1c040 <timer_bases+2560>) at ../lib/iomap.c:191
+#1  0xffffffff817e59ab in ata_bmdma_start (qc=<optimized out>) at ../drivers/ata/libata-sff.c:2974
+#2  0xffffffff817e79e8 in ata_bmdma_qc_issue (qc=0xffff888139fb0130) at ../drivers/ata/libata-sff.c:2736
+#3  0xffffffff817d29fc in ata_qc_issue (qc=0xffff888139fb0130) at ../drivers/ata/libata-core.c:5447
+#4  0xffffffff817d9e28 in ata_scsi_translate (dev=0xffff888139fb24c0, cmd=0xffff888139fc8118, xlat_func=0xffffffff817d9ae0 <ata_scsi_rw_xlat>) at ../drivers/ata/libata-scsi.c:2005
+#5  0xffffffff817dd2d5 in __ata_scsi_queuecmd (dev=<optimized out>, scmd=<optimized out>) at ../drivers/ata/libata-scsi.c:4321
+#6  ata_scsi_queuecmd (shost=<optimized out>, cmd=0xffff888139fc8118) at ../drivers/ata/libata-scsi.c:4370
+#7  0xffffffff817a7a56 in scsi_dispatch_cmd (cmd=<optimized out>) at ../drivers/scsi/scsi_lib.c:1527
+#8  scsi_queue_rq (hctx=<optimized out>, bd=<optimized out>) at ../drivers/scsi/scsi_lib.c:1661
+#9  0xffffffff81535c99 in blk_mq_dispatch_rq_list (q=<optimized out>, list=0xffffc900008e3dc0, got_budget=<optimized out>) at ../block/blk-mq.c:1263
+#10 0xffffffff8153ac67 in blk_mq_do_dispatch_sched (hctx=0xffff888139fbf800) at ../include/linux/list.h:66
+#11 0xffffffff8153b3a0 in blk_mq_sched_dispatch_requests (hctx=0xffff888139fbf800) at ../block/blk-mq-sched.c:211
+#12 0xffffffff81533b9a in __blk_mq_run_hw_queue (hctx=0x1 <fixed_percpu_data+1>) at ../block/blk-mq.c:1393
+#13 0xffffffff81533c6b in blk_mq_run_work_fn (work=<optimized out>) at ../block/blk-mq.c:1626
+#14 0xffffffff811262df in process_one_work (worker=0xffff888139f7a240, work=0xffff888139fbf840) at ../kernel/workqueue.c:2269
+#15 0xffffffff81126514 in worker_thread (__worker=0xffff888139f7a240) at ../kernel/workqueue.c:2415
+#16 0xffffffff8112c420 in kthread (_create=0xffff888139fdbe00) at ../kernel/kthread.c:255
+#17 0xffffffff81e00215 in ret_from_fork () at ../arch/x86/entry/entry_64.S:352
+
+#0  ata_bmdma_start (qc=0xffff888139fb0130) at ../drivers/ata/libata-sff.c:2968
+#1  0xffffffff817e79e8 in ata_bmdma_qc_issue (qc=0xffff888139fb0130) at ../drivers/ata/libata-sff.c:2736
+#2  0xffffffff817d29fc in ata_qc_issue (qc=0xffff888139fb0130) at ../drivers/ata/libata-core.c:5447
+#3  0xffffffff817d9e28 in ata_scsi_translate (dev=0xffff888139fb24c0, cmd=0xffff888139fc8118, xlat_func=0xffffffff817d9ae0 <ata_scsi_rw_xlat>) at ../drivers/ata/libata-scsi.c:2005
+#4  0xffffffff817dd2d5 in __ata_scsi_queuecmd (dev=<optimized out>, scmd=<optimized out>) at ../drivers/ata/libata-scsi.c:4321
+#5  ata_scsi_queuecmd (shost=<optimized out>, cmd=0xffff888139fc8118) at ../drivers/ata/libata-scsi.c:4370
+#6  0xffffffff817a7a56 in scsi_dispatch_cmd (cmd=<optimized out>) at ../drivers/scsi/scsi_lib.c:1527
+#7  scsi_queue_rq (hctx=<optimized out>, bd=<optimized out>) at ../drivers/scsi/scsi_lib.c:1661
+#8  0xffffffff81535c99 in blk_mq_dispatch_rq_list (q=<optimized out>, list=0xffffc90000ad79b8, got_budget=<optimized out>) at ../block/blk-mq.c:1263
+#9  0xffffffff8153ac67 in blk_mq_do_dispatch_sched (hctx=0xffff888139fbf800) at ../include/linux/list.h:66
+#10 0xffffffff8153b3a0 in blk_mq_sched_dispatch_requests (hctx=0xffff888139fbf800) at ../block/blk-mq-sched.c:211
+#11 0xffffffff81533b9a in __blk_mq_run_hw_queue (hctx=0xffff888139fb0130) at ../block/blk-mq.c:1393
+#12 0xffffffff815340aa in __blk_mq_delay_run_hw_queue (hctx=0xffff888139fbf800, async=<optimized out>, msecs=<optimized out>) at ../block/blk-mq.c:1461
+#13 0xffffffff81534db0 in blk_mq_run_hw_queue (hctx=0xffff888139fbf800, async=<optimized out>) at ../block/blk-mq.c:1498
+#14 0xffffffff8153b6da in blk_mq_sched_insert_requests (hctx=0xffff888139fbf800, ctx=<optimized out>, list=0x3f8, run_queue_async=<optimized out>) at ../block/blk-mq-sched.c:443
+#15 0xffffffff81536f07 in blk_mq_flush_plug_list (plug=<optimized out>, from_schedule=<optimized out>) at ../block/blk-mq.c:1762
+#16 0xffffffff8152c192 in blk_flush_plug_list (plug=0xffffc90000ad7c70, from_schedule=<optimized out>) at ../block/blk-core.c:1709
+#17 0xffffffff8152c1e6 in blk_finish_plug (plug=<optimized out>) at ../block/blk-core.c:1726
+#18 blk_finish_plug (plug=<optimized out>) at ../block/blk-core.c:1722
+#19 0xffffffff813f646a in ext4_writepages (mapping=0xffff88813a380240, wbc=<optimized out>) at ../fs/ext4/inode.c:2942
+#20 0xffffffff812850e1 in do_writepages (mapping=0xffff888139fb0130, wbc=0x0 <fixed_percpu_data>) at ../mm/page-writeback.c:2342
+#21 0xffffffff8127ba05 in __filemap_fdatawrite_range (mapping=0xffff888138bff930, start=<optimized out>, end=<optimized out>, sync_mode=<optimized out>) at ../mm/filemap.c:419
+#22 0xffffffff8127ce2a in file_write_and_wait_range (file=0xffff888137a3e900, lstart=0, lend=9223372036854775807) at ../mm/filemap.c:755
+#23 0xffffffff813e59c1 in ext4_sync_file (file=0xffff888139fb0130, start=<optimized out>, end=<optimized out>, datasync=7968060) at ../fs/ext4/fsync.c:128
+#24 0xffffffff81366dc8 in vfs_fsync_range (file=0xffff888137a3e900, start=0, end=<optimized out>, datasync=<optimized out>) at ../fs/sync.c:197
+#25 0xffffffff81366e5d in vfs_fsync (datasync=<optimized out>, file=<optimized out>) at ../fs/sync.c:221
+#26 do_fsync (fd=<optimized out>, datasync=0) at ../fs/sync.c:221
+#27 0xffffffff81366ea4 in __do_sys_fsync (fd=<optimized out>) at ../fs/sync.c:229
+#28 __se_sys_fsync (fd=<optimized out>) at ../fs/sync.c:227
+#29 __x64_sys_fsync (regs=<optimized out>) at ../fs/sync.c:227
+#30 0xffffffff810042ea in do_syscall_64 (nr=<optimized out>, regs=0x0 <fixed_percpu_data>) at ../arch/x86/entry/common.c:301
+#31 0xffffffff81e0008c in entry_SYSCALL_64 () at ../arch/x86/entry/entry_64.S:175
+

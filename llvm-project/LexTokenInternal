@@ -1,0 +1,29 @@
+#0  clang::Lexer::LexTokenInternal (this=0x55556215d020, Result=..., TokAtPhysicalStartOfLine=false) at /home/sdk/llvm-project/clang/lib/Lex/Lexer.cpp:3179
+#1  0x000055555cea29e6 in clang::Lexer::Lex (this=0x55556215d020, Result=...) at /home/sdk/llvm-project/clang/lib/Lex/Lexer.cpp:3161
+#2  0x000055555cf1e792 in clang::Preprocessor::Lex (this=0x5555620de6a0, Result=...) at /home/sdk/llvm-project/clang/lib/Lex/Preprocessor.cpp:891
+#3  0x000055555b95e6f2 in clang::Parser::ConsumeToken (this=0x555562134050) at /home/sdk/llvm-project/clang/include/clang/Parse/Parser.h:452
+#4  0x000055555b981ba6 in clang::Parser::ParseDirectDeclarator (this=0x555562134050, D=...) at /home/sdk/llvm-project/clang/lib/Parse/ParseDecl.cpp:5872
+#5  0x000055555b9809b0 in clang::Parser::ParseDeclaratorInternal (this=0x555562134050, D=..., DirectDeclParser=
+    (void (clang::Parser::*)(clang::Parser * const, clang::Declarator &)) 0x55555b98114c <clang::Parser::ParseDirectDeclarator(clang::Declarator&)>)
+    at /home/sdk/llvm-project/clang/lib/Parse/ParseDecl.cpp:5583
+#6  0x000055555b98018e in clang::Parser::ParseDeclarator (this=0x555562134050, D=...) at /home/sdk/llvm-project/clang/lib/Parse/ParseDecl.cpp:5451
+#7  0x000055555b97403f in clang::Parser::ParseDeclGroup (this=0x555562134050, DS=..., Context=clang::DeclaratorContext::FileContext, DeclEnd=0x7fffffffb830, FRI=0x0)
+    at /home/sdk/llvm-project/clang/lib/Parse/ParseDecl.cpp:2009
+#8  0x000055555b973a69 in clang::Parser::ParseSimpleDeclaration (this=0x555562134050, Context=clang::DeclaratorContext::FileContext, DeclEnd=..., Attrs=..., RequireSemi=true, FRI=0x0, 
+    DeclSpecStart=0x0) at /home/sdk/llvm-project/clang/lib/Parse/ParseDecl.cpp:1848
+#9  0x000055555b9736dc in clang::Parser::ParseDeclaration (this=0x555562134050, Context=clang::DeclaratorContext::FileContext, DeclEnd=..., attrs=..., DeclSpecStart=0x0)
+    at /home/sdk/llvm-project/clang/lib/Parse/ParseDecl.cpp:1782
+#10 0x000055555b955684 in clang::Parser::ParseExternalDeclaration (this=0x555562134050, attrs=..., DS=0x0) at /home/sdk/llvm-project/clang/lib/Parse/Parser.cpp:864
+#11 0x000055555b954cf9 in clang::Parser::ParseTopLevelDecl (this=0x555562134050, Result=..., IsFirstDecl=false) at /home/sdk/llvm-project/clang/lib/Parse/Parser.cpp:682
+#12 0x000055555b950af8 in clang::ParseAST (S=..., PrintStats=false, SkipFunctionBodies=false) at /home/sdk/llvm-project/clang/lib/Parse/ParseAST.cpp:158
+#13 0x0000555559927187 in clang::ASTFrontendAction::ExecuteAction (this=0x5555620d7980) at /home/sdk/llvm-project/clang/lib/Frontend/FrontendAction.cpp:1042
+#14 0x000055555a1b9044 in clang::CodeGenAction::ExecuteAction (this=0x5555620d7980) at /home/sdk/llvm-project/clang/lib/CodeGen/CodeGenAction.cpp:1088
+#15 0x0000555559926ae8 in clang::FrontendAction::Execute (this=0x5555620d7980) at /home/sdk/llvm-project/clang/lib/Frontend/FrontendAction.cpp:935
+#16 0x00005555598be991 in clang::CompilerInstance::ExecuteAction (this=0x5555620d1880, Act=...) at /home/sdk/llvm-project/clang/lib/Frontend/CompilerInstance.cpp:964
+#17 0x0000555559a8c5c1 in clang::ExecuteCompilerInvocation (Clang=0x5555620d1880) at /home/sdk/llvm-project/clang/lib/FrontendTool/ExecuteCompilerInvocation.cpp:290
+#18 0x000055555781f67b in cc1_main (Argv=..., Argv0=0x7fffffffdeda "/usr/local/bin/clang-10", MainAddr=0x5555578137d6 <GetExecutablePath[abi:cxx11](char const*, bool)>)
+    at /home/sdk/llvm-project/clang/tools/driver/cc1_main.cpp:250
+#19 0x0000555557814f25 in ExecuteCC1Tool (argv=..., Tool=...) at /home/sdk/llvm-project/clang/tools/driver/driver.cpp:309
+#20 0x0000555557815608 in main (argc_=54, argv_=0x7fffffffd9d8) at /home/sdk/llvm-project/clang/tools/driver/driver.cpp:382
+
+
