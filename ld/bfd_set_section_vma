@@ -1,0 +1,13 @@
+(gdb) bt
+#0  bfd_set_section_vma (val=16777216, sec=0x5555558044c0) at ../bfd/bfd.h:1254
+#1  lang_size_sections_1 (prev=<optimized out>, prev@entry=0x5555557f1310 <statement_list>, 
+    output_section_statement=0x5555557f8ca0, fill=fill@entry=0x0, dot=<optimized out>, 
+    dot@entry=0, relax=relax@entry=0x0, check_regions=check_regions@entry=0) at ldlang.c:5594
+#2  0x000055555559bbe4 in one_lang_size_sections_pass (relax=relax@entry=0x0, 
+    check_regions=check_regions@entry=0) at ldlang.c:6029
+#3  0x000055555559d1da in strip_excluded_output_sections () at ldlang.c:4321
+#4  0x00005555555a7455 in before_allocation_default () at ldemul.c:279
+#5  0x00005555555b5205 in ldelf_before_allocation (audit=<optimized out>, 
+    depaudit=<optimized out>, default_interpreter_name=<optimized out>) at ldelf.c:1674
+#6  0x000055555559fd47 in lang_process () at ldlang.c:7878
+#7  0x000055555558cf83 in main (argc=<optimized out>, argv=<optimized out>) at ./ldmain.c:444
