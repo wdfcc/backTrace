@@ -1,0 +1,8 @@
+(gdb) bt
+#0  0x00005555555e5b72 in assign_file_positions_for_load_sections (link_info=<optimized out>, abfd=<optimized out>) at elf.c:5848
+#1  assign_file_positions_except_relocs (link_info=<optimized out>, abfd=<optimized out>) at elf.c:6353
+#2  _bfd_elf_compute_section_file_positions (abfd=abfd@entry=0x555555803320, link_info=link_info@entry=0x5555557f6080 <link_info>) at elf.c:4352
+#3  0x00005555556013fe in bfd_elf_final_link (abfd=<optimized out>, info=0x5555557f6080 <link_info>) at elflink.c:12065
+#4  0x00005555555a47df in ldwrite () at ldwrite.c:545
+#5  0x000055555558cfc7 in main (argc=<optimized out>, argv=<optimized out>) at ./ldmain.c:460
+
