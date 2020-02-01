@@ -1,0 +1,11 @@
+(gdb) bt
+#0  cp_parser_simple_declaration (parser=0x7ffff6a17688, function_definition_allowed_p=true, maybe_range_for_decl=0x0) at ../../gcc/cp/parser.c:13393
+#1  0x00000000006d3d51 in cp_parser_declaration (parser=0x7ffff6a17688) at ../../gcc/cp/parser.c:13238
+#2  0x00000000006d447a in cp_parser_translation_unit (parser=0x7ffff6a17688) at ../../gcc/cp/parser.c:4701
+#3  c_parse_file () at ../../gcc/cp/parser.c:41181
+#4  0x000000000078ed5c in c_common_parse_file () at ../../gcc/c-family/c-opts.c:1156
+#5  0x0000000000b84540 in compile_file () at ../../gcc/toplev.c:456
+#6  0x00000000005ed74d in do_compile () at ../../gcc/toplev.c:2205
+#7  toplev::main (this=this@entry=0x7fffffffdbae, argc=<optimized out>, argc@entry=16, argv=<optimized out>, argv@entry=0x7fffffffdca8) at ../../gcc/toplev.c:2340
+#8  0x00000000005f106f in main (argc=16, argv=0x7fffffffdca8) at ../../gcc/main.c:39
+
