@@ -1,0 +1,21 @@
+(gdb) bt
+#0  add_stmt (t=0x7ffff6a5a580) at ../../gcc/cp/semantics.c:374
+#1  0x00000000007110ac in finish_expr_stmt (expr=<optimized out>) at ../../gcc/cp/semantics.c:704
+#2  0x0000000000642185 in start_preparsed_function (decl1=decl1@entry=0x7ffff6a4f200, attrs=attrs@entry=0x0, flags=flags@entry=3) at ../../gcc/cp/decl.c:15605
+#3  0x00000000006cec28 in cp_parser_late_parsing_for_member (parser=0x7ffff6a16688, member_function=0x7ffff6a4f200) at ../../gcc/cp/parser.c:28669
+#4  0x00000000006b16b2 in cp_parser_class_specifier_1 (parser=0x7ffff6a16688) at ../../gcc/cp/parser.c:23660
+#5  0x00000000006b259e in cp_parser_class_specifier (parser=0x7ffff6a16688) at ../../gcc/cp/parser.c:23686
+#6  cp_parser_type_specifier (parser=0x7ffff6a16688, flags=<optimized out>, decl_specs=0x7fffffffd840, is_declaration=<optimized out>, declares_class_or_enum=0x7fffffffd700, 
+    is_cv_qualifier=<optimized out>) at ../../gcc/cp/parser.c:17431
+#7  0x00000000006b33c5 in cp_parser_decl_specifier_seq (parser=parser@entry=0x7ffff6a16688, flags=<optimized out>, flags@entry=1, decl_specs=decl_specs@entry=0x7fffffffd840, 
+    declares_class_or_enum=declares_class_or_enum@entry=0x7fffffffd828) at ../../gcc/cp/parser.c:27654
+#8  0x00000000006b3ae2 in cp_parser_simple_declaration (parser=0x7ffff6a16688, function_definition_allowed_p=true, maybe_range_for_decl=0x0) at ../../gcc/cp/parser.c:13419
+#9  0x00000000006d3d51 in cp_parser_declaration (parser=0x7ffff6a16688) at ../../gcc/cp/parser.c:13238
+#10 0x00000000006d447a in cp_parser_translation_unit (parser=0x7ffff6a16688) at ../../gcc/cp/parser.c:4701
+#11 c_parse_file () at ../../gcc/cp/parser.c:41181
+#12 0x000000000078ed5c in c_common_parse_file () at ../../gcc/c-family/c-opts.c:1156
+#13 0x0000000000b84540 in compile_file () at ../../gcc/toplev.c:456
+#14 0x00000000005ed74d in do_compile () at ../../gcc/toplev.c:2205
+#15 toplev::main (this=this@entry=0x7fffffffdbde, argc=<optimized out>, argc@entry=16, argv=<optimized out>, argv@entry=0x7fffffffdcd8) at ../../gcc/toplev.c:2340
+#16 0x00000000005f106f in main (argc=16, argv=0x7fffffffdcd8) at ../../gcc/main.c:39
+

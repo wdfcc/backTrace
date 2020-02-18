@@ -1,0 +1,19 @@
+(gdb) bt
+#0  xref_basetypes (ref=0x7ffff6a623f0, base_list=base_list@entry=0x7ffff6a6f1e0) at ../../gcc/cp/decl.c:14222
+#1  0x00000000006b230d in cp_parser_class_head (nested_name_specifier_p=<synthetic pointer>, parser=0x7ffff6a16688) at ../../gcc/cp/parser.c:24156
+#2  cp_parser_class_specifier_1 (parser=0x7ffff6a16688) at ../../gcc/cp/parser.c:23362
+#3  0x00000000006b259e in cp_parser_class_specifier (parser=0x7ffff6a16688) at ../../gcc/cp/parser.c:23686
+#4  cp_parser_type_specifier (parser=0x7ffff6a16688, flags=<optimized out>, decl_specs=0x7fffffffd840, is_declaration=<optimized out>, declares_class_or_enum=0x7fffffffd700, 
+    is_cv_qualifier=<optimized out>) at ../../gcc/cp/parser.c:17431
+#5  0x00000000006b33c5 in cp_parser_decl_specifier_seq (parser=parser@entry=0x7ffff6a16688, flags=<optimized out>, flags@entry=1, decl_specs=decl_specs@entry=0x7fffffffd840, 
+    declares_class_or_enum=declares_class_or_enum@entry=0x7fffffffd828) at ../../gcc/cp/parser.c:27654
+#6  0x00000000006b3ae2 in cp_parser_simple_declaration (parser=0x7ffff6a16688, function_definition_allowed_p=true, maybe_range_for_decl=0x0) at ../../gcc/cp/parser.c:13419
+#7  0x00000000006d3d51 in cp_parser_declaration (parser=0x7ffff6a16688) at ../../gcc/cp/parser.c:13238
+#8  0x00000000006d447a in cp_parser_translation_unit (parser=0x7ffff6a16688) at ../../gcc/cp/parser.c:4701
+#9  c_parse_file () at ../../gcc/cp/parser.c:41181
+#10 0x000000000078ed5c in c_common_parse_file () at ../../gcc/c-family/c-opts.c:1156
+#11 0x0000000000b84540 in compile_file () at ../../gcc/toplev.c:456
+#12 0x00000000005ed74d in do_compile () at ../../gcc/toplev.c:2205
+#13 toplev::main (this=this@entry=0x7fffffffdbde, argc=<optimized out>, argc@entry=16, argv=<optimized out>, argv@entry=0x7fffffffdcd8) at ../../gcc/toplev.c:2340
+#14 0x00000000005f106f in main (argc=16, argv=0x7fffffffdcd8) at ../../gcc/main.c:39
+

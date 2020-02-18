@@ -1,0 +1,22 @@
+(gdb) bt
+#0  find_member_slot (klass=klass@entry=0x7ffff6a4a690, name=0x7ffff690c680) at ../../gcc/cp/name-lookup.c:1322
+#1  0x000000000060c4c5 in add_method (type=type@entry=0x7ffff6a4a690, method=method@entry=0x7ffff6a4f200, via_using=via_using@entry=false) at ../../gcc/cp/class.c:994
+#2  0x000000000071410d in finish_member_declaration (decl=0x7ffff6a4f200) at ../../gcc/cp/semantics.c:3191
+#3  0x00000000006d2e38 in cp_parser_member_declaration (parser=<optimized out>) at ../../gcc/cp/parser.c:24790
+#4  0x00000000006b0c70 in cp_parser_member_specification_opt (parser=<optimized out>) at ../../gcc/cp/parser.c:24283
+#5  cp_parser_class_specifier_1 (parser=0x7ffff6a16688) at ../../gcc/cp/parser.c:23424
+#6  0x00000000006b259e in cp_parser_class_specifier (parser=0x7ffff6a16688) at ../../gcc/cp/parser.c:23686
+#7  cp_parser_type_specifier (parser=0x7ffff6a16688, flags=<optimized out>, decl_specs=0x7fffffffd840, is_declaration=<optimized out>, declares_class_or_enum=0x7fffffffd700, 
+    is_cv_qualifier=<optimized out>) at ../../gcc/cp/parser.c:17431
+#8  0x00000000006b33c5 in cp_parser_decl_specifier_seq (parser=parser@entry=0x7ffff6a16688, flags=<optimized out>, flags@entry=1, decl_specs=decl_specs@entry=0x7fffffffd840, 
+    declares_class_or_enum=declares_class_or_enum@entry=0x7fffffffd828) at ../../gcc/cp/parser.c:27654
+#9  0x00000000006b3ae2 in cp_parser_simple_declaration (parser=0x7ffff6a16688, function_definition_allowed_p=true, maybe_range_for_decl=0x0) at ../../gcc/cp/parser.c:13419
+#10 0x00000000006d3d51 in cp_parser_declaration (parser=0x7ffff6a16688) at ../../gcc/cp/parser.c:13238
+#11 0x00000000006d447a in cp_parser_translation_unit (parser=0x7ffff6a16688) at ../../gcc/cp/parser.c:4701
+#12 c_parse_file () at ../../gcc/cp/parser.c:41181
+#13 0x000000000078ed5c in c_common_parse_file () at ../../gcc/c-family/c-opts.c:1156
+#14 0x0000000000b84540 in compile_file () at ../../gcc/toplev.c:456
+#15 0x00000000005ed74d in do_compile () at ../../gcc/toplev.c:2205
+#16 toplev::main (this=this@entry=0x7fffffffdbde, argc=<optimized out>, argc@entry=16, argv=<optimized out>, argv@entry=0x7fffffffdcd8) at ../../gcc/toplev.c:2340
+#17 0x00000000005f106f in main (argc=16, argv=0x7fffffffdcd8) at ../../gcc/main.c:39
+
