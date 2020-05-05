@@ -1,0 +1,52 @@
+(gdb) bt
+#0  gen_movsi (operand0=0x7ffff6a7fd68, operand1=0x7ffff6a7fd80) at ../../gcc/config/i386/i386.md:1871
+#1  0x00000000008db558 in insn_gen_fn::operator() (this=<optimized out>, a1=0x7ffff6a7fd80, a0=0x7ffff6a7fd68)
+    at ../../gcc/recog.h:301
+#2  emit_move_insn_1 (x=0x7ffff6a7fd68, y=0x7ffff6a7fd80) at ../../gcc/expr.c:3690
+#3  0x00000000008db8e3 in emit_move_insn (x=x@entry=0x7ffff6a7fd68, y=y@entry=0x7ffff6a7fd80)
+    at ../../gcc/expr.c:3786
+#4  0x00000000007f8d36 in init_set_costs () at ../../gcc/cfgloopanal.c:375
+#5  0x0000000000b8532c in backend_init_target () at ../../gcc/toplev.c:1834
+#6  initialize_rtl () at ../../gcc/toplev.c:1915
+#7  0x0000000000925249 in init_function_start (subr=0x7ffff6a4f900) at ../../gcc/function.c:4888
+#8  0x0000000000819eae in cgraph_node::expand (this=0x7ffff68f5438) at ../../gcc/cgraphunit.c:2185
+#9  0x000000000081aed4 in output_in_order () at ../../gcc/cgraphunit.c:2442
+#10 symbol_table::compile (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2686
+#11 0x000000000081ce6d in symbol_table::compile (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2865
+#12 symbol_table::finalize_compilation_unit (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2865
+#13 0x0000000000b8479d in compile_file () at ../../gcc/toplev.c:481
+#14 0x00000000005ed74d in do_compile () at ../../gcc/toplev.c:2205
+#15 toplev::main (this=this@entry=0x7fffffffdbae, argc=<optimized out>, argc@entry=16, argv=<optimized out>, 
+    argv@entry=0x7fffffffdca8) at ../../gcc/toplev.c:2340
+#16 0x00000000005f106f in main (argc=16, argv=0x7fffffffdca8) at ../../gcc/main.c:39
+
+(gdb) bt
+#0  gen_movsi (operand0=0x7ffff6a92120, operand1=0x7ffff68fa490) at ../../gcc/config/i386/i386.md:1871
+#1  0x00000000008db558 in insn_gen_fn::operator() (this=<optimized out>, a1=0x7ffff68fa490, a0=0x7ffff6a92120)
+    at ../../gcc/recog.h:301
+#2  emit_move_insn_1 (x=0x7ffff6a92120, y=0x7ffff68fa490) at ../../gcc/expr.c:3690
+#3  0x00000000008db8e3 in emit_move_insn (x=0x7ffff6a92120, y=0x7ffff68fa490) at ../../gcc/expr.c:3786
+#4  0x00000000008e2db2 in store_expr (exp=0x7ffff69151c8, target=0x7ffff6a92120, call_param_p=0, 
+    nontemporal=<optimized out>, reverse=<optimized out>) at ../../gcc/expr.c:5850
+#5  0x00000000008e3d44 in expand_assignment (to=0x7ffff6a60570, from=0x7ffff69151c8, nontemporal=<optimized out>)
+    at ../../gcc/expr.c:5296
+#6  0x00000000007e5c69 in expand_gimple_stmt_1 (stmt=0x7ffff6a835a0) at ../../gcc/gimple.h:2687
+#7  expand_gimple_stmt (stmt=0x7ffff6a835a0) at ../../gcc/cfgexpand.c:3850
+#8  0x00000000007eab78 in expand_gimple_basic_block (bb=<optimized out>, disable_tail_calls=<optimized out>)
+    at ../../gcc/cfgexpand.c:5886
+#9  0x00000000007ecf0f in (anonymous namespace)::pass_expand::execute (this=<optimized out>, fun=0x7ffff6a650b0)
+    at ../../gcc/cfgexpand.c:6509
+#10 0x0000000000ac66ba in execute_one_pass (pass=0x1f48210) at ../../gcc/passes.c:2487
+#11 0x0000000000ac6da0 in execute_pass_list_1 (pass=0x1f48210) at ../../gcc/passes.c:2573
+#12 0x0000000000ac6dd9 in execute_pass_list (fn=0x7ffff6a650b0, pass=<optimized out>) at ../../gcc/passes.c:2584
+#13 0x0000000000819ef2 in cgraph_node::expand (this=0x7ffff68f5438) at ../../gcc/context.h:48
+#14 0x000000000081aed4 in output_in_order () at ../../gcc/cgraphunit.c:2442
+#15 symbol_table::compile (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2686
+#16 0x000000000081ce6d in symbol_table::compile (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2865
+#17 symbol_table::finalize_compilation_unit (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2865
+#18 0x0000000000b8479d in compile_file () at ../../gcc/toplev.c:481
+#19 0x00000000005ed74d in do_compile () at ../../gcc/toplev.c:2205
+#20 toplev::main (this=this@entry=0x7fffffffdbae, argc=<optimized out>, argc@entry=16, argv=<optimized out>, 
+    argv@entry=0x7fffffffdca8) at ../../gcc/toplev.c:2340
+#21 0x00000000005f106f in main (argc=16, argv=0x7fffffffdca8) at ../../gcc/main.c:39
+

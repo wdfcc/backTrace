@@ -1,0 +1,29 @@
+(gdb) bt
+#0  0x0000000000abd1d0 in maybe_unwind_expanded_macro_loc (where=<optimized out>, diagnostic=<optimized out>, context=<optimized out>) at ../../gcc/diagnostic.h:376
+#1  virt_loc_aware_diagnostic_finalizer (context=context@entry=0x1d98ba0 <global_diagnostic_context>, diagnostic=diagnostic@entry=0x7fffffffd390) at ../../gcc/tree-diagnostic.c:241
+#2  0x00000000006760e3 in c_diagnostic_finalizer (context=0x1d98ba0 <global_diagnostic_context>, diagnostic=0x7fffffffd390) at ../../gcc/c-family/c-opts.c:174
+#3  0x0000000001285b41 in diagnostic_report_diagnostic (context=0x1d98ba0 <global_diagnostic_context>, diagnostic=0x7fffffffd390) at ../../gcc/diagnostic.c:1020
+#4  0x0000000001285f9e in diagnostic_impl (richloc=richloc@entry=0x7fffffffd410, opt=opt@entry=-1, gmsgid=gmsgid@entry=0x1343928 "lvalue required as left operand of assignment", 
+    ap=ap@entry=0x7fffffffd3f8, kind=kind@entry=DK_ERROR) at ../../gcc/diagnostic.c:1159
+#5  0x000000000128690e in error_at (loc=<optimized out>, gmsgid=0x1343928 "lvalue required as left operand of assignment") at ../../gcc/diagnostic.c:1461
+#6  0x0000000000604e38 in lvalue_or_else (use=<optimized out>, ref=<optimized out>, loc=<optimized out>) at ../../gcc/c/c-typeck.c:4912
+#7  build_modify_expr (location=location@entry=2147483640, lhs=<optimized out>, lhs@entry=0x7ffff6912060, lhs_origtype=lhs_origtype@entry=0x0, modifycode=modifycode@entry=PLUS_EXPR, 
+    rhs_loc=rhs_loc@entry=2147483641, rhs=0x7ffff69123a8, rhs_origtype=<optimized out>) at ../../gcc/c/c-typeck.c:6099
+#8  0x000000000061aa6e in c_parser_expr_no_commas (parser=0x7ffff6900b40, after=<optimized out>, omp_atomic_lhs=<optimized out>) at ../../gcc/c/c-parser.c:6721
+#9  0x000000000061abc2 in c_parser_expression (parser=parser@entry=0x7ffff6900b40) at ../../gcc/c/c-parser.c:9731
+#10 0x000000000061b248 in c_parser_expression_conv (parser=parser@entry=0x7ffff6900b40) at ../../gcc/c/c-parser.c:9764
+#11 0x0000000000628a9c in c_parser_statement_after_labels (parser=0x7ffff6900b40, if_p=0x0, chain=0x0) at ../../gcc/c/c-parser.c:5610
+#12 0x000000000062ab5b in c_parser_compound_statement_nostart (parser=parser@entry=0x7ffff6900b40) at ../../gcc/c/c-parser.c:5148
+#13 0x000000000062b0d9 in c_parser_compound_statement (parser=parser@entry=0x7ffff6900b40) at ../../gcc/c/c-parser.c:4982
+#14 0x000000000062c820 in c_parser_declaration_or_fndef (parser=0x7ffff6900b40, fndef_ok=true, static_assert_ok=<optimized out>, empty_ok=<optimized out>, nested=<optimized out>, 
+    start_attr_ok=<optimized out>, objc_foreach_object_declaration=<optimized out>, omp_declare_simd_clauses=..., oacc_routine_data=<optimized out>, fallthru_attr_p=<optimized out>)
+    at ../../gcc/c/c-parser.c:2354
+#15 0x0000000000632660 in c_parser_external_declaration (parser=0x7ffff6900b40) at ../../gcc/c/c-parser.c:1653
+#16 0x0000000000633082 in c_parser_translation_unit (parser=<optimized out>) at ../../gcc/c/c-parser.c:1534
+#17 c_parse_file () at ../../gcc/c/c-parser.c:19854
+#18 0x000000000067899c in c_common_parse_file () at ../../gcc/c-family/c-opts.c:1156
+#19 0x0000000000a73f70 in compile_file () at ../../gcc/toplev.c:456
+#20 0x00000000005ccbad in do_compile () at ../../gcc/toplev.c:2205
+#21 toplev::main (this=this@entry=0x7fffffffdc1e, argc=<optimized out>, argc@entry=15, argv=<optimized out>, argv@entry=0x7fffffffdd18) at ../../gcc/toplev.c:2340
+#22 0x00000000005d04df in main (argc=15, argv=0x7fffffffdd18) at ../../gcc/main.c:39
+

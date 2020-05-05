@@ -1,0 +1,18 @@
+(gdb) bt
+#0  0x00005555557d9ce3 in tcg_out_opc (s=0x7fffa0000b20, opc=139, r=5, rm=14, x=0) at /home/sdk/qemu/tcg/i386/tcg-target.inc.c:522
+#1  0x00005555557da3df in tcg_out_modrm_sib_offset (s=0x7fffa0000b20, opc=139, r=5, rm=14, index=-1, shift=0, offset=-28) at /home/sdk/qemu/tcg/i386/tcg-target.inc.c:741
+#2  0x00005555557da4bc in tcg_out_modrm_offset (s=0x7fffa0000b20, opc=139, r=5, rm=14, offset=-28) at /home/sdk/qemu/tcg/i386/tcg-target.inc.c:757
+#3  0x00005555557dad57 in tcg_out_ld (s=0x7fffa0000b20, type=TCG_TYPE_I32, ret=TCG_REG_EBP, arg1=TCG_REG_R14, arg2=-28) at /home/sdk/qemu/tcg/i386/tcg-target.inc.c:1000
+#4  0x00005555557dd1b2 in tcg_out_op (s=0x7fffa0000b20, opc=INDEX_op_ld_i32, args=0x7fffabffe650, const_args=0x7fffabffe610) at /home/sdk/qemu/tcg/i386/tcg-target.inc.c:2271
+#5  0x00005555557e6896 in tcg_reg_alloc_op (s=0x7fffa0000b20, op=0x7fffa000a3f0) at /home/sdk/qemu/tcg/tcg.c:3184
+#6  0x00005555557e73a9 in tcg_gen_code (s=0x7fffa0000b20, tb=0x7fffac000d80 <code_gen_buffer+3411>) at /home/sdk/qemu/tcg/tcg.c:3598
+#7  0x000055555587aee9 in tb_gen_code (cpu=0x55555640a3b0, pc=1036169, cs_base=0, flags=144, cflags=524288) at /home/sdk/qemu/accel/tcg/translate-all.c:1752
+#8  0x00005555558777d9 in tb_find (cpu=0x55555640a3b0, last_tb=0x0, tb_exit=0, cf_mask=524288) at /home/sdk/qemu/accel/tcg/cpu-exec.c:404
+#9  0x000055555587817f in cpu_exec (cpu=0x55555640a3b0) at /home/sdk/qemu/accel/tcg/cpu-exec.c:724
+#10 0x000055555581bd4f in tcg_cpu_exec (cpu=0x55555640a3b0) at /home/sdk/qemu/cpus.c:1425
+#11 0x000055555581c56e in qemu_tcg_cpu_thread_fn (arg=0x55555640a3b0) at /home/sdk/qemu/cpus.c:1721
+#12 0x0000555555d5ba9c in qemu_thread_start (args=0x555556435620) at util/qemu-thread-posix.c:504
+#13 0x00007ffff5ad4164 in start_thread (arg=<optimized out>) at pthread_create.c:486
+#14 0x00007ffff59fadef in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:95
+(gdb) 
+

@@ -1,0 +1,51 @@
+(gdb) bt
+#0  gen_push (arg=0x7ffff68f3390) at ../../gcc/config/i386/i386.c:11029
+#1  0x0000000000e50d90 in ix86_expand_prologue () at ../../gcc/config/i386/i386.c:13433
+p a#2  0x00000000010b396c in gen_prologue () at ../../gcc/config/i386/i386.md:13081
+#3  0x0000000000e37179 in target_gen_prologue () at ../../gcc/config/i386/i386.md:19518
+#4  0x0000000000929030 in make_prologue_seq () at ../../gcc/function.c:5742
+#5  0x0000000000929252 in thread_prologue_and_epilogue_insns () at ../../gcc/function.c:5859
+#6  0x0000000000929803 in rest_of_handle_thread_prologue_and_epilogue () at ../../gcc/function.c:6350
+#7  (anonymous namespace)::pass_thread_prologue_and_epilogue::execute (this=<optimized out>)
+    at ../../gcc/function.c:6392
+#8  0x0000000000ac66ba in execute_one_pass (pass=0x1f49850) at ../../gcc/passes.c:2487
+#9  0x0000000000ac6da0 in execute_pass_list_1 (pass=0x1f49850) at ../../gcc/passes.c:2573
+#10 0x0000000000ac6db2 in execute_pass_list_1 (pass=0x1f49550) at ../../gcc/passes.c:2574
+#11 0x0000000000ac6db2 in execute_pass_list_1 (pass=0x1f48270) at ../../gcc/passes.c:2574
+#12 0x0000000000ac6dd9 in execute_pass_list (fn=0x7ffff6a650b0, pass=<optimized out>) at ../../gcc/passes.c:2584
+#13 0x0000000000819ef2 in cgraph_node::expand (this=0x7ffff68f5438) at ../../gcc/context.h:48
+#14 0x000000000081aed4 in output_in_order () at ../../gcc/cgraphunit.c:2442
+#15 symbol_table::compile (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2686
+#16 0x000000000081ce6d in symbol_table::compile (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2865
+#17 symbol_table::finalize_compilation_unit (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2865
+#18 0x0000000000b8479d in compile_file () at ../../gcc/toplev.c:481
+#19 0x00000000005ed74d in do_compile () at ../../gcc/toplev.c:2205
+#20 toplev::main (this=this@entry=0x7fffffffdbae, argc=<optimized out>, argc@entry=16, argv=<optimized out>, 
+    argv@entry=0x7fffffffdca8) at ../../gcc/toplev.c:2340
+#21 0x00000000005f106f in main (argc=16, argv=0x7fffffffdca8) at ../../gcc/main.c:39
+(gdb) bt
+#0  gen_push (arg=0x7ffff68f3390) at ../../gcc/config/i386/i386.c:11029
+#1  0x0000000000e50d90 in ix86_expand_prologue () at ../../gcc/config/i386/i386.c:13433
+#2  0x00000000010b396c in gen_prologue () at ../../gcc/config/i386/i386.md:13081
+#3  0x0000000000e37179 in target_gen_prologue () at ../../gcc/config/i386/i386.md:19518
+#4  0x0000000000929030 in make_prologue_seq () at ../../gcc/function.c:5742
+#5  0x0000000000929252 in thread_prologue_and_epilogue_insns () at ../../gcc/function.c:5859
+#6  0x0000000000929803 in rest_of_handle_thread_prologue_and_epilogue () at ../../gcc/function.c:6350
+#7  (anonymous namespace)::pass_thread_prologue_and_epilogue::execute (this=<optimized out>)
+    at ../../gcc/function.c:6392
+#8  0x0000000000ac66ba in execute_one_pass (pass=0x1f49850) at ../../gcc/passes.c:2487
+#9  0x0000000000ac6da0 in execute_pass_list_1 (pass=0x1f49850) at ../../gcc/passes.c:2573
+#10 0x0000000000ac6db2 in execute_pass_list_1 (pass=0x1f49550) at ../../gcc/passes.c:2574
+#11 0x0000000000ac6db2 in execute_pass_list_1 (pass=0x1f48270) at ../../gcc/passes.c:2574
+#12 0x0000000000ac6dd9 in execute_pass_list (fn=0x7ffff6a650b0, pass=<optimized out>) at ../../gcc/passes.c:2584
+#13 0x0000000000819ef2 in cgraph_node::expand (this=0x7ffff68f5438) at ../../gcc/context.h:48
+#14 0x000000000081aed4 in output_in_order () at ../../gcc/cgraphunit.c:2442
+#15 symbol_table::compile (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2686
+#16 0x000000000081ce6d in symbol_table::compile (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2865
+#17 symbol_table::finalize_compilation_unit (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2865
+#18 0x0000000000b8479d in compile_file () at ../../gcc/toplev.c:481
+#19 0x00000000005ed74d in do_compile () at ../../gcc/toplev.c:2205
+#20 toplev::main (this=this@entry=0x7fffffffdbae, argc=<optimized out>, argc@entry=16, argv=<optimized out>, 
+    argv@entry=0x7fffffffdca8) at ../../gcc/toplev.c:2340
+#21 0x00000000005f106f in main (argc=16, argv=0x7fffffffdca8) at ../../gcc/main.c:39
+

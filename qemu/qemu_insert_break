@@ -1,0 +1,19 @@
+(gdb) bt
+#0  0x000055555582bbab in gdb_breakpoint_insert (addr=18446744071608725676, len=1, type=0) at /home/sdk/qemu/gdbstub.c:793
+#1  0x000055555582ce37 in gdb_handle_packet (s=0x5555575956a0, line_buf=0x5555575956bc "Z0,ffffffff82c7f0ac,1") at /home/sdk/qemu/gdbstub.c:1211
+#2  0x000055555582e573 in gdb_read_byte (s=0x5555575956a0, ch=49) at /home/sdk/qemu/gdbstub.c:1719
+#3  0x000055555582e68e in gdb_chr_receive
+    (opaque=0x0, buf=0x7fffffffca30 "$Z0,ffffffff82c7f0ac,1#a16-64bit-sse.xml:7fd,ffb#1bInsn+;fork-events+;vfork-events+;exec-events+;vContSupported+;QThreadEvents+;no-resumed+;xmlRegisters=i386#6a$qSupported:multiprocess+;swbreak+;hwbre"..., size=25) at /home/sdk/qemu/gdbstub.c:1930
+#4  0x0000555555cd722e in qemu_chr_be_write_impl
+    (s=0x55555657d2c0, buf=0x7fffffffca30 "$Z0,ffffffff82c7f0ac,1#a16-64bit-sse.xml:7fd,ffb#1bInsn+;fork-events+;vfork-events+;exec-events+;vContSupported+;QThreadEvents+;no-resumed+;xmlRegisters=i386#6a$qSupported:multiprocess+;swbreak+;hwbre"..., len=25) at chardev/char.c:175
+#5  0x0000555555cd7292 in qemu_chr_be_write
+    (s=0x55555657d2c0, buf=0x7fffffffca30 "$Z0,ffffffff82c7f0ac,1#a16-64bit-sse.xml:7fd,ffb#1bInsn+;fork-events+;vfork-events+;exec-events+;vContSupported+;QThreadEvents+;no-resumed+;xmlRegisters=i386#6a$qSupported:multiprocess+;swbreak+;hwbre"..., len=25) at chardev/char.c:187
+#6  0x0000555555cdfe86 in tcp_chr_read (chan=0x5555576c1090, cond=G_IO_IN, opaque=0x55555657d2c0) at chardev/char-socket.c:490
+#7  0x0000555555cf5609 in qio_channel_fd_source_dispatch (source=0x5555575936e0, callback=0x555555cdfcd8 <tcp_chr_read>, user_data=0x55555657d2c0) at io/channel-watch.c:84
+#8  0x00007ffff7298ae8 in g_main_context_dispatch () at /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0
+#9  0x0000555555d566b6 in glib_pollfds_poll () at util/main-loop.c:215
+#10 0x0000555555d56730 in os_host_main_loop_wait (timeout=1000000000) at util/main-loop.c:238
+#11 0x0000555555d567e9 in main_loop_wait (nonblocking=0) at util/main-loop.c:497
+#12 0x00005555559a132f in main_loop () at vl.c:1894
+#13 0x00005555559a8ce2 in main (argc=17, argv=0x7fffffffdea8, envp=0x7fffffffdf38) at vl.c:4639
+

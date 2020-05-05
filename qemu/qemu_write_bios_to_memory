@@ -1,0 +1,10 @@
+#0  0x00007ffff276c394 in __memmove_sse2_unaligned_erms () at ../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:253
+#1  0x00005555557db2f5 in cpu_physical_memory_write_rom_internal (as=0x5555564e23a0 <address_space_memory>, addr=4294705152, buf=0x7fffe45c2010 "", len=262144, type=WRITE_DATA)
+    at /home/sdk/qemu/exec.c:3412
+#2  0x00005555557db39f in cpu_physical_memory_write_rom (as=0x5555564e23a0 <address_space_memory>, addr=4294705152, buf=0x7fffe45c2010 "", len=262144) at /home/sdk/qemu/exec.c:3431
+#3  0x0000555555a760fa in rom_reset (unused=0x0) at hw/core/loader.c:1105
+#4  0x0000555555a6cbf3 in qemu_devices_reset () at hw/core/reset.c:69
+#5  0x00005555558f3343 in pc_machine_reset () at /home/sdk/qemu/hw/i386/pc.c:2282
+#6  0x00005555559afb39 in qemu_system_reset (reason=SHUTDOWN_CAUSE_NONE) at vl.c:1645
+#7  0x00005555559b787e in main (argc=18, argv=0x7fffffffe288, envp=0x7fffffffe320) at vl.c:4611
+

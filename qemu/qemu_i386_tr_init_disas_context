@@ -1,0 +1,17 @@
+Old value = (TCGv_i64) 0x0
+New value = (TCGv_i64) 0xb60
+i386_tr_init_disas_context (dcbase=0x7fffdf7fd570, cpu=0x55555666dbf0) at /home/sdk/qemu/target/i386/translate.c:8454
+8454	    cpu_T1 = tcg_temp_new();
+(gdb) bt
+#0  0x000055555595d31e in i386_tr_init_disas_context (dcbase=0x7fffdf7fd570, cpu=0x55555666dbf0) at /home/sdk/qemu/target/i386/translate.c:8454
+#1  0x00005555558807f6 in translator_loop (ops=0x555556261660 <i386_tr_ops>, db=0x7fffdf7fd570, cpu=0x55555666dbf0, tb=0x7fff98000040 <code_gen_buffer+22>) at /home/sdk/qemu/accel/tcg/translator.c:57
+#2  0x000055555595d68b in gen_intermediate_code (cpu=0x55555666dbf0, tb=0x7fff98000040 <code_gen_buffer+22>) at /home/sdk/qemu/target/i386/translate.c:8563
+#3  0x000055555587ece0 in tb_gen_code (cpu=0x55555666dbf0, pc=4294967280, cs_base=4294901760, flags=64, cflags=0) at /home/sdk/qemu/accel/tcg/translate-all.c:1726
+#4  0x000055555587b6aa in tb_find (cpu=0x55555666dbf0, last_tb=0x0, tb_exit=0, cf_mask=0) at /home/sdk/qemu/accel/tcg/cpu-exec.c:404
+#5  0x000055555587c03d in cpu_exec (cpu=0x55555666dbf0) at /home/sdk/qemu/accel/tcg/cpu-exec.c:724
+#6  0x0000555555821400 in tcg_cpu_exec (cpu=0x55555666dbf0) at /home/sdk/qemu/cpus.c:1363
+#7  0x0000555555821656 in qemu_tcg_rr_cpu_thread_fn (arg=0x55555666dbf0) at /home/sdk/qemu/cpus.c:1463
+#8  0x0000555555d928c2 in qemu_thread_start (args=0x555556698ea0) at util/qemu-thread-posix.c:504
+#9  0x00007ffff2aa27fc in start_thread (arg=0x7fffdf7fe700) at pthread_create.c:465
+#10 0x00007ffff27cfb5f in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:95
+

@@ -1,0 +1,22 @@
+gdb) bt
+#0  ix86_asm_output_function_label (asm_out_file=0x1f50430, fname=0x7ffff6a52a60 "_ZN4testC2Ev", 
+    decl=0x7ffff6a4f900) at ../../gcc/config/i386/i386.c:7059
+#1  0x0000000000e01991 in assemble_start_function (decl=0x7ffff6a4f900, 
+    fnname=fnname@entry=0x7ffff6a52a60 "_ZN4testC2Ev") at ../../gcc/varasm.c:1892
+#2  0x00000000008f47f0 in rest_of_handle_final () at ../../gcc/final.c:4655
+#3  (anonymous namespace)::pass_final::execute (this=<optimized out>) at ../../gcc/final.c:4737
+#4  0x0000000000ac66ba in execute_one_pass (pass=0x1f4a450) at ../../gcc/passes.c:2487
+#5  0x0000000000ac6da0 in execute_pass_list_1 (pass=0x1f4a450) at ../../gcc/passes.c:2573
+#6  0x0000000000ac6db2 in execute_pass_list_1 (pass=0x1f49f70) at ../../gcc/passes.c:2574
+#7  0x0000000000ac6db2 in execute_pass_list_1 (pass=0x1f48270) at ../../gcc/passes.c:2574
+#8  0x0000000000ac6dd9 in execute_pass_list (fn=0x7ffff6a650b0, pass=<optimized out>) at ../../gcc/passes.c:2584
+#9  0x0000000000819ef2 in cgraph_node::expand (this=0x7ffff68f5438) at ../../gcc/context.h:48
+#10 0x000000000081aed4 in output_in_order () at ../../gcc/cgraphunit.c:2442
+#11 symbol_table::compile (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2686
+#12 0x000000000081ce6d in symbol_table::compile (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2865
+#13 symbol_table::finalize_compilation_unit (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2865
+#14 0x0000000000b8479d in compile_file () at ../../gcc/toplev.c:481
+#15 0x00000000005ed74d in do_compile () at ../../gcc/toplev.c:2205
+#16 toplev::main (this=this@entry=0x7fffffffdbae, argc=<optimized out>, argc@entry=16, argv=<optimized out>, 
+    argv@entry=0x7fffffffdca8) at ../../gcc/toplev.c:2340
+#17 0x00000000005f106f in main (argc=16, argv=0x7fffffffdca8) at ../../gcc/main.c:39

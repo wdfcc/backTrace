@@ -1,0 +1,17 @@
+(gdb) bt
+#0  0x00007ffff5da90cf in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00005555558347c6 in memcpy (__len=<optimized out>, __src=0x7fffe0dff010, 
+    __dest=<optimized out>) at /usr/include/x86_64-linux-gnu/bits/string_fortified.h:34
+#2  address_space_write_rom_internal (type=WRITE_DATA, len=4194304, buf=0x7fffe0dff010 "", 
+    attrs=..., addr=4290772992, as=0x5555563fb600 <address_space_memory>)
+    at /home/sdk/qemu/exec.c:3520
+#3  address_space_write_rom (as=0x5555563fb600 <address_space_memory>, addr=<optimized out>, 
+    attrs=attrs@entry=..., buf=<optimized out>, len=<optimized out>)
+    at /home/sdk/qemu/exec.c:3541
+#4  0x0000555555a2730e in rom_reset (unused=<optimized out>) at hw/core/loader.c:1103
+#5  0x0000555555a2394a in qemu_devices_reset () at hw/core/reset.c:69
+#6  0x0000555555917d8b in pc_machine_reset (machine=<optimized out>)
+    at /home/sdk/qemu/hw/i386/pc.c:2817
+#7  0x00005555559b88ad in qemu_system_reset (reason=SHUTDOWN_CAUSE_NONE) at vl.c:1549
+#8  0x000055555582a7b2 in main (argc=<optimized out>, argv=<optimized out>, 
+

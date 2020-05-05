@@ -1,0 +1,16 @@
+(gdb) bt
+#0  emit_move_insn (x=x@entry=0x7ffff6a7fd68, y=y@entry=0x7ffff6a7fd80) at ../../gcc/expr.c:3740
+#1  0x00000000007f8d36 in init_set_costs () at ../../gcc/cfgloopanal.c:375
+#2  0x0000000000b8532c in backend_init_target () at ../../gcc/toplev.c:1834
+#3  initialize_rtl () at ../../gcc/toplev.c:1915
+#4  0x0000000000925249 in init_function_start (subr=0x7ffff6a4f900) at ../../gcc/function.c:4888
+#5  0x0000000000819eae in cgraph_node::expand (this=0x7ffff68f5438) at ../../gcc/cgraphunit.c:2185
+#6  0x000000000081aed4 in output_in_order () at ../../gcc/cgraphunit.c:2442
+#7  symbol_table::compile (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2686
+#8  0x000000000081ce6d in symbol_table::compile (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2865
+#9  symbol_table::finalize_compilation_unit (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2865
+#10 0x0000000000b8479d in compile_file () at ../../gcc/toplev.c:481
+#11 0x00000000005ed74d in do_compile () at ../../gcc/toplev.c:2205
+#12 toplev::main (this=this@entry=0x7fffffffdbae, argc=<optimized out>, argc@entry=16, argv=<optimized out>, 
+    argv@entry=0x7fffffffdca8) at ../../gcc/toplev.c:2340
+#13 0x00000000005f106f in main (argc=16, argv=0x7fffffffdca8) at ../../gcc/main.c:39

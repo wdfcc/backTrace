@@ -1,0 +1,10 @@
+(gdb) bt
+#0  0x000055555587ad07 in tb_gen_code (cpu=0x555556409a80, pc=4294967280, cs_base=4294901760, flags=64, cflags=524288) at /home/sdk/qemu/accel/tcg/translate-all.c:1675
+#1  0x00005555558777d9 in tb_find (cpu=0x555556409a80, last_tb=0x0, tb_exit=0, cf_mask=524288) at /home/sdk/qemu/accel/tcg/cpu-exec.c:404
+#2  0x000055555587817f in cpu_exec (cpu=0x555556409a80) at /home/sdk/qemu/accel/tcg/cpu-exec.c:724
+#3  0x000055555581bd4f in tcg_cpu_exec (cpu=0x555556409a80) at /home/sdk/qemu/cpus.c:1425
+#4  0x000055555581c56e in qemu_tcg_cpu_thread_fn (arg=0x555556409a80) at /home/sdk/qemu/cpus.c:1721
+#5  0x0000555555d5ba9c in qemu_thread_start (args=0x555556434e20) at util/qemu-thread-posix.c:504
+#6  0x00007ffff5ad9164 in start_thread (arg=<optimized out>) at pthread_create.c:486
+#7  0x00007ffff59ffdef in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:95
+

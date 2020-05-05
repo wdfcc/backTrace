@@ -1,0 +1,81 @@
+(gdb) bt
+#0  ix86_compute_frame_layout () at ../../gcc/config/i386/i386.c:11315
+#1  0x0000000000b1f8fe in set_initial_elim_offsets () at ../../gcc/reload1.c:3868
+#2  0x0000000000b2acfa in calculate_elim_costs_all_insns () at ../../gcc/reload1.c:1564
+#3  0x0000000000a05a10 in ira_costs () at ../../gcc/ira-costs.c:2305
+#4  0x00000000009ff441 in ira_build () at ../../gcc/ira-build.c:3432
+#5  0x00000000009f653b in ira (f=<optimized out>) at ../../gcc/ira.c:5346
+#6  (anonymous namespace)::pass_ira::execute (this=<optimized out>) at ../../gcc/ira.c:5657
+#7  0x0000000000ac66ba in execute_one_pass (pass=0x1f49430) at ../../gcc/passes.c:2487
+#8  0x0000000000ac6da0 in execute_pass_list_1 (pass=0x1f49430) at ../../gcc/passes.c:2573
+#9  0x0000000000ac6db2 in execute_pass_list_1 (pass=0x1f48270) at ../../gcc/passes.c:2574
+#10 0x0000000000ac6dd9 in execute_pass_list (fn=0x7ffff6a650b0, pass=<optimized out>) at ../../gcc/passes.c:2584
+#11 0x0000000000819ef2 in cgraph_node::expand (this=0x7ffff68f5438) at ../../gcc/context.h:48
+#12 0x000000000081aed4 in output_in_order () at ../../gcc/cgraphunit.c:2442
+#13 symbol_table::compile (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2686
+#14 0x000000000081ce6d in symbol_table::compile (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2865
+#15 symbol_table::finalize_compilation_unit (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2865
+#16 0x0000000000b8479d in compile_file () at ../../gcc/toplev.c:481
+#17 0x00000000005ed74d in do_compile () at ../../gcc/toplev.c:2205
+#18 toplev::main (this=this@entry=0x7fffffffdbae, argc=<optimized out>, argc@entry=16, argv=<optimized out>, 
+    argv@entry=0x7fffffffdca8) at ../../gcc/toplev.c:2340
+#19 0x00000000005f106f in main (argc=16, argv=0x7fffffffdca8) at ../../gcc/main.c:39
+(gdb) c
+Continuing.
+
+Thread 2.1 "cc1plus" hit Breakpoint 1, ix86_compute_frame_layout () at ../../gcc/config/i386/i386.c:11315
+11315	  struct ix86_frame *frame = &cfun->machine->frame;
+(gdb) bt
+#0  ix86_compute_frame_layout () at ../../gcc/config/i386/i386.c:11315
+#1  0x0000000000a49489 in update_reg_eliminate (insns_with_changed_offsets=0x7fffffffd790)
+    at ../../gcc/lra-eliminations.c:1207
+#2  0x0000000000a4b263 in lra_eliminate (final_p=final_p@entry=false, first_p=first_p@entry=true)
+    at ../../gcc/lra-eliminations.c:1460
+#3  0x0000000000a43e4b in lra_constraints (first_p=true) at ../../gcc/lra-constraints.c:4809
+#4  0x0000000000a32a65 in lra (f=<optimized out>) at ../../gcc/lra.c:2472
+#5  0x00000000009f0a72 in do_reload () at ../../gcc/ira.c:5516
+#6  (anonymous namespace)::pass_reload::execute (this=<optimized out>) at ../../gcc/ira.c:5700
+#7  0x0000000000ac66ba in execute_one_pass (pass=0x1f49490) at ../../gcc/passes.c:2487
+#8  0x0000000000ac6da0 in execute_pass_list_1 (pass=0x1f49490) at ../../gcc/passes.c:2573
+#9  0x0000000000ac6db2 in execute_pass_list_1 (pass=0x1f48270) at ../../gcc/passes.c:2574
+#10 0x0000000000ac6dd9 in execute_pass_list (fn=0x7ffff6a650b0, pass=<optimized out>) at ../../gcc/passes.c:2584
+#11 0x0000000000819ef2 in cgraph_node::expand (this=0x7ffff68f5438) at ../../gcc/context.h:48
+#12 0x000000000081aed4 in output_in_order () at ../../gcc/cgraphunit.c:2442
+#13 symbol_table::compile (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2686
+#14 0x000000000081ce6d in symbol_table::compile (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2865
+#15 symbol_table::finalize_compilation_unit (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2865
+#16 0x0000000000b8479d in compile_file () at ../../gcc/toplev.c:481
+#17 0x00000000005ed74d in do_compile () at ../../gcc/toplev.c:2205
+#18 toplev::main (this=this@entry=0x7fffffffdbae, argc=<optimized out>, argc@entry=16, argv=<optimized out>, 
+    argv@entry=0x7fffffffdca8) at ../../gcc/toplev.c:2340
+#19 0x00000000005f106f in main (argc=16, argv=0x7fffffffdca8) at ../../gcc/main.c:39
+(gdb) c
+Continuing.
+
+Thread 2.1 "cc1plus" hit Breakpoint 1, ix86_compute_frame_layout () at ../../gcc/config/i386/i386.c:11315
+11315	  struct ix86_frame *frame = &cfun->machine->frame;
+(gdb) bt
+#0  ix86_compute_frame_layout () at ../../gcc/config/i386/i386.c:11315
+#1  0x0000000000a49489 in update_reg_eliminate (insns_with_changed_offsets=0x7fffffffd810)
+    at ../../gcc/lra-eliminations.c:1207
+#2  0x0000000000a4b263 in lra_eliminate (final_p=final_p@entry=false, first_p=first_p@entry=false)
+    at ../../gcc/lra-eliminations.c:1460
+#3  0x0000000000a32a70 in lra (f=<optimized out>) at ../../gcc/lra.c:2481
+#4  0x00000000009f0a72 in do_reload () at ../../gcc/ira.c:5516
+#5  (anonymous namespace)::pass_reload::execute (this=<optimized out>) at ../../gcc/ira.c:5700
+#6  0x0000000000ac66ba in execute_one_pass (pass=0x1f49490) at ../../gcc/passes.c:2487
+#7  0x0000000000ac6da0 in execute_pass_list_1 (pass=0x1f49490) at ../../gcc/passes.c:2573
+#8  0x0000000000ac6db2 in execute_pass_list_1 (pass=0x1f48270) at ../../gcc/passes.c:2574
+#9  0x0000000000ac6dd9 in execute_pass_list (fn=0x7ffff6a650b0, pass=<optimized out>) at ../../gcc/passes.c:2584
+#10 0x0000000000819ef2 in cgraph_node::expand (this=0x7ffff68f5438) at ../../gcc/context.h:48
+#11 0x000000000081aed4 in output_in_order () at ../../gcc/cgraphunit.c:2442
+#12 symbol_table::compile (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2686
+#13 0x000000000081ce6d in symbol_table::compile (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2865
+#14 symbol_table::finalize_compilation_unit (this=0x7ffff68f6100) at ../../gcc/cgraphunit.c:2865
+#15 0x0000000000b8479d in compile_file () at ../../gcc/toplev.c:481
+#16 0x00000000005ed74d in do_compile () at ../../gcc/toplev.c:2205
+#17 toplev::main (this=this@entry=0x7fffffffdbae, argc=<optimized out>, argc@entry=16, argv=<optimized out>, 
+    argv@entry=0x7fffffffdca8) at ../../gcc/toplev.c:2340
+#18 0x00000000005f106f in main (argc=16, argv=0x7fffffffdca8) at ../../gcc/main.c:39
+(gdb) 
+

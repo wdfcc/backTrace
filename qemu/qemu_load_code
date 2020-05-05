@@ -1,0 +1,20 @@
+(gdb) bt
+#0  0x0000555555943a48 in cpu_ldub_code_ra (env=0x555556675ea0, ptr=1040482, retaddr=0) at /home/sdk/qemu/include/exec/cpu_ldst_template.h:99
+#1  0x0000555555943b31 in cpu_ldub_code (env=0x555556675ea0, ptr=1040482) at /home/sdk/qemu/include/exec/cpu_ldst_template.h:114
+#2  0x0000555555948e1c in x86_ldub_code (env=0x555556675ea0, s=0x7fffdf7fd570) at /home/sdk/qemu/target/i386/translate.c:1892
+#3  0x00005555559503a4 in disas_insn (s=0x7fffdf7fd570, cpu=0x55555666dbf0) at /home/sdk/qemu/target/i386/translate.c:4480
+#4  0x000055555595d4bd in i386_tr_translate_insn (dcbase=0x7fffdf7fd570, cpu=0x55555666dbf0) at /home/sdk/qemu/target/i386/translate.c:8501
+#5  0x00005555558809b0 in translator_loop (ops=0x555556261660 <i386_tr_ops>, db=0x7fffdf7fd570, cpu=0x55555666dbf0, tb=0x7fff98000180 <code_gen_buffer+342>)
+    at /home/sdk/qemu/accel/tcg/translator.c:103
+#6  0x000055555595d68b in gen_intermediate_code (cpu=0x55555666dbf0, tb=0x7fff98000180 <code_gen_buffer+342>) at /home/sdk/qemu/target/i386/translate.c:8563
+#7  0x000055555587ece0 in tb_gen_code (cpu=0x55555666dbf0, pc=1040475, cs_base=983040, flags=64, cflags=0) at /home/sdk/qemu/accel/tcg/translate-all.c:1726
+#8  0x000055555587b6aa in tb_find (cpu=0x55555666dbf0, last_tb=0x0, tb_exit=0, cf_mask=0) at /home/sdk/qemu/accel/tcg/cpu-exec.c:404
+#9  0x000055555587c03d in cpu_exec (cpu=0x55555666dbf0) at /home/sdk/qemu/accel/tcg/cpu-exec.c:724
+#10 0x0000555555821400 in tcg_cpu_exec (cpu=0x55555666dbf0) at /home/sdk/qemu/cpus.c:1363
+#11 0x0000555555821656 in qemu_tcg_rr_cpu_thread_fn (arg=0x55555666dbf0) at /home/sdk/qemu/cpus.c:1463
+#12 0x0000555555d928c2 in qemu_thread_start (args=0x555556698ea0) at util/qemu-thread-posix.c:504
+#13 0x00007ffff2aa27fc in start_thread (arg=0x7fffdf7fe700) at pthread_create.c:465
+#14 0x00007ffff27cfb5f in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:95
+(gdb) p/x  env->tlb_table[2][254].addend
+$11 = 0x7fffe4340000
+

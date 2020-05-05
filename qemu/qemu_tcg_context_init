@@ -1,0 +1,9 @@
+(gdb) bt
+#0  0x00005555557e171e in tcg_context_init (s=0x5555562a4500 <tcg_init_ctx>) at /home/sdk/qemu/tcg/tcg.c:959
+#1  0x0000555555878b43 in cpu_gen_init () at /home/sdk/qemu/accel/tcg/translate-all.c:241
+#2  0x0000555555879ebf in tcg_exec_init (tb_size=0) at /home/sdk/qemu/accel/tcg/translate-all.c:1149
+#3  0x0000555555857050 in tcg_init (ms=0x5555563ae000) at /home/sdk/qemu/accel/tcg/tcg-all.c:66
+#4  0x0000555555850238 in accel_init_machine (acc=0x555556360930, ms=0x5555563ae000) at /home/sdk/qemu/accel/accel.c:62
+#5  0x0000555555850348 in configure_accelerator (ms=0x5555563ae000) at /home/sdk/qemu/accel/accel.c:98
+#6  0x00005555559a8172 in main (argc=15, argv=0x7fffffffdeb8, envp=0x7fffffffdf38) at vl.c:4302
+

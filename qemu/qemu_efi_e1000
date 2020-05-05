@@ -1,0 +1,18 @@
+(gdb) bt
+#0  0x00007ffff5ae3320 in __libc_open64 (file=0x5555573c66e0 "/home/sdk/qemu/pc-bios/efi-e1000.rom", oflag=0) at ../sysdeps/unix/sysv/linux/open64.c:37
+#1  0x0000555555a3f0ca in get_image_size (filename=0x5555573c66e0 "/home/sdk/qemu/pc-bios/efi-e1000.rom") at hw/core/loader.c:68
+#2  0x0000555555af892e in pci_add_option_rom (pdev=0x7ffff0040010, is_default_rom=true, errp=0x7fffffffd6e8) at hw/pci/pci.c:2242
+#3  0x0000555555af82c9 in pci_qdev_realize (qdev=0x7ffff0040010, errp=0x7fffffffd760) at hw/pci/pci.c:2053
+#4  0x0000555555a36761 in device_set_realized (obj=0x7ffff0040010, value=true, errp=0x7fffffffd920) at hw/core/qdev.c:826
+#5  0x0000555555c2957e in property_set_bool (obj=0x7ffff0040010, v=0x5555573c8440, name=0x555555de5ab1 "realized", opaque=0x5555573c6bc0, errp=0x7fffffffd920) at qom/object.c:1991
+#6  0x0000555555c277f4 in object_property_set (obj=0x7ffff0040010, v=0x5555573c8440, name=0x555555de5ab1 "realized", errp=0x7fffffffd920) at qom/object.c:1183
+#7  0x0000555555c2a8c6 in object_property_set_qobject (obj=0x7ffff0040010, value=0x555557149310, name=0x555555de5ab1 "realized", errp=0x7fffffffd920) at qom/qom-qobject.c:27
+#8  0x0000555555c27ad9 in object_property_set_bool (obj=0x7ffff0040010, value=true, name=0x555555de5ab1 "realized", errp=0x7fffffffd920) at qom/object.c:1249
+#9  0x0000555555a35433 in qdev_init_nofail (dev=0x7ffff0040010) at hw/core/qdev.c:313
+#10 0x0000555555af7d14 in pci_nic_init_nofail (nd=0x5555562c0a20 <nd_table>, rootbus=0x55555663ef70, default_model=0x555555daf1d3 "e1000", default_devaddr=0x0) at hw/pci/pci.c:1884
+#11 0x00005555558e5d1a in pc_nic_init (pcmc=0x5555563c0510, isa_bus=0x5555563b3260, pci_bus=0x55555663ef70) at /home/sdk/qemu/hw/i386/pc.c:1653
+#12 0x00005555558e92c8 in pc_init1 (machine=0x5555563ccc00, host_type=0x555555daf1c4 "i440FX-pcihost", pci_type=0x555555daf1bd "i440FX") at /home/sdk/qemu/hw/i386/pc_piix.c:244
+#13 0x00005555558e9978 in pc_init_v3_0 (machine=0x5555563ccc00) at /home/sdk/qemu/hw/i386/pc_piix.c:438
+#14 0x0000555555a3ec9c in machine_run_board_init (machine=0x5555563ccc00) at hw/core/machine.c:834
+#15 0x00005555559a89de in main (argc=17, argv=0x7fffffffdea8, envp=0x7fffffffdf38) at vl.c:4514
+

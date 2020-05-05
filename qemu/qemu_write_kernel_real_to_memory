@@ -1,0 +1,28 @@
+(gdb) bt
+#0  0x00007ffff276c394 in __memmove_sse2_unaligned_erms () at ../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:253
+#1  0x00005555557dad36 in flatview_write_continue (fv=0x7fffcc240290, addr=65536, attrs=..., buf=0x5555567d2840 "MZ\352\a", len=17408, addr1=65536, l=17408, mr=0x55555659a700)
+    at /home/sdk/qemu/exec.c:3236
+#2  0x00005555557dae43 in flatview_write (fv=0x7fffcc240290, addr=65536, attrs=..., buf=0x5555567d2840 "MZ\352\a", len=17408) at /home/sdk/qemu/exec.c:3271
+#3  0x00005555557db149 in address_space_write (as=0x5555564e23a0 <address_space_memory>, addr=65536, attrs=..., buf=0x5555567d2840 "MZ\352\a", len=17408) at /home/sdk/qemu/exec.c:3361
+#4  0x00005555557db19a in address_space_rw (as=0x5555564e23a0 <address_space_memory>, addr=65536, attrs=..., buf=0x5555567d2840 "MZ\352\a", len=17408, is_write=true) at /home/sdk/qemu/exec.c:3372
+#5  0x0000555555b1bb8e in dma_memory_rw_relaxed (as=0x5555564e23a0 <address_space_memory>, addr=65536, buf=0x5555567d2840, len=17408, dir=DMA_DIRECTION_FROM_DEVICE)
+    at /home/sdk/qemu/include/sysemu/dma.h:88
+#6  0x0000555555b1bbe3 in dma_memory_rw (as=0x5555564e23a0 <address_space_memory>, addr=65536, buf=0x5555567d2840, len=17408, dir=DMA_DIRECTION_FROM_DEVICE) at /home/sdk/qemu/include/sysemu/dma.h:111
+#7  0x0000555555b1bc53 in dma_memory_write (as=0x5555564e23a0 <address_space_memory>, addr=65536, buf=0x5555567d2840, len=17408) at /home/sdk/qemu/include/sysemu/dma.h:123
+#8  0x0000555555b1c96e in fw_cfg_dma_transfer (s=0x5555567979c0) at hw/nvram/fw_cfg.c:365
+#9  0x0000555555b1cb65 in fw_cfg_dma_mem_write (opaque=0x5555567979c0, addr=4, value=28404, size=4) at hw/nvram/fw_cfg.c:414
+#10 0x000055555583bb80 in memory_region_write_accessor (mr=0x555556797d30, addr=4, value=0x7fffdf7fd6d8, size=4, shift=0, mask=4294967295, attrs=...) at /home/sdk/qemu/memory.c:526
+#11 0x000055555583bd3f in access_with_adjusted_size (addr=4, value=0x7fffdf7fd6d8, size=4, access_size_min=1, access_size_max=8, access_fn=
+    0x55555583ba96 <memory_region_write_accessor>, mr=0x555556797d30, attrs=...) at /home/sdk/qemu/memory.c:588
+#12 0x000055555583ea82 in memory_region_dispatch_write (mr=0x555556797d30, addr=4, data=28404, size=4, attrs=...) at /home/sdk/qemu/memory.c:1473
+#13 0x00005555557dacf9 in flatview_write_continue (fv=0x7fffcc23e3c0, addr=1304, attrs=..., buf=0x7ffff7ff0000 "", len=4, addr1=4, l=4, mr=0x555556797d30) at /home/sdk/qemu/exec.c:3232
+#14 0x00005555557dae43 in flatview_write (fv=0x7fffcc23e3c0, addr=1304, attrs=..., buf=0x7ffff7ff0000 "", len=4) at /home/sdk/qemu/exec.c:3271
+#15 0x00005555557db149 in address_space_write (as=0x5555564e2340 <address_space_io>, addr=1304, attrs=..., buf=0x7ffff7ff0000 "", len=4) at /home/sdk/qemu/exec.c:3361
+#16 0x00005555557db19a in address_space_rw (as=0x5555564e2340 <address_space_io>, addr=1304, attrs=..., buf=0x7ffff7ff0000 "", len=4, is_write=true) at /home/sdk/qemu/exec.c:3372
+#17 0x00005555558594b2 in kvm_handle_io (port=1304, attrs=..., data=0x7ffff7ff0000, direction=1, size=4, count=1) at /home/sdk/qemu/accel/kvm/kvm-all.c:1733
+#18 0x0000555555859bda in kvm_cpu_exec (cpu=0x55555666d430) at /home/sdk/qemu/accel/kvm/kvm-all.c:1973
+#19 0x0000555555820fcb in qemu_kvm_cpu_thread_fn (arg=0x55555666d430) at /home/sdk/qemu/cpus.c:1215
+#20 0x0000555555d928c2 in qemu_thread_start (args=0x555556690270) at util/qemu-thread-posix.c:504
+#21 0x00007ffff2aa17fc in start_thread (arg=0x7fffdf7fe700) at pthread_create.c:465
+#22 0x00007ffff27ceb5f in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:95
+

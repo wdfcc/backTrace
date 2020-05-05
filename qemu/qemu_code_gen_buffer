@@ -1,0 +1,11 @@
+(gdb) bt
+#0  0x00007fffac00012d in code_gen_buffer ()
+#1  0x0000555555876fcf in cpu_tb_exec (cpu=0x55555640a3b0, itb=0x7fffac000040 <code_gen_buffer+19>) at /home/sdk/qemu/accel/tcg/cpu-exec.c:171
+#2  0x0000555555877e9f in cpu_loop_exec_tb (cpu=0x55555640a3b0, tb=0x7fffac000040 <code_gen_buffer+19>, last_tb=0x7fffabffe888, tb_exit=0x7fffabffe880) at /home/sdk/qemu/accel/tcg/cpu-exec.c:615
+#3  0x000055555587819b in cpu_exec (cpu=0x55555640a3b0) at /home/sdk/qemu/accel/tcg/cpu-exec.c:725
+#4  0x000055555581bd4f in tcg_cpu_exec (cpu=0x55555640a3b0) at /home/sdk/qemu/cpus.c:1425
+#5  0x000055555581c56e in qemu_tcg_cpu_thread_fn (arg=0x55555640a3b0) at /home/sdk/qemu/cpus.c:1721
+#6  0x0000555555d5ba9c in qemu_thread_start (args=0x555556435620) at util/qemu-thread-posix.c:504
+#7  0x00007ffff5ad9164 in start_thread (arg=<optimized out>) at pthread_create.c:486
+#8  0x00007ffff59ffdef in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:95
+
