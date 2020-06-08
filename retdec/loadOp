@@ -1,0 +1,21 @@
+#0  retdec::capstone2llvmir::Capstone2LlvmIrTranslatorX86_impl::loadOp (this=0x7fffffffcb60, op=..., irb=..., ty=0x1, lea=85) at /home/sdk/retdec/src/capstone2llvmir/x86/x86.cpp:958
+#1  0x00005555559ac5e1 in retdec::capstone2llvmir::Capstone2LlvmIrTranslator_impl<cs_x86, cs_x86_op>::loadOp (this=0x555557a9dbb0, ci=0x555557a6e920, irb=..., idx=0, loadType=0x0, dstType=0x0, 
+    ct=retdec::capstone2llvmir::Capstone2LlvmIrTranslator_impl<cs_x86, cs_x86_op>::eOpConv::SEXT_TRUNC_OR_BITCAST) at /home/sdk/retdec/src/capstone2llvmir/capstone2llvmir_impl.cpp:1001
+#2  0x00005555559ac9ce in retdec::capstone2llvmir::Capstone2LlvmIrTranslator_impl<cs_x86, cs_x86_op>::_loadOps (this=0x555557a9dbb0, ci=0x555557a6e920, irb=..., opCnt=2, strict=true, loadType=0x0, dstType=0x0, 
+    ct=retdec::capstone2llvmir::Capstone2LlvmIrTranslator_impl<cs_x86, cs_x86_op>::eOpConv::SEXT_TRUNC_OR_BITCAST) at /home/sdk/retdec/src/capstone2llvmir/capstone2llvmir_impl.cpp:1042
+#3  0x00005555559ad29f in retdec::capstone2llvmir::Capstone2LlvmIrTranslator_impl<cs_x86, cs_x86_op>::loadOpBinary (this=0x555557a9dbb0, ci=0x555557a6e920, irb=..., 
+    ct=retdec::capstone2llvmir::Capstone2LlvmIrTranslator_impl<cs_x86, cs_x86_op>::eOpConv::SEXT_TRUNC_OR_BITCAST) at /home/sdk/retdec/src/capstone2llvmir/capstone2llvmir_impl.cpp:1124
+#4  0x0000555555967cf2 in retdec::capstone2llvmir::Capstone2LlvmIrTranslatorX86_impl::translateSub (this=0x555557a9dbb0, i=0x555557a68c00, xi=0x555557a6e920, irb=...) at /home/sdk/retdec/src/capstone2llvmir/x86/x86.cpp:3509
+#5  0x000055555594ac4a in retdec::capstone2llvmir::Capstone2LlvmIrTranslatorX86_impl::translateInstruction (this=0x555557a9dbb0, i=0x555557a68c00, irb=...) at /home/sdk/retdec/src/capstone2llvmir/x86/x86.cpp:234
+#6  0x00005555559a8be5 in retdec::capstone2llvmir::Capstone2LlvmIrTranslator_impl<cs_x86, cs_x86_op>::translateOne (this=0x555557a9dbb0, bytes=@0x7fffffffcf60: 0x7ffff792e018 "H\213\005\331/", size=@0x7fffffffcf68: 19, a=..., irb=...)
+    at /home/sdk/retdec/src/capstone2llvmir/capstone2llvmir_impl.cpp:261
+#7  0x00005555557610a6 in retdec::bin2llvmir::Decoder::translate (this=0x555557995290, bytes={...}, addr=..., irb=...) at /home/sdk/retdec/src/bin2llvmir/optimizations/decoder/decoder.cpp:338
+#8  0x0000555555760ce5 in retdec::bin2llvmir::Decoder::decodeJumpTarget (this=0x555557995290, jt=...) at /home/sdk/retdec/src/bin2llvmir/optimizations/decoder/decoder.cpp:296
+#9  0x000055555576036e in retdec::bin2llvmir::Decoder::decode (this=0x555557995290) at /home/sdk/retdec/src/bin2llvmir/optimizations/decoder/decoder.cpp:150
+#10 0x00005555557602bf in retdec::bin2llvmir::Decoder::run (this=0x555557995290) at /home/sdk/retdec/src/bin2llvmir/optimizations/decoder/decoder.cpp:113
+#11 0x0000555555760195 in retdec::bin2llvmir::Decoder::runCatcher (this=0x555557995290) at /home/sdk/retdec/src/bin2llvmir/optimizations/decoder/decoder.cpp:87
+#12 0x00005555557600cb in retdec::bin2llvmir::Decoder::runOnModule (this=0x555557995290, m=...) at /home/sdk/retdec/src/bin2llvmir/optimizations/decoder/decoder.cpp:56
+#13 0x0000555556ad733d in llvm::legacy::PassManagerImpl::run(llvm::Module&) ()
+#14 0x00005555556afcf8 in _main (argc=142, argv=0x7fffffffd588) at /home/sdk/retdec/src/bin2llvmirtool/bin2llvmir.cpp:465
+#15 0x00005555556b00e6 in main (argc=142, argv=0x7fffffffd588) at /home/sdk/retdec/src/bin2llvmirtool/bin2llvmir.cpp:483
+
