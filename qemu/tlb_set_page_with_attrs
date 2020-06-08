@@ -1,0 +1,31 @@
+(gdb) bt
+#0  tlb_set_page_with_attrs (cpu=cpu@entry=0x555556601050, vaddr=vaddr@entry=4294963200, 
+    paddr=<optimized out>, attrs=..., prot=<optimized out>, mmu_idx=mmu_idx@entry=2, 
+    size=<optimized out>) at /home/sdk/qemu/accel/tcg/cputlb.c:836
+#1  0x000055555597422b in handle_mmu_fault (size=<optimized out>, mmu_idx=2, is_write1=2, 
+    addr=4294967280, cs=0x555556601050) at /home/sdk/qemu/target/i386/cpu.h:1863
+#2  x86_cpu_tlb_fill (cs=0x555556601050, addr=4294967280, size=<optimized out>, 
+    access_type=MMU_INST_FETCH, mmu_idx=2, probe=<optimized out>, retaddr=0)
+    at /home/sdk/qemu/target/i386/excp_helper.c:694
+#3  0x0000555555894ab5 in tlb_fill (cpu=0x555556601050, addr=4294967280, size=0, 
+    access_type=MMU_INST_FETCH, mmu_idx=2, retaddr=0)
+    at /home/sdk/qemu/accel/tcg/cputlb.c:878
+#4  0x0000555555897d64 in get_page_addr_code (env=0x5555566098a0, addr=addr@entry=4294967280)
+    at /home/sdk/qemu/include/exec/cpu-all.h:404
+#5  0x00005555558acd54 in tb_htable_lookup (cpu=cpu@entry=0x555556601050, 
+    pc=pc@entry=4294967280, cs_base=cs_base@entry=4294901760, flags=flags@entry=64, 
+    cf_mask=4278714368) at /home/sdk/qemu/accel/tcg/cpu-exec.c:339
+#6  0x00005555558ad7e0 in tb_lookup__cpu_state (cf_mask=<optimized out>, 
+    flags=<synthetic pointer>, cs_base=<synthetic pointer>, pc=<synthetic pointer>, cpu=0x0)
+    at /home/sdk/qemu/include/exec/tb-lookup.h:43
+#7  tb_find (cf_mask=524288, tb_exit=0, last_tb=0x0, cpu=0x0)
+    at /home/sdk/qemu/accel/tcg/cpu-exec.c:406
+#8  cpu_exec (cpu=cpu@entry=0x555556601050) at /home/sdk/qemu/accel/tcg/cpu-exec.c:731
+#9  0x00005555558738df in tcg_cpu_exec (cpu=0x555556601050) at /home/sdk/qemu/cpus.c:1435
+#10 0x0000555555875c5b in qemu_tcg_cpu_thread_fn (arg=arg@entry=0x555556601050)
+    at /home/sdk/qemu/cpus.c:1743
+#11 0x0000555555cbabca in qemu_thread_start (args=<optimized out>)
+    at util/qemu-thread-posix.c:502
+#12 0x00007ffff5e14182 in start_thread () from /lib/x86_64-linux-gnu/libpthread.so.0
+#13 0x00007ffff5d3db1f in clone () from /lib/x86_64-linux-gnu/libc.so.6
+

@@ -1,0 +1,34 @@
+(gdb) bt
+#0  x86_dr_insert_watchpoint (state=0x555555fc91c0, type=type@entry=hw_execute, addr=93824992235823, len=len@entry=1) at nat/x86-dregs.c:473
+#1  0x0000555555965bea in x86_insert_hw_breakpoint (gdbarch=<optimized out>, bp_tgt=0x555555fbfe98) at x86-nat.c:219
+#2  0x000055555568aee0 in bkpt_insert_location (bl=0x555555fbfe00) at breakpoint.c:12361
+#3  bkpt_insert_location (bl=0x555555fbfe00) at breakpoint.c:12353
+#4  0x0000555555698e70 in insert_bp_location (bl=0x555555fbfe00, tmp_error_stream=0x7fffffffd540, disabled_breaks=0x7fffffffd440, hw_breakpoint_error=0x7fffffffd444, 
+    hw_bp_error_explained_already=0x7fffffffd448) at breakpoint.c:2545
+#5  0x000055555569a9b3 in insert_breakpoint_locations () at breakpoint.c:2969
+#6  update_global_location_list (insert_mode=UGLL_INSERT) at breakpoint.c:12017
+#7  0x00005555557c61b1 in keep_going_pass_signal (ecs=0x7fffffffd610) at infrun.c:7585
+#8  0x00005555557c64a6 in start_step_over () at infrun.c:2020
+#9  0x00005555557c6b8d in start_step_over () at infrun.c:1376
+#10 proceed (addr=addr@entry=18446744073709551615, siggnal=siggnal@entry=GDB_SIGNAL_DEFAULT) at infrun.c:2994
+#11 0x00005555557b82d2 in continue_1 (all_threads=0) at infcmd.c:810
+#12 0x00005555557b8506 in continue_command (args=<optimized out>, from_tty=1) at infcmd.c:902
+#13 0x00005555556c6f62 in cmd_func (cmd=<optimized out>, args=<optimized out>, from_tty=<optimized out>) at cli/cli-decode.c:1892
+#14 0x00005555559204e0 in execute_command (p=<optimized out>, p@entry=0x555555dafcf0 "c", from_tty=1) at top.c:630
+#15 0x000055555576bf5c in command_handler (command=0x555555dafcf0 "c") at event-top.c:583
+#16 0x000055555576cbbd in command_line_handler (rl=...) at event-top.c:770
+#17 0x000055555576b710 in gdb_rl_callback_handler (rl=0x55555600eb70 "c") at /usr/include/c++/8/bits/unique_ptr.h:149
+#18 0x000055555597fe0f in rl_callback_read_char () at callback.c:220
+#19 0x000055555576b626 in gdb_rl_callback_read_char_wrapper_noexcept () at event-top.c:175
+#20 0x000055555576b6a9 in gdb_rl_callback_read_char_wrapper (client_data=<optimized out>) at event-top.c:191
+#21 0x000055555576bbc0 in stdin_event_handler (error=<optimized out>, client_data=0x555555da7c90) at event-top.c:511
+#22 0x000055555576aa4d in gdb_wait_for_event (block=<optimized out>) at event-loop.c:859
+#23 gdb_wait_for_event (block=<optimized out>) at event-loop.c:746
+#24 0x000055555576abf8 in gdb_do_one_event () at event-loop.c:347
+#25 0x000055555576ad0e in gdb_do_one_event () at event-loop.c:371
+#26 start_event_loop () at event-loop.c:371
+#27 0x0000555555802dbb in captured_command_loop () at main.c:331
+#28 0x0000555555803ef5 in captured_main (data=<optimized out>) at main.c:1182
+#29 gdb_main (args=<optimized out>) at main.c:1198
+#30 0x000055555563ec7b in main (argc=<optimized out>, argv=<optimized out>) at gdb.c:32
+
