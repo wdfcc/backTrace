@@ -1,0 +1,35 @@
+(gdb) bt 
+#0  x86_linux_dr_set (regnum=regnum@entry=0, value=93824992235823, ptid=...) at ./common/ptid.h:59
+#1  0x000055555583071b in x86_linux_update_debug_registers (lwp=0x555555f56ae0) at nat/x86-linux-dregs.c:165
+#2  0x00005555557e5e85 in linux_resume_one_lwp_throw (lp=lp@entry=0x555555f56ae0, step=step@entry=1, signo=signo@entry=GDB_SIGNAL_0) at linux-nat.c:1529
+#3  0x00005555557e5ec9 in linux_resume_one_lwp (lp=0x555555f56ae0, step=1, signo=GDB_SIGNAL_0) at linux-nat.c:1589
+#4  0x00005555557e80b1 in linux_nat_target::resume (this=<optimized out>, ptid=..., step=1, signo=GDB_SIGNAL_0) at linux-nat.c:1779
+#5  0x000055555591452c in target_resume (ptid=..., step=step@entry=1, signal=signal@entry=GDB_SIGNAL_0) at target.h:1295
+#6  0x00005555557bf7a7 in do_target_resume (resume_ptid=..., step=1, sig=GDB_SIGNAL_0) at infrun.c:2225
+#7  0x00005555557c54d1 in resume_1 (sig=GDB_SIGNAL_0) at infrun.c:2608
+#8  resume (sig=GDB_SIGNAL_0) at infrun.c:2621
+#9  0x00005555557c61d6 in keep_going_pass_signal (ecs=0x7fffffffd610) at infrun.c:7598
+#10 0x00005555557c64a6 in start_step_over () at infrun.c:2020
+#11 0x00005555557c6b8d in start_step_over () at infrun.c:1376
+#12 proceed (addr=addr@entry=18446744073709551615, siggnal=siggnal@entry=GDB_SIGNAL_DEFAULT) at infrun.c:2994
+#13 0x00005555557b82d2 in continue_1 (all_threads=0) at infcmd.c:810
+#14 0x00005555557b8506 in continue_command (args=<optimized out>, from_tty=1) at infcmd.c:902
+#15 0x00005555556c6f62 in cmd_func (cmd=<optimized out>, args=<optimized out>, from_tty=<optimized out>) at cli/cli-decode.c:1892
+#16 0x00005555559204e0 in execute_command (p=<optimized out>, p@entry=0x555555dafcf0 "c", from_tty=1) at top.c:630
+#17 0x000055555576bf5c in command_handler (command=0x555555dafcf0 "c") at event-top.c:583
+#18 0x000055555576cbbd in command_line_handler (rl=...) at event-top.c:770
+#19 0x000055555576b710 in gdb_rl_callback_handler (rl=0x55555600ebc0 "c") at /usr/include/c++/8/bits/unique_ptr.h:149
+#20 0x000055555597fe0f in rl_callback_read_char () at callback.c:220
+#21 0x000055555576b626 in gdb_rl_callback_read_char_wrapper_noexcept () at event-top.c:175
+#22 0x000055555576b6a9 in gdb_rl_callback_read_char_wrapper (client_data=<optimized out>) at event-top.c:191
+#23 0x000055555576bbc0 in stdin_event_handler (error=<optimized out>, client_data=0x555555da7c90) at event-top.c:511
+#24 0x000055555576aa4d in gdb_wait_for_event (block=<optimized out>) at event-loop.c:859
+#25 gdb_wait_for_event (block=<optimized out>) at event-loop.c:746
+#26 0x000055555576abf8 in gdb_do_one_event () at event-loop.c:347
+#27 0x000055555576ad0e in gdb_do_one_event () at event-loop.c:371
+#28 start_event_loop () at event-loop.c:371
+#29 0x0000555555802dbb in captured_command_loop () at main.c:331
+#30 0x0000555555803ef5 in captured_main (data=<optimized out>) at main.c:1182
+#31 gdb_main (args=<optimized out>) at main.c:1198
+#32 0x000055555563ec7b in main (argc=<optimized out>, argv=<optimized out>) at gdb.c:32
+
