@@ -1,0 +1,7 @@
+(gdb) bt
+#0  apply_relocate_add (sechdrs=0xffffc9000080f660, strtab=<optimized out>, symindex=<optimized out>, relsec=<optimized out>, me=0xffffffffc000c880) at ../arch/x86/kernel/module.c:197
+#1  0xffffffff811a6b93 in apply_relocations (info=<optimized out>, mod=<optimized out>) at ../kernel/module.c:2313
+#2  load_module (info=0xffffc9000063be88, uargs=<optimized out>, flags=<optimized out>) at ../kernel/module.c:3754
+#3  0xffffffff811a7f3a in __do_sys_finit_module (fd=4, uargs=0x7fcf458d0265 "", flags=0) at ../kernel/module.c:3904
+#4  0xffffffff81004225 in do_syscall_64 (nr=<optimized out>, regs=0xffffc9000063bf58) at ../arch/x86/entry/common.c:301
+#5  0xffffffff81e0008c in entry_SYSCALL_64 () at ../arch/x86/entry/entry_64.S:175

@@ -1,0 +1,15 @@
+(gdb) bt
+#0  emit_common (decl=0x7ffff6617e10, name=0x7ffff65acfd0 "__force_order", size=8, rounded=16) at ../../gcc/varasm.c:2056
+#1  0x0000000000cf1eed in assemble_noswitch_variable (sect=0x7ffff68fb460, align=64, name=0x7ffff65acfd0 "__force_order", decl=0x7ffff6617e10) at ../../gcc/varasm.c:2112
+#2  assemble_variable (decl=0x7ffff6617e10, top_level=<optimized out>, at_end=<optimized out>, dont_output_data=<optimized out>) at ../../gcc/varasm.c:2312
+#3  0x0000000000cf3b6a in varpool_node::assemble_decl (this=0x7ffff4db8e00) at ../../gcc/varpool.c:584
+#4  varpool_node::assemble_decl (this=0x7ffff4db8e00) at ../../gcc/varpool.c:552
+#5  0x0000000000cf44ff in symbol_table::output_variables (this=this@entry=0x7ffff68fd100) at ../../gcc/varpool.c:750
+#6  0x000000000070876d in symbol_table::compile (this=0x7ffff68fd100) at ../../gcc/cgraphunit.c:2688
+#7  0x000000000070a84d in symbol_table::compile (this=0x7ffff68fd100) at ../../gcc/cgraphunit.c:2865
+#8  symbol_table::finalize_compilation_unit (this=0x7ffff68fd100) at ../../gcc/cgraphunit.c:2865
+#9  0x0000000000a741cd in compile_file () at ../../gcc/toplev.c:481
+#10 0x00000000005ccbad in do_compile () at ../../gcc/toplev.c:2205
+#11 toplev::main (this=this@entry=0x7fffffffd55e, argc=<optimized out>, argc@entry=61, argv=<optimized out>, argv@entry=0x7fffffffd658) at ../../gcc/toplev.c:2340
+#12 0x00000000005d04df in main (argc=61, argv=0x7fffffffd658) at ../../gcc/main.c:39
+
