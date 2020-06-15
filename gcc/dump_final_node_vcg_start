@@ -1,0 +1,20 @@
+#0  dump_final_node_vcg_start (f=0x2056be0, decl=0x7ffff6de2d00) at ../.././gcc/toplev.c:1015
+#1  0x0000000000b160ce in dump_final_node_vcg (f=0x2056be0) at ../.././gcc/toplev.c:1065
+#2  output_stack_usage () at ../.././gcc/toplev.c:1103
+#3  0x000000000086b8b3 in rest_of_handle_thread_prologue_and_epilogue () at ../.././gcc/function.c:6407
+#4  (anonymous namespace)::pass_thread_prologue_and_epilogue::execute (this=<optimized out>) at ../.././gcc/function.c:6471
+#5  0x0000000000a56598 in execute_one_pass (pass=0x200f1f0) at ../.././gcc/passes.c:2502
+#6  0x0000000000a56ee0 in execute_pass_list_1 (pass=0x200f1f0) at ../.././gcc/passes.c:2590
+#7  0x0000000000a56ef2 in execute_pass_list_1 (pass=0x200efb0) at ../.././gcc/passes.c:2591
+#8  0x0000000000a56ef2 in execute_pass_list_1 (pass=0x200dc10) at ../.././gcc/passes.c:2591
+#9  0x0000000000a56f19 in execute_pass_list (fn=0x7ffff6dec000, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#10 0x0000000000752c8e in cgraph_node::expand (this=0x7ffff6de4ca8) at ../.././gcc/context.h:48
+#11 0x0000000000753d84 in output_in_order () at ../.././gcc/cgraphunit.c:2578
+#12 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2819
+#13 0x0000000000755d9d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#14 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#15 0x0000000000b159cf in compile_file () at ../.././gcc/toplev.c:483
+#16 0x000000000060356c in do_compile () at ../.././gcc/toplev.c:2273
+#17 toplev::main (this=this@entry=0x7fffffffdcbe, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffddb8) at ../.././gcc/toplev.c:2412
+#18 0x000000000060700f in main (argc=14, argv=0x7fffffffddb8) at ../.././gcc/main.c:39
+
