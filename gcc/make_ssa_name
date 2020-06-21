@@ -1,0 +1,48 @@
+(gdb) bt
+#0  0x00007ffff6eb0819 in __memset_sse2 () from /lib64/libc.so.6
+#1  0x00000000008735c7 in ggc_internal_cleared_alloc (size=72, f=f@entry=0x0, s=s@entry=0, n=n@entry=1) at ../.././gcc/ggc-common.c:118
+#2  0x0000000000d4fe6e in ggc_internal_cleared_alloc (s=<optimized out>) at ../.././gcc/ggc.h:315
+#3  ggc_alloc_cleared_tree_node_stat (s=<optimized out>) at ../.././gcc/ggc.h:315
+#4  make_node (code=code@entry=SSA_NAME) at ../.././gcc/tree.c:1049
+#5  0x0000000000cd8d1a in make_ssa_name_fn (fn=0x7ffff495fe70, var=0x7ffff6dc7bd0, stmt=stmt@entry=0x0, version=version@entry=0) at ../.././gcc/tree-ssanames.c:308
+#6  0x00000000008b1f30 in make_ssa_name (stmt=0x0, var=<optimized out>) at ../.././gcc/tree-ssanames.h:115
+#7  internal_get_tmp_var (val=<optimized out>, pre_p=pre_p@entry=0x7fffffffc000, post_p=post_p@entry=0x0, is_formal=is_formal@entry=true, allow_ssa=allow_ssa@entry=true) at ../.././gcc/gimplify.c:626
+#8  0x00000000008ac5ba in get_formal_tmp_var (pre_p=<optimized out>, val=<optimized out>) at ../.././gcc/gimplify.c:14609
+#9  gimplify_expr (expr_p=<optimized out>, pre_p=<optimized out>, post_p=<optimized out>, gimple_test_f=<optimized out>, fallback=<optimized out>) at ../.././gcc/gimplify.c:14609
+#10 0x00000000008b2595 in gimplify_expr (expr_p=0x7ffff49720d8, pre_p=pre_p@entry=0x7fffffffc000, gimple_test_f=<optimized out>, fallback=<optimized out>, allow_ssa=<optimized out>, post_p=0x0)
+    at ../.././gcc/gimplify.c:14655
+#11 0x00000000008b2c45 in gimplify_arg (arg_p=<optimized out>, pre_p=pre_p@entry=0x7fffffffc000, call_location=<optimized out>, allow_ssa=allow_ssa@entry=true) at ../.././gcc/gimplify.c:3275
+#12 0x00000000008b2e66 in gimplify_call_expr (expr_p=0x7ffff4971598, pre_p=0x7fffffffc000, want_value=<optimized out>) at ../.././gcc/gimplify.c:3497
+#13 0x00000000008ad7c6 in gimplify_expr (expr_p=0x7ffff4971598, pre_p=<optimized out>, post_p=<optimized out>, gimple_test_f=<optimized out>, fallback=<optimized out>) at ../.././gcc/gimplify.c:13580
+#14 0x00000000008adde6 in gimplify_stmt (seq_p=<optimized out>, stmt_p=<optimized out>) at ../.././gcc/gimplify.c:6825
+#15 gimplify_statement_list (pre_p=<optimized out>, expr_p=0x7ffff495dc50) at ../.././gcc/gimplify.c:1869
+#16 gimplify_expr (expr_p=0x7ffff495dc50, pre_p=<optimized out>, post_p=<optimized out>, gimple_test_f=<optimized out>, fallback=<optimized out>) at ../.././gcc/gimplify.c:14052
+#17 0x00000000008b3f2a in gimplify_stmt (seq_p=0x7fffffffc000, stmt_p=0x7ffff495dc50) at ../.././gcc/gimplify.c:6825
+#18 gimplify_bind_expr (expr_p=expr_p@entry=0x7ffff4971670, pre_p=pre_p@entry=0x7fffffffc380) at ../.././gcc/gimplify.c:1424
+#19 0x00000000008ad7e3 in gimplify_expr (expr_p=0x7ffff4971670, pre_p=<optimized out>, post_p=<optimized out>, gimple_test_f=<optimized out>, fallback=<optimized out>) at ../.././gcc/gimplify.c:13809
+#20 0x00000000008adde6 in gimplify_stmt (seq_p=<optimized out>, stmt_p=<optimized out>) at ../.././gcc/gimplify.c:6825
+#21 gimplify_statement_list (pre_p=<optimized out>, expr_p=0x7ffff495dc80) at ../.././gcc/gimplify.c:1869
+#22 gimplify_expr (expr_p=0x7ffff495dc80, pre_p=<optimized out>, post_p=<optimized out>, gimple_test_f=<optimized out>, fallback=<optimized out>) at ../.././gcc/gimplify.c:14052
+#23 0x00000000008b3f2a in gimplify_stmt (seq_p=0x7fffffffc380, stmt_p=0x7ffff495dc80) at ../.././gcc/gimplify.c:6825
+#24 gimplify_bind_expr (expr_p=expr_p@entry=0x7ffff495dcb0, pre_p=pre_p@entry=0x7fffffffc598) at ../.././gcc/gimplify.c:1424
+#25 0x00000000008ad7e3 in gimplify_expr (expr_p=0x7ffff495dcb0, pre_p=<optimized out>, post_p=<optimized out>, gimple_test_f=<optimized out>, fallback=<optimized out>) at ../.././gcc/gimplify.c:13809
+#26 0x00000000008b570c in gimplify_stmt (seq_p=0x7fffffffc598, stmt_p=<optimized out>) at ../.././gcc/gimplify.c:6825
+#27 gimplify_cond_expr (expr_p=0x7ffff4971760, pre_p=0x7fffffffc910, fallback=<optimized out>) at ../.././gcc/gimplify.c:4240
+#28 0x00000000008ad5fc in gimplify_expr (expr_p=0x7ffff4971760, pre_p=<optimized out>, post_p=<optimized out>, gimple_test_f=<optimized out>, fallback=<optimized out>) at ../.././gcc/gimplify.c:13565
+#29 0x00000000008adde6 in gimplify_stmt (seq_p=<optimized out>, stmt_p=<optimized out>) at ../.././gcc/gimplify.c:6825
+#30 gimplify_statement_list (pre_p=<optimized out>, expr_p=0x7ffff495dce0) at ../.././gcc/gimplify.c:1869
+#31 gimplify_expr (expr_p=0x7ffff495dce0, pre_p=<optimized out>, post_p=<optimized out>, gimple_test_f=<optimized out>, fallback=<optimized out>) at ../.././gcc/gimplify.c:14052
+#32 0x00000000008b3f2a in gimplify_stmt (seq_p=0x7fffffffc910, stmt_p=0x7ffff495dce0) at ../.././gcc/gimplify.c:6825
+#33 gimplify_bind_expr (expr_p=expr_p@entry=0x7ffff4c7f4c0, pre_p=pre_p@entry=0x7fffffffcb08) at ../.././gcc/gimplify.c:1424
+#34 0x00000000008ad7e3 in gimplify_expr (expr_p=0x7ffff4c7f4c0, pre_p=<optimized out>, post_p=<optimized out>, gimple_test_f=<optimized out>, fallback=<optimized out>) at ../.././gcc/gimplify.c:13809
+#35 0x00000000008b0f93 in gimplify_stmt (seq_p=0x7fffffffcb08, stmt_p=0x7ffff4c7f4c0) at ../.././gcc/gimplify.c:6825
+#36 gimplify_body (fndecl=0x7ffff4c7f400, do_parms=<optimized out>) at ../.././gcc/gimplify.c:14857
+#37 0x00000000008b13b6 in gimplify_function_tree (fndecl=fndecl@entry=0x7ffff4c7f400) at ../.././gcc/gimplify.c:15030
+#38 0x0000000000752a38 in cgraph_node::analyze (this=0x7ffff496e9d8) at ../.././gcc/cgraphunit.c:670
+#39 0x0000000000755158 in analyze_functions (first_time=<optimized out>) at ../.././gcc/cgraphunit.c:1227
+#40 0x0000000000755d23 in symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2974
+#41 0x0000000000b159cf in compile_file () at ../.././gcc/toplev.c:483
+--Type <RET> for more, q to quit, c to continue without paging--
+#42 0x000000000060356c in do_compile () at ../.././gcc/toplev.c:2273
+#43 toplev::main (this=this@entry=0x7fffffffcdce, argc=<optimized out>, argc@entry=103, argv=<optimized out>, argv@entry=0x7fffffffcec8) at ../.././gcc/toplev.c:2412
+#44 0x000000000060700f in main (argc=103, argv=0x7fffffffcec8) at ../.././gcc/main.c:39

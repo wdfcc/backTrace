@@ -1,0 +1,25 @@
+#2  ana::make_region_for_type (type=0x7ffff4c67540, parent_rid=...) at ../.././gcc/analyzer/region-model.cc:6424
+#3  ana::region_model::add_region_for_type (this=0x247c640, parent_rid=..., type=0x7ffff4c67540, ctxt=<optimized out>) at ../.././gcc/analyzer/region-model.cc:6455
+#4  0x0000000000df6007 in ana::map_region::get_or_create (this=0x26b2470, model=0x247c640, this_rid=..., key=<optimized out>, type=0x7ffff4c67540, ctxt=0x7fffffffc190)
+    at ../.././gcc/analyzer/region-model.cc:1830
+#5  0x0000000000df8e29 in ana::region_model::get_lvalue (ctxt=0x7fffffffc190, pv=..., this=0x247c640) at ../.././gcc/analyzer/region-model.cc:5028
+#6  ana::region_model::get_lvalue (this=this@entry=0x247c640, expr=expr@entry=0x7ffff4a188d0, ctxt=ctxt@entry=0x7fffffffc190) at ../.././gcc/analyzer/region-model.cc:5040
+#7  0x0000000000dfac16 in ana::region_model::on_assignment (this=0x247c640, assign=0x7ffff4a1a5a0, ctxt=0x7fffffffc190) at ../.././gcc/analyzer/region-model.cc:4332
+#8  0x0000000000ddeafb in ana::exploded_node::on_stmt (this=this@entry=0x26b6030, eg=..., snode=snode@entry=0x21e8200, stmt=stmt@entry=0x7ffff4a1a5a0, state=state@entry=0x7fffffffc2c0, 
+    change=change@entry=0x7fffffffc2a8) at ../.././gcc/analyzer/engine.cc:1019
+#9  0x0000000000ddf460 in ana::exploded_graph::process_node (this=0x7fffffffc560, node=0x26b6030) at ../.././gcc/analyzer/engine.cc:2529
+#10 0x0000000000ddf8ab in ana::exploded_graph::process_worklist (this=0x7fffffffc560) at ../.././gcc/analyzer/engine.cc:2348
+#11 0x0000000000ddff9c in ana::impl_run_checkers (logger=0x0) at ../.././gcc/analyzer/engine.cc:4029
+#12 0x0000000000de0b2d in ana::run_checkers () at ../.././gcc/analyzer/analyzer-logging.h:148
+#13 0x0000000000dd60e9 in (anonymous namespace)::pass_analyzer::execute (this=<optimized out>) at ../.././gcc/analyzer/analyzer-pass.cc:84
+#14 0x0000000000a56598 in execute_one_pass (pass=0x20092f0) at ../.././gcc/passes.c:2502
+#15 0x0000000000a573e7 in execute_ipa_pass_list (pass=0x20092f0) at ../.././gcc/passes.c:2929
+#16 0x00000000007540c8 in ipa_passes () at ../.././gcc/cgraphunit.c:2678
+#17 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2755
+#18 0x0000000000755d9d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#19 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#20 0x0000000000b159cf in compile_file () at ../.././gcc/toplev.c:483
+#21 0x000000000060356c in do_compile () at ../.././gcc/toplev.c:2273
+#22 toplev::main (this=this@entry=0x7fffffffcdce, argc=<optimized out>, argc@entry=103, argv=<optimized out>, argv@entry=0x7fffffffcec8) at ../.././gcc/toplev.c:2412
+#23 0x000000000060700f in main (argc=103, argv=0x7fffffffcec8) at ../.././gcc/main.c:39
+

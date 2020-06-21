@@ -1,0 +1,31 @@
+(gdb) bt
+#0  0x00000000007c5064 in gen_type_die_with_usage (type=0x7ffff4c67540, context_die=0x7ffff4c78230, usage=DINFO_USAGE_DIR_USE) at ../.././gcc/dwarf2out.c:25566
+#1  0x00000000007c68d7 in gen_type_die (type=0x7ffff4c67540, context_die=<optimized out>) at ../.././gcc/dwarf2out.c:25729
+#2  0x00000000007c1bd3 in gen_decl_die (decl=0x7ffff4c73688, origin=0x0, ctx=0x7fffffffc440, context_die=0x7ffff4c78230) at ../.././gcc/dwarf2out.c:26437
+#3  0x00000000007c409c in gen_member_die (context_die=<optimized out>, type=0x7ffff4c67930) at ../.././gcc/dwarf2out.c:25183
+#4  gen_struct_or_union_type_die (usage=<optimized out>, context_die=0x7ffff6c4e000, type=0x7ffff4c67930) at ../.././gcc/dwarf2out.c:25279
+#5  gen_tagged_type_die (usage=<optimized out>, context_die=0x7ffff6c4e000, type=0x7ffff4c67930) at ../.././gcc/dwarf2out.c:25480
+#6  gen_tagged_type_die (type=0x7ffff4c67930, context_die=<optimized out>, usage=<optimized out>) at ../.././gcc/dwarf2out.c:25429
+#7  0x00000000007c51d1 in gen_type_die_with_usage (type=0x7ffff4c67930, context_die=0x7ffff6c4e000, usage=DINFO_USAGE_DIR_USE) at ../.././gcc/dwarf2out.c:25675
+#8  0x00000000007c68d7 in gen_type_die (type=0x7ffff4c67930, context_die=<optimized out>) at ../.././gcc/dwarf2out.c:25729
+#9  0x00000000007c1f3c in gen_decl_die (decl=0x7ffff4c734c0, origin=<optimized out>, ctx=0x0, context_die=0x7ffff6c4e000) at ../.././gcc/dwarf2out.c:26361
+#10 0x00000000007c2ee4 in dwarf2out_decl (decl=0x7ffff4c734c0) at ../.././gcc/dwarf2out.c:26909
+#11 0x00000000007c3372 in dwarf2out_type_decl (local=0, decl=0x7ffff4c734c0) at ../.././gcc/dwarf2out.c:26634
+#12 dwarf2out_type_decl (decl=0x7ffff4c734c0, local=<optimized out>) at ../.././gcc/dwarf2out.c:26629
+#13 0x0000000000a5518f in rest_of_type_compilation (type=0x7ffff4c67930, toplev=toplev@entry=1) at ../.././gcc/passes.c:339
+#14 0x000000000062384d in finish_struct (loc=loc@entry=434887336, t=<optimized out>, t@entry=0x7ffff4c67930, fieldlist=0x7ffff4c73558, attributes=attributes@entry=0x0, 
+    enclosing_struct_parse_info=enclosing_struct_parse_info@entry=0x0) at ../.././gcc/c/c-decl.c:8657
+#15 0x00000000006652d7 in c_parser_struct_or_union_specifier (parser=0x7ffff7ef1bd0) at ../.././gcc/c/c-parser.c:3438
+#16 c_parser_declspecs (parser=0x7ffff7ef1bd0, specs=0x204b100, scspec_ok=<optimized out>, typespec_ok=<optimized out>, start_attr_ok=<optimized out>, alignspec_ok=<optimized out>, 
+    auto_type_ok=<optimized out>, start_std_attr_ok=<optimized out>, end_std_attr_ok=<optimized out>, la=<optimized out>) at ../.././gcc/c/c-parser.c:2961
+#17 0x000000000066a458 in c_parser_declaration_or_fndef (parser=0x7ffff7ef1bd0, fndef_ok=true, static_assert_ok=<optimized out>, empty_ok=<optimized out>, nested=<optimized out>, 
+    start_attr_ok=<optimized out>, objc_foreach_object_declaration=<optimized out>, omp_declare_simd_clauses=..., have_attrs=false, attrs=<optimized out>, oacc_routine_data=<optimized out>, 
+    fallthru_attr_p=<optimized out>) at ../.././gcc/c/c-parser.c:1960
+#18 0x0000000000672644 in c_parser_external_declaration (parser=0x7ffff7ef1bd0) at ../.././gcc/c/c-parser.c:1745
+#19 0x0000000000673142 in c_parser_translation_unit (parser=<optimized out>) at ../.././gcc/c/c-parser.c:1618
+#20 c_parse_file () at ../.././gcc/c/c-parser.c:21745
+#21 0x00000000006bd25c in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#22 0x0000000000b15784 in compile_file () at ../.././gcc/toplev.c:458
+#23 0x000000000060356c in do_compile () at ../.././gcc/toplev.c:2273
+#24 toplev::main (this=this@entry=0x7fffffffcdce, argc=<optimized out>, argc@entry=103, argv=<optimized out>, argv@entry=0x7fffffffcec8) at ../.././gcc/toplev.c:2412
+#25 0x000000000060700f in main (argc=103, argv=0x7fffffffcec8) at ../.././gcc/main.c:39

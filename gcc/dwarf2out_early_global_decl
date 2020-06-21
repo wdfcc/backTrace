@@ -1,0 +1,8 @@
+(gdb) bt
+#0  dwarf2out_early_global_decl (decl=0x7ffff6de2f00) at ../.././gcc/dwarf2out.c:26560
+#1  0x0000000000755e01 in symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2992
+#2  0x0000000000b159cf in compile_file () at ../.././gcc/toplev.c:483
+#3  0x000000000060356c in do_compile () at ../.././gcc/toplev.c:2273
+#4  toplev::main (this=this@entry=0x7fffffffdcbe, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffddb8) at ../.././gcc/toplev.c:2412
+#5  0x000000000060700f in main (argc=14, argv=0x7fffffffddb8) at ../.././gcc/main.c:39
+
