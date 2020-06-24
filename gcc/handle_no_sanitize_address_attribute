@@ -1,0 +1,18 @@
+(gdb) bt
+#0  handle_no_sanitize_address_attribute (node=0x7fffffffd7a0, name=0x7ffff6a3ac80, no_add_attrs=0x7fffffffd797) at ../.././gcc/c-family/c-attribs.c:940
+#1  0x000000000060b6b6 in decl_attributes (node=node@entry=0x7fffffffd808, attributes=<optimized out>, flags=<optimized out>, flags@entry=0, last_decl=0x0) at ../.././gcc/attribs.c:714
+#2  0x0000000000613198 in c_decl_attributes (node=node@entry=0x7fffffffd808, attributes=<optimized out>, flags=0) at ../.././gcc/c/c-decl.c:4978
+#3  0x00000000006224b1 in start_function (declspecs=declspecs@entry=0x204ea90, declarator=declarator@entry=0x204edd0, attributes=<optimized out>, attributes@entry=0x7ffff6a36cd0)
+    at ../.././gcc/c/c-decl.c:9153
+#4  0x000000000066ab23 in c_parser_declaration_or_fndef (parser=0x7ffff7fc6b40, fndef_ok=true, static_assert_ok=<optimized out>, empty_ok=<optimized out>, nested=<optimized out>, 
+    start_attr_ok=<optimized out>, objc_foreach_object_declaration=<optimized out>, omp_declare_simd_clauses=..., have_attrs=<optimized out>, attrs=<optimized out>, 
+    oacc_routine_data=<optimized out>, fallthru_attr_p=<optimized out>) at ../.././gcc/c/c-parser.c:2406
+#5  0x0000000000672664 in c_parser_external_declaration (parser=0x7ffff7fc6b40) at ../.././gcc/c/c-parser.c:1745
+#6  0x0000000000673152 in c_parser_translation_unit (parser=<optimized out>) at ../.././gcc/c/c-parser.c:1618
+#7  c_parse_file () at ../.././gcc/c/c-parser.c:21745
+#8  0x00000000006bd26c in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#9  0x0000000000b15724 in compile_file () at ../.././gcc/toplev.c:458
+#10 0x000000000060358c in do_compile () at ../.././gcc/toplev.c:2273
+#11 toplev::main (this=this@entry=0x7fffffffdbbe, argc=<optimized out>, argc@entry=16, argv=<optimized out>, argv@entry=0x7fffffffdcb8) at ../.././gcc/toplev.c:2412
+#12 0x000000000060702f in main (argc=16, argv=0x7fffffffdcb8) at ../.././gcc/main.c:39
+
