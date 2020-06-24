@@ -1,0 +1,3 @@
+(gdb) bt
+#0  ldemul_get_script (isfile=0x7fffffffdd64) at ldemul.c:110
+#1  0x000000000041b624 in main (argc=4, argv=0x7fffffffdee8) at ./ldmain.c:329
