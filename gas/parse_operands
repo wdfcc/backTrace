@@ -1,0 +1,28 @@
+(gdb) bt
+#0  parse_operands (l=0x60fb07 " test1", mnemonic=0x7fffffffdb40 "call") at config/tc-i386.c:4922
+#1  0x000000000043a5f6 in md_assemble (line=0x60fb07 " test1") at config/tc-i386.c:4313
+#2  0x000000000041f097 in assemble_one (line=0x60fb03 "call test1") at read.c:711
+#3  0x000000000041fbb5 in read_a_source_file (name=0x7fffffffe22e "a.s") at read.c:1179
+#4  0x0000000000406efc in perform_an_assembly_pass (argc=0, argv=0x60aa28) at as.c:1209
+#5  0x0000000000407278 in main (argc=2, argv=0x60aa20) at as.c:1367
+
+
+(gdb) bt
+#0  i386_att_operand (operand_string=0x60fb08 "test1") at config/tc-i386.c:10489
+##1  0x000000000043bd85 in parse_operands (l=0x60fb0d "", mnemonic=0x7fffffffdb40 "call") at config/tc-i386.c:5007
+##2  0x000000000043a5f6 in md_assemble (line=0x60fb07 " test1") at config/tc-i386.c:4313
+##3  0x000000000041f097 in assemble_one (line=0x60fb03 "call test1") at read.c:711
+##4  0x000000000041fbb5 in read_a_source_file (name=0x7fffffffe22e "a.s") at read.c:1179
+##5  0x0000000000406efc in perform_an_assembly_pass (argc=0, argv=0x60aa28) at as.c:1209
+##6  0x0000000000407278 in main (argc=2, argv=0x60aa20) at as.c:1367
+
+(gdb) bt
+#0  lex_got (rel=0x0, adjust=0x0, types=0x0) at config/tc-i386.c:9267
+##1  0x00000000004466e6 in i386_displacement (disp_start=0x60fb08 "test1", disp_end=0x60fb0d "") at config/tc-i386.c:10068
+##2  0x0000000000447de1 in i386_att_operand (operand_string=0x60fb08 "test1") at config/tc-i386.c:10776
+##3  0x000000000043bd85 in parse_operands (l=0x60fb0d "", mnemonic=0x7fffffffdb40 "call") at config/tc-i386.c:5007
+##4  0x000000000043a5f6 in md_assemble (line=0x60fb07 " test1") at config/tc-i386.c:4313
+##5  0x000000000041f097 in assemble_one (line=0x60fb03 "call test1") at read.c:711
+##6  0x000000000041fbb5 in read_a_source_file (name=0x7fffffffe22e "a.s") at read.c:1179
+##7  0x0000000000406efc in perform_an_assembly_pass (argc=0, argv=0x60aa28) at as.c:1209
+##8  0x0000000000407278 in main (argc=2, argv=0x60aa20) at as.c:1367

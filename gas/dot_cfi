@@ -1,0 +1,5 @@
+(gdb) bt
+#0  dot_cfi (arg=14) at dw2gencfi.c:817
+#1  0x000000000041faa6 in read_a_source_file (name=0x7fffffffe233 "a.s") at read.c:1148
+#2  0x0000000000406efc in perform_an_assembly_pass (argc=0, argv=0x60aa28) at as.c:1209
+#3  0x0000000000407278 in main (argc=2, argv=0x60aa20) at as.c:1367

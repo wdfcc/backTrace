@@ -1,0 +1,22 @@
+(gdb) bt
+#0  symbol_create (name=0x60fb08 "test1", segment=0x5f5dd8 <_bfd_std_section+280>, valu=0, frag=0x6034c0 <zero_address_frag>) at symbols.c:275
+#1  0x000000000042954c in symbol_new (name=0x60fb08 "test1", segment=0x5f5dd8 <_bfd_std_section+280>, valu=0, frag=0x6034c0 <zero_address_frag>) at symbols.c:222
+#2  0x000000000042a3b2 in symbol_make (name=0x60fb08 "test1") at symbols.c:682
+#3  0x000000000042a35e in symbol_find_or_make (name=0x60fb08 "test1") at symbols.c:665
+#4  0x0000000000413104 in operand (expressionP=0x6048e0 <disp_expressions>, mode=expr_normal) at expr.c:1312
+#5  0x00000000004138b4 in expr (rankarg=0, resultP=0x6048e0 <disp_expressions>, mode=expr_normal) at expr.c:1772
+#6  0x0000000000446712 in i386_displacement (disp_start=0x60fb08 "test1", disp_end=0x60fb0d "") at config/tc-i386.c:10072
+#7  0x0000000000447de1 in i386_att_operand (operand_string=0x60fb08 "test1") at config/tc-i386.c:10776
+#8  0x000000000043bd85 in parse_operands (l=0x60fb0d "", mnemonic=0x7fffffffdb40 "call") at config/tc-i386.c:5007
+#9  0x000000000043a5f6 in md_assemble (line=0x60fb07 " test1") at config/tc-i386.c:4313
+#10 0x000000000041f097 in assemble_one (line=0x60fb03 "call test1") at read.c:711
+#11 0x000000000041fbb5 in read_a_source_file (name=0x7fffffffe22e "a.s") at read.c:1179
+#12 0x0000000000406efc in perform_an_assembly_pass (argc=0, argv=0x60aa28) at as.c:1209
+#13 0x0000000000407278 in main (argc=2, argv=0x60aa20) at as.c:1367
+(gdb) p *segment
+$82 = {name = 0x5b2046 "*UND*", id = 1, index = 0, next = 0x0, prev = 0x0, flags = 0, user_set_vma = 0, linker_mark = 0, linker_has_input = 0, gc_mark = 1, compress_status = 0, 
+  segment_mark = 0, sec_info_type = 0, use_rela_p = 1, sec_flg0 = 0, sec_flg1 = 0, sec_flg2 = 0, sec_flg3 = 0, sec_flg4 = 0, sec_flg5 = 0, vma = 0, lma = 0, size = 0, rawsize = 0, 
+  compressed_size = 0, relax = 0x0, relax_count = 0, output_offset = 0, output_section = 0x5f5dd8 <_bfd_std_section+280>, alignment_power = 0, relocation = 0x0, orelocation = 0x0, 
+  reloc_count = 0, filepos = 0, rel_filepos = 0, line_filepos = 0, userdata = 0x60a770, contents = 0x0, lineno = 0x0, lineno_count = 0, entsize = 0, kept_section = 0x0, 
+  moving_line_filepos = 0, target_index = 0, used_by_bfd = 0x622d00, constructor_chain = 0x0, owner = 0x0, symbol = 0x622de0, symbol_ptr_ptr = 0x5f5ed0 <_bfd_std_section+528>, map_head = {
+    link_order = 0x0, s = 0x0}, map_tail = {link_order = 0x0, s = 0x0}}

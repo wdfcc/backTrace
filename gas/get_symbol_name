@@ -1,0 +1,7 @@
+(gdb) bt
+#0  get_symbol_name (ilp_return=0x7fffffffdc08) at expr.c:2349
+#1  0x000000000041f64c in read_a_source_file (name=0x7fffffffe233 "a.s") at read.c:988
+#2  0x0000000000406efc in perform_an_assembly_pass (argc=0, argv=0x60aa28) at as.c:1209
+#3  0x0000000000407278 in main (argc=2, argv=0x60aa20) at as.c:1367
+(gdb) p input_line_pointer 
+$26 = 0x60fa22 ".file \"a.c\"\n .text\n .globl test\n .type test,@function\ntest:\n.LFB0:\n .cfi_startproc\n pushq %rbp\n .cfi_def_cfa_offset 16\n .cfi_offset 6,-16\n movq %rsp,%rbp\n .cfi_def_cfa_register 6\n subq $16,%rsp\n movl "...

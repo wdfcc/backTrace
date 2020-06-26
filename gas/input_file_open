@@ -1,0 +1,6 @@
+(gdb) bt
+#0  input_file_open (filename=0x7fffffffe233 "a.s", pre=1) at input-file.c:128
+#1  0x0000000000417321 in input_scrub_new_file (filename=0x7fffffffe233 "a.s") at input-scrub.c:239
+#2  0x000000000041f3a1 in read_a_source_file (name=0x7fffffffe233 "a.s") at read.c:826
+#3  0x0000000000406efc in perform_an_assembly_pass (argc=0, argv=0x60aa28) at as.c:1209
+#4  0x0000000000407278 in main (argc=2, argv=0x60aa20) at as.c:1367

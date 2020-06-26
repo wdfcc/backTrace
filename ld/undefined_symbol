@@ -1,0 +1,8 @@
+(gdb) bt
+#0  undefined_symbol (info=0x6cbc40 <link_info>, name=0x704d6a "test1", abfd=0x6f8550, section=0x6faa88, address=14, error=1) at ./ldmain.c:1334
+#1  0x000000000045dab1 in elf_x86_64_relocate_section (output_bfd=0x6e6a60, info=0x6cbc40 <link_info>, input_bfd=0x6f8550, input_section=0x6faa88, 
+    contents=0x6fa910 "UH\211\345H\203\354\020\270", relocs=0x6f9cd0, local_syms=0x6f2710, local_sections=0x6f5bd0) at elf64-x86-64.c:2486
+#2  0x00000000004a5cab in elf_link_input_bfd (flinfo=0x7fffffffdb70, input_bfd=0x6f8550) at elflink.c:10993
+#3  0x00000000004a8f11 in bfd_elf_final_link (abfd=0x6e6a60, info=0x6cbc40 <link_info>) at elflink.c:12319
+#4  0x00000000004225f0 in ldwrite () at ldwrite.c:545
+#5  0x000000000041f469 in main (argc=4, argv=0x7fffffffdfa8) at ./ldmain.c:460
