@@ -1,0 +1,18 @@
+(gdb) bt
+#0  0x00007ffff7f370f2 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00000000004618eb in elf_x86_64_finish_dynamic_symbol (output_bfd=0x6ea7d0, info=0x6cbc40 <link_info>, h=0x93cc30, sym=0x7fffffffce70) at elf64-x86-64.c:4126
+#2  0x00000000004a3b6b in elf_link_output_extsym (bh=0x93cc30, data=0x7fffffffd020) at elflink.c:10112
+#3  0x0000000000445746 in bfd_hash_traverse (table=0x6ec930, func=0x4a3171 <elf_link_output_extsym>, info=0x7fffffffd020) at hash.c:657
+#4  0x00000000004a96a1 in bfd_elf_final_link (abfd=0x6ea7d0, info=0x6cbc40 <link_info>) at elflink.c:12500
+#5  0x00000000004225e0 in ldwrite () at ldwrite.c:545
+#6  0x000000000041f459 in main (argc=43, argv=0x7fffffffd498) at ./ldmain.c:460
+(gdb) frame 1
+#1  0x00000000004618eb in elf_x86_64_finish_dynamic_symbol (output_bfd=0x6ea7d0, info=0x6cbc40 <link_info>, h=0x93cc30, sym=0x7fffffffce70) at elf64-x86-64.c:4126
+4126	      memcpy (plt->contents + h->plt.offset, htab->plt.plt_entry,
+(gdb) x/6i htab->plt.plt_entry
+   0x6826e0 <elf_x86_64_lazy_plt_entry>:	jmp    QWORD PTR [rip+0x0]        # 0x6826e6 <elf_x86_64_lazy_plt_entry+6>
+   0x6826e6 <elf_x86_64_lazy_plt_entry+6>:	push   0x0
+   0x6826eb <elf_x86_64_lazy_plt_entry+11>:	jmp    0x6826f0 <elf_x86_64_lazy_bnd_plt0_entry>
+   0x6826f0 <elf_x86_64_lazy_bnd_plt0_entry>:	push   QWORD PTR [rip+0x8]        # 0x6826fe <elf_x86_64_lazy_bnd_plt0_entry+14>
+   0x6826f6 <elf_x86_64_lazy_bnd_plt0_entry+6>:	bnd jmp QWORD PTR [rip+0x10]        # 0x68270d <elf_x86_64_lazy_bnd_plt_entry+13>
+   0x6826fd <elf_x86_64_lazy_bnd_plt0_entry+13>:	nop    DWORD PTR [rax]
