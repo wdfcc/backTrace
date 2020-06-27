@@ -1,0 +1,9 @@
+(gdb) bt
+#0  bfd_elf_generic_reloc (abfd=0x60b620, reloc_entry=0x65e930, symbol=0x624600, data=0x622e90, input_section=0x621e80, output_bfd=0x60b620, error_message=0x7fffffffdac8) at elf.c:1327
+#1  0x000000000045ff35 in bfd_install_relocation (abfd=0x60b620, reloc_entry=0x65e930, data_start=0x622e90, data_start_offset=0, input_section=0x621e80, error_message=0x7fffffffdac8)
+    at reloc.c:1043
+#2  0x0000000000431ed4 in install_reloc (sec=0x621e80, reloc=0x65e930, fragp=0x622df0, file=0x7fffffffe25c "test.s", line=19) at write.c:1171
+#3  0x00000000004323a9 in write_relocs (abfd=0x60b620, sec=0x621e80, xxx=0x0) at write.c:1307
+#4  0x00000000004619a4 in bfd_map_over_sections (abfd=0x60b620, operation=0x4320bb <write_relocs>, user_storage=0x0) at section.c:1362
+#5  0x0000000000434263 in write_object_file () at write.c:2453
+#6  0x00000000004072e3 in main (argc=2, argv=0x60bdf0) at as.c:1403

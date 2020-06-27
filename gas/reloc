@@ -1,0 +1,24 @@
+(gdb) bt
+#0  reloc (size=4, pcrel=1, sign=1, other=BFD_RELOC_X86_64_PLT32) at config/tc-i386.c:3264
+#1  0x00000000004430fb in output_jump () at config/tc-i386.c:8077
+#2  0x000000000044425f in output_insn () at config/tc-i386.c:8610
+#3  0x000000000043b0ea in md_assemble (line=0x610f5c "") at config/tc-i386.c:4617
+#4  0x000000000041f087 in assemble_one (line=0x610f51 "call malloc") at read.c:711
+#5  0x000000000041fba5 in read_a_source_file (name=0x7fffffffe25c "test.s") at read.c:1179
+#6  0x0000000000406eec in perform_an_assembly_pass (argc=0, argv=0x60bdf8) at as.c:1209
+#7  0x0000000000407268 in main (argc=2, argv=0x60bdf0) at as.c:1367
+
+(gdb) bt
+#0  reloc (size=4, pcrel=1, sign=1, other=BFD_RELOC_X86_64_PLT32) at config/tc-i386.c:3322
+#1  0x00000000004430fb in output_jump () at config/tc-i386.c:8077
+#2  0x000000000044425f in output_insn () at config/tc-i386.c:8610
+#3  0x000000000043b0ea in md_assemble (line=0x610f67 "") at config/tc-i386.c:4617
+#4  0x000000000041f087 in assemble_one (line=0x610f5d "call test1") at read.c:711
+#5  0x000000000041fba5 in read_a_source_file (name=0x7fffffffe25c "test.s") at read.c:1179
+#6  0x0000000000406eec in perform_an_assembly_pass (argc=0, argv=0x60bdf8) at as.c:1209
+#7  0x0000000000407268 in main (argc=2, argv=0x60bdf0) at as.c:1367
+(gdb) p rel
+$119 = (reloc_howto_type *) 0x5b49e0 <x86_64_elf_howto_table+160>
+(gdb) p *rel
+$120 = {type = 4, size = 2, bitsize = 32, rightshift = 0, bitpos = 0, complain_on_overflow = complain_overflow_signed, negate = 0, pc_relative = 1, partial_inplace = 0, pcrel_offset = 1, 
+  src_mask = 4294967295, dst_mask = 4294967295, special_function = 0x485876 <bfd_elf_generic_reloc>, name = 0x5b4677 "R_X86_64_PLT32"}

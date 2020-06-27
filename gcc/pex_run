@@ -1,0 +1,7 @@
+(gdb) bt
+#0  pex_run (obj=obj@entry=0x55a030, flags=1, executable=executable@entry=0x559e90 "/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../x86_64-pc-linux-gnu/bin/as", argv=0x559de8, 
+    orig_outname=orig_outname@entry=0x0, errname=errname@entry=0x0, err=0x7fffffffdc1c) at ../.././libiberty/pex-common.c:373
+#1  0x000000000040ab0a in execute () at ../.././gcc/gcc.c:3202
+#2  0x0000000000413ba9 in driver::do_spec_on_infiles (this=0x7fffffffdda0) at ../.././gcc/gcc.c:8184
+#3  0x00000000004051d4 in driver::main (this=this@entry=0x7fffffffdda0, argc=<optimized out>, argc@entry=5, argv=<optimized out>, argv@entry=0x7fffffffdeb8) at ../.././gcc/gcc.c:7413
+#4  0x0000000000405518 in main (argc=5, argv=0x7fffffffdeb8) at ../.././gcc/gcc-main.c:47

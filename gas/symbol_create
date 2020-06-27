@@ -19,4 +19,36 @@ $82 = {name = 0x5b2046 "*UND*", id = 1, index = 0, next = 0x0, prev = 0x0, flags
   compressed_size = 0, relax = 0x0, relax_count = 0, output_offset = 0, output_section = 0x5f5dd8 <_bfd_std_section+280>, alignment_power = 0, relocation = 0x0, orelocation = 0x0, 
   reloc_count = 0, filepos = 0, rel_filepos = 0, line_filepos = 0, userdata = 0x60a770, contents = 0x0, lineno = 0x0, lineno_count = 0, entsize = 0, kept_section = 0x0, 
   moving_line_filepos = 0, target_index = 0, used_by_bfd = 0x622d00, constructor_chain = 0x0, owner = 0x0, symbol = 0x622de0, symbol_ptr_ptr = 0x5f5ed0 <_bfd_std_section+528>, map_head = {
+    link_order = 0x0, s = 0x0}, map_tail = {link_order = 0x0, s = 0x0}
+(gdb) bt
+#0  symbol_create (name=0x5483a2 ".text", segment=0x621e80, valu=0, frag=0x6034c0 <zero_address_frag>) at symbols.c:273
+#1  0x000000000042953c in symbol_new (name=0x5483a2 ".text", segment=0x621e80, valu=0, frag=0x6034c0 <zero_address_frag>) at symbols.c:222
+#2  0x0000000000429216 in section_symbol (sec=0x621e80) at subsegs.c:236
+#3  0x000000000044eb21 in elf_begin () at config/obj-elf.c:203
+#4  0x0000000000406ec2 in perform_an_assembly_pass (argc=2, argv=0x60bdf0) at as.c:1195
+#5  0x0000000000407268 in main (argc=2, argv=0x60bdf0) at as.c:1367
+(gdb) p *segment
+$3 = {name = 0x5483a2 ".text", id = 16, index = 0, next = 0x621fb0, prev = 0x0, flags = 31, user_set_vma = 0, linker_mark = 0, linker_has_input = 0, gc_mark = 0, compress_status = 0, 
+  segment_mark = 0, sec_info_type = 0, use_rela_p = 1, sec_flg0 = 0, sec_flg1 = 0, sec_flg2 = 0, sec_flg3 = 0, sec_flg4 = 0, sec_flg5 = 0, vma = 0, lma = 0, size = 0, rawsize = 0, 
+  compressed_size = 0, relax = 0x0, relax_count = 0, output_offset = 0, output_section = 0x621e80, alignment_power = 0, relocation = 0x0, orelocation = 0x0, reloc_count = 0, filepos = 0, 
+  rel_filepos = 0, line_filepos = 0, userdata = 0x60b9d0, contents = 0x0, lineno = 0x0, lineno_count = 0, entsize = 0, kept_section = 0x0, moving_line_filepos = 0, target_index = 0, 
+  used_by_bfd = 0x621b80, constructor_chain = 0x0, owner = 0x60b620, symbol = 0x621c60, symbol_ptr_ptr = 0x621f78, map_head = {link_order = 0x0, s = 0x0}, map_tail = {link_order = 0x0, 
+    s = 0x0}}}
+(gdb) bt
+#0  symbol_create (name=0x64f8d0 "ga", segment=0x5f5dd8 <_bfd_std_section+280>, valu=0, frag=0x6034c0 <zero_address_frag>) at symbols.c:273
+#1  0x000000000042953c in symbol_new (name=0x64f8d0 "ga", segment=0x5f5dd8 <_bfd_std_section+280>, valu=0, frag=0x6034c0 <zero_address_frag>) at symbols.c:222
+#2  0x000000000042a3a2 in symbol_make (name=0x64f8d0 "ga") at symbols.c:682
+#3  0x000000000042a34e in symbol_find_or_make (name=0x64f8d0 "ga") at symbols.c:665
+#4  0x00000000004209fb in s_comm_internal (param=0, comm_parse_extra=0x44ef25 <elf_common_parse>) at read.c:1765
+#5  0x000000000044f1f3 in obj_elf_common (is_common=0) at config/obj-elf.c:387
+#6  0x000000000041fa96 in read_a_source_file (name=0x7fffffffe25c "test.s") at read.c:1148
+#7  0x0000000000406eec in perform_an_assembly_pass (argc=0, argv=0x60bdf8) at as.c:1209
+#8  0x0000000000407268 in main (argc=2, argv=0x60bdf0) at as.c:1367
+(gdb) p *segment
+$5 = {name = 0x5b2046 "*UND*", id = 1, index = 0, next = 0x0, prev = 0x0, flags = 0, user_set_vma = 0, linker_mark = 0, linker_has_input = 0, gc_mark = 1, compress_status = 0, 
+  segment_mark = 0, sec_info_type = 0, use_rela_p = 1, sec_flg0 = 0, sec_flg1 = 0, sec_flg2 = 0, sec_flg3 = 0, sec_flg4 = 0, sec_flg5 = 0, vma = 0, lma = 0, size = 0, rawsize = 0, 
+  compressed_size = 0, relax = 0x0, relax_count = 0, output_offset = 0, output_section = 0x5f5dd8 <_bfd_std_section+280>, alignment_power = 0, relocation = 0x0, orelocation = 0x0, 
+  reloc_count = 0, filepos = 0, rel_filepos = 0, line_filepos = 0, userdata = 0x60bb50, contents = 0x0, lineno = 0x0, lineno_count = 0, entsize = 0, kept_section = 0x0, 
+  moving_line_filepos = 0, target_index = 0, used_by_bfd = 0x6240c0, constructor_chain = 0x0, owner = 0x0, symbol = 0x6241a0, symbol_ptr_ptr = 0x5f5ed0 <_bfd_std_section+528>, map_head = {
     link_order = 0x0, s = 0x0}, map_tail = {link_order = 0x0, s = 0x0}}
+

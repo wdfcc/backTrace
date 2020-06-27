@@ -1,0 +1,159 @@
+(gdb) bt
+#0  pex_unix_exec_child (obj=0x55a030, flags=1, executable=0x560340 "/usr/libexec/gcc/x86_64-pc-linux-gnu/10.1.0/collect2", argv=0x55ff68, env=0x0, in=0, out=1, errdes=2, toclose=-1, 
+    errmsg=0x7fffffffcfd0, err=0x7fffffffd0bc) at ../.././libiberty/pex-unix.c:692
+#1  0x000000000047d76f in pex_run_in_environment (obj=obj@entry=0x55a030, flags=1, executable=executable@entry=0x560340 "/usr/libexec/gcc/x86_64-pc-linux-gnu/10.1.0/collect2", 
+    argv=0x55ff68, env=env@entry=0x0, orig_outname=orig_outname@entry=0x0, errname=0x0, err=0x7fffffffd0bc) at ../.././libiberty/pex-common.c:344
+#2  0x000000000047dbf9 in pex_run (obj=obj@entry=0x55a030, flags=<optimized out>, executable=executable@entry=0x560340 "/usr/libexec/gcc/x86_64-pc-linux-gnu/10.1.0/collect2", 
+    argv=<optimized out>, orig_outname=orig_outname@entry=0x0, errname=errname@entry=0x0, err=0x7fffffffd0bc) at ../.././libiberty/pex-common.c:374
+#3  0x000000000040ab0a in execute () at ../.././gcc/gcc.c:3202
+#4  0x000000000040ea4d in do_spec_1 (
+    spec=spec@entry=0x55d5c0 "    %(linker) %{!fno-use-linker-plugin:%{!fno-lto:     -plugin %(linker_plugin_file)     -plugin-opt=%(lto_wrapper)     -plugin-opt=-fresolution=%u.res     %{flinker-output=*:-plugin-opt=-linker-outpu"..., inswitch=inswitch@entry=0, soft_matched_part=soft_matched_part@entry=0x0) at ../.././gcc/gcc.c:5324
+#5  0x00000000004113d4 in process_brace_body (matched=<optimized out>, starred=<optimized out>, end_atom=0x0, atom=0x0, p=0x55d5af "}") at ../.././gcc/gcc.c:6627
+#6  handle_braces (
+    p=0x55cc04 ":    %(linker) %{!fno-use-linker-plugin:%{!fno-lto:     -plugin %(linker_plugin_file)     -plugin-opt=%(lto_wrapper)     -plugin-opt=-fresolution=%u.res     %{flinker-output=*:-plugin-opt=-linker-outp"..., 
+    p@entry=0x55cc02 "!S:    %(linker) %{!fno-use-linker-plugin:%{!fno-lto:     -plugin %(linker_plugin_file)     -plugin-opt=%(lto_wrapper)     -plugin-opt=-fresolution=%u.res     %{flinker-output=*:-plugin-opt=-linker-ou"...) at ../.././gcc/gcc.c:6534
+#7  0x000000000040f350 in do_spec_1 (
+    spec=spec@entry=0x55cc00 "%{!S:    %(linker) %{!fno-use-linker-plugin:%{!fno-lto:     -plugin %(linker_plugin_file)     -plugin-opt=%(lto_wrapper)     -plugin-opt=-fresolution=%u.res     %{flinker-output=*:-plugin-opt=-linker-"..., inswitch=inswitch@entry=0, soft_matched_part=soft_matched_part@entry=0x0) at ../.././gcc/gcc.c:5952
+#8  0x00000000004113d4 in process_brace_body (matched=<optimized out>, starred=<optimized out>, end_atom=0x0, atom=0x0, p=0x55cbf5 "}") at ../.././gcc/gcc.c:6627
+#9  handle_braces (
+    p=0x55c244 ":%{!S:    %(linker) %{!fno-use-linker-plugin:%{!fno-lto:     -plugin %(linker_plugin_file)     -plugin-opt=%(lto_wrapper)     -plugin-opt=-fresolution=%u.res     %{flinker-output=*:-plugin-opt=-linker"..., 
+    p@entry=0x55c242 "!E:%{!S:    %(linker) %{!fno-use-linker-plugin:%{!fno-lto:     -plugin %(linker_plugin_file)     -plugin-opt=%(lto_wrapper)     -plugin-opt=-fresolution=%u.res     %{flinker-output=*:-plugin-opt=-link"...) at ../.././gcc/gcc.c:6534
+#10 0x000000000040f350 in do_spec_1 (
+    spec=spec@entry=0x55c240 "%{!E:%{!S:    %(linker) %{!fno-use-linker-plugin:%{!fno-lto:     -plugin %(linker_plugin_file)     -plugin-opt=%(lto_wrapper)     -plugin-opt=-fresolution=%u.res     %{flinker-output=*:-plugin-opt=-li"..., inswitch=inswitch@entry=0, soft_matched_part=soft_matched_part@entry=0x0) at ../.././gcc/gcc.c:5952
+#11 0x00000000004113d4 in process_brace_body (matched=<optimized out>, starred=<optimized out>, end_atom=0x0, atom=0x0, p=0x55c22c "}") at ../.././gcc/gcc.c:6627
+#12 handle_braces (
+    p=0x55b875 ":%{!E:%{!S:    %(linker) %{!fno-use-linker-plugin:%{!fno-lto:     -plugin %(linker_plugin_file)     -plugin-opt=%(lto_wrapper)     -plugin-opt=-fresolution=%u.res     %{flinker-output=*:-plugin-opt=-l"..., 
+    p@entry=0x55b872 "!MM:%{!E:%{!S:    %(linker) %{!fno-use-linker-plugin:%{!fno-lto:     -plugin %(linker_plugin_file)     -plugin-opt=%(lto_wrapper)     -plugin-opt=-fresolution=%u.res     %{flinker-output=*:-plugin-opt"...) at ../.././gcc/gcc.c:6534
+#13 0x000000000040f350 in do_spec_1 (
+    spec=spec@entry=0x55b870 "%{!MM:%{!E:%{!S:    %(linker) %{!fno-use-linker-plugin:%{!fno-lto:     -plugin %(linker_plugin_file)     -plugin-opt=%(lto_wrapper)     -plugin-opt=-fresolution=%u.res     %{flinker-output=*:-plugin-o"..., inswitch=inswitch@entry=0, soft_matched_part=soft_matched_part@entry=0x0) at ../.././gcc/gcc.c:5952
+#14 0x00000000004113d4 in process_brace_body (matched=<optimized out>, starred=<optimized out>, end_atom=0x0, atom=0x0, p=0x55b862 "}") at ../.././gcc/gcc.c:6627
+#15 handle_braces (
+    p=0x55aea4 ":%{!MM:%{!E:%{!S:    %(linker) %{!fno-use-linker-plugin:%{!fno-lto:     -plugin %(linker_plugin_file)     -plugin-opt=%(lto_wrapper)     -plugin-opt=-fresolution=%u.res     %{flinker-output=*:-plugin-"..., 
+    p@entry=0x55aea2 "!M:%{!MM:%{!E:%{!S:    %(linker) %{!fno-use-linker-plugin:%{!fno-lto:     -plugin %(linker_plugin_file)     -plugin-opt=%(lto_wrapper)     -plugin-opt=-fresolution=%u.res     %{flinker-output=*:-plugi"...) at ../.././gcc/gcc.c:6534
+#16 0x000000000040f350 in do_spec_1 (
+    spec=spec@entry=0x55aea0 "%{!M:%{!MM:%{!E:%{!S:    %(linker) %{!fno-use-linker-plugin:%{!fno-lto:     -plugin %(linker_plugin_file)     -plugin-opt=%(lto_wrapper)     -plugin-opt=-fresolution=%u.res     %{flinker-output=*:-plu"..., inswitch=inswitch@entry=0, soft_matched_part=soft_matched_part@entry=0x0) at ../.././gcc/gcc.c:5952
+--Type <RET> for more, q to quit, c to continue without paging--
+#17 0x00000000004113d4 in process_brace_body (matched=<optimized out>, starred=<optimized out>, end_atom=0x0, atom=0x0, p=0x55ae88 "}") at ../.././gcc/gcc.c:6627
+#18 handle_braces (
+    p=0x55a4c4 ":%{!M:%{!MM:%{!E:%{!S:    %(linker) %{!fno-use-linker-plugin:%{!fno-lto:     -plugin %(linker_plugin_file)     -plugin-opt=%(lto_wrapper)     -plugin-opt=-fresolution=%u.res     %{flinker-output=*:-pl"..., 
+    p@entry=0x55a4c2 "!c:%{!M:%{!MM:%{!E:%{!S:    %(linker) %{!fno-use-linker-plugin:%{!fno-lto:     -plugin %(linker_plugin_file)     -plugin-opt=%(lto_wrapper)     -plugin-opt=-fresolution=%u.res     %{flinker-output=*:-"...) at ../.././gcc/gcc.c:6534
+#19 0x000000000040f350 in do_spec_1 (
+    spec=spec@entry=0x55a4c0 "%{!c:%{!M:%{!MM:%{!E:%{!S:    %(linker) %{!fno-use-linker-plugin:%{!fno-lto:     -plugin %(linker_plugin_file)     -plugin-opt=%(lto_wrapper)     -plugin-opt=-fresolution=%u.res     %{flinker-output=*"..., inswitch=inswitch@entry=0, soft_matched_part=soft_matched_part@entry=0x0) at ../.././gcc/gcc.c:5952
+#20 0x00000000004113d4 in process_brace_body (matched=<optimized out>, starred=<optimized out>, end_atom=0x0, atom=0x0, p=0x492a91 "}") at ../.././gcc/gcc.c:6627
+#21 handle_braces (
+    p=0x4920c7 ":%{!c:%{!M:%{!MM:%{!E:%{!S:    %(linker) %{!fno-use-linker-plugin:%{!fno-lto:     -plugin %(linker_plugin_file)     -plugin-opt=%(lto_wrapper)     -plugin-opt=-fresolution=%u.res     %{flinker-output="..., 
+    p@entry=0x4920ba "!fsyntax-only:%{!c:%{!M:%{!MM:%{!E:%{!S:    %(linker) %{!fno-use-linker-plugin:%{!fno-lto:     -plugin %(linker_plugin_file)     -plugin-opt=%(lto_wrapper)     -plugin-opt=-fresolution=%u.res     %{fl"...) at ../.././gcc/gcc.c:6534
+#22 0x000000000040f350 in do_spec_1 (spec=<optimized out>, inswitch=inswitch@entry=0, soft_matched_part=<optimized out>) at ../.././gcc/gcc.c:5952
+#23 0x0000000000410439 in do_spec_2 (spec=<optimized out>, soft_matched_part=soft_matched_part@entry=0x0) at ../.././gcc/gcc.c:5026
+#24 0x0000000000411ca9 in do_spec (spec=<optimized out>) at ../.././gcc/gcc.c:4990
+#25 0x00000000004145b0 in driver::maybe_run_linker (this=this@entry=0x7fffffffdda0, argv0=0x7fffffffe22c "/usr/bin/gcc") at ../.././gcc/gcc.c:8356
+#26 0x00000000004051e3 in driver::main (this=this@entry=0x7fffffffdda0, argc=<optimized out>, argc@entry=5, argv=<optimized out>, argv@entry=0x7fffffffdeb8) at ../.././gcc/gcc.c:7414
+#27 0x0000000000405518 in main (argc=5, argv=0x7fffffffdeb8) at ../.././gcc/gcc-main.c:47
+
+Thread 2.1 "collect2" hit Breakpoint 12, 0x00007ffff7d478c0 in vfork () from /lib/x86_64-linux-gnu/libc.so.6
+(gdb) bt
+#0  0x00007ffff7d478c0 in vfork () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x0000000000452ab5 in pex_unix_exec_child (obj=0x4b6ca0, flags=3, executable=0x4b6a20 "/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../x86_64-pc-linux-gnu/bin/ld", argv=0x4b1cf0, 
+    env=0x0, in=0, out=1, errdes=2, toclose=-1, errmsg=0x7fffffffd220, err=0x7fffffffd2bc) at ../.././libiberty/pex-unix.c:637
+#2  0x0000000000451f7f in pex_run_in_environment (obj=obj@entry=0x4b6ca0, flags=flags@entry=3, 
+    executable=0x4b6a20 "/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../x86_64-pc-linux-gnu/bin/ld", argv=argv@entry=0x4b1cf0, env=env@entry=0x0, orig_outname=orig_outname@entry=0x0, 
+    errname=0x0, err=0x7fffffffd2bc) at ../.././libiberty/pex-common.c:344
+#3  0x0000000000452409 in pex_run (obj=obj@entry=0x4b6ca0, flags=flags@entry=3, executable=<optimized out>, argv=argv@entry=0x4b1cf0, orig_outname=orig_outname@entry=0x0, 
+    errname=errname@entry=0x0, err=0x7fffffffd2bc) at ../.././libiberty/pex-common.c:374
+#4  0x0000000000409ba4 in collect_execute (prog=prog@entry=0x46c0fb "ld", argv=<optimized out>, argv@entry=0x4b1cf0, outname=outname@entry=0x0, errname=errname@entry=0x0, 
+    flags=flags@entry=3, use_atfile=<optimized out>) at ../.././gcc/collect-utils.c:185
+#5  0x0000000000405619 in do_link (ld_argv=0x4b1cf0) at ../.././gcc/collect2.c:1643
+#6  main (argc=<optimized out>, argv=<optimized out>) at ../.././gcc/collect2.c:1643
+(gdb) frame 1
+#1  0x0000000000452ab5 in pex_unix_exec_child (obj=0x4b6ca0, flags=3, executable=0x4b6a20 "/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../x86_64-pc-linux-gnu/bin/ld", argv=0x4b1cf0, 
+    env=0x0, in=0, out=1, errdes=2, toclose=-1, errmsg=0x7fffffffd220, err=0x7fffffffd2bc) at ../.././libiberty/pex-unix.c:637
+637	      return (pid_t) -1;
+(gdb) p argv[0]
+$58 = 0x4b6a20 "/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../x86_64-pc-linux-gnu/bin/ld"
+(gdb) p argv[1]
+$59 = 0x7fffffffd9d7 "-plugin"
+(gdb) p argv[2]
+$60 = 0x7fffffffd9df "/usr/libexec/gcc/x86_64-pc-linux-gnu/10.1.0/liblto_plugin.so"
+(gdb) p argv[3]
+$61 = 0x7fffffffda1c "-plugin-opt=/usr/libexec/gcc/x86_64-pc-linux-gnu/10.1.0/lto-wrapper"
+(gdb) p argv[4]
+$62 = 0x7fffffffda60 "-plugin-opt=-fresolution=/tmp/ccZKeAMv.res"
+(gdb) p argv[5]
+$63 = 0x7fffffffda8b "-plugin-opt=-pass-through=-lgcc"
+(gdb) p argv[6]
+$64 = 0x7fffffffdaab "-plugin-opt=-pass-through=-lgcc_s"
+(gdb) p argv[7]
+$65 = 0x7fffffffdacd "-plugin-opt=-pass-through=-lc"
+(gdb) p argv[8]
+$66 = 0x7fffffffdaeb "-plugin-opt=-pass-through=-lgcc"
+(gdb) p argv[9]
+$67 = 0x7fffffffdb0b "-plugin-opt=-pass-through=-lgcc_s"
+(gdb) p argv[10]
+$68 = 0x7fffffffdb2d "--eh-frame-hdr"
+(gdb) p argv[11]
+$69 = 0x7fffffffdb3c "-m"
+(gdb) p argv[12]
+$70 = 0x7fffffffdb3f "elf_x86_64"
+(gdb) p argv[13]
+$71 = 0x7fffffffdb4a "-dynamic-linker"
+(gdb) p argv[14]
+$72 = 0x7fffffffdb5a "/lib64/ld-linux-x86-64.so.2"
+(gdb) p argv[15]
+$73 = 0x7fffffffdb76 "-o"
+(gdb) p argv[16]
+$74 = 0x7fffffffdb79 "test1"
+(gdb) p argv[17]
+$75 = 0x7fffffffdb7f "/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../x86_64-linux-gnu/crt1.o"
+(gdb) p argv[18]
+$76 = 0x7fffffffdbc8 "/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../x86_64-linux-gnu/crti.o"
+(gdb) p argv[19]
+$77 = 0x7fffffffdc11 "/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/crtbegin.o"
+(gdb) p argv[20]
+$78 = 0x7fffffffdc44 "-L/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0"
+(gdb) p argv[21]
+$79 = 0x7fffffffdc6e "-L/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../x86_64-linux-gnu"
+(gdb) p argv[22]
+$80 = 0x7fffffffdcb2 "-L/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../lib64"
+(gdb) p argv[23]
+$81 = 0x7fffffffdcee "-L/lib/x86_64-linux-gnu"
+(gdb) p argv[24]
+$82 = 0x7fffffffdd06 "-L/lib/../lib64"
+(gdb) p argv[25]
+$83 = 0x7fffffffdd16 "-L/usr/lib/x86_64-linux-gnu"
+(gdb) p argv[26]
+$84 = 0x7fffffffdd32 "-L/usr/lib/../lib64"
+(gdb) p argv[27]
+$85 = 0x7fffffffdd46 "-L/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../x86_64-pc-linux-gnu/lib"
+(gdb) p argv[28]
+$86 = 0x7fffffffdd94 "-L/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../.."
+(gdb) p argv[29]
+$87 = 0x7fffffffddc7 "/tmp/ccsd2hsZ.o"
+(gdb) p argv[30]
+$88 = 0x7fffffffddd7 "-lgcc"
+(gdb) p argv[31]
+$89 = 0x7fffffffdddd "--push-state"
+(gdb) p argv[32]
+$90 = 0x7fffffffddea "--as-needed"
+(gdb) p argv[33]
+$91 = 0x7fffffffddf6 "-lgcc_s"
+(gdb) p argv[34]
+$92 = 0x7fffffffddfe "--pop-state"
+(gdb) p argv[35]
+$93 = 0x7fffffffde0a "-lc"
+(gdb) p argv[36]
+$94 = 0x7fffffffde0e "-lgcc"
+(gdb) p argv[37]
+$95 = 0x7fffffffde14 "--push-state"
+(gdb) p argv[38]
+$96 = 0x7fffffffde21 "--as-needed"
+(gdb) p argv[39]
+$97 = 0x7fffffffde2d "-lgcc_s"
+(gdb) p argv[40]
+$98 = 0x7fffffffde35 "--pop-state"
+(gdb) p argv[41]
+$99 = 0x7fffffffde41 "/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/crtend.o"
+(gdb) p argv[42]
+$100 = 0x7fffffffde72 "/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../x86_64-linux-gnu/crtn.o"
+(gdb) p argv[43]
+$101 = 0x0
+
