@@ -1,0 +1,13 @@
+(gdb) bt
+#0  bfd_make_section_anyway_with_flags (abfd=0x6fc080, name=0x689fab ".plt", flags=1065243) at section.c:1151
+#1  0x000000000048dfb3 in _bfd_elf_create_dynamic_sections (abfd=0x6fc080, info=0x6cbc40 <link_info>) at elflink.c:395
+#2  0x000000000048df0a in _bfd_elf_link_create_dynamic_sections (abfd=0x6fc080, info=0x6cbc40 <link_info>) at elflink.c:361
+#3  0x0000000000493864 in elf_add_dt_needed_tag (abfd=0x759230, info=0x6cbc40 <link_info>, soname=0x7b7f5e "libc.so.6", do_it=1) at elflink.c:3552
+#4  0x000000000049512b in elf_link_add_object_symbols (abfd=0x759230, info=0x6cbc40 <link_info>) at elflink.c:4262
+#5  0x0000000000498a3d in bfd_elf_link_add_symbols (abfd=0x759230, info=0x6cbc40 <link_info>) at elflink.c:5809
+#6  0x000000000041299a in load_symbols (entry=0x74eb70, place=0x7fffffffd5c0) at ldlang.c:3098
+#7  0x0000000000413616 in open_input_bfds (s=0x74eb70, mode=OPEN_BFD_FORCE) at ldlang.c:3568
+#8  0x0000000000413497 in open_input_bfds (s=0x74eb50, mode=OPEN_BFD_NORMAL) at ldlang.c:3516
+#9  0x000000000041aadd in lang_process () at ldlang.c:7649
+#10 0x000000000041f3cd in main (argc=43, argv=0x7fffffffd898) at ./ldmain.c:444
+
