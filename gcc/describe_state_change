@@ -1,0 +1,21 @@
+(gdb) bt
+#0  ana::(anonymous namespace)::double_free::describe_state_change (this=0x224bc70, change=...) at ../.././gcc/analyzer/sm-malloc.cc:173
+#1  0x00000000013a244f in ana::state_change_event::get_desc (this=0x224abc0, can_colorize=<optimized out>) at ../.././gcc/analyzer/checker-path.cc:287
+#2  0x00000000013a2093 in ana::checker_event::prepare_for_emission (this=<optimized out>, pd=<optimized out>, emission_id=...) at ../.././gcc/analyzer/checker-path.cc:143
+#3  0x00000000013aa9d0 in ana::checker_path::prepare_for_emission (pd=<optimized out>, this=0x7fffffffd0f0) at ../.././gcc/analyzer/checker-path.h:498
+#4  ana::diagnostic_manager::emit_saved_diagnostic (this=this@entry=0x7fffffffd580, eg=..., sd=..., epath=..., stmt=0x7ffff6dda630, num_dupes=0) at ../.././gcc/analyzer/diagnostic-manager.cc:557
+#5  0x00000000013ac80f in ana::dedupe_winners::emit_best (this=this@entry=0x7fffffffd2a0, dm=dm@entry=0x7fffffffd580, eg=...) at ../.././gcc/analyzer/diagnostic-manager.cc:270
+#6  0x00000000013aad40 in ana::diagnostic_manager::emit_saved_diagnostics (this=this@entry=0x7fffffffd580, eg=...) at ../.././gcc/analyzer/diagnostic-manager.cc:511
+#7  0x0000000000db6d91 in ana::impl_run_checkers (logger=<optimized out>) at ../.././gcc/analyzer/exploded-graph.h:774
+#8  0x0000000000db78fd in ana::run_checkers () at ../.././gcc/analyzer/analyzer-logging.h:148
+#9  0x0000000000daceb9 in (anonymous namespace)::pass_analyzer::execute (this=<optimized out>) at ../.././gcc/analyzer/analyzer-pass.cc:84
+#10 0x0000000000a2d388 in execute_one_pass (pass=0x21f62d0) at ../.././gcc/passes.c:2502
+#11 0x0000000000a2e1e7 in execute_ipa_pass_list (pass=0x21f62d0) at ../.././gcc/passes.c:2929
+#12 0x000000000072aeb8 in ipa_passes () at ../.././gcc/cgraphunit.c:2678
+#13 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2755
+#14 0x000000000072cb8d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#15 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#16 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+#17 0x00000000005da34c in do_compile () at ../.././gcc/toplev.c:2273
+#18 toplev::main (this=this@entry=0x7fffffffdcbe, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffddb8) at ../.././gcc/toplev.c:2412
+#19 0x00000000005dddef in main (argc=14, argv=0x7fffffffddb8) at ../.././gcc/main.c:39
