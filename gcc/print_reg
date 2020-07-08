@@ -1,0 +1,27 @@
+(gdb) bt
+#0  print_reg (x=<optimized out>, code=<optimized out>, file=0x20238f0) at ../.././gcc/config/i386/i386.c:12402
+#1  0x0000000000dcb487 in ix86_print_operand_address_as (file=0x20238f0, addr=0x7ffff6746a68, as=<optimized out>, no_rip=<optimized out>) at ../.././gcc/config/i386/i386.c:13439
+#2  0x000000000082d974 in output_address (mode=E_VOIDmode, x=<optimized out>) at ../.././gcc/final.c:4067
+#3  0x000000000082d8d2 in output_operand (x=<optimized out>, code=<optimized out>) at ../.././gcc/final.c:4051
+#4  0x000000000082e477 in output_asm_insn (templ=templ@entry=0x1a7a18c "lea{l}\t{%E1, %k0|%k0, %E1}", operands=0x1f2a780 <recog_data>) at ../.././gcc/final.c:3944
+#5  0x0000000000831aca in final_scan_insn_1 (insn=0x7ffff6703d40, file=0x20238f0, seen=<optimized out>, nopeepholes=<optimized out>, optimize_p=<optimized out>) at ../.././gcc/final.c:3106
+#6  0x0000000000831d7c in final_scan_insn (insn=<optimized out>, file=<optimized out>, optimize_p=<optimized out>, nopeepholes=<optimized out>, seen=<optimized out>)
+    at ../.././gcc/final.c:3152
+#7  0x0000000000832065 in final_1 (first=0x7ffff66c6118, file=0x20238f0, seen=<optimized out>, optimize_p=2) at ../.././gcc/final.c:2020
+#8  0x00000000008327f5 in rest_of_handle_final () at ../.././gcc/final.c:4658
+#9  (anonymous namespace)::pass_final::execute (this=<optimized out>) at ../.././gcc/final.c:4736
+#10 0x0000000000a56548 in execute_one_pass (pass=0x2012760) at ../.././gcc/passes.c:2502
+#11 0x0000000000a56e90 in execute_pass_list_1 (pass=0x2012760) at ../.././gcc/passes.c:2590
+#12 0x0000000000a56ea2 in execute_pass_list_1 (pass=0x2012280) at ../.././gcc/passes.c:2591
+#13 0x0000000000a56ea2 in execute_pass_list_1 (pass=0x20105e0) at ../.././gcc/passes.c:2591
+#14 0x0000000000a56ec9 in execute_pass_list (fn=0x7ffff661dd10, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#15 0x0000000000752c7e in cgraph_node::expand (this=0x7ffff663d708) at ../.././gcc/context.h:48
+#16 0x0000000000753d10 in expand_all_functions () at ../.././gcc/cgraphunit.c:2471
+#17 symbol_table::compile (this=0x7ffff685e100) at ../.././gcc/cgraphunit.c:2822
+#18 0x0000000000755d7d in symbol_table::compile (this=0x7ffff685e100) at ../.././gcc/cgraphunit.c:3002
+#19 symbol_table::finalize_compilation_unit (this=0x7ffff685e100) at ../.././gcc/cgraphunit.c:3002
+#20 0x0000000000b1596f in compile_file () at ../.././gcc/toplev.c:483
+#21 0x000000000060358c in do_compile () at ../.././gcc/toplev.c:2273
+#22 toplev::main (this=this@entry=0x7fffffffda8e, argc=<optimized out>, argc@entry=24, argv=<optimized out>, argv@entry=0x7fffffffdb88) at ../.././gcc/toplev.c:2412
+#23 0x000000000060702f in main (argc=24, argv=0x7fffffffdb88) at ../.././gcc/main.c:39
+

@@ -1,0 +1,31 @@
+(gdb) bt
+#0  lex_one_token (par_state=0x7fffffffd820, is_quoted_name=is_quoted_name@entry=0x7fffffffb46f) at c-exp.y:2706
+#1  0x00005555556b1935 in c_yylex () at c-exp.y:3146
+#2  c_yyparse () at c-exp.c.tmp:1965
+#3  0x00005555556b5075 in c_parse (par_state=<optimized out>) at c-exp.y:3312
+#4  0x00005555558437fa in parse_exp_in_context_1 (stringptr=0x7fffffffd958, pc=<optimized out>, block=<optimized out>, comma=<optimized out>, out_subexp=0x0, void_context_p=0)
+    at parse.c:1205
+#5  0x0000555555843a40 in parse_exp_in_context (out_subexp=0x0, void_context_p=0, comma=1, block=0x0, pc=0, stringptr=0x7fffffffd8f0) at parse.c:1107
+#6  parse_exp_1 (stringptr=stringptr@entry=0x7fffffffd958, pc=pc@entry=0, block=block@entry=0x0, comma=comma@entry=1) at parse.c:1099
+#7  0x0000555555763dbc in parse_to_comma_and_eval (expp=expp@entry=0x7fffffffd958) at eval.c:126
+#8  0x0000555555776ae6 in parse_find_args (big_p=0, search_space_lenp=<synthetic pointer>, start_addrp=<synthetic pointer>, max_countp=<synthetic pointer>, args=<optimized out>)
+    at findcmd.c:108
+#9  find_command (args=<optimized out>, from_tty=<optimized out>) at findcmd.c:228
+#10 0x00005555556c6f62 in cmd_func (cmd=<optimized out>, args=<optimized out>, from_tty=<optimized out>) at cli/cli-decode.c:1892
+#11 0x00005555559204e0 in execute_command (p=<optimized out>, p@entry=0x555555fe9d00 "find /b 0x400000,+0x4000,{char[5]}\"hello\"", from_tty=1) at top.c:630
+#12 0x000055555576bf5c in command_handler (command=0x555555fe9d00 "find /b 0x400000,+0x4000,{char[5]}\"hello\"") at event-top.c:583
+#13 0x000055555576cbbd in command_line_handler (rl=...) at event-top.c:770
+#14 0x000055555576b710 in gdb_rl_callback_handler (rl=0x555555f2bc60 "find /b 0x400000,+0x4000,{char[5]}\"hello\"") at /usr/include/c++/8/bits/unique_ptr.h:149
+#15 0x000055555597fe0f in rl_callback_read_char () at callback.c:220
+#16 0x000055555576b626 in gdb_rl_callback_read_char_wrapper_noexcept () at event-top.c:175
+#17 0x000055555576b6a9 in gdb_rl_callback_read_char_wrapper (client_data=<optimized out>) at event-top.c:191
+#18 0x000055555576bbc0 in stdin_event_handler (error=<optimized out>, client_data=0x555555da7c90) at event-top.c:511
+#19 0x000055555576aa4d in gdb_wait_for_event (block=<optimized out>) at event-loop.c:859
+#20 gdb_wait_for_event (block=<optimized out>) at event-loop.c:746
+#21 0x000055555576abf8 in gdb_do_one_event () at event-loop.c:347
+#22 0x000055555576ad0e in gdb_do_one_event () at event-loop.c:371
+#23 start_event_loop () at event-loop.c:371
+#24 0x0000555555802dbb in captured_command_loop () at main.c:331
+#25 0x0000555555803ef5 in captured_main (data=<optimized out>) at main.c:1182
+#26 gdb_main (args=<optimized out>) at main.c:1198
+#27 0x000055555563ec7b in main (argc=<optimized out>, argv=<optimized out>) at gdb.c:32
