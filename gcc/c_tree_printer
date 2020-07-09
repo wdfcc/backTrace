@@ -1,0 +1,59 @@
+(gdb) bt
+#0  c_tree_printer (pp=0x2213c70, text=0x7fffffffcc50, spec=0x2215d81 "E", precision=0, wide=false, set_locus=false, hash=false, quoted=0x7fffffffca67) at ../.././gcc/c/c-objc-common.c:261
+#1  0x00000000013d0a95 in pp_format (pp=<optimized out>, text=text@entry=0x7fffffffcc50) at ../.././gcc/pretty-print.c:1475
+#2  0x00000000013c543b in diagnostic_report_diagnostic (context=0x21bf520 <global_diagnostic_context>, diagnostic=0x7fffffffcc50) at ../.././gcc/diagnostic.c:1159
+#3  0x00000000013c7558 in diagnostic_impl (kind=DK_ERROR, ap=0x7fffffffcc38, gmsgid=0x144aad0 "%qE undeclared (first use in this function)", opt=-1, metadata=0x0, richloc=0x7fffffffcca0) at ../.././gcc/diagnostic.c:1309
+#4  error_at (loc=loc@entry=19522272, gmsgid=gmsgid@entry=0x144aad0 "%qE undeclared (first use in this function)") at ../.././gcc/diagnostic.c:1632
+#5  0x00000000005ea652 in undeclared_variable (loc=loc@entry=19522272, id=id@entry=0x7ffff6d837d0) at ../.././gcc/c/c-decl.c:3739
+#6  0x00000000005fe7e4 in build_external_ref (loc=loc@entry=19522272, id=id@entry=0x7ffff6d837d0, fun=<optimized out>, type=type@entry=0x7fffffffd060) at ../.././gcc/c/c-typeck.c:2782
+#7  0x000000000062832b in c_parser_postfix_expression (parser=0x7ffff7ff8b40) at ../.././gcc/c/c-parser.c:477
+#8  0x000000000062b47b in c_parser_unary_expression (parser=0x7ffff7ff8b40) at ../.././gcc/c/c-parser.c:8273
+#9  0x000000000062cbfe in c_parser_cast_expression (parser=0x7ffff7ff8b40, after=0x0) at ../.././gcc/c/c-parser.c:8115
+#10 0x000000000062ce8f in c_parser_binary_expression (parser=0x7ffff7ff8b40, after=0x0, omp_atomic_lhs=0x0) at ../.././gcc/c/c-parser.c:7918
+#11 0x000000000062ddc6 in c_parser_conditional_expression (parser=0x7ffff7ff8b40, after=<optimized out>, omp_atomic_lhs=<optimized out>) at ../.././gcc/c/c-parser.c:7652
+#12 0x000000000062e2f1 in c_parser_expr_no_commas (parser=0x7ffff7ff8b40, after=<optimized out>, omp_atomic_lhs=<optimized out>) at ../.././gcc/c/c-parser.c:7569
+#13 0x0000000000630e7d in c_parser_initializer (parser=0x7ffff7ff8b40) at ../.././gcc/c/c-parser.c:5227
+#14 c_parser_initializer (parser=0x7ffff7ff8b40) at ../.././gcc/c/c-parser.c:5219
+#15 0x000000000064176b in c_parser_declaration_or_fndef (parser=0x7ffff7ff8b40, fndef_ok=false, static_assert_ok=<optimized out>, empty_ok=<optimized out>, nested=<optimized out>, start_attr_ok=<optimized out>, 
+    objc_foreach_object_declaration=<optimized out>, omp_declare_simd_clauses=..., have_attrs=<optimized out>, attrs=<optimized out>, oacc_routine_data=<optimized out>, fallthru_attr_p=<optimized out>)
+    at ../.././gcc/c/c-parser.c:2248
+#16 0x00000000006276f0 in c_parser_compound_statement_nostart (parser=parser@entry=0x7ffff7ff8b40) at ../.././gcc/c/c-parser.c:5718
+#17 0x0000000000640ec5 in c_parser_compound_statement (parser=parser@entry=0x7ffff7ff8b40, endlocp=endlocp@entry=0x7fffffffda30) at ../.././gcc/c/c-parser.c:5617
+#18 0x0000000000642736 in c_parser_declaration_or_fndef (parser=0x7ffff7ff8b40, fndef_ok=true, static_assert_ok=<optimized out>, empty_ok=<optimized out>, nested=<optimized out>, start_attr_ok=<optimized out>, 
+    objc_foreach_object_declaration=<optimized out>, omp_declare_simd_clauses=..., have_attrs=<optimized out>, attrs=<optimized out>, oacc_routine_data=<optimized out>, fallthru_attr_p=<optimized out>)
+    at ../.././gcc/c/c-parser.c:2505
+#19 0x0000000000649424 in c_parser_external_declaration (parser=0x7ffff7ff8b40) at ../.././gcc/c/c-parser.c:1745
+#20 0x0000000000649f22 in c_parser_translation_unit (parser=<optimized out>) at ../.././gcc/c/c-parser.c:1618
+#21 c_parse_file () at ../.././gcc/c/c-parser.c:21745
+#22 0x000000000069403c in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#23 0x0000000000aec594 in compile_file () at ../.././gcc/toplev.c:458
+#24 0x00000000005da34c in do_compile () at ../.././gcc/toplev.c:2273
+#25 toplev::main (this=this@entry=0x7fffffffdcfe, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffddf8) at ../.././gcc/toplev.c:2412
+#26 0x00000000005dddef in main (argc=13, argv=0x7fffffffddf8) at ../.././gcc/main.c:39
+
+
+(gdb) bt
+#0  0x000000000069c7e0 in c_pretty_printer::expression (this=0x22a44a0, e=0x7ffff6d90510) at ../.././gcc/c-family/c-pretty-print.c:2163
+##1  0x000000000061c418 in c_tree_printer (precision=0, wide=false, quoted=0x7fffffffcd57, hash=false, set_locus=<optimized out>, spec=0x22ab6b1 "E", text=0x7fffffffceb0, pp=0x22a44a0) at ../.././gcc/c/c-objc-common.c:317
+##2  c_tree_printer (pp=0x22a44a0, text=0x7fffffffceb0, spec=0x22ab6b1 "E", precision=<optimized out>, wide=<optimized out>, set_locus=<optimized out>, hash=false, quoted=0x7fffffffcd57) at ../.././gcc/c/c-objc-common.c:254
+##3  0x00000000013d0a95 in pp_format (pp=pp@entry=0x22a44a0, text=text@entry=0x7fffffffceb0) at ../.././gcc/pretty-print.c:1475
+##4  0x00000000013acaed in ana::evdesc::event_desc::formatted_print (this=0x7fffffffcee0, fmt=0x15531a0 "use after %<free%> of %qE; freed at %@") at ../.././gcc/analyzer/pending-diagnostic.cc:63
+##5  0x00000000013a230d in ana::warning_event::get_desc (this=0x229b7e0, can_colorize=<optimized out>) at ../.././gcc/../libcpp/include/line-map.h:1784
+##6  0x00000000013a2093 in ana::checker_event::prepare_for_emission (this=<optimized out>, pd=<optimized out>, emission_id=...) at ../.././gcc/analyzer/checker-path.cc:143
+##7  0x00000000013aa9d0 in ana::checker_path::prepare_for_emission (pd=<optimized out>, this=0x7fffffffd110) at ../.././gcc/analyzer/checker-path.h:498
+##8  ana::diagnostic_manager::emit_saved_diagnostic (this=this@entry=0x7fffffffd5a0, eg=..., sd=..., epath=..., stmt=0x7ffff6deb2d0, num_dupes=0) at ../.././gcc/analyzer/diagnostic-manager.cc:557
+##9  0x00000000013ac80f in ana::dedupe_winners::emit_best (this=this@entry=0x7fffffffd2c0, dm=dm@entry=0x7fffffffd5a0, eg=...) at ../.././gcc/analyzer/diagnostic-manager.cc:270
+##10 0x00000000013aad40 in ana::diagnostic_manager::emit_saved_diagnostics (this=this@entry=0x7fffffffd5a0, eg=...) at ../.././gcc/analyzer/diagnostic-manager.cc:511
+##11 0x0000000000db6d91 in ana::impl_run_checkers (logger=<optimized out>) at ../.././gcc/analyzer/exploded-graph.h:774
+##12 0x0000000000db78fd in ana::run_checkers () at ../.././gcc/analyzer/analyzer-logging.h:148
+##13 0x0000000000daceb9 in (anonymous namespace)::pass_analyzer::execute (this=<optimized out>) at ../.././gcc/analyzer/analyzer-pass.cc:84
+##14 0x0000000000a2d388 in execute_one_pass (pass=0x21f62d0) at ../.././gcc/passes.c:2502
+##15 0x0000000000a2e1e7 in execute_ipa_pass_list (pass=0x21f62d0) at ../.././gcc/passes.c:2929
+##16 0x000000000072aeb8 in ipa_passes () at ../.././gcc/cgraphunit.c:2678
+##17 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2755
+##18 0x000000000072cb8d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+##19 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+##20 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+##21 0x00000000005da34c in do_compile () at ../.././gcc/toplev.c:2273
+##22 toplev::main (this=this@entry=0x7fffffffdcde, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffddd8) at ../.././gcc/toplev.c:2412
+##23 0x00000000005dddef in main (argc=14, argv=0x7fffffffddd8) at ../.././gcc/main.c:39

@@ -1,0 +1,24 @@
+(gdb) bt
+#0  0x00000000013aa024 in ana::diagnostic_manager::finish_pruning (this=0x7fffffffd5a0, path=0x7fffffffd110) at ../.././gcc/analyzer/diagnostic-manager.cc:1460
+#1  0x00000000013aa7b5 in ana::diagnostic_manager::prune_path (this=this@entry=0x7fffffffd5a0, path=path@entry=0x7fffffffd110, sm=0x2248550, var=0x7ffff6d90510, state=4)
+    at ../.././gcc/analyzer/diagnostic-manager.cc:1086
+#2  0x00000000013aa956 in ana::diagnostic_manager::emit_saved_diagnostic (this=this@entry=0x7fffffffd5a0, eg=..., sd=..., epath=..., stmt=0x7ffff6deb2d0, num_dupes=0)
+    at ../.././gcc/analyzer/diagnostic-manager.cc:542
+#3  0x00000000013ac80f in ana::dedupe_winners::emit_best (this=this@entry=0x7fffffffd2c0, dm=dm@entry=0x7fffffffd5a0, eg=...) at ../.././gcc/analyzer/diagnostic-manager.cc:270
+#4  0x00000000013aad40 in ana::diagnostic_manager::emit_saved_diagnostics (this=this@entry=0x7fffffffd5a0, eg=...) at ../.././gcc/analyzer/diagnostic-manager.cc:511
+#5  0x0000000000db6d91 in ana::impl_run_checkers (logger=<optimized out>) at ../.././gcc/analyzer/exploded-graph.h:774
+#6  0x0000000000db78fd in ana::run_checkers () at ../.././gcc/analyzer/analyzer-logging.h:148
+#7  0x0000000000daceb9 in (anonymous namespace)::pass_analyzer::execute (this=<optimized out>) at ../.././gcc/analyzer/analyzer-pass.cc:84
+#8  0x0000000000a2d388 in execute_one_pass (pass=0x21f62d0) at ../.././gcc/passes.c:2502
+#9  0x0000000000a2e1e7 in execute_ipa_pass_list (pass=0x21f62d0) at ../.././gcc/passes.c:2929
+#10 0x000000000072aeb8 in ipa_passes () at ../.././gcc/cgraphunit.c:2678
+#11 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2755
+#12 0x000000000072cb8d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#13 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#14 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+#15 0x00000000005da34c in do_compile () at ../.././gcc/toplev.c:2273
+#16 toplev::main (this=this@entry=0x7fffffffdcde, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffddd8) at ../.././gcc/toplev.c:2412
+#17 0x00000000005dddef in main (argc=14, argv=0x7fffffffddd8) at ../.././gcc/main.c:39
+(gdb) frame 1
+#1  0x00000000013aa7b5 in ana::diagnostic_manager::prune_path (this=this@entry=0x7fffffffd5a0, path=path@entry=0x7fffffffd110, sm=0x2248550, var=0x7ffff6d90510, state=4)
+    at ../.././gcc/analyzer/diagnostic-manager.cc:1086

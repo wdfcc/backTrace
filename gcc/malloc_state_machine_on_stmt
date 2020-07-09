@@ -1,0 +1,19 @@
+(gdb) bt 
+#0  ana::(anonymous namespace)::malloc_state_machine::on_stmt (this=0x2248550, sm_ctxt=0x7fffffffd0f0, node=0x21e17a0, stmt=0x7ffff6dde510) at ../.././gcc/gimple.h:1321
+#1  0x0000000000db5a75 in ana::exploded_node::on_stmt (this=this@entry=0x229d8a0, eg=..., snode=snode@entry=0x21e17a0, stmt=stmt@entry=0x7ffff6dde510, state=state@entry=0x7fffffffd1d0, change=change@entry=0x7fffffffd1b8)
+    at ../.././gcc/analyzer/engine.cc:1099
+#2  0x0000000000db6230 in ana::exploded_graph::process_node (this=0x7fffffffd470, node=0x229d8a0) at ../.././gcc/analyzer/engine.cc:2529
+#3  0x0000000000db667b in ana::exploded_graph::process_worklist (this=0x7fffffffd470) at ../.././gcc/analyzer/engine.cc:2348
+#4  0x0000000000db6d6c in ana::impl_run_checkers (logger=0x0) at ../.././gcc/analyzer/engine.cc:4029
+#5  0x0000000000db78fd in ana::run_checkers () at ../.././gcc/analyzer/analyzer-logging.h:148
+#6  0x0000000000daceb9 in (anonymous namespace)::pass_analyzer::execute (this=<optimized out>) at ../.././gcc/analyzer/analyzer-pass.cc:84
+#7  0x0000000000a2d388 in execute_one_pass (pass=0x21f62d0) at ../.././gcc/passes.c:2502
+#8  0x0000000000a2e1e7 in execute_ipa_pass_list (pass=0x21f62d0) at ../.././gcc/passes.c:2929
+#9  0x000000000072aeb8 in ipa_passes () at ../.././gcc/cgraphunit.c:2678
+#10 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2755
+#11 0x000000000072cb8d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#12 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#13 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+#14 0x00000000005da34c in do_compile () at ../.././gcc/toplev.c:2273
+#15 toplev::main (this=this@entry=0x7fffffffdcde, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffddd8) at ../.././gcc/toplev.c:2412
+#16 0x00000000005dddef in main (argc=14, argv=0x7fffffffddd8) at ../.././gcc/main.c:39
