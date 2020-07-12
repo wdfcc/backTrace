@@ -1,0 +1,27 @@
+0x00000000010191ae in gen_rtx_fmt_ee_stat (arg1=0x7ffff6df19a8, arg0=0x7ffff6c29390, mode=E_VOIDmode, code=SET) at ./genrtl.h:49
+49	  rt = rtx_alloc (code PASS_MEM_STAT);
+#0  0x00000000010191ae in gen_rtx_fmt_ee_stat (arg1=0x7ffff6df19a8, arg0=0x7ffff6c29390, mode=E_VOIDmode, code=SET) at ./genrtl.h:49
+#1  gen_pro_epilogue_adjust_stack_add_di (operand0=0x7ffff6c29390, operand1=0x7ffff6c29390, operand2=0x7ffff6c2f380) at insn-emit.c:3137
+#2  0x0000000000d8ecf2 in gen_pro_epilogue_adjust_stack_add (x2=<optimized out>, x1=<optimized out>, x0=0x7ffff6c29390, arg0=<optimized out>) at ./insn-opinit.h:702
+#3  pro_epilogue_adjust_stack (dest=0x7ffff6c29390, src=0x7ffff6c29390, offset=0x7ffff6c2f380, style=-1, set_cfa=<optimized out>) at ../.././gcc/config/i386/i386.c:6778
+#4  0x0000000000d99c40 in ix86_expand_prologue () at ../.././gcc/config/i386/i386.c:8387
+#5  0x00000000010a90ac in gen_prologue () at ../.././gcc/config/i386/i386.md:13442
+#6  0x0000000000d8e507 in target_gen_prologue () at ../.././gcc/config/i386/i386.md:20062
+#7  0x0000000000841f4f in make_prologue_seq () at ../.././gcc/function.c:5787
+#8  0x0000000000842102 in thread_prologue_and_epilogue_insns () at ../.././gcc/function.c:5904
+#9  0x0000000000842693 in rest_of_handle_thread_prologue_and_epilogue () at ../.././gcc/function.c:6395
+#10 (anonymous namespace)::pass_thread_prologue_and_epilogue::execute (this=<optimized out>) at ../.././gcc/function.c:6471
+#11 0x0000000000a2d3a8 in execute_one_pass (pass=0x21fd1d0) at ../.././gcc/passes.c:2502
+#12 0x0000000000a2dcf0 in execute_pass_list_1 (pass=0x21fd1d0) at ../.././gcc/passes.c:2590
+#13 0x0000000000a2dd02 in execute_pass_list_1 (pass=0x21fcf90) at ../.././gcc/passes.c:2591
+#14 0x0000000000a2dd02 in execute_pass_list_1 (pass=0x21fbbf0) at ../.././gcc/passes.c:2591
+#15 0x0000000000a2dd29 in execute_pass_list (fn=0x7ffff6dec000, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#16 0x0000000000729a9e in cgraph_node::expand (this=0x7ffff6de4ca8) at ../.././gcc/context.h:48
+#17 0x000000000072ab94 in output_in_order () at ../.././gcc/cgraphunit.c:2578
+#18 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2819
+#19 0x000000000072cbad in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#20 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#21 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+#22 0x00000000005da37c in do_compile () at ../.././gcc/toplev.c:2273
+#23 toplev::main (this=this@entry=0x7fffffffdcee, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffdde8) at ../.././gcc/toplev.c:2412
+#24 0x00000000005dde1f in main (argc=13, argv=0x7fffffffdde8) at ../.././gcc/main.c:39

@@ -1,0 +1,31 @@
+Thread 2.1 "cc1" hit Hardware watchpoint 3: *(int *)0x7ffff6df1500
+
+Old value = 84
+New value = 0
+set_regno_raw (nregs=<optimized out>, regno=0, x=0x7ffff6df14f8) at ../.././gcc/rtl.h:1941
+1941	  reg->nregs = nregs;
+(gdb) bt
+#0  set_regno_raw (nregs=<optimized out>, regno=0, x=0x7ffff6df14f8) at ../.././gcc/rtl.h:1941
+##1  set_mode_and_regno (x=0x7ffff6df14f8, mode=E_DImode, regno=0) at ../.././gcc/emit-rtl.c:465
+##2  0x00000000007580eb in df_ref_change_reg_with_loc (loc=<optimized out>, new_regno=<optimized out>) at ../.././gcc/df-scan.c:1902
+##3  0x00000000009989d2 in lra_final_code_change () at ../.././gcc/lra-spills.c:784
+##4  0x0000000000978785 in lra (f=<optimized out>) at ../.././gcc/lra.c:2573
+##5  0x0000000000936392 in do_reload () at ../.././gcc/ira.c:5523
+##6  (anonymous namespace)::pass_reload::execute (this=<optimized out>) at ../.././gcc/ira.c:5709
+##7  0x0000000000a2d3a8 in execute_one_pass (pass=0x21fced0) at ../.././gcc/passes.c:2502
+##8  0x0000000000a2dcf0 in execute_pass_list_1 (pass=0x21fced0) at ../.././gcc/passes.c:2590
+##9  0x0000000000a2dd02 in execute_pass_list_1 (pass=0x21fbbf0) at ../.././gcc/passes.c:2591
+##10 0x0000000000a2dd29 in execute_pass_list (fn=0x7ffff6dec000, pass=<optimized out>) at ../.././gcc/passes.c:2601
+##11 0x0000000000729a9e in cgraph_node::expand (this=0x7ffff6de4ca8) at ../.././gcc/context.h:48
+##12 0x000000000072ab94 in output_in_order () at ../.././gcc/cgraphunit.c:2578
+##13 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2819
+##14 0x000000000072cbad in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+##15 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+##16 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+##17 0x00000000005da37c in do_compile () at ../.././gcc/toplev.c:2273
+##18 toplev::main (this=this@entry=0x7fffffffdcee, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffdde8) at ../.././gcc/toplev.c:2412
+##19 0x00000000005dde1f in main (argc=13, argv=0x7fffffffdde8) at ../.././gcc/main.c:39
+#(gdb) p x->u.reg      
+#$8 = {regno = 0, nregs = 1, unused = 0, attrs = 0x0}
+#(gdb) p hi_reg_name[0]
+#$9 = 0x1542686 "ax"

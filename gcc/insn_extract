@@ -44,3 +44,28 @@
 #18 0x00000000005da37c in do_compile () at ../.././gcc/toplev.c:2273
 #19 toplev::main (this=this@entry=0x7fffffffdcee, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffdde8) at ../.././gcc/toplev.c:2412
 #20 0x00000000005dde1f in main (argc=13, argv=0x7fffffffdde8) at ../.././gcc/main.c:39
+
+
+#0  insn_extract (insn=insn@entry=0x7ffff6c3d740) at insn-extract.c:10006
+##1  0x0000000000a674ad in extract_insn (insn=0x7ffff6c3d740) at ../.././gcc/recog.c:2300
+##2  0x0000000000a676d5 in extract_insn_cached (insn=insn@entry=0x7ffff6c3d740) at ../.././gcc/recog.c:2183
+##3  0x00000000008041a3 in cleanup_subreg_operands (insn=insn@entry=0x7ffff6c3d740) at ../.././gcc/final.c:3312
+##4  0x000000000080868c in final_scan_insn_1 (insn=0x7ffff6c3d740, file=0x22448b0, seen=<optimized out>, nopeepholes=<optimized out>, optimize_p=<optimized out>) at ../.././gcc/final.c:2996
+##5  0x0000000000808bcc in final_scan_insn (insn=<optimized out>, file=<optimized out>, optimize_p=<optimized out>, nopeepholes=<optimized out>, seen=<optimized out>) at ../.././gcc/final.c:3152
+##6  0x0000000000808eb5 in final_1 (first=0x7ffff6c35ce8, file=0x22448b0, seen=<optimized out>, optimize_p=0) at ../.././gcc/final.c:2020
+##7  0x0000000000809645 in rest_of_handle_final () at ../.././gcc/final.c:4658
+##8  (anonymous namespace)::pass_final::execute (this=<optimized out>) at ../.././gcc/final.c:4736
+##9  0x0000000000a2d3a8 in execute_one_pass (pass=0x21fdd70) at ../.././gcc/passes.c:2502
+##10 0x0000000000a2dcf0 in execute_pass_list_1 (pass=0x21fdd70) at ../.././gcc/passes.c:2590
+##11 0x0000000000a2dd02 in execute_pass_list_1 (pass=0x21fd890) at ../.././gcc/passes.c:2591
+##12 0x0000000000a2dd02 in execute_pass_list_1 (pass=0x21fbbf0) at ../.././gcc/passes.c:2591
+##13 0x0000000000a2dd29 in execute_pass_list (fn=0x7ffff6dec000, pass=<optimized out>) at ../.././gcc/passes.c:2601
+##14 0x0000000000729a9e in cgraph_node::expand (this=0x7ffff6de4ca8) at ../.././gcc/context.h:48
+##15 0x000000000072ab94 in output_in_order () at ../.././gcc/cgraphunit.c:2578
+##16 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2819
+##17 0x000000000072cbad in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+##18 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+##19 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+##20 0x00000000005da37c in do_compile () at ../.././gcc/toplev.c:2273
+##21 toplev::main (this=this@entry=0x7fffffffdcee, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffdde8) at ../.././gcc/toplev.c:2412
+##22 0x00000000005dde1f in main (argc=13, argv=0x7fffffffdde8) at ../.././gcc/main.c:39
