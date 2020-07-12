@@ -1,0 +1,31 @@
+(gdb) bt
+#0  init_rtx_fmt_ee (arg1=0x7ffff6df14f8, arg0=0x7ffff6df1498, mode=E_VOIDmode, rt=0x7ffff6df1558) at ./genrtl.h:38
+#1  gen_rtx_fmt_ee_stat (arg1=0x7ffff6df14f8, arg0=0x7ffff6df1498, mode=E_VOIDmode, code=SET) at ./genrtl.h:50
+#2  ix86_expand_move (mode=mode@entry=E_DImode, operands=operands@entry=0x7fffffffd380) at ../.././gcc/config/i386/i386-expand.c:347
+#3  0x000000000107f329 in gen_movdi (operand0=0x7ffff6df1498, operand1=0x7ffff6df14f8) at ../.././gcc/config/i386/i386.md:1870
+#4  0x00000000007f6318 in insn_gen_fn::operator() (a1=0x7ffff6df14f8, a0=0x7ffff6df1498, this=<optimized out>) at ../.././gcc/recog.h:317
+#5  emit_move_insn_1 (x=0x7ffff6df1498, y=0x7ffff6df14f8) at ../.././gcc/expr.c:3759
+#6  0x00000000007f66a2 in emit_move_insn (x=x@entry=0x7ffff6df1498, y=0x7ffff6df14f8) at ../.././gcc/expr.c:3855
+#7  0x00000000006e400a in load_register_parameters (sibcall_failure=<synthetic pointer>, is_sibcall=0, flags=1088, call_fusage=0x7fffffffd640, num_actuals=1, args=0x22b66f0)
+    at ../.././gcc/calls.c:3143
+#8  expand_call (exp=<optimized out>, target=0x7ffff6c2f480, ignore=<optimized out>) at ../.././gcc/calls.c:4589
+#9  0x00000000007f3113 in expand_expr_real_1 (exp=0x7ffff6c35dc8, target=<optimized out>, tmode=E_VOIDmode, modifier=<optimized out>, alt_rtl=0x0, 
+    inner_reference_p=<optimized out>) at ../.././gcc/expr.c:11132
+#10 0x00000000006f60ef in expand_expr (modifier=EXPAND_NORMAL, mode=E_VOIDmode, target=<optimized out>, exp=0x7ffff6c35dc8) at ../.././gcc/expr.h:282
+#11 expand_call_stmt (stmt=0x7ffff6dde510) at ../.././gcc/cfgexpand.c:2703
+#12 expand_gimple_stmt_1 (stmt=0x7ffff6dde510) at ../.././gcc/cfgexpand.c:3682
+#13 expand_gimple_stmt (stmt=0x7ffff6dde510) at ../.././gcc/cfgexpand.c:3847
+#14 0x00000000006fb87b in expand_gimple_basic_block (disable_tail_calls=<optimized out>, bb=<optimized out>) at ../.././gcc/cfgexpand.c:5887
+#15 (anonymous namespace)::pass_expand::execute (this=<optimized out>, fun=<optimized out>) at ../.././gcc/cfgexpand.c:6542
+#16 0x0000000000a2d388 in execute_one_pass (pass=0x21fab90) at ../.././gcc/passes.c:2502
+#17 0x0000000000a2dcd0 in execute_pass_list_1 (pass=0x21fab90) at ../.././gcc/passes.c:2590
+#18 0x0000000000a2dd09 in execute_pass_list (fn=0x7ffff6dec000, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#19 0x0000000000729a7e in cgraph_node::expand (this=0x7ffff6de4ca8) at ../.././gcc/context.h:48
+#20 0x000000000072ab74 in output_in_order () at ../.././gcc/cgraphunit.c:2578
+#21 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2819
+#22 0x000000000072cb8d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#23 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#24 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+#25 0x00000000005da34c in do_compile () at ../.././gcc/toplev.c:2273
+#26 toplev::main (this=this@entry=0x7fffffffdcee, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffdde8) at ../.././gcc/toplev.c:2412
+#27 0x00000000005dddef in main (argc=13, argv=0x7fffffffdde8) at ../.././gcc/main.c:39

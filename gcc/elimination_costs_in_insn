@@ -1,0 +1,20 @@
+(gdb) bt
+#0  elimination_costs_in_insn (insn=0x7ffff6c3d500) at ../.././gcc/reload1.c:3600
+#1  0x0000000000a93549 in calculate_elim_costs_all_insns () at ../.././gcc/reload1.c:1605
+#2  0x000000000094aea0 in ira_costs () at ../.././gcc/ira-costs.c:2293
+#3  0x0000000000944a01 in ira_build () at ../.././gcc/ira-build.c:3432
+#4  0x000000000093b943 in ira (f=<optimized out>) at ../.././gcc/ira.c:5353
+#5  (anonymous namespace)::pass_ira::execute (this=<optimized out>) at ../.././gcc/ira.c:5666
+#6  0x0000000000a2d388 in execute_one_pass (pass=0x21fbe70) at ../.././gcc/passes.c:2502
+#7  0x0000000000a2dcd0 in execute_pass_list_1 (pass=0x21fbe70) at ../.././gcc/passes.c:2590
+#8  0x0000000000a2dce2 in execute_pass_list_1 (pass=0x21fabf0) at ../.././gcc/passes.c:2591
+#9  0x0000000000a2dd09 in execute_pass_list (fn=0x7ffff6dec000, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#10 0x0000000000729a7e in cgraph_node::expand (this=0x7ffff6de4ca8) at ../.././gcc/context.h:48
+#11 0x000000000072ab74 in output_in_order () at ../.././gcc/cgraphunit.c:2578
+#12 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2819
+#13 0x000000000072cb8d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#14 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#15 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+#16 0x00000000005da34c in do_compile () at ../.././gcc/toplev.c:2273
+#17 toplev::main (this=this@entry=0x7fffffffdcee, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffdde8) at ../.././gcc/toplev.c:2412
+#18 0x00000000005dddef in main (argc=13, argv=0x7fffffffdde8) at ../.././gcc/main.c:39

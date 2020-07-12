@@ -1,0 +1,24 @@
+(gdb) bt
+#0  0x0000000000976a13 in setup_insn_reg_info (data=0x236f8d0, data=0x236f8d0, freq=1000) at ../.././gcc/lra.c:1602
+#1  lra_update_insn_regno_info (insn=insn@entry=0x7ffff6c3d640) at ../.././gcc/lra.c:1649
+#2  0x0000000000976b0e in lra_update_insn_regno_info (insn=0x7ffff6c3d640) at ../.././gcc/lra.c:1777
+#3  lra_push_insn_1 (insn=insn@entry=0x7ffff6c3d640, always_update=always_update@entry=false) at ../.././gcc/lra.c:1777
+#4  0x0000000000978397 in lra_push_insn (insn=0x7ffff6c3d640) at ../.././gcc/lra.c:1828
+#5  push_insns (to=<optimized out>, from=<optimized out>) at ../.././gcc/lra.c:1828
+#6  push_insns (to=0x0, from=<optimized out>) at ../.././gcc/lra.c:1820
+#7  lra (f=<optimized out>) at ../.././gcc/lra.c:2423
+#8  0x0000000000936372 in do_reload () at ../.././gcc/ira.c:5523
+#9  (anonymous namespace)::pass_reload::execute (this=<optimized out>) at ../.././gcc/ira.c:5709
+#10 0x0000000000a2d388 in execute_one_pass (pass=0x21fbed0) at ../.././gcc/passes.c:2502
+#11 0x0000000000a2dcd0 in execute_pass_list_1 (pass=0x21fbed0) at ../.././gcc/passes.c:2590
+#12 0x0000000000a2dce2 in execute_pass_list_1 (pass=0x21fabf0) at ../.././gcc/passes.c:2591
+#13 0x0000000000a2dd09 in execute_pass_list (fn=0x7ffff6dec000, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#14 0x0000000000729a7e in cgraph_node::expand (this=0x7ffff6de4ca8) at ../.././gcc/context.h:48
+#15 0x000000000072ab74 in output_in_order () at ../.././gcc/cgraphunit.c:2578
+#16 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2819
+#17 0x000000000072cb8d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#18 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#19 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+#20 0x00000000005da34c in do_compile () at ../.././gcc/toplev.c:2273
+#21 toplev::main (this=this@entry=0x7fffffffdcee, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffdde8) at ../.././gcc/toplev.c:2412
+#22 0x00000000005dddef in main (argc=13, argv=0x7fffffffdde8) at ../.././gcc/main.c:39
