@@ -1,0 +1,25 @@
+#0  end_sequence () at ../.././gcc/emit-rtl.c:5642
+#1  0x00000000010a7cb5 in gen_call (operand0=0x7ffff6df1588, operand1=<optimized out>, operand2=0x7ffff6c2f470) at ../.././gcc/emit-rtl.h:415
+#2  0x0000000000d8ea07 in target_gen_call (x0=<optimized out>, opt1=<optimized out>, opt2=<optimized out>) at ../.././gcc/config/i386/i386.md:18661
+#3  0x00000000006db072 in emit_call_1 (funexp=<optimized out>, fntree=0x7ffff6c35dc8, fndecl=<optimized out>, funtype=0x7ffff6c54d20, stack_size=..., rounded_stack_size=..., struct_value_size=..., next_arg_reg=0x7ffff6c2f470, valreg=0x0, 
+    old_inhibit_defer_pop=0, call_fusage=0x7ffff6df1570, ecf_flags=1088, args_so_far=...) at ../.././gcc/machmode.h:417
+#4  0x00000000006e4f8d in expand_call (exp=<optimized out>, target=0x7ffff6c2f480, ignore=<optimized out>) at ../.././gcc/poly-int.h:661
+#5  0x00000000007f3133 in expand_expr_real_1 (exp=0x7ffff6c35dc8, target=<optimized out>, tmode=E_VOIDmode, modifier=<optimized out>, alt_rtl=0x0, inner_reference_p=<optimized out>) at ../.././gcc/expr.c:11132
+#6  0x00000000006f611f in expand_expr (modifier=EXPAND_NORMAL, mode=E_VOIDmode, target=<optimized out>, exp=0x7ffff6c35dc8) at ../.././gcc/expr.h:282
+#7  expand_call_stmt (stmt=0x7ffff6dde510) at ../.././gcc/cfgexpand.c:2703
+#8  expand_gimple_stmt_1 (stmt=0x7ffff6dde510) at ../.././gcc/cfgexpand.c:3682
+#9  expand_gimple_stmt (stmt=0x7ffff6dde510) at ../.././gcc/cfgexpand.c:3847
+#10 0x00000000006fb8ab in expand_gimple_basic_block (disable_tail_calls=<optimized out>, bb=<optimized out>) at ../.././gcc/cfgexpand.c:5887
+#11 (anonymous namespace)::pass_expand::execute (this=<optimized out>, fun=<optimized out>) at ../.././gcc/cfgexpand.c:6542
+#12 0x0000000000a2d3a8 in execute_one_pass (pass=0x21fbb90) at ../.././gcc/passes.c:2502
+#13 0x0000000000a2dcf0 in execute_pass_list_1 (pass=0x21fbb90) at ../.././gcc/passes.c:2590
+#14 0x0000000000a2dd29 in execute_pass_list (fn=0x7ffff6dec000, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#15 0x0000000000729a9e in cgraph_node::expand (this=0x7ffff6de4ca8) at ../.././gcc/context.h:48
+#16 0x000000000072ab94 in output_in_order () at ../.././gcc/cgraphunit.c:2578
+#17 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2819
+#18 0x000000000072cbad in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#19 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#20 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+#21 0x00000000005da37c in do_compile () at ../.././gcc/toplev.c:2273
+#22 toplev::main (this=this@entry=0x7fffffffdcee, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffdde8) at ../.././gcc/toplev.c:2412
+#23 0x00000000005dde1f in main (argc=13, argv=0x7fffffffdde8) at ../.././gcc/main.c:39

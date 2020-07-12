@@ -1,0 +1,18 @@
+#1  0x0000000000841f49 in make_prologue_seq () at ../.././gcc/function.c:5786
+#2  0x0000000000842102 in thread_prologue_and_epilogue_insns () at ../.././gcc/function.c:5904
+#3  0x0000000000842693 in rest_of_handle_thread_prologue_and_epilogue () at ../.././gcc/function.c:6395
+#4  (anonymous namespace)::pass_thread_prologue_and_epilogue::execute (this=<optimized out>) at ../.././gcc/function.c:6471
+#5  0x0000000000a2d3a8 in execute_one_pass (pass=0x21fd1d0) at ../.././gcc/passes.c:2502
+#6  0x0000000000a2dcf0 in execute_pass_list_1 (pass=0x21fd1d0) at ../.././gcc/passes.c:2590
+#7  0x0000000000a2dd02 in execute_pass_list_1 (pass=0x21fcf90) at ../.././gcc/passes.c:2591
+#8  0x0000000000a2dd02 in execute_pass_list_1 (pass=0x21fbbf0) at ../.././gcc/passes.c:2591
+#9  0x0000000000a2dd29 in execute_pass_list (fn=0x7ffff69a6840, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#10 0x0000000000729a9e in cgraph_node::expand (this=0x7ffff69b49d8) at ../.././gcc/context.h:48
+#11 0x000000000072ab30 in expand_all_functions () at ../.././gcc/cgraphunit.c:2471
+#12 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2822
+#13 0x000000000072cbad in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#14 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#15 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+#16 0x00000000005da37c in do_compile () at ../.././gcc/toplev.c:2273
+#17 toplev::main (this=this@entry=0x7fffffffce8e, argc=<optimized out>, argc@entry=101, argv=<optimized out>, argv@entry=0x7fffffffcf88) at ../.././gcc/toplev.c:2412
+#18 0x00000000005dde1f in main (argc=101, argv=0x7fffffffcf88) at ../.././gcc/main.c:39

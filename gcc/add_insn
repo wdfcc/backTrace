@@ -1,0 +1,194 @@
+#0  add_insn (insn=insn@entry=0x7ffff6c3d440) at ../.././gcc/emit-rtl.c:4203
+#1  0x00000000007c602f in emit_insn (x=<optimized out>) at ../.././gcc/emit-rtl.c:5138
+#2  emit_insn (x=<optimized out>) at ../.././gcc/emit-rtl.c:5102
+#3  0x00000000007f66c2 in emit_move_insn (x=x@entry=0x7ffff6df14f8, y=y@entry=0x7ffff6df14b0) at ../.././gcc/expr.c:3855
+#4  0x00000000007d57df in copy_to_mode_reg (mode=E_DImode, x=0x7ffff6df14b0) at ../.././gcc/explow.c:634
+#5  0x00000000006e364c in precompute_register_parameters (reg_parm_seen=<synthetic pointer>, args=0x22b76f0, num_actuals=1) at ../.././gcc/calls.c:1031
+#6  expand_call (exp=<optimized out>, target=0x7ffff6c2f480, ignore=<optimized out>) at ../.././gcc/calls.c:4398
+#7  0x00000000007f3133 in expand_expr_real_1 (exp=0x7ffff6c35dc8, target=<optimized out>, tmode=E_VOIDmode, modifier=<optimized out>, alt_rtl=0x0, inner_reference_p=<optimized out>) at ../.././gcc/expr.c:11132
+#8  0x00000000006f611f in expand_expr (modifier=EXPAND_NORMAL, mode=E_VOIDmode, target=<optimized out>, exp=0x7ffff6c35dc8) at ../.././gcc/expr.h:282
+#9  expand_call_stmt (stmt=0x7ffff6dde510) at ../.././gcc/cfgexpand.c:2703
+#10 expand_gimple_stmt_1 (stmt=0x7ffff6dde510) at ../.././gcc/cfgexpand.c:3682
+#11 expand_gimple_stmt (stmt=0x7ffff6dde510) at ../.././gcc/cfgexpand.c:3847
+#12 0x00000000006fb8ab in expand_gimple_basic_block (disable_tail_calls=<optimized out>, bb=<optimized out>) at ../.././gcc/cfgexpand.c:5887
+#13 (anonymous namespace)::pass_expand::execute (this=<optimized out>, fun=<optimized out>) at ../.././gcc/cfgexpand.c:6542
+#14 0x0000000000a2d3a8 in execute_one_pass (pass=0x21fbb90) at ../.././gcc/passes.c:2502
+#15 0x0000000000a2dcf0 in execute_pass_list_1 (pass=0x21fbb90) at ../.././gcc/passes.c:2590
+#16 0x0000000000a2dd29 in execute_pass_list (fn=0x7ffff6dec000, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#17 0x0000000000729a9e in cgraph_node::expand (this=0x7ffff6de4ca8) at ../.././gcc/context.h:48
+#18 0x000000000072ab94 in output_in_order () at ../.././gcc/cgraphunit.c:2578
+#19 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2819
+#20 0x000000000072cbad in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#21 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#22 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+#23 0x00000000005da37c in do_compile () at ../.././gcc/toplev.c:2273
+#24 toplev::main (this=this@entry=0x7fffffffdcee, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffdde8) at ../.././gcc/toplev.c:2412
+#25 0x00000000005dde1f in main (argc=13, argv=0x7fffffffdde8) at ../.././gcc/main.c:39
+
+
+
+$45 = (rtx_insn *) 0x7ffff20360a8
+#0  add_insn (insn=insn@entry=0x7ffff20360a8) at ../.././gcc/emit-rtl.c:4203
+##1  0x00000000007c6374 in emit_note (kind=kind@entry=NOTE_INSN_PROLOGUE_END) at ../.././gcc/emit-rtl.c:5331
+##2  0x0000000000841f85 in make_prologue_seq () at ../.././gcc/function.c:5797
+##3  0x0000000000842102 in thread_prologue_and_epilogue_insns () at ../.././gcc/function.c:5904
+##4  0x0000000000842693 in rest_of_handle_thread_prologue_and_epilogue () at ../.././gcc/function.c:6395
+##5  (anonymous namespace)::pass_thread_prologue_and_epilogue::execute (this=<optimized out>) at ../.././gcc/function.c:6471
+##6  0x0000000000a2d3a8 in execute_one_pass (pass=0x21fd1d0) at ../.././gcc/passes.c:2502
+##7  0x0000000000a2dcf0 in execute_pass_list_1 (pass=0x21fd1d0) at ../.././gcc/passes.c:2590
+##8  0x0000000000a2dd02 in execute_pass_list_1 (pass=0x21fcf90) at ../.././gcc/passes.c:2591
+##9  0x0000000000a2dd02 in execute_pass_list_1 (pass=0x21fbbf0) at ../.././gcc/passes.c:2591
+##10 0x0000000000a2dd29 in execute_pass_list (fn=0x7ffff69a6840, pass=<optimized out>) at ../.././gcc/passes.c:2601
+##11 0x0000000000729a9e in cgraph_node::expand (this=0x7ffff69b49d8) at ../.././gcc/context.h:48
+##12 0x000000000072ab30 in expand_all_functions () at ../.././gcc/cgraphunit.c:2471
+##13 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2822
+##14 0x000000000072cbad in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+##15 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+##16 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+##17 0x00000000005da37c in do_compile () at ../.././gcc/toplev.c:2273
+##18 toplev::main (this=this@entry=0x7fffffffce8e, argc=<optimized out>, argc@entry=101, argv=<optimized out>, argv@entry=0x7fffffffcf88) at ../.././gcc/toplev.c:2412
+##19 0x00000000005dde1f in main (argc=101, argv=0x7fffffffcf88) at ../.././gcc/main.c:39
+
+
+
+#0  add_insn (insn=insn@entry=0x7ffff20360e0) at ../.././gcc/emit-rtl.c:4203
+##1  0x00000000007c6374 in emit_note (kind=kind@entry=NOTE_INSN_EPILOGUE_BEG) at ../.././gcc/emit-rtl.c:5331
+##2  0x0000000000842013 in make_epilogue_seq () at ../.././gcc/function.c:5822
+##3  0x000000000084210a in thread_prologue_and_epilogue_insns () at ../.././gcc/function.c:5905
+##4  0x0000000000842693 in rest_of_handle_thread_prologue_and_epilogue () at ../.././gcc/function.c:6395
+##5  (anonymous namespace)::pass_thread_prologue_and_epilogue::execute (this=<optimized out>) at ../.././gcc/function.c:6471
+##6  0x0000000000a2d3a8 in execute_one_pass (pass=0x21fd1d0) at ../.././gcc/passes.c:2502
+##7  0x0000000000a2dcf0 in execute_pass_list_1 (pass=0x21fd1d0) at ../.././gcc/passes.c:2590
+##8  0x0000000000a2dd02 in execute_pass_list_1 (pass=0x21fcf90) at ../.././gcc/passes.c:2591
+##9  0x0000000000a2dd02 in execute_pass_list_1 (pass=0x21fbbf0) at ../.././gcc/passes.c:2591
+##10 0x0000000000a2dd29 in execute_pass_list (fn=0x7ffff69a6840, pass=<optimized out>) at ../.././gcc/passes.c:2601
+##11 0x0000000000729a9e in cgraph_node::expand (this=0x7ffff69b49d8) at ../.././gcc/context.h:48
+##12 0x000000000072ab30 in expand_all_functions () at ../.././gcc/cgraphunit.c:2471
+##13 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2822
+##14 0x000000000072cbad in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+##15 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+##16 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+##17 0x00000000005da37c in do_compile () at ../.././gcc/toplev.c:2273
+##18 toplev::main (this=this@entry=0x7fffffffce8e, argc=<optimized out>, argc@entry=101, argv=<optimized out>, argv@entry=0x7fffffffcf88) at ../.././gcc/toplev.c:2412
+##19 0x00000000005dde1f in main (argc=101, argv=0x7fffffffcf88) at ../.././gcc/main.c:39
+
+
+#0  add_insn (insn=insn@entry=0x7ffff3554288) at ../.././gcc/emit-rtl.c:4203
+##1  0x00000000007c61a9 in emit_jump_insn (x=<optimized out>) at ../.././gcc/emit-rtl.c:5229
+##2  emit_jump_insn (x=0x7ffff6c2d0d0) at ../.././gcc/emit-rtl.c:5196
+##3  0x0000000000d9c350 in ix86_expand_epilogue (style=style@entry=1) at ../.././gcc/config/i386/i386.c:9293
+##4  0x00000000010a92a1 in gen_epilogue () at ../.././gcc/config/i386/i386.md:13519
+##5  0x0000000000d8e467 in target_gen_epilogue () at ../.././gcc/config/i386/i386.md:13018
+##6  0x0000000000842019 in make_epilogue_seq () at ../.././gcc/function.c:5823
+##7  0x000000000084210a in thread_prologue_and_epilogue_insns () at ../.././gcc/function.c:5905
+##8  0x0000000000842693 in rest_of_handle_thread_prologue_and_epilogue () at ../.././gcc/function.c:6395
+##9  (anonymous namespace)::pass_thread_prologue_and_epilogue::execute (this=<optimized out>) at ../.././gcc/function.c:6471
+##10 0x0000000000a2d3a8 in execute_one_pass (pass=0x21fd1d0) at ../.././gcc/passes.c:2502
+##11 0x0000000000a2dcf0 in execute_pass_list_1 (pass=0x21fd1d0) at ../.././gcc/passes.c:2590
+##12 0x0000000000a2dd02 in execute_pass_list_1 (pass=0x21fcf90) at ../.././gcc/passes.c:2591
+##13 0x0000000000a2dd02 in execute_pass_list_1 (pass=0x21fbbf0) at ../.././gcc/passes.c:2591
+##14 0x0000000000a2dd29 in execute_pass_list (fn=0x7ffff69a6840, pass=<optimized out>) at ../.././gcc/passes.c:2601
+##15 0x0000000000729a9e in cgraph_node::expand (this=0x7ffff69b49d8) at ../.././gcc/context.h:48
+##16 0x000000000072ab30 in expand_all_functions () at ../.././gcc/cgraphunit.c:2471
+##17 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2822
+##18 0x000000000072cbad in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+##19 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+##20 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+##21 0x00000000005da37c in do_compile () at ../.././gcc/toplev.c:2273
+##22 toplev::main (this=this@entry=0x7fffffffce8e, argc=<optimized out>, argc@entry=101, argv=<optimized out>, argv@entry=0x7fffffffcf88) at ../.././gcc/toplev.c:2412
+##23 0x00000000005dde1f in main (argc=101, argv=0x7fffffffcf88) at ../.././gcc/main.c:39
+
+
+#0  add_insn (insn=insn@entry=0x7ffff20360e0) at ../.././gcc/emit-rtl.c:4203
+##1  0x00000000007c601e in emit_insn (x=x@entry=0x7ffff20360e0) at ../.././gcc/emit-rtl.c:5123
+##2  0x0000000000710d16 in insert_insn_on_edge (pattern=pattern@entry=0x7ffff20360e0, e=0x7ffff2035060) at ../.././gcc/cfgrtl.c:1985
+##3  0x000000000084224d in thread_prologue_and_epilogue_insns () at ../.././gcc/function.c:5968
+##4  0x0000000000842693 in rest_of_handle_thread_prologue_and_epilogue () at ../.././gcc/function.c:6395
+##5  (anonymous namespace)::pass_thread_prologue_and_epilogue::execute (this=<optimized out>) at ../.././gcc/function.c:6471
+##6  0x0000000000a2d3a8 in execute_one_pass (pass=0x21fd1d0) at ../.././gcc/passes.c:2502
+##7  0x0000000000a2dcf0 in execute_pass_list_1 (pass=0x21fd1d0) at ../.././gcc/passes.c:2590
+##8  0x0000000000a2dd02 in execute_pass_list_1 (pass=0x21fcf90) at ../.././gcc/passes.c:2591
+##9  0x0000000000a2dd02 in execute_pass_list_1 (pass=0x21fbbf0) at ../.././gcc/passes.c:2591
+##10 0x0000000000a2dd29 in execute_pass_list (fn=0x7ffff69a6840, pass=<optimized out>) at ../.././gcc/passes.c:2601
+##11 0x0000000000729a9e in cgraph_node::expand (this=0x7ffff69b49d8) at ../.././gcc/context.h:48
+##12 0x000000000072ab30 in expand_all_functions () at ../.././gcc/cgraphunit.c:2471
+##13 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2822
+##14 0x000000000072cbad in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+##15 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+##16 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+##17 0x00000000005da37c in do_compile () at ../.././gcc/toplev.c:2273
+##18 toplev::main (this=this@entry=0x7fffffffce8e, argc=<optimized out>, argc@entry=101, argv=<optimized out>, argv@entry=0x7fffffffcf88) at ../.././gcc/toplev.c:2412
+##19 0x00000000005dde1f in main (argc=101, argv=0x7fffffffcf88) at ../.././gcc/main.c:39
+
+
+#0  add_insn (insn=insn@entry=0x7ffff20366c8) at ../.././gcc/emit-rtl.c:4203
+##1  0x00000000007c6374 in emit_note (kind=kind@entry=NOTE_INSN_DELETED) at ../.././gcc/emit-rtl.c:5331
+##2  0x00000000006fad90 in (anonymous namespace)::pass_expand::execute (this=<optimized out>, fun=0x7ffff4722bb0) at ../.././gcc/cfgexpand.c:6395
+##3  0x0000000000a2d3a8 in execute_one_pass (pass=0x21fbb90) at ../.././gcc/passes.c:2502
+##4  0x0000000000a2dcf0 in execute_pass_list_1 (pass=0x21fbb90) at ../.././gcc/passes.c:2590
+##5  0x0000000000a2dd29 in execute_pass_list (fn=0x7ffff4722bb0, pass=<optimized out>) at ../.././gcc/passes.c:2601
+##6  0x0000000000729a9e in cgraph_node::expand (this=0x7ffff473de10) at ../.././gcc/context.h:48
+##7  0x000000000072ab30 in expand_all_functions () at ../.././gcc/cgraphunit.c:2471
+##8  symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2822
+##9  0x000000000072cbad in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+##10 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+##11 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+##12 0x00000000005da37c in do_compile () at ../.././gcc/toplev.c:2273
+##13 toplev::main (this=this@entry=0x7fffffffce8e, argc=<optimized out>, argc@entry=101, argv=<optimized out>, argv@entry=0x7fffffffcf88) at ../.././gcc/toplev.c:2412
+##14 0x00000000005dde1f in main (argc=101, argv=0x7fffffffcf88) at ../.././gcc/main.c:39
+
+
+(gdb) bt
+#0  add_insn (insn=insn@entry=0x7ffff20344c0) at ../.././gcc/emit-rtl.c:4203
+##1  0x00000000007c608c in emit_insn (x=0x7ffff2336dc8) at ../.././gcc/emit-rtl.c:5138
+##2  emit_insn (x=0x7ffff2336dc8) at ../.././gcc/emit-rtl.c:5102
+##3  0x0000000000dfe9a6 in ix86_expand_move (mode=mode@entry=E_SImode, operands=operands@entry=0x7fffffffc8f0) at ./genrtl.h:39
+##4  0x000000000107f319 in gen_movsi (operand0=0x7ffff2336db0, operand1=0x7ffff2336d98) at ../.././gcc/config/i386/i386.md:1870
+##5  0x00000000007f6338 in insn_gen_fn::operator() (a1=0x7ffff2336d98, a0=0x7ffff2336db0, this=<optimized out>) at ../.././gcc/recog.h:317
+##6  emit_move_insn_1 (x=0x7ffff2336db0, y=0x7ffff2336d98) at ../.././gcc/expr.c:3759
+##7  0x00000000007f66c2 in emit_move_insn (x=x@entry=0x7ffff2336db0, y=0x7ffff2336d98) at ../.././gcc/expr.c:3855
+##8  0x000000000083cf7d in assign_parm_setup_reg (data=0x7fffffffca30, parm=0x7ffff4742080, all=0x7fffffffcab0) at ../.././gcc/function.c:3323
+##9  assign_parms (fndecl=0x7ffff473f500) at ../.././gcc/function.c:3683
+##10 0x000000000083edeb in expand_function_start (subr=0x7ffff473f500) at ../.././gcc/function.c:5127
+##11 0x00000000006fae4c in (anonymous namespace)::pass_expand::execute (this=<optimized out>, fun=0x7ffff4722bb0) at ../.././gcc/cfgexpand.c:6430
+##12 0x0000000000a2d3a8 in execute_one_pass (pass=0x21fbb90) at ../.././gcc/passes.c:2502
+##13 0x0000000000a2dcf0 in execute_pass_list_1 (pass=0x21fbb90) at ../.././gcc/passes.c:2590
+##14 0x0000000000a2dd29 in execute_pass_list (fn=0x7ffff4722bb0, pass=<optimized out>) at ../.././gcc/passes.c:2601
+##15 0x0000000000729a9e in cgraph_node::expand (this=0x7ffff473de10) at ../.././gcc/context.h:48
+##16 0x000000000072ab30 in expand_all_functions () at ../.././gcc/cgraphunit.c:2471
+##17 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2822
+##18 0x000000000072cbad in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+##19 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+##20 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+##21 0x00000000005da37c in do_compile () at ../.././gcc/toplev.c:2273
+##22 toplev::main (this=this@entry=0x7fffffffce8e, argc=<optimized out>, argc@entry=101, argv=<optimized out>, argv@entry=0x7fffffffcf88) at ../.././gcc/toplev.c:2412
+##23 0x00000000005dde1f in main (argc=101, argv=0x7fffffffcf88) at ../.././gcc/main.c:39
+
+#0  add_insn (insn=insn@entry=0x7ffff2034640) at ../.././gcc/emit-rtl.c:4203
+##1  0x00000000007c608c in emit_insn (x=0x7ffff2338b40) at ../.././gcc/emit-rtl.c:5138
+##2  emit_insn (x=0x7ffff2338b40) at ../.././gcc/emit-rtl.c:5102
+##3  0x0000000000dfffc8 in ix86_expand_binary_operator (code=code@entry=ASHIFT, mode=mode@entry=E_DImode, operands=operands@entry=0x7fffffffc4d0) at ./genrtl.h:121
+##4  0x000000000109f076 in gen_ashldi3 (operand0=0x7ffff2336f00, operand1=0x7ffff203c0d8, operand2=0x7ffff6c2f4b0) at ../.././gcc/config/i386/i386.md:10347
+##5  0x00000000009fb9e1 in expand_binop_directly (icode=CODE_FOR_ashldi3, mode=mode@entry=E_DImode, binoptab=binoptab@entry=ashl_optab, op0=op0@entry=0x7ffff203c0d8, op1=op1@entry=0x7ffff6c2f4b0, target=target@entry=0x7ffff2336f00, unsignedp=1, 
+#    methods=OPTAB_DIRECT, last=0x7ffff2034600) at ../.././gcc/optabs.c:1122
+#    #6  0x00000000009f9f5e in expand_binop (mode=E_DImode, binoptab=<optimized out>, op0=0x7ffff203c0d8, op1=0x7ffff6c2f4b0, target=0x7ffff2336f00, unsignedp=1, methods=OPTAB_DIRECT) at ../.././gcc/optabs.c:1209
+#    #7  0x00000000007daa7a in expand_shift_1 (code=<optimized out>, mode=E_DImode, shifted=0x7ffff203c0d8, amount=<optimized out>, target=0x7ffff2336f00, unsignedp=1, may_fail=false) at ../.././gcc/expmed.c:2624
+#    #8  0x00000000007dfab5 in expand_shift (unsignedp=1, target=0x7ffff2336f00, amount=..., shifted=0x7ffff203c0d8, mode=E_DImode, code=LSHIFT_EXPR) at ../.././gcc/expmed.c:2669
+#    #9  expand_mult (mode=E_DImode, op0=0x7ffff203c0d8, op1=0x7ffff6c2f500, target=0x7ffff2336f00, unsignedp=1, no_libcall=<optimized out>) at ../.././gcc/expmed.c:3508
+#    #10 0x00000000007efff5 in expand_expr_real_2 (ops=<optimized out>, target=<optimized out>, tmode=<optimized out>, modifier=<optimized out>) at ../.././gcc/tree.h:4520
+#    #11 0x00000000006f5f66 in expand_gimple_stmt_1 (stmt=0x7ffff32dd000) at ../.././gcc/cfgexpand.c:3786
+#    #12 expand_gimple_stmt (stmt=0x7ffff32dd000) at ../.././gcc/cfgexpand.c:3847
+#    #13 0x00000000006fb8ab in expand_gimple_basic_block (disable_tail_calls=<optimized out>, bb=<optimized out>) at ../.././gcc/cfgexpand.c:5887
+#    #14 (anonymous namespace)::pass_expand::execute (this=<optimized out>, fun=<optimized out>) at ../.././gcc/cfgexpand.c:6542
+#    #15 0x0000000000a2d3a8 in execute_one_pass (pass=0x21fbb90) at ../.././gcc/passes.c:2502
+#    #16 0x0000000000a2dcf0 in execute_pass_list_1 (pass=0x21fbb90) at ../.././gcc/passes.c:2590
+#    #17 0x0000000000a2dd29 in execute_pass_list (fn=0x7ffff4722bb0, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#    #18 0x0000000000729a9e in cgraph_node::expand (this=0x7ffff473de10) at ../.././gcc/context.h:48
+#    #19 0x000000000072ab30 in expand_all_functions () at ../.././gcc/cgraphunit.c:2471
+#    #20 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2822
+#    #21 0x000000000072cbad in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#    #22 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#    #23 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+#    #24 0x00000000005da37c in do_compile () at ../.././gcc/toplev.c:2273
+#    #25 toplev::main (this=this@entry=0x7fffffffce8e, argc=<optimized out>, argc@entry=101, argv=<optimized out>, argv@entry=0x7fffffffcf88) at ../.././gcc/toplev.c:2412
+#    #26 0x00000000005dde1f in main (argc=101, argv=0x7fffffffcf88) at ../.././gcc/main.c:39

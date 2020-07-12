@@ -1,0 +1,22 @@
+0  split_2 (x1=0x7ffff6df1510, insn=0x7ffff6c3d440) at ../.././gcc/config/i386/i386.md:1222
+#1  0x00000000011e74a5 in split_9 (x1=0x7ffff6df1510, insn=0x7ffff6c3d440) at ../.././gcc/config/i386/i386.md:10280
+#2  0x000000000123ec4b in split_insns (x1=x1@entry=0x7ffff6df1510, insn=insn@entry=0x7ffff6c3d440) at ../.././gcc/config/i386/i386.md:13563
+#3  0x00000000007c4873 in try_split (pat=0x7ffff6df1510, trial=trial@entry=0x7ffff6c3d440, last=last@entry=1) at ../.././gcc/emit-rtl.c:3881
+#4  0x0000000000a64d42 in split_insn (insn=insn@entry=0x7ffff6c3d440) at ../.././gcc/rtl.h:1501
+#5  0x0000000000a69cb8 in split_all_insns () at ../.././gcc/recog.c:2988
+#6  0x0000000000a69d49 in (anonymous namespace)::pass_split_all_insns::execute (this=<optimized out>) at ../.././gcc/recog.c:3887
+#7  0x0000000000a2d3a8 in execute_one_pass (pass=0x21fd7d0) at ../.././gcc/passes.c:2502
+#8  0x0000000000a2dcf0 in execute_pass_list_1 (pass=0x21fd7d0) at ../.././gcc/passes.c:2590
+#9  0x0000000000a2dd02 in execute_pass_list_1 (pass=0x21fd770) at ../.././gcc/passes.c:2591
+#10 0x0000000000a2dd02 in execute_pass_list_1 (pass=0x21fcf90) at ../.././gcc/passes.c:2591
+#11 0x0000000000a2dd02 in execute_pass_list_1 (pass=0x21fbbf0) at ../.././gcc/passes.c:2591
+#12 0x0000000000a2dd29 in execute_pass_list (fn=0x7ffff6dec000, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#13 0x0000000000729a9e in cgraph_node::expand (this=0x7ffff6de4ca8) at ../.././gcc/context.h:48
+#14 0x000000000072ab94 in output_in_order () at ../.././gcc/cgraphunit.c:2578
+#15 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2819
+#16 0x000000000072cbad in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#17 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#18 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+#19 0x00000000005da37c in do_compile () at ../.././gcc/toplev.c:2273
+#20 toplev::main (this=this@entry=0x7fffffffdcee, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffdde8) at ../.././gcc/toplev.c:2412
+#21 0x00000000005dde1f in main (argc=13, argv=0x7fffffffdde8) at ../.././gcc/main.c:39
