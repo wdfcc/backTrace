@@ -1,0 +1,22 @@
+(gdb) bt
+#0  record_final_call (callee=callee@entry=0x7ffff6ad0c00, location=2147500500) at ../.././gcc/function.c:6417
+#1  0x00000000006e2c48 in expand_call (exp=exp@entry=0x7ffff5c5fdc0, target=<optimized out>, target@entry=0x0, ignore=ignore@entry=1) at ../.././gcc/calls.c:4086
+#2  0x00000000007f39f7 in expand_expr_real_1 (exp=0x7ffff5c5fdc0, target=<optimized out>, tmode=E_VOIDmode, modifier=<optimized out>, alt_rtl=0x0, inner_reference_p=<optimized out>) at ../.././gcc/expr.c:11135
+#3  0x00000000006f611f in expand_expr (modifier=EXPAND_NORMAL, mode=E_VOIDmode, target=<optimized out>, exp=0x7ffff5c5fdc0) at ../.././gcc/expr.h:282
+#4  expand_call_stmt (stmt=0x7ffff5c74a20) at ../.././gcc/cfgexpand.c:2703
+#5  expand_gimple_stmt_1 (stmt=0x7ffff5c74a20) at ../.././gcc/cfgexpand.c:3682
+#6  expand_gimple_stmt (stmt=0x7ffff5c74a20) at ../.././gcc/cfgexpand.c:3847
+#7  0x00000000006fb8ab in expand_gimple_basic_block (disable_tail_calls=<optimized out>, bb=<optimized out>) at ../.././gcc/cfgexpand.c:5887
+#8  (anonymous namespace)::pass_expand::execute (this=<optimized out>, fun=<optimized out>) at ../.././gcc/cfgexpand.c:6542
+#9  0x0000000000a2d3a8 in execute_one_pass (pass=0x21fbb90) at ../.././gcc/passes.c:2502
+#10 0x0000000000a2dcf0 in execute_pass_list_1 (pass=0x21fbb90) at ../.././gcc/passes.c:2590
+#11 0x0000000000a2dd29 in execute_pass_list (fn=0x7ffff6137dc0, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#12 0x0000000000729a9e in cgraph_node::expand (this=0x7ffff6161870) at ../.././gcc/context.h:48
+#13 0x000000000072ab30 in expand_all_functions () at ../.././gcc/cgraphunit.c:2471
+#14 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2822
+#15 0x000000000072cbad in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#16 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#17 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+#18 0x00000000005da37c in do_compile () at ../.././gcc/toplev.c:2273
+#19 toplev::main (this=this@entry=0x7fffffffce8e, argc=<optimized out>, argc@entry=102, argv=<optimized out>, argv@entry=0x7fffffffcf88) at ../.././gcc/toplev.c:2412
+#20 0x00000000005dde1f in main (argc=102, argv=0x7fffffffcf88) at ../.././gcc/main.c:39
