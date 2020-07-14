@@ -1,0 +1,7 @@
+#8  0x00000000004417c5 in bfd_seek (abfd=0x6d3e10, position=4462, direction=0) at bfdio.c:337
+#9  0x000000000048729b in _bfd_elf_set_section_contents (abfd=0x6d3e10, section=0x6dd0f0, location=0x6ee500, offset=0, count=20) at elf.c:9174
+#10 0x0000000000450bfc in bfd_set_section_contents (abfd=0x6d3e10, section=0x6dd0f0, location=0x6ee500, offset=0, count=20) at section.c:1503
+#11 0x00000000004a6a5e in elf_link_input_bfd (flinfo=0x7fffffffdb20, input_bfd=0x6d4ae0) at elflink.c:11327
+#12 0x00000000004a8f11 in bfd_elf_final_link (abfd=0x6d3e10, info=0x6cbc40 <link_info>) at elflink.c:12319
+#13 0x00000000004225f0 in ldwrite () at ldwrite.c:545
+#14 0x000000000041f469 in main (argc=9, argv=0x7fffffffdf58) at ./ldmain.c:460

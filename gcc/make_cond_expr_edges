@@ -1,0 +1,18 @@
+(gdb) bt
+#0  make_cond_expr_edges (bb=<optimized out>) at ../.././gcc/tree-cfg.c:1215
+#1  make_edges_bb (bb=0x7ffff664f410, pcur_region=0x7fffffffd9c0, pomp_index=0x7fffffffd9bc) at ../.././gcc/tree-cfg.c:873
+#2  0x0000000000b22902 in make_edges () at ../.././gcc/tree-cfg.c:986
+#3  build_gimple_cfg (seq=<optimized out>) at ../.././gcc/tree-cfg.c:247
+#4  execute_build_cfg () at ../.././gcc/tree-cfg.c:369
+#5  (anonymous namespace)::pass_build_cfg::execute (this=<optimized out>) at ../.././gcc/tree-cfg.c:405
+#6  0x0000000000a2aef8 in execute_one_pass (pass=0x21dcd30) at ../.././gcc/passes.c:2502
+#7  0x0000000000a2b840 in execute_pass_list_1 (pass=0x21dcd30) at ../.././gcc/passes.c:2590
+#8  0x0000000000a2b879 in execute_pass_list (fn=0x7ffff67f9000, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#9  0x00000000007272fb in cgraph_node::analyze (this=0x7ffff67da9d8) at ../.././gcc/context.h:48
+#10 0x0000000000729ab8 in analyze_functions (first_time=<optimized out>) at ../.././gcc/cgraphunit.c:1227
+#11 0x000000000072a683 in symbol_table::finalize_compilation_unit (this=0x7ffff6647100) at ../.././gcc/cgraphunit.c:2974
+#12 0x0000000000aea32f in compile_file () at ../.././gcc/toplev.c:483
+#13 0x00000000005d7f4c in do_compile () at ../.././gcc/toplev.c:2273
+#14 toplev::main (this=this@entry=0x7fffffffdcfe, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffddf8)
+    at ../.././gcc/toplev.c:2412
+#15 0x00000000005db9ef in main (argc=13, argv=0x7fffffffddf8) at ../.././gcc/main.c:39
