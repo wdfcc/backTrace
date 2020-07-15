@@ -1,0 +1,20 @@
+(gdb) bt
+#0  0x000000000071a064 in cgraph_node::create (decl=0x7ffff67fa000) at ../.././gcc/cgraph.c:504
+#1  0x0000000000719f7d in cgraph_node::get_create (decl=decl@entry=0x7ffff67fa000) at ../.././gcc/cgraph.c:541
+#2  0x0000000000687efe in c_genericize (fndecl=fndecl@entry=0x7ffff67fa000) at ../.././gcc/c-family/c-gimplify.c:152
+#3  0x00000000005ea7f1 in finish_function (end_loc=19603968) at ../.././gcc/c/c-decl.c:9975
+#4  0x0000000000640279 in c_parser_declaration_or_fndef (parser=0x7ffff7ff8b40, fndef_ok=true, static_assert_ok=<optimized out>, 
+    empty_ok=<optimized out>, nested=<optimized out>, start_attr_ok=<optimized out>, objc_foreach_object_declaration=<optimized out>, 
+    omp_declare_simd_clauses=..., have_attrs=<optimized out>, attrs=<optimized out>, oacc_routine_data=<optimized out>, 
+    fallthru_attr_p=<optimized out>) at ../.././gcc/c/c-parser.c:2524
+#5  0x0000000000646fa4 in c_parser_external_declaration (parser=0x7ffff7ff8b40) at ../.././gcc/c/c-parser.c:1745
+#6  0x0000000000647aa2 in c_parser_translation_unit (parser=<optimized out>) at ../.././gcc/c/c-parser.c:1618
+#7  c_parse_file () at ../.././gcc/c/c-parser.c:21745
+#8  0x0000000000691bbc in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#9  0x0000000000aea0e4 in compile_file () at ../.././gcc/toplev.c:458
+#10 0x00000000005d7f4c in do_compile () at ../.././gcc/toplev.c:2273
+#11 toplev::main (this=this@entry=0x7fffffffdcfe, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffddf8)
+    at ../.././gcc/toplev.c:2412
+#12 0x00000000005db9ef in main (argc=13, argv=0x7fffffffddf8) at ../.././gcc/main.c:39
+(gdb) p decl->decl_minimal.name .identifier .id 
+$1 = {str = 0x7ffff6648e88 "main", len = 4, hash_value = 4293691885}
