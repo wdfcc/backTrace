@@ -1,0 +1,42 @@
+Thread 2.1 "cc1" hit Hardware watchpoint 10: *(int *)0x7ffff4edbf18
+
+Old value = -185727440
+New value = 0
+0x0000000000854a29 in gsi_split_seq_before (i=i@entry=0x7fffffffc850, pnew_seq=pnew_seq@entry=0x7fffffffc848) at ../.././gcc/gimple-iterator.c:414
+414	    prev->next = NULL;
+(gdb) bt
+#0  0x0000000000854a29 in gsi_split_seq_before (i=i@entry=0x7fffffffc850, pnew_seq=pnew_seq@entry=0x7fffffffc848) at ../.././gcc/gimple-iterator.c:414
+#1  0x0000000000b17af1 in gimple_split_block (bb=0x7ffff4eec068, stmt=0x7ffff4edbf00) at ../.././gcc/tree-cfg.c:6120
+#2  0x00000000006fd82f in split_block_1 (bb=0x7ffff4eec068, i=<optimized out>) at ../.././gcc/cfghooks.c:524
+#3  0x0000000000b583a3 in expand_call_inline (bb=0x7ffff4eec068, stmt=0x7ffff4ee0630, id=0x7fffffffcaa0, to_purge=0x7fffffffca80) at ../.././gcc/gimple-iterator.h:177
+#4  0x0000000000b5a7ca in gimple_expand_calls_inline (to_purge=0x7fffffffca80, id=0x7fffffffcaa0, bb=0x7ffff4eec068) at ../.././gcc/tree-inline.c:5251
+#5  optimize_inline_calls (fn=0x7ffff5158200) at ../.././gcc/tree-inline.c:5424
+#6  0x000000000131880f in early_inliner (fun=0x7ffff513cb00) at ../.././gcc/ipa-inline.c:2976
+#7  0x0000000000a2d3a8 in execute_one_pass (pass=0x21f6100) at ../.././gcc/passes.c:2502
+#8  0x0000000000a2dcf0 in execute_pass_list_1 (pass=0x21f6100) at ../.././gcc/passes.c:2590
+#9  0x0000000000a2dd29 in execute_pass_list (fn=fn@entry=0x7ffff513cb00, pass=pass@entry=0x21f5fe0) at ../.././gcc/passes.c:2601
+#10 0x0000000000a2b2be in do_per_function_toporder (callback=callback@entry=0xa2dd10 <execute_pass_list(function*, opt_pass*)>, data=0x21f5fe0) at ../.././gcc/passes.c:1726
+#11 0x0000000000a2e2af in do_per_function_toporder (data=<optimized out>, callback=0xa2dd10 <execute_pass_list(function*, opt_pass*)>) at ../.././gcc/passes.c:2934
+#12 execute_ipa_pass_list (pass=0x21f5f80) at ../.././gcc/passes.c:2934
+#13 0x000000000072ae2f in ipa_passes () at ../.././gcc/cgraphunit.c:2620
+#14 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2755
+#15 0x000000000072cbad in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#16 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#17 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+#18 0x00000000005da37c in do_compile () at ../.././gcc/toplev.c:2273
+#19 toplev::main (this=this@entry=0x7fffffffce8e, argc=<optimized out>, argc@entry=102, argv=<optimized out>, argv@entry=0x7fffffffcf88) at ../.././gcc/toplev.c:2412
+#20 0x00000000005dde1f in main (argc=102, argv=0x7fffffffcf88) at ../.././gcc/main.c:39
+(gdb) frame 1
+#1  0x0000000000b17af1 in gimple_split_block (bb=0x7ffff4eec068, stmt=0x7ffff4edbf00) at ../.././gcc/tree-cfg.c:6120
+6120	  gsi_split_seq_before (&gsi, &list);
+(gdb) p bb->seq`
+Display all 200 possibilities? (y or n)
+(gdb) p bb->il. 
+gimple  x       
+(gdb) p bb->il.gimple.
+phi_nodes  seq        
+(gdb) p bb->il.gimple.seq.next.code
+$192 = GIMPLE_ASSIGN
+(gdb) p bb->il.gimple.seq.next.next 
+$193 = (gimple *) 0x0
+
