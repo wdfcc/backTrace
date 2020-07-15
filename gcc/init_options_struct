@@ -1,0 +1,5 @@
+(gdb) bt
+#0  init_options_struct (opts=0x21a6460 <global_options>, opts_set=0x21a4fa0 <global_options_set>) at ../.././gcc/opts.c:286
+#1  0x00000000005d7b51 in toplev::main (this=this@entry=0x7fffffffdcfe, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffddf8) at ../.././gcc/toplev.c:2371
+#2  0x00000000005db9ef in main (argc=13, argv=0x7fffffffddf8) at ../.././gcc/main.c:39
+

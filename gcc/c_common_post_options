@@ -1,0 +1,8 @@
+0x000000000069160d in c_common_post_options (pfilename=0x21a64c8 <global_options+104>) at ../.././gcc/c-family/c-opts.c:839
+839	    flag_gnu89_inline = !flag_isoc99;
+(gdb) bt
+#0  0x000000000069160d in c_common_post_options (pfilename=0x21a64c8 <global_options+104>) at ../.././gcc/c-family/c-opts.c:839
+#1  0x00000000005d7c3b in process_options () at ../.././gcc/toplev.c:1384
+#2  do_compile () at ../.././gcc/toplev.c:2195
+#3  toplev::main (this=this@entry=0x7fffffffdcfe, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffddf8) at ../.././gcc/toplev.c:2412
+#4  0x00000000005db9ef in main (argc=13, argv=0x7fffffffddf8) at ../.././gcc/main.c:39
