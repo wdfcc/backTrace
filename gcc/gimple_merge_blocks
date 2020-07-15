@@ -1,0 +1,132 @@
+
+Thread 2.1 "cc1" hit Hardware watchpoint 2: *(int *)0x7ffff4bc7838
+
+Old value = 0
+New value = -188945744
+gsi_insert_seq_nodes_after (i=0x7fffffffc740, first=0x7ffff4bceab0, last=0x7ffff4bceab0, m=GSI_NEW_STMT) at ../.././gcc/gimple-iterator.c:269
+269	  switch (m)
+#0  gsi_insert_seq_nodes_after (i=0x7fffffffc740, first=0x7ffff4bceab0, last=0x7ffff4bceab0, m=GSI_NEW_STMT) at ../.././gcc/gimple-iterator.c:269
+#1  0x0000000000b54f45 in copy_bb (id=0x7fffffffcaa0, bb=0x7ffff4e92d00, num=..., den=...) at ../.././gcc/tree-inline.c:2035
+#2  0x0000000000b5628d in copy_cfg_body (new_entry=0x0, exit_block_map=0x7ffff4bd10d0, entry_block_map=0x7ffff4eec068, id=0x7fffffffcaa0) at ../.././gcc/tree-inline.c:3022
+#3  copy_body (id=0x7fffffffcaa0, entry_block_map=0x7ffff4eec068, exit_block_map=0x7ffff4bd10d0, new_entry=0x0) at ../.././gcc/tree-inline.c:3270
+#4  0x0000000000b59209 in expand_call_inline (bb=<optimized out>, stmt=<optimized out>, id=0x7fffffffcaa0, to_purge=<optimized out>) at ../.././gcc/tree-inline.c:5061
+#5  0x0000000000b5a7ca in gimple_expand_calls_inline (to_purge=0x7fffffffca80, id=0x7fffffffcaa0, bb=0x7ffff4eec068) at ../.././gcc/tree-inline.c:5251
+#6  optimize_inline_calls (fn=0x7ffff5158200) at ../.././gcc/tree-inline.c:5424
+#7  0x000000000131880f in early_inliner (fun=0x7ffff513cb00) at ../.././gcc/ipa-inline.c:2976
+#8  0x0000000000a2d3a8 in execute_one_pass (pass=0x21f6100) at ../.././gcc/passes.c:2502
+#9  0x0000000000a2dcf0 in execute_pass_list_1 (pass=0x21f6100) at ../.././gcc/passes.c:2590
+#10 0x0000000000a2dd29 in execute_pass_list (fn=fn@entry=0x7ffff513cb00, pass=pass@entry=0x21f5fe0) at ../.././gcc/passes.c:2601
+#11 0x0000000000a2b2be in do_per_function_toporder (callback=callback@entry=0xa2dd10 <execute_pass_list(function*, opt_pass*)>, data=0x21f5fe0) at ../.././gcc/passes.c:1726
+#12 0x0000000000a2e2af in do_per_function_toporder (data=<optimized out>, callback=0xa2dd10 <execute_pass_list(function*, opt_pass*)>) at ../.././gcc/passes.c:2934
+#13 execute_ipa_pass_list (pass=0x21f5f80) at ../.././gcc/passes.c:2934
+#14 0x000000000072ae2f in ipa_passes () at ../.././gcc/cgraphunit.c:2620
+#15 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2755
+#16 0x000000000072cbad in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#17 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#18 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+#19 0x00000000005da37c in do_compile () at ../.././gcc/toplev.c:2273
+#20 toplev::main (this=this@entry=0x7fffffffce8e, argc=<optimized out>, argc@entry=102, argv=<optimized out>, argv@entry=0x7fffffffcf88) at ../.././gcc/toplev.c:2412
+#21 0x00000000005dde1f in main (argc=102, argv=0x7fffffffcf88) at ../.././gcc/main.c:39
+0x7ffff4bc7838:	0x00007ffff4bceab0
+(gdb) frame 5
+#5  0x0000000000b5a7ca in gimple_expand_calls_inline (to_purge=0x7fffffffca80, id=0x7fffffffcaa0, bb=0x7ffff4eec068) at ../.././gcc/tree-inline.c:5251
+5251		inlined |= expand_call_inline (bb, stmt, id, to_purge);
+(gdb) p bb
+$25 = (basic_block) 0x7ffff4eec068
+(gdb) p bb->il.
+gimple  x       
+(gdb) p bb->il.gimple.
+phi_nodes  seq        
+(gdb) p bb->il.gimple.seq.
+bb                has_volatile_ops  modified          no_warning        num_ops           plf               subcode           visited           
+code              location          next              nontemporal_move  pad               prev              uid               
+(gdb) p bb->il.gimple.seq.code
+$26 = GIMPLE_DEBUG
+(gdb) p bb->il.gimple.seq.next.code
+$27 = GIMPLE_ASSIGN
+(gdb) p bb->il.gimple.seq.next.next.code
+Cannot access memory at address 0x0
+(gdb) p bb->il.gimple.seq.next.next     
+$28 = (gimple *) 0x0
+(gdb) p bb->il.gimple.seq.next.next
+$29 = (gimple *) 0x0
+(gdb) p &bb->il.gimple.seq.next.next
+$30 = (gimple **) 0x7ffff4edbf18
+(gdb) c
+Continuing.
+
+Thread 2.1 "cc1" hit Hardware watchpoint 3: *(int *)0x7ffff4edbf18
+
+Old value = 0
+New value = -188954600
+gsi_insert_seq_nodes_after (i=0x7fffffffca50, first=0x7ffff4bcc818, last=0x7ffff4bceab0, m=GSI_NEW_STMT) at ../.././gcc/gimple-iterator.c:269
+269	  switch (m)
+(gdb) p &bb->il.gimple.seq.next.next
+$31 = (gimple **) 0x7ffff4edbf18
+(gdb) p bb->il.gimple.seq.next.next
+$32 = (gimple *) 0x7ffff4bcc818
+(gdb) p bb->il.gimple.seq.next.next.code
+$33 = GIMPLE_DEBUG
+(gdb) p bb->il.gimple.seq.next.next.next.code
+$34 = GIMPLE_ASSIGN
+(gdb) p bb->il.gimple.seq.next.next.next.next.code
+$35 = GIMPLE_CALL
+(gdb) p bb->il.gimple.seq.next.next.next.next.code
+$36 = GIMPLE_CALL
+(gdb) p bb->il.gimple.seq.next.next.next.next     
+$37 = (gimple *) 0x7ffff4bceab0
+(gdb) p ((gcall *)0x7ffff4bceab0)->code
+$38 = GIMPLE_CALL
+(gdb) p ((gcall *)0x7ffff4bceab0)->op[0]   
+$39 = (tree) 0x0
+(gdb) p ((gcall *)0x7ffff4bceab0)->op[1]
+$40 = (tree) 0x7ffff4bbf920
+(gdb) p ((gcall *)0x7ffff4bceab0)->op[1].base 
+$41 = {code = ADDR_EXPR, side_effects_flag = 0, constant_flag = 1, addressable_flag = 0, volatile_flag = 0, readonly_flag = 0, asm_written_flag = 0, nowarning_flag = 0, visited = 0, 
+  used_flag = 0, nothrow_flag = 0, static_flag = 0, public_flag = 0, private_flag = 0, protected_flag = 0, deprecated_flag = 0, default_def_flag = 0, u = {bits = {lang_flag_0 = 0, 
+      lang_flag_1 = 0, lang_flag_2 = 0, lang_flag_3 = 0, lang_flag_4 = 0, lang_flag_5 = 0, lang_flag_6 = 0, saturating_flag = 0, unsigned_flag = 0, packed_flag = 0, user_align = 0, 
+      nameless_flag = 0, atomic_flag = 0, spare0 = 0, spare1 = 0, address_space = 0}, int_length = {unextended = 0 '\000', extended = 0 '\000', offset = 0 '\000'}, length = 0, vector_cst = {
+      log2_npatterns = 0, nelts_per_pattern = 0, unused = 0}, version = 0, chrec_var = 0, ifn = IFN_MASK_LOAD, omp_atomic_memory_order = OMP_MEMORY_ORDER_UNSPECIFIED, dependence_info = {
+      clique = 0, base = 0}}}
+(gdb) p ((gcall *)0x7ffff4bceab0)->op[1].exp->operands[0]
+$42 = (tree) 0x7ffff673ef00
+(gdb) p ((gcall *)0x7ffff4bceab0)->op[1].exp->operands[0].base 
+$43 = {code = FUNCTION_DECL, side_effects_flag = 0, constant_flag = 0, addressable_flag = 1, volatile_flag = 0, readonly_flag = 0, asm_written_flag = 0, nowarning_flag = 0, visited = 0, 
+  used_flag = 1, nothrow_flag = 0, static_flag = 0, public_flag = 1, private_flag = 0, protected_flag = 0, deprecated_flag = 0, default_def_flag = 0, u = {bits = {lang_flag_0 = 0, 
+      lang_flag_1 = 0, lang_flag_2 = 0, lang_flag_3 = 0, lang_flag_4 = 0, lang_flag_5 = 0, lang_flag_6 = 0, saturating_flag = 0, unsigned_flag = 0, packed_flag = 0, user_align = 0, 
+      nameless_flag = 0, atomic_flag = 0, spare0 = 0, spare1 = 0, address_space = 0}, int_length = {unextended = 0 '\000', extended = 0 '\000', offset = 0 '\000'}, length = 0, vector_cst = {
+      log2_npatterns = 0, nelts_per_pattern = 0, unused = 0}, version = 0, chrec_var = 0, ifn = IFN_MASK_LOAD, omp_atomic_memory_order = OMP_MEMORY_ORDER_UNSPECIFIED, dependence_info = {
+      clique = 0, base = 0}}}
+(gdb) p ((gcall *)0x7ffff4bceab0)->op[1].exp->operands[0].decl_minimal.name .identifier .id 
+$44 = {str = 0x7ffff6704e20 "_raw_spin_lock", len = 14, hash_value = 60176212}
+(gdb) p bb->il.gimple.seq.next.next.next.next
+$45 = (gimple *) 0x7ffff4bceab0
+(gdb) p bb->il.gimple.seq.next.next.next     
+$46 = (gimple *) 0x7ffff4bc7820
+(gdb) p bb->il.gimple.seq.next.next     
+$47 = (gimple *) 0x7ffff4bcc818
+(gdb) bt
+#0  gsi_insert_seq_nodes_after (i=0x7fffffffca50, first=0x7ffff4bcc818, last=0x7ffff4bceab0, m=GSI_NEW_STMT) at ../.././gcc/gimple-iterator.c:269
+#1  0x0000000000b20c4a in gimple_merge_blocks (a=0x7ffff4eec068, b=0x7ffff4bd1138) at ../.././gcc/gimple.h:1759
+#2  0x00000000006fecf0 in merge_blocks (a=a@entry=0x7ffff4eec068, b=0x7ffff4bd1138) at ../.././gcc/cfghooks.c:797
+#3  0x0000000000b2b39f in cleanup_tree_cfg_bb (bb=0x7ffff4eec068) at ../.././gcc/basic-block.h:360
+#4  0x0000000000b2c140 in cleanup_tree_cfg_noloop (ssa_update_flags=<optimized out>) at ../.././gcc/tree-cfgcleanup.c:1081
+#5  0x0000000000b2c7d9 in cleanup_tree_cfg (ssa_update_flags=<optimized out>) at ../.././gcc/tree-cfgcleanup.c:1165
+#6  0x0000000000a2a21d in execute_function_todo (fn=0x7ffff513cb00, data=<optimized out>) at ../.././gcc/passes.c:1951
+#7  0x0000000000a2b39d in do_per_function (data=0x208860, callback=0xa29fd0 <execute_function_todo(function*, void*)>) at ../.././gcc/passes.c:1640
+#8  execute_todo (flags=2132064) at ../.././gcc/passes.c:2039
+#9  0x0000000000a2d6f3 in execute_one_pass (pass=0x21f6100) at ../.././gcc/passes.c:2539
+#10 0x0000000000a2dcf0 in execute_pass_list_1 (pass=0x21f6100) at ../.././gcc/passes.c:2590
+#11 0x0000000000a2dd29 in execute_pass_list (fn=fn@entry=0x7ffff513cb00, pass=pass@entry=0x21f5fe0) at ../.././gcc/passes.c:2601
+#12 0x0000000000a2b2be in do_per_function_toporder (callback=callback@entry=0xa2dd10 <execute_pass_list(function*, opt_pass*)>, data=0x21f5fe0) at ../.././gcc/passes.c:1726
+#13 0x0000000000a2e2af in do_per_function_toporder (data=<optimized out>, callback=0xa2dd10 <execute_pass_list(function*, opt_pass*)>) at ../.././gcc/passes.c:2934
+#14 execute_ipa_pass_list (pass=0x21f5f80) at ../.././gcc/passes.c:2934
+#15 0x000000000072ae2f in ipa_passes () at ../.././gcc/cgraphunit.c:2620
+#16 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2755
+#17 0x000000000072cbad in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#18 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#19 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+#20 0x00000000005da37c in do_compile () at ../.././gcc/toplev.c:2273
+#21 toplev::main (this=this@entry=0x7fffffffce8e, argc=<optimized out>, argc@entry=102, argv=<optimized out>, argv@entry=0x7fffffffcf88) at ../.././gcc/toplev.c:2412
+#22 0x00000000005dde1f in main (argc=102, argv=0x7fffffffcf88) at ../.././gcc/main.c:39
+

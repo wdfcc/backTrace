@@ -1,0 +1,59 @@
+igimple_init_singleton (g=0x7ffff4bc7820) at ../.././gcc/gimple.h:2069
+2069	  g->prev = g;
+#0  gimple_init_singleton (g=0x7ffff4bc7820) at ../.././gcc/gimple.h:2069
+#1  gimple_copy (stmt=stmt@entry=0x7ffff4e8f6e0) at ../.././gcc/gimple.c:1839
+#2  0x0000000000b52608 in remap_gimple_stmt (stmt=0x7ffff4e8f6e0, id=0x7fffffffcaa0) at ../.././gcc/tree-inline.c:1830
+#3  0x0000000000b54f00 in copy_bb (id=0x7fffffffcaa0, bb=0x7ffff4e92d00, num=..., den=...) at ../.././gcc/tree-inline.c:1999
+#4  0x0000000000b5628d in copy_cfg_body (new_entry=0x0, exit_block_map=0x7ffff4bd10d0, entry_block_map=0x7ffff4eec068, id=0x7fffffffcaa0) at ../.././gcc/tree-inline.c:3022
+#5  copy_body (id=0x7fffffffcaa0, entry_block_map=0x7ffff4eec068, exit_block_map=0x7ffff4bd10d0, new_entry=0x0) at ../.././gcc/tree-inline.c:3270
+#6  0x0000000000b59209 in expand_call_inline (bb=<optimized out>, stmt=<optimized out>, id=0x7fffffffcaa0, to_purge=<optimized out>) at ../.././gcc/tree-inline.c:5061
+#7  0x0000000000b5a7ca in gimple_expand_calls_inline (to_purge=0x7fffffffca80, id=0x7fffffffcaa0, bb=0x7ffff4eec068) at ../.././gcc/tree-inline.c:5251
+#8  optimize_inline_calls (fn=0x7ffff5158200) at ../.././gcc/tree-inline.c:5424
+#9  0x000000000131880f in early_inliner (fun=0x7ffff513cb00) at ../.././gcc/ipa-inline.c:2976
+#10 0x0000000000a2d3a8 in execute_one_pass (pass=0x21f6100) at ../.././gcc/passes.c:2502
+#11 0x0000000000a2dcf0 in execute_pass_list_1 (pass=0x21f6100) at ../.././gcc/passes.c:2590
+#12 0x0000000000a2dd29 in execute_pass_list (fn=fn@entry=0x7ffff513cb00, pass=pass@entry=0x21f5fe0) at ../.././gcc/passes.c:2601
+#13 0x0000000000a2b2be in do_per_function_toporder (callback=callback@entry=0xa2dd10 <execute_pass_list(function*, opt_pass*)>, data=0x21f5fe0) at ../.././gcc/passes.c:1726
+#14 0x0000000000a2e2af in do_per_function_toporder (data=<optimized out>, callback=0xa2dd10 <execute_pass_list(function*, opt_pass*)>) at ../.././gcc/passes.c:2934
+#15 execute_ipa_pass_list (pass=0x21f5f80) at ../.././gcc/passes.c:2934
+#16 0x000000000072ae2f in ipa_passes () at ../.././gcc/cgraphunit.c:2620
+#17 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2755
+#18 0x000000000072cbad in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#19 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#20 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+#21 0x00000000005da37c in do_compile () at ../.././gcc/toplev.c:2273
+#22 toplev::main (this=this@entry=0x7fffffffce8e, argc=<optimized out>, argc@entry=102, argv=<optimized out>, argv@entry=0x7fffffffcf88) at ../.././gcc/toplev.c:2412
+#23 0x00000000005dde1f in main (argc=102, argv=0x7fffffffcf88) at ../.././gcc/main.c:39
+0x7ffff4bc7838:	0x0000000000000000
+(gdb) c
+Continuing.
+
+Thread 2.1 "cc1" hit Hardware watchpoint 2: *(int *)0x7ffff4bc7838
+
+Old value = 0
+New value = -188945744
+gsi_insert_seq_nodes_after (i=0x7fffffffc740, first=0x7ffff4bceab0, last=0x7ffff4bceab0, m=GSI_NEW_STMT) at ../.././gcc/gimple-iterator.c:269
+269	  switch (m)
+#0  gsi_insert_seq_nodes_after (i=0x7fffffffc740, first=0x7ffff4bceab0, last=0x7ffff4bceab0, m=GSI_NEW_STMT) at ../.././gcc/gimple-iterator.c:269
+#1  0x0000000000b54f45 in copy_bb (id=0x7fffffffcaa0, bb=0x7ffff4e92d00, num=..., den=...) at ../.././gcc/tree-inline.c:2035
+#2  0x0000000000b5628d in copy_cfg_body (new_entry=0x0, exit_block_map=0x7ffff4bd10d0, entry_block_map=0x7ffff4eec068, id=0x7fffffffcaa0) at ../.././gcc/tree-inline.c:3022
+#3  copy_body (id=0x7fffffffcaa0, entry_block_map=0x7ffff4eec068, exit_block_map=0x7ffff4bd10d0, new_entry=0x0) at ../.././gcc/tree-inline.c:3270
+#4  0x0000000000b59209 in expand_call_inline (bb=<optimized out>, stmt=<optimized out>, id=0x7fffffffcaa0, to_purge=<optimized out>) at ../.././gcc/tree-inline.c:5061
+#5  0x0000000000b5a7ca in gimple_expand_calls_inline (to_purge=0x7fffffffca80, id=0x7fffffffcaa0, bb=0x7ffff4eec068) at ../.././gcc/tree-inline.c:5251
+#6  optimize_inline_calls (fn=0x7ffff5158200) at ../.././gcc/tree-inline.c:5424
+#7  0x000000000131880f in early_inliner (fun=0x7ffff513cb00) at ../.././gcc/ipa-inline.c:2976
+#8  0x0000000000a2d3a8 in execute_one_pass (pass=0x21f6100) at ../.././gcc/passes.c:2502
+#9  0x0000000000a2dcf0 in execute_pass_list_1 (pass=0x21f6100) at ../.././gcc/passes.c:2590
+#10 0x0000000000a2dd29 in execute_pass_list (fn=fn@entry=0x7ffff513cb00, pass=pass@entry=0x21f5fe0) at ../.././gcc/passes.c:2601
+#11 0x0000000000a2b2be in do_per_function_toporder (callback=callback@entry=0xa2dd10 <execute_pass_list(function*, opt_pass*)>, data=0x21f5fe0) at ../.././gcc/passes.c:1726
+#12 0x0000000000a2e2af in do_per_function_toporder (data=<optimized out>, callback=0xa2dd10 <execute_pass_list(function*, opt_pass*)>) at ../.././gcc/passes.c:2934
+#13 execute_ipa_pass_list (pass=0x21f5f80) at ../.././gcc/passes.c:2934
+#14 0x000000000072ae2f in ipa_passes () at ../.././gcc/cgraphunit.c:2620
+#15 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2755
+#16 0x000000000072cbad in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#17 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#18 0x0000000000aec7df in compile_file () at ../.././gcc/toplev.c:483
+#19 0x00000000005da37c in do_compile () at ../.././gcc/toplev.c:2273
+#20 toplev::main (this=this@entry=0x7fffffffce8e, argc=<optimized out>, argc@entry=102, argv=<optimized out>, argv@entry=0x7fffffffcf88) at ../.././gcc/toplev.c:2412
+#21 0x00000000005dde1f in main (argc=102, argv=0x7fffffffcf88) at ../.././gcc/main.c:39
+0x7ffff4bc7838:	0x00007ffff4bceab0
