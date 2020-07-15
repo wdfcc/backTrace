@@ -1,0 +1,16 @@
+(gdb) bt
+#0  grokdeclarator (declarator=0x22193c0, declspecs=0x2219080, decl_context=FUNCDEF, initialized=true, width=0x0, decl_attrs=0x7fffffffd938, expr=0x0, expr_const_operands=0x0, 
+    deprecated_state=DEPRECATED_NORMAL) at ../.././gcc/c/c-decl.c:5952
+#1  0x00000000005f6d8d in start_function (declspecs=declspecs@entry=0x2219080, declarator=declarator@entry=0x22193c0, attributes=<optimized out>, attributes@entry=0x0)
+    at ../.././gcc/c/c-decl.c:9137
+#2  0x000000000063f463 in c_parser_declaration_or_fndef (parser=0x7ffff7ff8b40, fndef_ok=true, static_assert_ok=<optimized out>, empty_ok=<optimized out>, nested=<optimized out>, 
+    start_attr_ok=<optimized out>, objc_foreach_object_declaration=<optimized out>, omp_declare_simd_clauses=..., have_attrs=<optimized out>, attrs=<optimized out>, 
+    oacc_routine_data=<optimized out>, fallthru_attr_p=<optimized out>) at ../.././gcc/c/c-parser.c:2406
+#3  0x0000000000646fa4 in c_parser_external_declaration (parser=0x7ffff7ff8b40) at ../.././gcc/c/c-parser.c:1745
+#4  0x0000000000647aa2 in c_parser_translation_unit (parser=<optimized out>) at ../.././gcc/c/c-parser.c:1618
+#5  c_parse_file () at ../.././gcc/c/c-parser.c:21745
+#6  0x0000000000691bbc in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#7  0x0000000000aea0e4 in compile_file () at ../.././gcc/toplev.c:458
+#8  0x00000000005d7f4c in do_compile () at ../.././gcc/toplev.c:2273
+#9  toplev::main (this=this@entry=0x7fffffffdcfe, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffddf8) at ../.././gcc/toplev.c:2412
+#10 0x00000000005db9ef in main (argc=13, argv=0x7fffffffddf8) at ../.././gcc/main.c:39
