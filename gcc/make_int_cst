@@ -1,0 +1,65 @@
+(gdb) bt
+#0  make_int_cst (len=1, ext_len=<optimized out>) at ../.././gcc/tree.c:2482
+#1  0x0000000000d513b3 in build_new_int_cst (type=0x7ffff69fa738, cst=...) at ../.././gcc/tree.c:1313
+#2  0x0000000000d60ce5 in wide_int_to_tree_1 (type=0x7ffff69fa738, pcst=...) at ../.././gcc/tree.c:1595
+#3  0x000000000083c3fc in fold_convert_const_int_from_int (arg1=0x7ffff69b1f78, type=0x7ffff69fa738) at ../.././gcc/poly-int.h:671
+#4  fold_convert_const (code=CONVERT_EXPR, type=0x7ffff69fa738, arg1=<optimized out>) at ../.././gcc/fold-const.c:2282
+#5  0x000000000084ae92 in fold_unary_loc (loc=0, code=CONVERT_EXPR, type=0x7ffff69fa738, op0=0x7ffff69b1f78) at ../.././gcc/fold-const.c:8602
+#6  0x000000000084bfd9 in fold_build1_loc (loc=0, code=CONVERT_EXPR, type=0x7ffff69fa738, op0=0x7ffff69b1f78) at ../.././gcc/fold-const.c:13111
+#7  0x0000000000759c4d in convert_to_pointer_1 (type=<optimized out>, expr=<optimized out>, fold_p=<optimized out>) at ../.././gcc/convert.c:94
+#8  0x000000000075a8aa in convert_to_pointer (type=type@entry=0x7ffff69fa738, expr=expr@entry=0x7ffff6879078) at ../.././gcc/convert.c:127
+#9  0x0000000000643ddb in convert (type=0x7ffff69fa738, expr=0x7ffff6879078) at ../.././gcc/c/c-convert.c:134
+#10 0x0000000000639abc in build_c_cast (loc=loc@entry=13637344, type=<optimized out>, type@entry=0x7ffff69fa738, expr=<optimized out>, expr@entry=0x7ffff6879078)
+    at ../.././gcc/c/c-typeck.c:5933
+#11 0x000000000063a7c5 in c_cast_expr (loc=loc@entry=13637344, type_name=type_name@entry=0x204e970, expr=expr@entry=0x7ffff6879078) at ../.././gcc/c/c-typeck.c:6006
+#12 0x0000000000655f5b in c_parser_cast_expression (parser=<optimized out>, after=<optimized out>) at ../.././gcc/c/c-parser.c:8107
+#13 0x00000000006560df in c_parser_binary_expression (parser=0x7ffff7fc6b40, after=0x0, omp_atomic_lhs=0x0) at ../.././gcc/c/c-parser.c:7918
+#14 0x0000000000657016 in c_parser_conditional_expression (parser=0x7ffff7fc6b40, after=<optimized out>, omp_atomic_lhs=<optimized out>) at ../.././gcc/c/c-parser.c:7652
+#15 0x0000000000657531 in c_parser_expr_no_commas (parser=0x7ffff7fc6b40, after=<optimized out>, omp_atomic_lhs=<optimized out>) at ../.././gcc/c/c-parser.c:7569
+#16 0x0000000000657792 in c_parser_expression (parser=parser@entry=0x7ffff7fc6b40) at ../.././gcc/c/c-parser.c:10637
+#17 0x0000000000650f4d in c_parser_postfix_expression (parser=0x7ffff7fc6b40) at ../.././gcc/c/c-parser.c:9128
+#18 0x00000000006546cb in c_parser_unary_expression (parser=0x7ffff7fc6b40) at ../.././gcc/c/c-parser.c:8273
+#19 0x0000000000655e4e in c_parser_cast_expression (parser=0x7ffff7fc6b40, after=0x0) at ../.././gcc/c/c-parser.c:8115
+#20 0x00000000006560df in c_parser_binary_expression (parser=0x7ffff7fc6b40, after=0x0, omp_atomic_lhs=0x0) at ../.././gcc/c/c-parser.c:7918
+#21 0x0000000000657016 in c_parser_conditional_expression (parser=0x7ffff7fc6b40, after=<optimized out>, omp_atomic_lhs=<optimized out>) at ../.././gcc/c/c-parser.c:7652
+#22 0x0000000000657531 in c_parser_expr_no_commas (parser=0x7ffff7fc6b40, after=<optimized out>, omp_atomic_lhs=<optimized out>) at ../.././gcc/c/c-parser.c:7569
+#23 0x0000000000657792 in c_parser_expression (parser=parser@entry=0x7ffff7fc6b40) at ../.././gcc/c/c-parser.c:10637
+#24 0x0000000000650f4d in c_parser_postfix_expression (parser=0x7ffff7fc6b40) at ../.././gcc/c/c-parser.c:9128
+#25 0x00000000006546cb in c_parser_unary_expression (parser=0x7ffff7fc6b40) at ../.././gcc/c/c-parser.c:8273
+#26 0x0000000000655e4e in c_parser_cast_expression (parser=0x7ffff7fc6b40, after=0x0) at ../.././gcc/c/c-parser.c:8115
+#27 0x0000000000654ae7 in c_parser_unary_expression (parser=0x7ffff7fc6b40) at ../.././gcc/c/c-parser.c:8180
+#28 0x0000000000655e4e in c_parser_cast_expression (parser=0x7ffff7fc6b40, after=0x0) at ../.././gcc/c/c-parser.c:8115
+#29 0x00000000006560df in c_parser_binary_expression (parser=0x7ffff7fc6b40, after=0x0, omp_atomic_lhs=0x0) at ../.././gcc/c/c-parser.c:7918
+#30 0x0000000000657016 in c_parser_conditional_expression (parser=0x7ffff7fc6b40, after=<optimized out>, omp_atomic_lhs=<optimized out>) at ../.././gcc/c/c-parser.c:7652
+#31 0x0000000000657531 in c_parser_expr_no_commas (parser=0x7ffff7fc6b40, after=<optimized out>, omp_atomic_lhs=<optimized out>) at ../.././gcc/c/c-parser.c:7569
+#32 0x000000000065a0bd in c_parser_initializer (parser=0x7ffff7fc6b40) at ../.././gcc/c/c-parser.c:5227
+#33 c_parser_initializer (parser=0x7ffff7fc6b40) at ../.././gcc/c/c-parser.c:5219
+#34 0x000000000066a9ab in c_parser_declaration_or_fndef (parser=0x7ffff7fc6b40, fndef_ok=false, static_assert_ok=<optimized out>, empty_ok=<optimized out>, nested=<optimized out>, 
+    start_attr_ok=<optimized out>, objc_foreach_object_declaration=<optimized out>, omp_declare_simd_clauses=..., have_attrs=<optimized out>, attrs=<optimized out>, 
+    oacc_routine_data=<optimized out>, fallthru_attr_p=<optimized out>) at ../.././gcc/c/c-parser.c:2248
+#35 0x0000000000650940 in c_parser_compound_statement_nostart (parser=parser@entry=0x7ffff7fc6b40) at ../.././gcc/c/c-parser.c:5718
+#36 0x000000000066a105 in c_parser_compound_statement (parser=parser@entry=0x7ffff7fc6b40, endlocp=endlocp@entry=0x7fffffffd920) at ../.././gcc/c/c-parser.c:5617
+#37 0x000000000066b976 in c_parser_declaration_or_fndef (parser=0x7ffff7fc6b40, fndef_ok=true, static_assert_ok=<optimized out>, empty_ok=<optimized out>, nested=<optimized out>, 
+    start_attr_ok=<optimized out>, objc_foreach_object_declaration=<optimized out>, omp_declare_simd_clauses=..., have_attrs=<optimized out>, attrs=<optimized out>, 
+    oacc_routine_data=<optimized out>, fallthru_attr_p=<optimized out>) at ../.././gcc/c/c-parser.c:2505
+#38 0x0000000000672664 in c_parser_external_declaration (parser=0x7ffff7fc6b40) at ../.././gcc/c/c-parser.c:1745
+#39 0x0000000000673152 in c_parser_translation_unit (parser=<optimized out>) at ../.././gcc/c/c-parser.c:1618
+#40 c_parse_file () at ../.././gcc/c/c-parser.c:21745
+--Type <RET> for more, q to quit, c to continue without paging--
+#41 0x00000000006bd26c in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#42 0x0000000000b15724 in compile_file () at ../.././gcc/toplev.c:458
+#43 0x000000000060358c in do_compile () at ../.././gcc/toplev.c:2273
+#44 toplev::main (this=this@entry=0x7fffffffdbee, argc=<optimized out>, argc@entry=15, argv=<optimized out>, argv@entry=0x7fffffffdce8) at ../.././gcc/toplev.c:2412
+#45 0x000000000060702f in main (argc=15, argv=0x7fffffffdce8) at ../.././gcc/main.c:39
+
+struct foo
+{
+int a;
+int b;
+int c;
+int d;
+}
+
+&(((struct foo*)0)->c)
+		^~~~
+
