@@ -21,3 +21,4 @@ gen_reg_rtx (mode=mode@entry=E_DImode) at ../.././gcc/emit-rtl.c:1204
 #13 0x00000000005da39c in do_compile () at ../.././gcc/toplev.c:2274
 #14 toplev::main (this=this@entry=0x7fffffffce8e, argc=<optimized out>, argc@entry=102, argv=<optimized out>, argv@entry=0x7fffffffcf88) at ../.././gcc/toplev.c:2413
 #15 0x00000000005dde3f in main (argc=102, argv=0x7fffffffcf88) at ../.././gcc/main.c:39
+#define reg_rtx_no (crtl->emit.x_reg_rtx_no)
