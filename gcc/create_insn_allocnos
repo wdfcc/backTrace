@@ -1,0 +1,32 @@
+Thread 2.1 "cc1" hit Hardware access (read/write) watchpoint 4: *(int *)0x7ffff49f8170
+
+Value = 92
+0x000000000094092c in create_insn_allocnos (x=0x7ffff49f8168, outer=0x7ffff49f85d0, output_p=false) at ../.././gcc/rtl.h:1924
+1924	  return REG_CHECK (x)->regno;
+#0  0x000000000094092c in create_insn_allocnos (x=0x7ffff49f8168, outer=0x7ffff49f85d0, output_p=false) at ../.././gcc/rtl.h:1924
+#1  0x00000000009409a8 in create_insn_allocnos (x=0x7ffff49f85d0, outer=<optimized out>, output_p=<optimized out>) at ../.././gcc/ira-build.c:1893
+#2  0x00000000009409a8 in create_insn_allocnos (x=0x7ffff4a05ea0, outer=<optimized out>, output_p=<optimized out>) at ../.././gcc/ira-build.c:1893
+#3  0x0000000000940a09 in create_insn_allocnos (x=0x7ffff4a031f0, outer=<optimized out>, output_p=false) at ../.././gcc/ira-build.c:1896
+#4  0x0000000000940e1d in create_bb_allocnos (bb_node=<optimized out>, bb_node=<optimized out>) at ../.././gcc/rtl.h:1501
+#5  create_loop_tree_node_allocnos (loop_node=<optimized out>) at ../.././gcc/ira-build.c:1961
+#6  0x0000000000942f63 in ira_traverse_loop_tree (bb_p=<optimized out>, loop_node=0x25bb290, preorder_func=0x940cf0 <create_loop_tree_node_allocnos(ira_loop_tree_node_t)>, 
+    postorder_func=0x0) at ../.././gcc/ira-build.c:1796
+#7  0x0000000000943098 in ira_traverse_loop_tree (bb_p=<optimized out>, loop_node=<optimized out>, preorder_func=<optimized out>, postorder_func=<optimized out>)
+    at ../.././gcc/ira-build.c:1813
+#8  0x0000000000944a6c in create_allocnos () at ../.././gcc/ira-build.c:3431
+#9  ira_build () at ../.././gcc/ira-build.c:3431
+#10 0x000000000093b9c3 in ira (f=<optimized out>) at ../.././gcc/ira.c:5353
+#11 (anonymous namespace)::pass_ira::execute (this=<optimized out>) at ../.././gcc/ira.c:5666
+#12 0x0000000000a2d408 in execute_one_pass (pass=0x21fce70) at ../.././gcc/passes.c:2502
+#13 0x0000000000a2dd50 in execute_pass_list_1 (pass=0x21fce70) at ../.././gcc/passes.c:2590
+#14 0x0000000000a2dd62 in execute_pass_list_1 (pass=0x21fbbf0) at ../.././gcc/passes.c:2591
+#15 0x0000000000a2dd89 in execute_pass_list (fn=0x7ffff513cb00, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#16 0x0000000000729afe in cgraph_node::expand (this=0x7ffff5156b40) at ../.././gcc/context.h:48
+#17 0x000000000072ab90 in expand_all_functions () at ../.././gcc/cgraphunit.c:2471
+#18 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2822
+#19 0x000000000072cc0d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#20 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#21 0x0000000000aec5bf in compile_file () at ../.././gcc/toplev.c:483
+#22 0x00000000005da39c in do_compile () at ../.././gcc/toplev.c:2274
+#23 toplev::main (this=this@entry=0x7fffffffce8e, argc=<optimized out>, argc@entry=102, argv=<optimized out>, argv@entry=0x7fffffffcf88) at ../.././gcc/toplev.c:2413
+#24 0x00000000005dde3f in main (argc=102, argv=0x7fffffffcf88) at ../.././gcc/main.c:39

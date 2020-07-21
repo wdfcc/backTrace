@@ -29,3 +29,37 @@
 #25 0x00000000005da34c in do_compile () at ../.././gcc/toplev.c:2273
 #26 toplev::main (this=this@entry=0x7fffffffdcee, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffdde8) at ../.././gcc/toplev.c:2412
 #27 0x00000000005dddef in main (argc=13, argv=0x7fffffffdde8) at ../.././gcc/main.c:39
+
+
+
+(gdb) bt
+#2  ix86_expand_int_compare (op1=0x7ffff6c2f480, op0=0x7ffff49f8168, code=EQ) at ../.././gcc/config/i386/i386-expand.c:2651
+#3  ix86_expand_compare (code=EQ, op0=0x7ffff49f8168, op1=0x7ffff6c2f480) at ../.././gcc/config/i386/i386-expand.c:2673
+#4  0x0000000000e024e2 in ix86_expand_branch (code=EQ, op0=<optimized out>, op0@entry=0x7ffff49f8168, op1=<optimized out>, op1@entry=0x7ffff6c2f480, 
+    label=label@entry=0x7ffff4a67740) at ../.././gcc/config/i386/i386-expand.c:2099
+#5  0x000000000107e913 in gen_cbranchdi4 (operand0=0x7ffff49f8510, operand1=<optimized out>, operand2=0x7ffff6c2f480, operand3=0x7ffff4a67740)
+        at ../.././gcc/config/i386/i386.md:1263
+#6  0x00000000009f5d73 in insn_gen_fn::operator() (a3=0x7ffff4a67740, a2=<optimized out>, a1=<optimized out>, a0=0x7ffff49f8510, this=<optimized out>) at ../.././gcc/recog.h:319
+#7  emit_cmp_and_jump_insn_1 (prob=..., label=0x7ffff4a67740, mode=<optimized out>, test=0x7ffff49f8510) at ../.././gcc/optabs.c:4121
+#8  emit_cmp_and_jump_insns (x=x@entry=0x7ffff49f8168, y=y@entry=0x7ffff6c2f480, comparison=EQ, size=size@entry=0x0, mode=<optimized out>, mode@entry=E_DImode, 
+            unsignedp=unsignedp@entry=1, label=0x7ffff4a67740, prob=...) at ../.././gcc/optabs.c:4178
+#9  0x0000000000759bf3 in do_compare_rtx_and_jump (op0=0x7ffff49f8168, op1=0x7ffff6c2f480, code=<optimized out>, unsignedp=1, mode=E_DImode, size=0x0, if_false_label=0x0, 
+                if_true_label=0x7ffff4a67740, prob=...) at ../.././gcc/dojump.c:1169
+#10 0x000000000075b1f5 in do_jump (exp=<optimized out>, if_false_label=0x7ffff4a67740, if_true_label=0x0, prob=...) at ../.././gcc/dojump.c:622
+#11 0x00000000006faa29 in expand_gimple_cond (bb=bb@entry=0x7ffff4ee1ea0, stmt=stmt@entry=0x7ffff4edbd20) at ../.././gcc/cfgexpand.c:2520
+#12 0x00000000006fb92c in expand_gimple_basic_block (disable_tail_calls=<optimized out>, bb=<optimized out>) at ../.././gcc/cfgexpand.c:5742
+#13 (anonymous namespace)::pass_expand::execute (this=<optimized out>, fun=<optimized out>) at ../.././gcc/cfgexpand.c:6542
+#14 0x0000000000a2d408 in execute_one_pass (pass=0x21fbb90) at ../.././gcc/passes.c:2502
+#15 0x0000000000a2dd50 in execute_pass_list_1 (pass=0x21fbb90) at ../.././gcc/passes.c:2590
+#16 0x0000000000a2dd89 in execute_pass_list (fn=0x7ffff513cb00, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#17 0x0000000000729afe in cgraph_node::expand (this=0x7ffff5156b40) at ../.././gcc/context.h:48
+#18 0x000000000072ab90 in expand_all_functions () at ../.././gcc/cgraphunit.c:2471
+#19 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2822
+#20 0x000000000072cc0d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#21 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#22 0x0000000000aec5bf in compile_file () at ../.././gcc/toplev.c:483
+#23 0x00000000005da39c in do_compile () at ../.././gcc/toplev.c:2274
+#24 toplev::main (this=this@entry=0x7fffffffce8e, argc=<optimized out>, argc@entry=102, argv=<optimized out>, argv@entry=0x7fffffffcf88) at ../.././gcc/toplev.c:2413
+#25 0x00000000005dde3f in main (argc=102, argv=0x7fffffffcf88) at ../.././gcc/main.c:39
+(gdb) p arg0.u.reg 
+$2 = {regno = 92, nregs = 1, unused = 0, attrs = 0x7ffff49bc6d0}

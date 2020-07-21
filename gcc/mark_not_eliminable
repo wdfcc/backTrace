@@ -1,0 +1,25 @@
+Thread 2.1 "cc1" hit Hardware access (read/write) watchpoint 4: *(int *)0x7ffff49f8170
+
+Value = 92
+0x000000000098ef35 in mark_not_eliminable (x=<optimized out>, mem_mode=mem_mode@entry=E_VOIDmode) at ../.././gcc/lra-eliminations.c:836
+836		       ep < &reg_eliminate[NUM_ELIMINABLE_REGS];
+#0  0x000000000098ef35 in mark_not_eliminable (x=<optimized out>, mem_mode=mem_mode@entry=E_VOIDmode) at ../.././gcc/lra-eliminations.c:836
+#1  0x0000000000990920 in init_elimination () at ../.././gcc/rtl.h:1501
+#2  lra_eliminate (final_p=final_p@entry=false, first_p=first_p@entry=true) at ../.././gcc/lra-eliminations.c:1344
+#3  0x000000000098980b in lra_constraints (first_p=true) at ../.././gcc/lra-constraints.c:4860
+#4  0x0000000000978505 in lra (f=<optimized out>) at ../.././gcc/lra.c:2440
+#5  0x00000000009363f2 in do_reload () at ../.././gcc/ira.c:5523
+#6  (anonymous namespace)::pass_reload::execute (this=<optimized out>) at ../.././gcc/ira.c:5709
+#7  0x0000000000a2d408 in execute_one_pass (pass=0x21fced0) at ../.././gcc/passes.c:2502
+#8  0x0000000000a2dd50 in execute_pass_list_1 (pass=0x21fced0) at ../.././gcc/passes.c:2590
+#9  0x0000000000a2dd62 in execute_pass_list_1 (pass=0x21fbbf0) at ../.././gcc/passes.c:2591
+#10 0x0000000000a2dd89 in execute_pass_list (fn=0x7ffff513cb00, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#11 0x0000000000729afe in cgraph_node::expand (this=0x7ffff5156b40) at ../.././gcc/context.h:48
+#12 0x000000000072ab90 in expand_all_functions () at ../.././gcc/cgraphunit.c:2471
+#13 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2822
+#14 0x000000000072cc0d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#15 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#16 0x0000000000aec5bf in compile_file () at ../.././gcc/toplev.c:483
+#17 0x00000000005da39c in do_compile () at ../.././gcc/toplev.c:2274
+#18 toplev::main (this=this@entry=0x7fffffffce8e, argc=<optimized out>, argc@entry=102, argv=<optimized out>, argv@entry=0x7fffffffcf88) at ../.././gcc/toplev.c:2413
+#19 0x00000000005dde3f in main (argc=102, argv=0x7fffffffcf88) at ../.././gcc/main.c:39

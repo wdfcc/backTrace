@@ -1,0 +1,41 @@
+set_noop_p (set=set@entry=0x7ffff49f84b0) at ../.././gcc/rtlanal.c:1602
+1602	  if (dst == pc_rtx && src == pc_rtx)
+#0  set_noop_p (set=set@entry=0x7ffff49f84b0) at ../.././gcc/rtlanal.c:1602
+#1  0x000000000128afe0 in set_live_p (counts=0x257f450, insn=0x7ffff4a676c0, set=0x7ffff49f84b0) at ../.././gcc/cse.c:6928
+#2  insn_live_p (counts=0x257f450, insn=0x7ffff4a676c0) at ../.././gcc/cse.c:6952
+#3  delete_trivially_dead_insns (insns=<optimized out>, nreg=115) at ../.././gcc/cse.c:7121
+#4  0x0000000001265657 in (anonymous namespace)::pass_jump::execute (this=<optimized out>) at ../.././gcc/emit-rtl.h:415
+#5  0x0000000000a2d408 in execute_one_pass (pass=0x21fbd10) at ../.././gcc/passes.c:2502
+#6  0x0000000000a2dd50 in execute_pass_list_1 (pass=0x21fbd10) at ../.././gcc/passes.c:2590
+#7  0x0000000000a2dd62 in execute_pass_list_1 (pass=0x21fbbf0) at ../.././gcc/passes.c:2591
+#8  0x0000000000a2dd89 in execute_pass_list (fn=0x7ffff513cb00, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#9  0x0000000000729afe in cgraph_node::expand (this=0x7ffff5156b40) at ../.././gcc/context.h:48
+#10 0x000000000072ab90 in expand_all_functions () at ../.././gcc/cgraphunit.c:2471
+#11 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2822
+#12 0x000000000072cc0d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#13 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#14 0x0000000000aec5bf in compile_file () at ../.././gcc/toplev.c:483
+#15 0x00000000005da39c in do_compile () at ../.././gcc/toplev.c:2274
+#16 toplev::main (this=this@entry=0x7fffffffce8e, argc=<optimized out>, argc@entry=102, argv=<optimized out>, argv@entry=0x7fffffffcf88) at ../.././gcc/toplev.c:2413
+#17 0x00000000005dde3f in main (argc=102, argv=0x7fffffffcf88) at ../.././gcc/main.c:39
+set_noop_p (set=set@entry=0x7ffff49f84b0) at ../.././gcc/rtlanal.c:1602
+1602	  if (dst == pc_rtx && src == pc_rtx)
+#0  set_noop_p (set=set@entry=0x7ffff49f84b0) at ../.././gcc/rtlanal.c:1602
+##1  0x000000000128afe0 in set_live_p (counts=0x2583ac0, insn=0x7ffff4a676c0, set=0x7ffff49f84b0) at ../.././gcc/cse.c:6928
+##2  insn_live_p (counts=0x2583ac0, insn=0x7ffff4a676c0) at ../.././gcc/cse.c:6952
+##3  delete_trivially_dead_insns (insns=<optimized out>, nreg=118) at ../.././gcc/cse.c:7121
+##4  0x000000000093b04b in ira (f=<optimized out>) at ../.././gcc/emit-rtl.h:415
+##5  (anonymous namespace)::pass_ira::execute (this=<optimized out>) at ../.././gcc/ira.c:5666
+##6  0x0000000000a2d408 in execute_one_pass (pass=0x21fce70) at ../.././gcc/passes.c:2502
+##7  0x0000000000a2dd50 in execute_pass_list_1 (pass=0x21fce70) at ../.././gcc/passes.c:2590
+##8  0x0000000000a2dd62 in execute_pass_list_1 (pass=0x21fbbf0) at ../.././gcc/passes.c:2591
+##9  0x0000000000a2dd89 in execute_pass_list (fn=0x7ffff513cb00, pass=<optimized out>) at ../.././gcc/passes.c:2601
+##10 0x0000000000729afe in cgraph_node::expand (this=0x7ffff5156b40) at ../.././gcc/context.h:48
+##11 0x000000000072ab90 in expand_all_functions () at ../.././gcc/cgraphunit.c:2471
+##12 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2822
+##13 0x000000000072cc0d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+##14 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+##15 0x0000000000aec5bf in compile_file () at ../.././gcc/toplev.c:483
+##16 0x00000000005da39c in do_compile () at ../.././gcc/toplev.c:2274
+##17 toplev::main (this=this@entry=0x7fffffffce8e, argc=<optimized out>, argc@entry=102, argv=<optimized out>, argv@entry=0x7fffffffcf88) at ../.././gcc/toplev.c:2413
+##18 0x00000000005dde3f in main (argc=102, argv=0x7fffffffcf88) at ../.././gcc/main.c:39

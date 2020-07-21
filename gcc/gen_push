@@ -1,0 +1,26 @@
+(gdb) bt
+#0  gen_push (arg=0x7ffff4a080f0) at ./genrtl.h:39
+#1  0x0000000000d9a7f5 in ix86_emit_save_regs () at ../.././gcc/machmode.h:417
+#2  ix86_expand_prologue () at ../.././gcc/config/i386/i386.c:8199
+#3  0x00000000010a924c in gen_prologue () at ../.././gcc/config/i386/i386.md:13442
+#4  0x0000000000d8e6a7 in target_gen_prologue () at ../.././gcc/config/i386/i386.md:20062
+#5  0x0000000000841faf in make_prologue_seq () at ../.././gcc/function.c:5787
+#6  0x0000000000842162 in thread_prologue_and_epilogue_insns () at ../.././gcc/function.c:5904
+#7  0x00000000008426f3 in rest_of_handle_thread_prologue_and_epilogue () at ../.././gcc/function.c:6395
+#8  (anonymous namespace)::pass_thread_prologue_and_epilogue::execute (this=<optimized out>) at ../.././gcc/function.c:6472
+#9  0x0000000000a2d408 in execute_one_pass (pass=0x21fd1d0) at ../.././gcc/passes.c:2502
+#10 0x0000000000a2dd50 in execute_pass_list_1 (pass=0x21fd1d0) at ../.././gcc/passes.c:2590
+#11 0x0000000000a2dd62 in execute_pass_list_1 (pass=0x21fcf90) at ../.././gcc/passes.c:2591
+#12 0x0000000000a2dd62 in execute_pass_list_1 (pass=0x21fbbf0) at ../.././gcc/passes.c:2591
+#13 0x0000000000a2dd89 in execute_pass_list (fn=0x7ffff513cb00, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#14 0x0000000000729afe in cgraph_node::expand (this=0x7ffff5156b40) at ../.././gcc/context.h:48
+#15 0x000000000072ab90 in expand_all_functions () at ../.././gcc/cgraphunit.c:2471
+#16 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2822
+#17 0x000000000072cc0d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#18 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#19 0x0000000000aec5bf in compile_file () at ../.././gcc/toplev.c:483
+#20 0x00000000005da39c in do_compile () at ../.././gcc/toplev.c:2274
+#21 toplev::main (this=this@entry=0x7fffffffce8e, argc=<optimized out>, argc@entry=102, argv=<optimized out>, argv@entry=0x7fffffffcf88) at ../.././gcc/toplev.c:2413
+#22 0x00000000005dde3f in main (argc=102, argv=0x7fffffffcf88) at ../.././gcc/main.c:39
+(gdb) p arg.u.reg 
+$3 = {regno = 3, nregs = 1, unused = 0, attrs = 0x0}

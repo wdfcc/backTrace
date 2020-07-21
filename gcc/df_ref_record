@@ -1,0 +1,25 @@
+Value = 92
+df_ref_record (cl=DF_REF_REGULAR, collection_rec=0x7fffffffc510, reg=0x7ffff49f8168, loc=0x7ffff49f84b8, bb=0x7ffff4ee1ea0, insn_info=0x24ef4a8, ref_type=DF_REF_REG_DEF, 
+    ref_flags=0) at ../.././gcc/df-scan.c:2568
+2568	  if (regno < FIRST_PSEUDO_REGISTER)
+#0  df_ref_record (cl=DF_REF_REGULAR, collection_rec=0x7fffffffc510, reg=0x7ffff49f8168, loc=0x7ffff49f84b8, bb=0x7ffff4ee1ea0, insn_info=0x24ef4a8, ref_type=DF_REF_REG_DEF, 
+    ref_flags=0) at ../.././gcc/df-scan.c:2568
+#1  0x0000000000755667 in df_def_record_1 (collection_rec=0x7fffffffc510, loc=<optimized out>, bb=0x7ffff4ee1ea0, insn_info=0x24ef4a8, flags=0) at ../.././gcc/df-scan.c:2668
+#2  0x0000000000755969 in df_insn_refs_collect (collection_rec=0x7fffffffc510, bb=0x7ffff4ee1ea0, insn_info=0x24ef4a8) at ../.././gcc/rtl.h:1501
+#3  0x000000000075880b in df_bb_refs_record (bb_index=<optimized out>, scan_insns=<optimized out>) at ../.././gcc/rtl.h:1445
+#4  0x0000000000758a65 in df_scan_blocks () at ../.././gcc/df-scan.c:588
+#5  0x0000000000744eea in rest_of_handle_df_initialize () at ../.././gcc/df-core.c:715
+#6  (anonymous namespace)::pass_df_initialize_opt::execute (this=<optimized out>) at ../.././gcc/df-core.c:747
+#7  0x0000000000a2d408 in execute_one_pass (pass=0x21fbdd0) at ../.././gcc/passes.c:2502
+#8  0x0000000000a2dd50 in execute_pass_list_1 (pass=0x21fbdd0) at ../.././gcc/passes.c:2590
+#9  0x0000000000a2dd62 in execute_pass_list_1 (pass=0x21fbbf0) at ../.././gcc/passes.c:2591
+#10 0x0000000000a2dd89 in execute_pass_list (fn=0x7ffff513cb00, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#11 0x0000000000729afe in cgraph_node::expand (this=0x7ffff5156b40) at ../.././gcc/context.h:48
+#12 0x000000000072ab90 in expand_all_functions () at ../.././gcc/cgraphunit.c:2471
+#13 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2822
+#14 0x000000000072cc0d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#15 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#16 0x0000000000aec5bf in compile_file () at ../.././gcc/toplev.c:483
+#17 0x00000000005da39c in do_compile () at ../.././gcc/toplev.c:2274
+#18 toplev::main (this=this@entry=0x7fffffffce8e, argc=<optimized out>, argc@entry=102, argv=<optimized out>, argv@entry=0x7fffffffcf88) at ../.././gcc/toplev.c:2413
+#19 0x00000000005dde3f in main (argc=102, argv=0x7fffffffcf88) at ../.././gcc/main.c:39
