@@ -1,0 +1,43 @@
+(gdb) bt
+#0  0x0000000000ca9a18 in tree_ssa_useless_type_conversion (expr=expr@entry=0x7ffff5018990) at ../.././gcc/tree-ssa.c:1276
+#1  tree_ssa_strip_useless_type_conversions (exp=exp@entry=0x7ffff5018990) at ../.././gcc/tree-ssa.c:1276
+#2  0x0000000000882f08 in gimplify_expr (expr_p=0x7ffff501e860, pre_p=<optimized out>, post_p=<optimized out>, gimple_test_f=<optimized out>, fallback=<optimized out>)
+    at ../.././gcc/gimplify.c:13503
+#3  0x00000000008854c1 in gimplify_expr (expr_p=0x7ffff520b768, pre_p=<optimized out>, post_p=<optimized out>, gimple_test_f=<optimized out>, fallback=<optimized out>)
+    at ../.././gcc/gimplify.c:13767
+#4  0x0000000000886bd0 in gimplify_compound_lval (expr_p=0x7ffff520a2f8, pre_p=0x7fffffffc658, post_p=0x7fffffffc190, fallback=3) at ../.././gcc/gimplify.c:3064
+#5  0x0000000000883651 in gimplify_expr (expr_p=0x7ffff520a2f8, pre_p=<optimized out>, post_p=<optimized out>, gimple_test_f=<optimized out>, fallback=<optimized out>)
+    at ../.././gcc/gimplify.c:13560
+#6  0x0000000000888feb in gimplify_addr_expr (expr_p=expr_p@entry=0x7ffff51f69d0, pre_p=pre_p@entry=0x7fffffffc658, post_p=post_p@entry=0x7fffffffc190) at ../.././gcc/gimplify.c:6171
+#7  0x0000000000884059 in gimplify_expr (expr_p=0x7ffff51f69d0, pre_p=<optimized out>, post_p=<optimized out>, gimple_test_f=<optimized out>, fallback=<optimized out>)
+    at ../.././gcc/gimplify.c:13655
+#8  0x00000000008893e5 in gimplify_expr (expr_p=0x7ffff51f69d0, pre_p=pre_p@entry=0x7fffffffc658, gimple_test_f=<optimized out>, fallback=<optimized out>, allow_ssa=<optimized out>, post_p=0x0)
+    at ../.././gcc/gimplify.c:14655
+#9  0x0000000000889a95 in gimplify_arg (arg_p=<optimized out>, pre_p=pre_p@entry=0x7fffffffc658, call_location=<optimized out>, allow_ssa=allow_ssa@entry=true) at ../.././gcc/gimplify.c:3275
+#10 0x0000000000889cb6 in gimplify_call_expr (expr_p=0x7ffff52096b8, pre_p=0x7fffffffc658, want_value=<optimized out>) at ../.././gcc/gimplify.c:3497
+#11 0x0000000000884616 in gimplify_expr (expr_p=0x7ffff52096b8, pre_p=<optimized out>, post_p=<optimized out>, gimple_test_f=<optimized out>, fallback=<optimized out>)
+    at ../.././gcc/gimplify.c:13580
+#12 0x0000000000884c36 in gimplify_stmt (seq_p=<optimized out>, stmt_p=<optimized out>) at ../.././gcc/gimplify.c:6825
+#13 gimplify_statement_list (pre_p=<optimized out>, expr_p=0x7ffff5209928) at ../.././gcc/gimplify.c:1869
+#14 gimplify_expr (expr_p=0x7ffff5209928, pre_p=<optimized out>, post_p=<optimized out>, gimple_test_f=<optimized out>, fallback=<optimized out>) at ../.././gcc/gimplify.c:14052
+#15 0x000000000088c903 in gimplify_stmt (seq_p=0x7fffffffc658, stmt_p=0x7ffff5209928) at ../.././gcc/gimplify.c:6825
+#16 gimplify_cond_expr (expr_p=0x7ffff5209928, pre_p=0x7fffffffc9d0, fallback=<optimized out>) at ../.././gcc/gimplify.c:4166
+#17 0x000000000088444c in gimplify_expr (expr_p=0x7ffff5209928, pre_p=<optimized out>, post_p=<optimized out>, gimple_test_f=<optimized out>, fallback=<optimized out>)
+    at ../.././gcc/gimplify.c:13565
+#18 0x0000000000884c36 in gimplify_stmt (seq_p=<optimized out>, stmt_p=<optimized out>) at ../.././gcc/gimplify.c:6825
+#19 gimplify_statement_list (pre_p=<optimized out>, expr_p=0x7ffff520bad0) at ../.././gcc/gimplify.c:1869
+#20 gimplify_expr (expr_p=0x7ffff520bad0, pre_p=<optimized out>, post_p=<optimized out>, gimple_test_f=<optimized out>, fallback=<optimized out>) at ../.././gcc/gimplify.c:14052
+#21 0x000000000088ad7a in gimplify_stmt (seq_p=0x7fffffffc9d0, stmt_p=0x7ffff520bad0) at ../.././gcc/gimplify.c:6825
+#22 gimplify_bind_expr (expr_p=expr_p@entry=0x7ffff52009c0, pre_p=pre_p@entry=0x7fffffffcbc8) at ../.././gcc/gimplify.c:1424
+#23 0x0000000000884633 in gimplify_expr (expr_p=0x7ffff52009c0, pre_p=<optimized out>, post_p=<optimized out>, gimple_test_f=<optimized out>, fallback=<optimized out>)
+    at ../.././gcc/gimplify.c:13809
+#24 0x0000000000887de3 in gimplify_stmt (seq_p=0x7fffffffcbc8, stmt_p=0x7ffff52009c0) at ../.././gcc/gimplify.c:6825
+#25 gimplify_body (fndecl=0x7ffff5200900, do_parms=<optimized out>) at ../.././gcc/gimplify.c:14857
+#26 0x0000000000888206 in gimplify_function_tree (fndecl=fndecl@entry=0x7ffff5200900) at ../.././gcc/gimplify.c:15030
+#27 0x0000000000729888 in cgraph_node::analyze (this=0x7ffff5204e10) at ../.././gcc/cgraphunit.c:670
+#28 0x000000000072bfa8 in analyze_functions (first_time=<optimized out>) at ../.././gcc/cgraphunit.c:1227
+#29 0x000000000072cb73 in symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2974
+#30 0x0000000000aec59f in compile_file () at ../.././gcc/toplev.c:483
+#31 0x00000000005da37c in do_compile () at ../.././gcc/toplev.c:2274
+#32 toplev::main (this=this@entry=0x7fffffffce8e, argc=<optimized out>, argc@entry=102, argv=<optimized out>, argv@entry=0x7fffffffcf88) at ../.././gcc/toplev.c:2413
+#33 0x00000000005dde1f in main (argc=102, argv=0x7fffffffcf88) at ../.././gcc/main.c:39
