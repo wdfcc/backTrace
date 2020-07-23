@@ -1,0 +1,11 @@
+(gdb) bt
+#0  0x00007ffff7a2e113 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x0000000001554f08 in ht_lookup_with_hash (table=0x217c9a0, str=0x7fffffffdad0 "operator new", len=12, hash=3261175724, insert=<optimized out>) at ../.././libcpp/symtab.c:164
+#2  0x0000000000c486cb in get_identifier_with_length (text=text@entry=0x7fffffffdad0 "operator new", length=<optimized out>) at ../.././gcc/stringpool.c:109
+#3  0x00000000006cf4ad in set_operator_ident (ptr=ptr@entry=0x1fffbe0 <ovl_op_info+64>) at ../.././gcc/cp/lex.c:144
+#4  0x00000000006cfe8f in init_operators () at ../.././gcc/cp/lex.c:170
+#5  cxx_init () at ../.././gcc/cp/lex.c:320
+#6  0x0000000000627556 in lang_dependent_init (name=0x7fffffffe111 "1.cpp") at ../.././gcc/toplev.c:1969
+#7  do_compile () at ../.././gcc/toplev.c:2258
+#8  toplev::main (this=this@entry=0x7fffffffdbce, argc=<optimized out>, argc@entry=16, argv=<optimized out>, argv@entry=0x7fffffffdcc8) at ../.././gcc/toplev.c:2412
+#9  0x000000000062b07f in main (argc=16, argv=0x7fffffffdcc8) at ../.././gcc/main.c:39

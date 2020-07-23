@@ -1,0 +1,38 @@
+(gdb) bt
+#0  0x00007ffff7a2e560 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00000000009afec7 in ggc_internal_cleared_alloc (size=216, f=f@entry=0x0, s=s@entry=0, n=n@entry=1) at ../.././gcc/ggc-common.c:118
+#2  0x0000000000e8818e in ggc_internal_cleared_alloc (s=<optimized out>) at ../.././gcc/ggc.h:315
+#3  ggc_alloc_cleared_tree_node_stat (s=<optimized out>) at ../.././gcc/ggc.h:315
+#4  make_node (code=code@entry=FUNCTION_DECL) at ../.././gcc/tree.c:1049
+#5  0x0000000000e8b9ea in build_decl (loc=loc@entry=66633799, code=code@entry=FUNCTION_DECL, name=name@entry=0x7ffff68745c0, type=type@entry=0x7ffff6094930) at ../.././gcc/tree.c:5074
+#6  0x00000000006d01b7 in build_lang_decl_loc (loc=loc@entry=66633799, code=code@entry=FUNCTION_DECL, name=name@entry=0x7ffff68745c0, type=type@entry=0x7ffff6094930)
+    at ../.././gcc/cp/lex.c:672
+#7  0x0000000000697b6b in grokfndecl (ctype=0x0, type=0x7ffff6094930, declarator=0x7ffff68745c0, parms=0x7ffff608fa80, orig_declarator=0x7ffff68745c0, declspecs=0x7fffffffd7c0, 
+    decl_reqs=0x0, virtualp=0, flags=NO_SPECIAL, quals=0, rqual=REF_QUAL_NONE, raises=0x7ffff69b2b18, check=1, friendp=0, publicp=1, inlinep=1, deletedp=false, sfk=sfk_none, 
+    funcdef_flag=true, late_return_type_p=false, template_count=0, in_namespace=0x0, attrlist=0x7fffffffd668, location=66633799) at ../.././gcc/cp/decl.c:9366
+#8  0x000000000069dc62 in grokdeclarator (declarator=<optimized out>, declspecs=<optimized out>, decl_context=<optimized out>, initialized=1, attrlist=0x7fffffffd668)
+    at ../.././gcc/cp/decl.c:13569
+#9  0x000000000069f567 in start_function (declspecs=declspecs@entry=0x7fffffffd7c0, declarator=declarator@entry=0x2200730, attrs=<optimized out>, attrs@entry=0x0)
+    at ../.././gcc/cp/decl.c:16487
+#10 0x0000000000729c58 in cp_parser_function_definition_from_specifiers_and_declarator (declarator=0x2200730, attributes=0x0, decl_specifiers=0x7fffffffd7c0, parser=0x7ffff688a7b8)
+    at ../.././gcc/cp/parser.c:28868
+#11 cp_parser_init_declarator (parser=0x7ffff688a7b8, flags=<optimized out>, decl_specifiers=0x7fffffffd7c0, checks=0x0, function_definition_allowed_p=<optimized out>, 
+    member_p=<optimized out>, declares_class_or_enum=0, function_definition_p=0x7fffffffd860, maybe_range_for_decl=0x0, init_loc=0x7fffffffd7ac, auto_result=0x7fffffffd900)
+    at ../.././gcc/cp/parser.c:20670
+#12 0x000000000070c963 in cp_parser_simple_declaration (parser=0x7ffff688a7b8, function_definition_allowed_p=<optimized out>, maybe_range_for_decl=0x0) at ../.././gcc/cp/parser.c:13734
+#13 0x0000000000732683 in cp_parser_declaration (parser=0x7ffff688a7b8) at ../.././gcc/cp/parser.c:13433
+#14 0x00000000007330bc in cp_parser_declaration_seq_opt (parser=<optimized out>) at ../.././gcc/cp/parser.c:13309
+#15 cp_parser_linkage_specification (parser=0x7ffff688a7b8) at ../.././gcc/cp/parser.c:14627
+#16 0x00000000007326f3 in cp_parser_declaration (parser=0x7ffff688a7b8) at ../.././gcc/cp/parser.c:13370
+#17 0x0000000000732da5 in cp_parser_translation_unit (parser=0x7ffff688a7b8) at ../.././gcc/cp/parser.c:4734
+#18 c_parse_file () at ../.././gcc/cp/parser.c:43975
+#19 0x00000000007fb20c in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#20 0x0000000000c4de24 in compile_file () at ../.././gcc/toplev.c:458
+#21 0x00000000006275ec in do_compile () at ../.././gcc/toplev.c:2273
+#22 toplev::main (this=this@entry=0x7fffffffdbce, argc=<optimized out>, argc@entry=16, argv=<optimized out>, argv@entry=0x7fffffffdcc8) at ../.././gcc/toplev.c:2412
+#23 0x000000000062b07f in main (argc=16, argv=0x7fffffffdcc8) at ../.././gcc/main.c:39
+(gdb) frame 5
+#5  0x0000000000e8b9ea in build_decl (loc=loc@entry=66633799, code=code@entry=FUNCTION_DECL, name=name@entry=0x7ffff68745c0, type=type@entry=0x7ffff6094930) at ../.././gcc/tree.c:5074
+5074	  t = make_node (code PASS_MEM_STAT);
+(gdb) p name.identifier .id 
+$2 = {str = 0x7ffff686d8e0 "operator new", len = 12, hash_value = 3261175724}
