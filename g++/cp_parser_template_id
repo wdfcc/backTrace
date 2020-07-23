@@ -1,0 +1,42 @@
+(gdb) bt
+#0  cp_parser_identifier (parser=<optimized out>) at ../.././gcc/cp/parser.c:4108
+#1  0x000000000071f089 in cp_parser_template_name (parser=0x7ffff688a7b8, template_keyword_p=<optimized out>, check_dependency_p=<optimized out>, is_declaration=<optimized out>, 
+    tag_type=none_type, is_identifier=0x7fffffffcdbf) at ../.././gcc/cp/parser.c:16884
+#2  0x000000000071f5e3 in cp_parser_template_id (parser=0x7ffff688a7b8, template_keyword_p=<optimized out>, check_dependency_p=<optimized out>, tag_type=none_type, 
+    is_declaration=<optimized out>) at ../.././gcc/cp/parser.c:16593
+#3  0x000000000071fe4d in cp_parser_class_name (parser=parser@entry=0x7ffff688a7b8, typename_keyword_p=typename_keyword_p@entry=false, template_keyword_p=template_keyword_p@entry=false, 
+    tag_type=none_type, check_dependency_p=<optimized out>, class_head_p=<optimized out>, is_declaration=false, enum_ok=true) at ../.././gcc/cp/parser.c:23697
+#4  0x000000000071cb82 in cp_parser_qualifying_entity (is_declaration=false, type_p=false, check_dependency_p=true, template_keyword_p=false, typename_keyword_p=false, 
+    parser=0x7ffff688a7b8) at ../.././gcc/cp/parser.c:6776
+#5  cp_parser_nested_name_specifier_opt (parser=0x7ffff688a7b8, typename_keyword_p=<optimized out>, check_dependency_p=<optimized out>, type_p=<optimized out>, is_declaration=false, 
+    template_keyword_p=false) at ../.././gcc/cp/parser.c:6458
+#6  0x0000000000724127 in cp_parser_simple_type_specifier (parser=0x7ffff688a7b8, decl_specs=0x7fffffffd2d0, flags=<optimized out>) at ../.././gcc/cp/parser.c:18128
+#7  0x000000000070ae9e in cp_parser_type_specifier (parser=0x7ffff688a7b8, flags=1, decl_specs=0x7fffffffd2d0, is_declaration=<optimized out>, declares_class_or_enum=0x7fffffffd180, 
+    is_cv_qualifier=<optimized out>) at ../.././gcc/cp/parser.c:17787
+#8  0x000000000070be77 in cp_parser_decl_specifier_seq (parser=0x7ffff688a7b8, flags=1, decl_specs=0x7fffffffd2d0, declares_class_or_enum=0x7fffffffd2b8) at ../.././gcc/cp/parser.c:14358
+#9  0x000000000070c852 in cp_parser_simple_declaration (parser=0x7ffff688a7b8, function_definition_allowed_p=false, maybe_range_for_decl=0x0) at ../.././gcc/cp/parser.c:13613
+#10 0x000000000070e53b in cp_parser_declaration_statement (parser=parser@entry=0x7ffff688a7b8) at ../.././gcc/cp/parser.c:13166
+#11 0x000000000070f116 in cp_parser_statement (parser=0x7ffff688a7b8, in_statement_expr=0x0, in_compound=<optimized out>, if_p=<optimized out>, chain=<optimized out>, loc_after_labels=0x0)
+    at ../.././gcc/cp/parser.c:11472
+#12 0x000000000070ff29 in cp_parser_statement_seq_opt (parser=parser@entry=0x7ffff688a7b8, in_statement_expr=in_statement_expr@entry=0x0) at ../.././gcc/cp/parser.c:11838
+#13 0x000000000070ffe1 in cp_parser_compound_statement (parser=parser@entry=0x7ffff688a7b8, in_statement_expr=in_statement_expr@entry=0x0, bcs_flags=bcs_flags@entry=0, 
+    function_body=function_body@entry=true) at ../.././gcc/cp/parser.c:11788
+#14 0x0000000000725aa1 in cp_parser_function_body (in_function_try_block=false, parser=0x7ffff688a7b8) at ../.././gcc/cp/parser.c:23091
+#15 cp_parser_ctor_initializer_opt_and_function_body (parser=parser@entry=0x7ffff688a7b8, in_function_try_block=in_function_try_block@entry=false) at ../.././gcc/cp/parser.c:23114
+#16 0x00000000007290ae in cp_parser_function_definition_after_declarator (parser=parser@entry=0x7ffff688a7b8, inline_p=inline_p@entry=false) at ../.././gcc/cp/parser.c:28995
+#17 0x0000000000729f90 in cp_parser_function_definition_from_specifiers_and_declarator (declarator=0x220e670, attributes=0x0, decl_specifiers=<optimized out>, parser=0x7ffff688a7b8)
+    at ../.././gcc/cp/parser.c:28912
+#18 cp_parser_init_declarator (parser=0x7ffff688a7b8, flags=<optimized out>, decl_specifiers=<optimized out>, checks=0x0, function_definition_allowed_p=<optimized out>, 
+    member_p=<optimized out>, declares_class_or_enum=0, function_definition_p=0x7fffffffd8e0, maybe_range_for_decl=0x0, init_loc=0x7fffffffd82c, auto_result=0x7fffffffd980)
+    at ../.././gcc/cp/parser.c:20670
+#19 0x000000000070c963 in cp_parser_simple_declaration (parser=0x7ffff688a7b8, function_definition_allowed_p=<optimized out>, maybe_range_for_decl=0x0) at ../.././gcc/cp/parser.c:13734
+#20 0x0000000000732683 in cp_parser_declaration (parser=0x7ffff688a7b8) at ../.././gcc/cp/parser.c:13433
+#21 0x0000000000732da5 in cp_parser_translation_unit (parser=0x7ffff688a7b8) at ../.././gcc/cp/parser.c:4734
+#22 c_parse_file () at ../.././gcc/cp/parser.c:43975
+#23 0x00000000007fb20c in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#24 0x0000000000c4de24 in compile_file () at ../.././gcc/toplev.c:458
+#25 0x00000000006275ec in do_compile () at ../.././gcc/toplev.c:2273
+#26 toplev::main (this=this@entry=0x7fffffffdbce, argc=<optimized out>, argc@entry=16, argv=<optimized out>, argv@entry=0x7fffffffdcc8) at ../.././gcc/toplev.c:2412
+#27 0x000000000062b07f in main (argc=16, argv=0x7fffffffdcc8) at ../.././gcc/main.c:39
+(gdb) p token->u.value.identifier .id 
+$129 = {str = 0x7ffff6a13bd8 "vector", len = 6, hash_value = 2209647445}
