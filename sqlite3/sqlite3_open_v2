@@ -1,0 +1,15 @@
+(gdb) bt
+#0  0x00007ffff7bcde80 in open64 () from /lib64/libpthread.so.0
+#1  0x000000000042de75 in posixOpen (zFile=0x70e274 "/data/sqlite-amalgamation-3320300/test.db", flags=655426, mode=420) at sqlite3.c:33833
+#2  0x000000000042e1b4 in robust_open (z=0x70e274 "/data/sqlite-amalgamation-3320300/test.db", f=131138, m=0) at sqlite3.c:34142
+#3  0x0000000000431c55 in unixOpen (pVfs=0x70a4e0 <aVfs.81>, zPath=0x70e274 "/data/sqlite-amalgamation-3320300/test.db", pFile=0x70e100, flags=262, pOutFlags=0x7fffffffaa20) at sqlite3.c:39548
+#4  0x0000000000425700 in sqlite3OsOpen (pVfs=0x70a4e0 <aVfs.81>, zPath=0x70e274 "/data/sqlite-amalgamation-3320300/test.db", pFile=0x70e100, flags=262, pFlagsOut=0x7fffffffaa20)
+    at sqlite3.c:23139
+#5  0x0000000000439f39 in sqlite3PagerOpen (pVfs=0x70a4e0 <aVfs.81>, ppPager=0x70dac8, zFilename=0x70d47c "test.db", nExtra=136, flags=0, vfsFlags=262, xReinit=0x443d5c <pageReinit>)
+    at sqlite3.c:56480
+#6  0x0000000000444206 in sqlite3BtreeOpen (pVfs=0x70a4e0 <aVfs.81>, zFilename=0x70d47c "test.db", db=0x70d538, ppBtree=0x70d7a8, flags=0, vfsFlags=262) at sqlite3.c:66818
+#7  0x00000000004d6e83 in openDatabase (zFilename=0x70d4c6 "test.db", ppDb=0x7fffffffc2f8, flags=6, zVfs=0x0) at sqlite3.c:163611
+#8  0x00000000004d7146 in sqlite3_open_v2 (filename=0x70d4c6 "test.db", ppDb=0x7fffffffc2f8, flags=6, zVfs=0x0) at sqlite3.c:163734
+#9  0x0000000000417d9a in do_meta_command (zLine=0x70d4c0 ".save", p=0x7fffffffc900) at shell.c:15796
+#10 0x0000000000420844 in process_input (p=0x7fffffffc900) at shell.c:18718
+#11 0x000000000042216f in main (argc=1, argv=0x7fffffffdf78) at shell.c:19521

@@ -1,0 +1,9 @@
+(gdb) bt
+#0  test::test (this=0x614c20) at 1.cpp:9
+#1  0x0000000000401023 in std::_Construct<test> (__p=0x614c20) at /usr/include/c++/10.1.0/bits/stl_construct.h:109
+#2  0x0000000000400f46 in std::__uninitialized_default_n_1<false>::__uninit_default_n<test*, unsigned long> (__first=0x614c20, __n=10) at /usr/include/c++/10.1.0/bits/stl_uninitialized.h:567
+#3  0x0000000000400e8a in std::__uninitialized_default_n<test*, unsigned long> (__first=0x614c20, __n=10) at /usr/include/c++/10.1.0/bits/stl_uninitialized.h:623
+#4  0x0000000000400d56 in std::__uninitialized_default_n_a<test*, unsigned long, test> (__first=0x614c20, __n=10) at /usr/include/c++/10.1.0/bits/stl_uninitialized.h:685
+#5  0x0000000000400bc7 in std::vector<test, std::allocator<test> >::_M_default_initialize (this=0x7fffffffde90, __n=10) at /usr/include/c++/10.1.0/bits/stl_vector.h:1606
+#6  0x00000000004009f2 in std::vector<test, std::allocator<test> >::vector (this=0x7fffffffde90, __n=10, __a=...) at /usr/include/c++/10.1.0/bits/stl_vector.h:512
+#7  0x00000000004008ec in main () at 1.cpp:15
