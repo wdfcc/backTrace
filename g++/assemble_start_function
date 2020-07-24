@@ -1,0 +1,24 @@
+gdb) bt
+#0  0x00007ffff6eb0962 in __mempcpy_sse2 () from /lib64/libc.so.6
+#1  0x00007ffff6e9d5fd in __GI__IO_file_xsputn () from /lib64/libc.so.6
+#2  0x00007ffff6e92904 in fputs () from /lib64/libc.so.6
+#3  0x0000000000ea5bde in assemble_name_raw (name=0x7ffff51db1c0 "_ZnwmPv", file=0x23d9530) at ../.././gcc/varasm.c:2589
+#4  assemble_name_raw (name=0x7ffff51db1c0 "_ZnwmPv", file=0x23d9530) at ../.././gcc/varasm.c:2584
+#5  assemble_name (name=0x7ffff51db1c0 "_ZnwmPv", file=0x23d9530) at ../.././gcc/varasm.c:2624
+#6  assemble_start_function (decl=0x7ffff689c600, fnname=fnname@entry=0x7ffff51db1c0 "_ZnwmPv") at ../.././gcc/varasm.c:1896
+#7  0x0000000000944640 in rest_of_handle_final () at ../.././gcc/final.c:4654
+#8  (anonymous namespace)::pass_final::execute (this=<optimized out>) at ../.././gcc/final.c:4736
+#9  0x0000000000b67428 in execute_one_pass (pass=0x239d000) at ../.././gcc/passes.c:2502
+#10 0x0000000000b67d70 in execute_pass_list_1 (pass=0x239d000) at ../.././gcc/passes.c:2590
+#11 0x0000000000b67d82 in execute_pass_list_1 (pass=0x239cb20) at ../.././gcc/passes.c:2591
+#12 0x0000000000b67d82 in execute_pass_list_1 (pass=0x239ae80) at ../.././gcc/passes.c:2591
+#13 0x0000000000b67da9 in execute_pass_list (fn=0x7ffff6886a50, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#14 0x000000000086243e in cgraph_node::expand (this=0x7ffff689a870) at ../.././gcc/context.h:48
+#15 0x0000000000863534 in output_in_order () at ../.././gcc/cgraphunit.c:2578
+#16 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2819
+#17 0x000000000086554d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#18 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#19 0x0000000000c2318f in compile_file () at ../.././gcc/toplev.c:483
+#20 0x00000000005fc94c in do_compile () at ../.././gcc/toplev.c:2274
+#21 toplev::main (this=this@entry=0x7fffffffdcce, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffddc8) at ../.././gcc/toplev.c:2413
+#22 0x00000000006003af in main (argc=14, argv=0x7fffffffddc8) at ../.././gcc/main.c:39
