@@ -1,0 +1,24 @@
+i(gdb) bt
+#0  0x00000000006ab204 in write_type (type=0x7ffff6c4f000) at ../.././gcc/cp/mangle.c:2190
+#1  0x00000000006ac95d in write_method_parms (parm_types=0x7ffff689e820, method_p=<optimized out>, decl=<optimized out>) at ../.././gcc/cp/mangle.c:2775
+#2  0x00000000006acab9 in write_bare_function_type (decl=0x7ffff689c800, include_return_type_p=<optimized out>, type=0x7ffff689dbd0)
+    at ../.././gcc/cp/mangle.c:2711
+#3  write_encoding (decl=0x7ffff689c800) at ../.././gcc/cp/mangle.c:847
+#4  0x00000000006acb74 in write_mangled_name (decl=<optimized out>, top_level=<optimized out>) at ../.././gcc/cp/mangle.c:790
+#5  0x00000000006b04a6 in mangle_decl_string (decl=0x7ffff689c800) at ../.././gcc/cp/mangle.c:3858
+#6  0x00000000006b0622 in get_mangled_id (decl=0x7ffff689c800) at ../.././gcc/cp/mangle.c:3917
+#7  mangle_decl (decl=0x7ffff689c800) at ../.././gcc/cp/mangle.c:3917
+#8  0x0000000000e5d28a in decl_assembler_name (decl=decl@entry=0x7ffff689c800) at ../.././gcc/tree.c:708
+#9  0x0000000000850bb0 in symbol_table::insert_to_assembler_name_hash (with_clones=false, node=0x7ffff689a9d8, this=0x7ffff6c2c100)
+    at ../.././gcc/symtab.c:174
+#10 symbol_table::insert_to_assembler_name_hash (this=0x7ffff6c2c100, node=0x7ffff689a9d8, with_clones=<optimized out>) at ../.././gcc/symtab.c:161
+#11 0x0000000000850d0d in symbol_table::symtab_initialize_asm_name_hash (this=0x7ffff6c2c100) at ../.././gcc/symtab.c:266
+#12 0x00000000008514a5 in symbol_table::symtab_initialize_asm_name_hash (this=<optimized out>) at ../.././gcc/symtab.c:1030
+#13 symtab_node::get_for_asmname (asmname=<optimized out>) at ../.././gcc/symtab.c:1021
+#14 0x00000000008602d1 in handle_alias_pairs () at ../.././gcc/cgraphunit.c:1508
+#15 0x00000000008654ad in symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2961
+#16 0x0000000000c2318f in compile_file () at ../.././gcc/toplev.c:483
+#17 0x00000000005fc94c in do_compile () at ../.././gcc/toplev.c:2274
+#18 toplev::main (this=this@entry=0x7fffffffdcce, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffddc8)
+    at ../.././gcc/toplev.c:2413
+#19 0x00000000006003af in main (argc=14, argv=0x7fffffffddc8) at ../.././gcc/main.c:39
