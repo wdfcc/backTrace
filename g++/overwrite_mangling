@@ -1,0 +1,25 @@
+(gdb) bt
+#0  0x000000000068872d in overwrite_mangling (decl=0x7ffff5493900, name=0x7ffff5487c80) at ../.././gcc/cp/decl2.c:4729
+#1  0x00000000006b063c in mangle_decl (decl=0x7ffff5493900) at ../.././gcc/cp/mangle.c:3919
+#2  0x0000000000e5d28a in decl_assembler_name (decl=0x7ffff5493900) at ../.././gcc/tree.c:708
+#3  0x0000000000e9938d in notice_global_symbol (decl=decl@entry=0x7ffff5493900) at ../.././gcc/varasm.c:1688
+#4  0x00000000008607b6 in cgraph_node::finalize_function (decl=decl@entry=0x7ffff5493900, no_collect=<optimized out>) at ../.././gcc/cgraphunit.c:454
+#5  0x000000000074f7db in expand_or_defer_fn (fn=0x7ffff5493900) at ../.././gcc/cp/semantics.c:4496
+#6  0x00000000006fe405 in cp_parser_function_definition_after_declarator (parser=parser@entry=0x7ffff6c58a18, inline_p=inline_p@entry=false) at ../.././gcc/cp/parser.c:29001
+#7  0x00000000006ff2d0 in cp_parser_function_definition_from_specifiers_and_declarator (declarator=0x23f9a60, attributes=0x0, decl_specifiers=<optimized out>, 
+    parser=0x7ffff6c58a18) at ../.././gcc/cp/parser.c:28912
+#8  cp_parser_init_declarator (parser=0x7ffff6c58a18, flags=<optimized out>, decl_specifiers=<optimized out>, checks=0x0, function_definition_allowed_p=<optimized out>, 
+    member_p=<optimized out>, declares_class_or_enum=0, function_definition_p=0x7fffffffd9e0, maybe_range_for_decl=0x0, init_loc=0x7fffffffd92c, auto_result=0x7fffffffda80)
+    at ../.././gcc/cp/parser.c:20670
+#9  0x00000000006e1ca3 in cp_parser_simple_declaration (parser=0x7ffff6c58a18, function_definition_allowed_p=<optimized out>, maybe_range_for_decl=0x0)
+    at ../.././gcc/cp/parser.c:13734
+#10 0x00000000007079c3 in cp_parser_declaration (parser=0x7ffff6c58a18) at ../.././gcc/cp/parser.c:13433
+#11 0x00000000007080e5 in cp_parser_translation_unit (parser=0x7ffff6c58a18) at ../.././gcc/cp/parser.c:4734
+#12 c_parse_file () at ../.././gcc/cp/parser.c:43975
+#13 0x00000000007d056c in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#14 0x0000000000c22f44 in compile_file () at ../.././gcc/toplev.c:458
+#15 0x00000000005fc94c in do_compile () at ../.././gcc/toplev.c:2274
+#16 toplev::main (this=this@entry=0x7fffffffdcce, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffddc8) at ../.././gcc/toplev.c:2413
+#17 0x00000000006003af in main (argc=14, argv=0x7fffffffddc8) at ../.././gcc/main.c:39
+(gdb) p name.identifier .id 
+$5 = {str = 0x7ffff547c910 "_ZnwmP4test", len = 11, hash_value = 775994957}
