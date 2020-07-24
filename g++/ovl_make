@@ -1,0 +1,31 @@
+(gdb) bt
+#0  0x00007ffff6eb07f8 in __memset_sse2 () from /lib64/libc.so.6
+#1  0x0000000000985247 in ggc_internal_cleared_alloc (size=32, f=f@entry=0x0, s=s@entry=0, n=n@entry=1) at ../.././gcc/ggc-common.c:118
+#2  0x0000000000e5d6ee in ggc_internal_cleared_alloc (s=<optimized out>) at ../.././gcc/ggc.h:315
+#3  ggc_alloc_cleared_tree_node_stat (s=<optimized out>) at ../.././gcc/ggc.h:315
+#4  make_node (code=code@entry=OVERLOAD) at ../.././gcc/tree.c:1049
+#5  0x000000000075fd36 in ovl_make (fn=0x7ffff5493900, next=0x7ffff6899680) at ../.././gcc/cp/tree.c:2227
+#6  0x000000000075fe84 in ovl_insert (fn=fn@entry=0x7ffff5493900, maybe_ovl=<optimized out>, maybe_ovl@entry=0x7ffff6899680, using_p=using_p@entry=false)
+    at ../.././gcc/cp/tree.c:2264
+#7  0x00000000006bf8c0 in update_binding (level=0x7ffff6c335e8, binding=0x0, slot=0x7ffff7fb2678, old=<optimized out>, decl=0x7ffff5493900, is_friend=<optimized out>)
+    at ../.././gcc/cp/name-lookup.c:2438
+#8  0x00000000006c3d18 in do_pushdecl (decl=<optimized out>, is_friend=<optimized out>) at ../.././gcc/cp/name-lookup.c:3130
+#9  0x00000000006c5281 in pushdecl (x=x@entry=0x7ffff5493900, is_friend=is_friend@entry=false) at ../.././gcc/cp/name-lookup.c:3177
+#10 0x000000000066b429 in start_preparsed_function (decl1=0x7ffff5493900, attrs=<optimized out>, flags=<optimized out>) at ../.././gcc/cp/decl.c:16203
+#11 0x00000000006748f1 in start_function (declspecs=declspecs@entry=0x7fffffffd940, declarator=declarator@entry=0x23f9a60, attrs=<optimized out>, attrs@entry=0x0)
+    at ../.././gcc/cp/decl.c:16498
+#12 0x00000000006fef98 in cp_parser_function_definition_from_specifiers_and_declarator (declarator=0x23f9a60, attributes=0x0, decl_specifiers=0x7fffffffd940, 
+    parser=0x7ffff6c58a18) at ../.././gcc/cp/parser.c:28868
+#13 cp_parser_init_declarator (parser=0x7ffff6c58a18, flags=<optimized out>, decl_specifiers=0x7fffffffd940, checks=0x0, function_definition_allowed_p=<optimized out>, 
+    member_p=<optimized out>, declares_class_or_enum=0, function_definition_p=0x7fffffffd9e0, maybe_range_for_decl=0x0, init_loc=0x7fffffffd92c, auto_result=0x7fffffffda80)
+    at ../.././gcc/cp/parser.c:20670
+#14 0x00000000006e1ca3 in cp_parser_simple_declaration (parser=0x7ffff6c58a18, function_definition_allowed_p=<optimized out>, maybe_range_for_decl=0x0)
+    at ../.././gcc/cp/parser.c:13734
+#15 0x00000000007079c3 in cp_parser_declaration (parser=0x7ffff6c58a18) at ../.././gcc/cp/parser.c:13433
+#16 0x00000000007080e5 in cp_parser_translation_unit (parser=0x7ffff6c58a18) at ../.././gcc/cp/parser.c:4734
+#17 c_parse_file () at ../.././gcc/cp/parser.c:43975
+#18 0x00000000007d056c in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#19 0x0000000000c22f44 in compile_file () at ../.././gcc/toplev.c:458
+#20 0x00000000005fc94c in do_compile () at ../.././gcc/toplev.c:2274
+#21 toplev::main (this=this@entry=0x7fffffffdcce, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffddc8) at ../.././gcc/toplev.c:2413
+#22 0x00000000006003af in main (argc=14, argv=0x7fffffffddc8) at ../.././gcc/main.c:39
