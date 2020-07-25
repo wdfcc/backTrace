@@ -1,0 +1,39 @@
+(gdb) bt
+#0  grok_op_properties (decl=0x7ffff682e800, complain=true) at ../.././gcc/cp/decl.c:14289
+#1  0x000000000066dca5 in grokfndecl (ctype=0x7ffff68487e0, type=0x7ffff684b000, declarator=<optimized out>, parms=<optimized out>, 
+    orig_declarator=<optimized out>, declspecs=<optimized out>, decl_reqs=<optimized out>, virtualp=<optimized out>, flags=<optimized out>, quals=0, 
+    rqual=<optimized out>, raises=<optimized out>, check=<optimized out>, friendp=<optimized out>, publicp=<optimized out>, inlinep=<optimized out>, 
+    deletedp=<optimized out>, sfk=<optimized out>, funcdef_flag=<optimized out>, late_return_type_p=<optimized out>, template_count=<optimized out>, 
+    in_namespace=<optimized out>, attrlist=<optimized out>, location=26227303) at ../.././gcc/cp/decl.c:9474
+#2  0x0000000000673a79 in grokdeclarator (declarator=<optimized out>, declarator@entry=0x23f9e60, declspecs=declspecs@entry=0x7fffffffd430, 
+    decl_context=<optimized out>, decl_context@entry=FIELD, initialized=1, attrlist=attrlist@entry=0x7fffffffd398) at ../.././gcc/cp/decl.c:13258
+#3  0x000000000068611d in grokfield (declarator=declarator@entry=0x23f9e60, declspecs=declspecs@entry=0x7fffffffd430, init=0x7ffff6c40240, 
+    init_const_expr_p=init_const_expr_p@entry=true, asmspec_tree=asmspec_tree@entry=0x0, attrlist=<optimized out>) at ../.././gcc/cp/decl2.c:841
+#4  0x000000000070672c in cp_parser_member_declaration (parser=0x7ffff6c58a18) at ../.././gcc/cp/parser.c:25332
+#5  0x00000000006de78a in cp_parser_member_specification_opt (parser=<optimized out>) at ../.././gcc/cp/parser.c:24776
+#6  cp_parser_class_specifier_1 (parser=0x7ffff6c58a18) at ../.././gcc/cp/parser.c:23873
+#7  0x00000000006e0244 in cp_parser_class_specifier (parser=0x7ffff6c58a18) at ../.././gcc/cp/parser.c:24180
+#8  cp_parser_type_specifier (parser=0x7ffff6c58a18, flags=<optimized out>, decl_specs=0x7fffffffd970, is_declaration=<optimized out>, 
+    declares_class_or_enum=0x7fffffffd860, is_cv_qualifier=<optimized out>) at ../.././gcc/cp/parser.c:17711
+#9  0x00000000006e11b7 in cp_parser_decl_specifier_seq (parser=0x7ffff6c58a18, flags=33, decl_specs=0x7fffffffd970, declares_class_or_enum=0x7fffffffd96c)
+    at ../.././gcc/cp/parser.c:14358
+#10 0x0000000000704316 in cp_parser_single_declaration (parser=0x7ffff6c58a18, checks=0x0, member_p=<optimized out>, 
+    explicit_specialization_p=<optimized out>, friend_p=0x7fffffffda5e) at ../.././gcc/cp/parser.c:29396
+#11 0x000000000070468e in cp_parser_template_declaration_after_parameters (parser=parser@entry=0x7ffff6c58a18, 
+    parameter_list=parameter_list@entry=0x7ffff683c760, member_p=member_p@entry=false) at ../.././gcc/cp/parser.c:29059
+#12 0x0000000000704c3b in cp_parser_explicit_template_declaration (parser=0x7ffff6c58a18, member_p=<optimized out>) at ../.././gcc/cp/parser.c:29325
+#13 0x0000000000707b1a in cp_parser_declaration (parser=0x7ffff6c58a18) at ../.././gcc/cp/parser.c:13382
+#14 0x0000000000707703 in cp_parser_toplevel_declaration (parser=0x7ffff6c58a18) at ../.././gcc/cp/parser.c:13461
+#15 cp_parser_declaration_seq_opt (parser=<optimized out>) at ../.././gcc/cp/parser.c:13309
+#16 cp_parser_namespace_body (parser=<optimized out>) at ../.././gcc/cp/parser.c:19717
+#17 cp_parser_namespace_definition (parser=parser@entry=0x7ffff6c58a18) at ../.././gcc/cp/parser.c:19695
+#18 0x0000000000707b09 in cp_parser_declaration (parser=0x7ffff6c58a18) at ../.././gcc/cp/parser.c:13413
+#19 0x00000000007080e5 in cp_parser_translation_unit (parser=0x7ffff6c58a18) at ../.././gcc/cp/parser.c:4734
+#20 c_parse_file () at ../.././gcc/cp/parser.c:43975
+#21 0x00000000007d056c in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+--Type <RET> for more, q to quit, c to continue without paging--
+#22 0x0000000000c22f44 in compile_file () at ../.././gcc/toplev.c:458
+#23 0x00000000005fc94c in do_compile () at ../.././gcc/toplev.c:2274
+#24 toplev::main (this=this@entry=0x7fffffffdcce, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffddc8)
+    at ../.././gcc/toplev.c:2413
+#25 0x00000000006003af in main (argc=14, argv=0x7fffffffddc8) at ../.././gcc/main.c:39
