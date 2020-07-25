@@ -1,0 +1,28 @@
+(gdb) bt
+#0  0x00007ffff6eb0877 in __memset_sse2 () from /lib64/libc.so.6
+#1  0x0000000000985247 in ggc_internal_cleared_alloc (size=size@entry=32744, f=f@entry=0x0, s=s@entry=0, n=n@entry=0) at ../.././gcc/ggc-common.c:118
+#2  0x00000000006c73f2 in ggc_cleared_vec_alloc<tree_node*> (c=4093) at ../.././gcc/hash-table.h:827
+#3  hash_table<named_decl_hash, false, xcallocator>::alloc_entries (this=0x7ffff6c27330, this=0x7ffff6c27330, n=4093) at ../.././gcc/hash-table.h:713
+#4  hash_table<named_decl_hash, false, xcallocator>::expand (this=0x7ffff6c27330) at ../.././gcc/hash-table.h:802
+#5  0x00000000006c759b in hash_table<named_decl_hash, false, xcallocator>::find_slot_with_hash (this=0x7ffff6c27330, 
+    comparable=@0x7fffffffda48: 0x7ffff6d5ec00, hash=3601401271, insert=INSERT) at ../.././gcc/cp/cp-tree.h:8013
+#6  0x00000000006c3c7b in find_namespace_slot (ns=0x7ffff6c44000, ns=0x7ffff6c44000, create_p=<optimized out>, name=0x7ffff6d5ec00)
+    at ../.././gcc/cp/name-lookup.c:96
+#7  do_pushdecl (decl=0x7ffff6d60800, is_friend=<optimized out>) at ../.././gcc/cp/name-lookup.c:3027
+#8  0x00000000006c5281 in pushdecl (x=0x7ffff6d60800, is_friend=<optimized out>) at ../.././gcc/cp/name-lookup.c:3177
+#9  0x0000000000f24040 in def_builtin (mask=<optimized out>, mask2=<optimized out>, name=0x16c340e "__builtin_ia32_mulps", tcode=<optimized out>, 
+    code=IX86_BUILTIN_MULPS) at ../.././gcc/config/i386/i386-builtins.c:282
+#10 0x0000000000f24318 in def_builtin_const (code=IX86_BUILTIN_MULPS, tcode=<optimized out>, name=<optimized out>, mask2=<optimized out>, 
+    mask=<optimized out>) at ../.././gcc/config/i386/i386-builtins.c:311
+#11 ix86_init_mmx_sse_builtins () at ../.././gcc/config/i386/i386-builtins.c:537
+#12 0x0000000000f2769f in ix86_init_builtins () at ../.././gcc/config/i386/i386-builtins.c:1414
+#13 0x00000000007ad4bd in c_define_builtins (va_list_arg_type_node=<optimized out>, va_list_ref_type_node=<optimized out>)
+    at ../.././gcc/c-family/c-common.c:3973
+#14 c_common_nodes_and_builtins () at ../.././gcc/c-family/c-common.c:4460
+#15 0x0000000000676b03 in cxx_init_decl_processing () at ../.././gcc/cp/decl.c:4291
+#16 0x00000000006a5222 in cxx_init () at ../.././gcc/cp/lex.c:327
+#17 0x00000000005fc8b6 in lang_dependent_init (name=0x7fffffffe0eb "4.cpp") at ../.././gcc/toplev.c:1970
+#18 do_compile () at ../.././gcc/toplev.c:2259
+#19 toplev::main (this=this@entry=0x7fffffffdcce, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffddc8)
+    at ../.././gcc/toplev.c:2413
+#20 0x00000000006003af in main (argc=14, argv=0x7fffffffddc8) at ../.././gcc/main.c:39
