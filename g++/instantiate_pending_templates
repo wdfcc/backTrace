@@ -1,0 +1,19 @@
+(gdb) bt
+#0  0x00007ffff7a2e184 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x0000000000e94766 in copy_node (node=node@entry=0x7ffff5bd4cf0) at ../.././gcc/tree.c:1194
+#2  0x00000000006d0347 in copy_decl (decl=decl@entry=0x7ffff5bd4cf0) at ../.././gcc/cp/lex.c:821
+#3  0x000000000074eb8e in tsubst_decl (t=0x7ffff5bd4cf0, args=0x7ffff5befb60, complain=3) at ../.././gcc/cp/pt.c:14575
+#4  0x000000000074d624 in tsubst_expr (t=0x7ffff5befa80, args=0x7ffff5befb60, complain=3, in_decl=0x7ffff5c17e00, integral_constant_expression_p=<optimized out>)
+    at ../.././gcc/cp/pt.c:17922
+#5  0x000000000074bf0f in tsubst_expr (integral_constant_expression_p=false, in_decl=0x7ffff5c17e00, complain=3, args=0x7ffff5befb60, t=<optimized out>) at ../.././gcc/cp/pt.c:17805
+#6  tsubst_expr (t=0x7ffff5bd96e0, args=0x7ffff5befb60, complain=3, in_decl=0x7ffff5c17e00, integral_constant_expression_p=<optimized out>) at ../.././gcc/cp/pt.c:17820
+#7  0x000000000074b28c in tsubst_expr (integral_constant_expression_p=false, in_decl=0x7ffff5c17e00, complain=3, args=0x7ffff5befb60, t=<optimized out>) at ../.././gcc/cp/pt.c:17805
+#8  tsubst_expr (t=0x7ffff5bdae40, args=0x7ffff5befb60, complain=3, in_decl=0x7ffff5c17e00, integral_constant_expression_p=<optimized out>) at ../.././gcc/cp/pt.c:18139
+#9  0x000000000074a3fa in tsubst_expr (integral_constant_expression_p=false, in_decl=<optimized out>, complain=3, args=0x7ffff5befb60, t=<optimized out>) at ../.././gcc/cp/pt.c:25699
+#10 instantiate_decl (d=<optimized out>, defer_ok=<optimized out>, expl_inst_class_mem_p=<optimized out>) at ../.././gcc/cp/pt.c:25699
+#11 0x000000000076927c in instantiate_pending_templates (retries=retries@entry=0) at ../.././gcc/cp/pt.c:25814
+#12 0x00000000006b2499 in c_parse_final_cleanups () at ../.././gcc/cp/decl2.c:4889
+#13 0x0000000000c4de24 in compile_file () at ../.././gcc/toplev.c:458
+#14 0x00000000006275ec in do_compile () at ../.././gcc/toplev.c:2273
+#15 toplev::main (this=this@entry=0x7fffffffdbee, argc=<optimized out>, argc@entry=16, argv=<optimized out>, argv@entry=0x7fffffffdce8) at ../.././gcc/toplev.c:2412
+#16 0x000000000062b07f in main (argc=16, argv=0x7fffffffdce8) at ../.././gcc/main.c:39
