@@ -1,0 +1,32 @@
+(gdb) bt
+#0  push_tinst_level_loc (tldcl=0x7ffff6da3b28, targs=targs@entry=0x0, loc=2147483650) at ../.././gcc/cp/pt.c:10758
+#1  0x000000000073cb99 in push_tinst_level_loc (loc=<optimized out>, d=<optimized out>) at ../.././gcc/cp/pt.c:10798
+#2  push_tinst_level (d=<optimized out>) at ../.././gcc/cp/pt.c:10789
+#3  instantiate_class_template_1 (type=<optimized out>) at ../.././gcc/cp/pt.c:11596
+#4  0x000000000073e383 in instantiate_class_template (type=0x7ffff6da3b28) at ../.././gcc/cp/pt.c:12101
+#5  0x000000000076dbfe in complete_type (type=0x7ffff6da3b28) at ../.././gcc/cp/typeck.c:137
+#6  complete_type (type=type@entry=0x7ffff6da3b28) at ../.././gcc/cp/typeck.c:111
+#7  0x0000000000744fc4 in lookup_member (xbasetype=<optimized out>, xbasetype@entry=0x7ffff6da3b28, name=name@entry=0x7ffff6d98b40, protect=protect@entry=2, want_type=want_type@entry=false, complain=complain@entry=3, afi=afi@entry=0x0) at ../.././gcc/cp/search.c:1129
+#8  0x00000000006c3720 in lookup_qualified_name (scope=scope@entry=0x7ffff6da3b28, name=name@entry=0x7ffff6d98b40, prefer_type=prefer_type@entry=0, complain=complain@entry=false, find_hidden=find_hidden@entry=false) at ../.././gcc/cp/name-lookup.c:6023
+#9  0x0000000000734a55 in tsubst_qualified_id (qualified_id=0x7ffff6d9a8c0, args=<optimized out>, complain=3, in_decl=<optimized out>, done=<optimized out>, address_p=<optimized out>) at ../.././gcc/cp/pt.c:16158
+#10 0x0000000000728325 in tsubst_copy_and_build (t=0x7ffff6c35150, args=0x7ffff6d9ab18, complain=3, in_decl=0x7ffff6c52680, function_p=<optimized out>, integral_constant_expression_p=false) at ../.././gcc/cp/pt.c:19679
+#11 0x000000000071fa25 in tsubst_copy_and_build (integral_constant_expression_p=false, function_p=false, in_decl=0x7ffff6c52680, complain=3, args=<optimized out>, t=0x7ffff6c35150) at ../.././gcc/cp/pt.c:19114
+#12 tsubst_expr (t=0x7ffff6c35150, args=0x7ffff6d9ab18, complain=3, in_decl=0x7ffff6c52680, integral_constant_expression_p=<optimized out>) at ../.././gcc/cp/pt.c:18738
+#13 0x0000000000720bdd in tsubst_expr (integral_constant_expression_p=false, in_decl=0x7ffff6c52680, complain=3, args=0x7ffff6d9ab18, t=<optimized out>) at ../.././gcc/cp/pt.c:17805
+#14 tsubst_expr (t=0x7ffff6d838e0, args=0x7ffff6d9ab18, complain=3, in_decl=0x7ffff6c52680, integral_constant_expression_p=<optimized out>) at ../.././gcc/cp/pt.c:17850
+#15 0x000000000072124f in tsubst_expr (integral_constant_expression_p=false, in_decl=0x7ffff6c52680, complain=3, args=0x7ffff6d9ab18, t=<optimized out>) at ../.././gcc/cp/pt.c:17805
+#16 tsubst_expr (t=0x7ffff6d83840, args=0x7ffff6d9ab18, complain=3, in_decl=0x7ffff6c52680, integral_constant_expression_p=<optimized out>) at ../.././gcc/cp/pt.c:17820
+#17 0x00000000007205cc in tsubst_expr (integral_constant_expression_p=false, in_decl=0x7ffff6c52680, complain=3, args=0x7ffff6d9ab18, t=<optimized out>) at ../.././gcc/cp/pt.c:17805
+#18 tsubst_expr (t=0x7ffff6d995d0, args=0x7ffff6d9ab18, complain=3, in_decl=0x7ffff6c52680, integral_constant_expression_p=<optimized out>) at ../.././gcc/cp/pt.c:18139
+#19 0x000000000072124f in tsubst_expr (integral_constant_expression_p=false, in_decl=0x7ffff6c52680, complain=3, args=0x7ffff6d9ab18, t=<optimized out>) at ../.././gcc/cp/pt.c:17805
+#20 tsubst_expr (t=0x7ffff6d83800, args=0x7ffff6d9ab18, complain=3, in_decl=0x7ffff6c52680, integral_constant_expression_p=<optimized out>) at ../.././gcc/cp/pt.c:17820
+#21 0x00000000007205cc in tsubst_expr (integral_constant_expression_p=false, in_decl=0x7ffff6c52680, complain=3, args=0x7ffff6d9ab18, t=<optimized out>) at ../.././gcc/cp/pt.c:17805
+#22 tsubst_expr (t=0x7ffff6d995a0, args=0x7ffff6d9ab18, complain=3, in_decl=0x7ffff6c52680, integral_constant_expression_p=<optimized out>) at ../.././gcc/cp/pt.c:18139
+#23 0x000000000071f73a in tsubst_expr (integral_constant_expression_p=false, in_decl=<optimized out>, complain=3, args=0x7ffff6d9ab18, t=<optimized out>) at ../.././gcc/cp/pt.c:25699
+#24 instantiate_decl (d=<optimized out>, defer_ok=<optimized out>, expl_inst_class_mem_p=<optimized out>) at ../.././gcc/cp/pt.c:25699
+#25 0x000000000073e5cc in instantiate_pending_templates (retries=retries@entry=0) at ../.././gcc/cp/pt.c:25814
+#26 0x00000000006877d9 in c_parse_final_cleanups () at ../.././gcc/cp/decl2.c:4889
+#27 0x0000000000c22f44 in compile_file () at ../.././gcc/toplev.c:458
+#28 0x00000000005fc94c in do_compile () at ../.././gcc/toplev.c:2274
+#29 toplev::main (this=this@entry=0x7fffffffdcde, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffddd8) at ../.././gcc/toplev.c:2413
+#30 0x00000000006003af in main (argc=14, argv=0x7fffffffddd8) at ../.././gcc/main.c:39
