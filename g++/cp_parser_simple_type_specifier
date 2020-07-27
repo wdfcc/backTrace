@@ -1,0 +1,42 @@
+(gdb) bt
+#0  cp_parser_simple_type_specifier (parser=0x7ffff6c587b8, decl_specs=0x7fffffffcc70, flags=1) at ../.././gcc/cp/parser.c:17920
+#1  0x00000000006e01de in cp_parser_type_specifier (parser=0x7ffff6c587b8, flags=1, decl_specs=0x7fffffffcc70, is_declaration=<optimized out>, declares_class_or_enum=0x0, is_cv_qualifier=<optimized out>) at ../.././gcc/cp/parser.c:17787
+#2  0x00000000006f376a in cp_parser_type_specifier_seq (parser=0x7ffff6c587b8, flags=1, is_declaration=false, is_trailing_return=false, type_specifier_seq=0x7fffffffcc70) at ../.././gcc/cp/parser.c:22386
+#3  0x00000000006edcf5 in cp_parser_type_id_1 (parser=0x7ffff6c587b8, flags=<optimized out>, is_template_arg=<optimized out>, is_trailing_return=<optimized out>, type_location=0x0) at ../.././gcc/cp/parser.c:22203
+#4  0x00000000006f0234 in cp_parser_template_type_arg (parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:22294
+#5  0x00000000006f38f0 in cp_parser_template_argument (parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:17184
+#6  cp_parser_template_argument_list (parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:17095
+#7  cp_parser_enclosed_template_argument_list (parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:29769
+#8  0x00000000006f4a61 in cp_parser_template_id (parser=0x7ffff6c587b8, template_keyword_p=<optimized out>, check_dependency_p=<optimized out>, tag_type=none_type, is_declaration=<optimized out>) at ../.././gcc/cp/parser.c:16667
+#9  0x00000000006f518d in cp_parser_class_name (parser=parser@entry=0x7ffff6c587b8, typename_keyword_p=typename_keyword_p@entry=false, template_keyword_p=template_keyword_p@entry=false, tag_type=none_type, check_dependency_p=<optimized out>, 
+    class_head_p=<optimized out>, is_declaration=false, enum_ok=true) at ../.././gcc/cp/parser.c:23697
+#10 0x00000000006f1ec2 in cp_parser_qualifying_entity (is_declaration=false, type_p=false, check_dependency_p=true, template_keyword_p=false, typename_keyword_p=false, parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:6776
+#11 cp_parser_nested_name_specifier_opt (parser=0x7ffff6c587b8, typename_keyword_p=<optimized out>, check_dependency_p=<optimized out>, type_p=<optimized out>, is_declaration=false, template_keyword_p=false) at ../.././gcc/cp/parser.c:6458
+#12 0x00000000006f9467 in cp_parser_simple_type_specifier (parser=0x7ffff6c587b8, decl_specs=0x7fffffffd3e0, flags=<optimized out>) at ../.././gcc/cp/parser.c:18128
+#13 0x00000000006e01de in cp_parser_type_specifier (parser=0x7ffff6c587b8, flags=1, decl_specs=0x7fffffffd3e0, is_declaration=<optimized out>, declares_class_or_enum=0x7fffffffd290, is_cv_qualifier=<optimized out>) at ../.././gcc/cp/parser.c:17787
+#14 0x00000000006e11b7 in cp_parser_decl_specifier_seq (parser=0x7ffff6c587b8, flags=1, decl_specs=0x7fffffffd3e0, declares_class_or_enum=0x7fffffffd3c8) at ../.././gcc/cp/parser.c:14358
+#15 0x00000000006e1b92 in cp_parser_simple_declaration (parser=0x7ffff6c587b8, function_definition_allowed_p=false, maybe_range_for_decl=0x0) at ../.././gcc/cp/parser.c:13613
+#16 0x00000000006e387b in cp_parser_declaration_statement (parser=parser@entry=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:13166
+#17 0x00000000006e4456 in cp_parser_statement (parser=0x7ffff6c587b8, in_statement_expr=0x0, in_compound=<optimized out>, if_p=<optimized out>, chain=<optimized out>, loc_after_labels=0x0) at ../.././gcc/cp/parser.c:11472
+#18 0x00000000006e5269 in cp_parser_statement_seq_opt (parser=parser@entry=0x7ffff6c587b8, in_statement_expr=in_statement_expr@entry=0x0) at ../.././gcc/cp/parser.c:11838
+#19 0x00000000006e5321 in cp_parser_compound_statement (parser=parser@entry=0x7ffff6c587b8, in_statement_expr=in_statement_expr@entry=0x0, bcs_flags=bcs_flags@entry=0, function_body=function_body@entry=true) at ../.././gcc/cp/parser.c:11788
+#20 0x00000000006fade1 in cp_parser_function_body (in_function_try_block=false, parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:23091
+#21 cp_parser_ctor_initializer_opt_and_function_body (parser=parser@entry=0x7ffff6c587b8, in_function_try_block=in_function_try_block@entry=false) at ../.././gcc/cp/parser.c:23114
+#22 0x00000000006fe3ee in cp_parser_function_definition_after_declarator (parser=parser@entry=0x7ffff6c587b8, inline_p=inline_p@entry=false) at ../.././gcc/cp/parser.c:28995
+#23 0x00000000006ff2d0 in cp_parser_function_definition_from_specifiers_and_declarator (declarator=0x23dba00, attributes=0x0, decl_specifiers=<optimized out>, parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:28912
+#24 cp_parser_init_declarator (parser=0x7ffff6c587b8, flags=<optimized out>, decl_specifiers=<optimized out>, checks=0x0, function_definition_allowed_p=<optimized out>, member_p=<optimized out>, declares_class_or_enum=0, 
+    function_definition_p=0x7fffffffd9f0, maybe_range_for_decl=0x0, init_loc=0x7fffffffd93c, auto_result=0x7fffffffda90) at ../.././gcc/cp/parser.c:20670
+#25 0x00000000006e1ca3 in cp_parser_simple_declaration (parser=0x7ffff6c587b8, function_definition_allowed_p=<optimized out>, maybe_range_for_decl=0x0) at ../.././gcc/cp/parser.c:13734
+#26 0x00000000007079c3 in cp_parser_declaration (parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:13433
+#27 0x00000000007080e5 in cp_parser_translation_unit (parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:4734
+#28 c_parse_file () at ../.././gcc/cp/parser.c:43975
+#29 0x00000000007d056c in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#30 0x0000000000c22f44 in compile_file () at ../.././gcc/toplev.c:458
+#31 0x00000000005fc94c in do_compile () at ../.././gcc/toplev.c:2274
+#32 toplev::main (this=this@entry=0x7fffffffdcde, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffddd8) at ../.././gcc/toplev.c:2413
+#33 0x00000000006003af in main (argc=14, argv=0x7fffffffddd8) at ../.././gcc/main.c:39
+(gdb) p type.base 
+$101 = {code = INTEGER_TYPE, side_effects_flag = 0, constant_flag = 0, addressable_flag = 0, volatile_flag = 0, readonly_flag = 0, asm_written_flag = 0, nowarning_flag = 0, visited = 0, used_flag = 0, nothrow_flag = 0, static_flag = 0, 
+  public_flag = 1, private_flag = 0, protected_flag = 0, deprecated_flag = 0, default_def_flag = 0, u = {bits = {lang_flag_0 = 0, lang_flag_1 = 0, lang_flag_2 = 0, lang_flag_3 = 0, lang_flag_4 = 0, lang_flag_5 = 0, lang_flag_6 = 0, 
+      saturating_flag = 0, unsigned_flag = 0, packed_flag = 0, user_align = 0, nameless_flag = 0, atomic_flag = 0, spare0 = 0, spare1 = 0, address_space = 0}, int_length = {unextended = 0 '\000', extended = 0 '\000', offset = 0 '\000'}, length = 0, 
+    vector_cst = {log2_npatterns = 0, nelts_per_pattern = 0, unused = 0}, version = 0, chrec_var = 0, ifn = IFN_MASK_LOAD, omp_atomic_memory_order = OMP_MEMORY_ORDER_UNSPECIFIED, dependence_info = {clique = 0, base = 0}}}
