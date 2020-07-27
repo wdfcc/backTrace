@@ -1,0 +1,15 @@
+(gdb) bt
+#0  0x00000000006c94b8 in cp_lexer_consume_token (lexer=0x7ffff6c350a8) at ../.././gcc/cp/parser.c:1123
+#1  0x00000000006f350f in cp_parser_default_template_template_argument (parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:16205
+#2  0x00000000006fdb02 in cp_parser_type_parameter (parser=0x7ffff6c587b8, is_parameter_pack=0x7fffffffdb0f) at ../.././gcc/cp/parser.c:16501
+#3  0x00000000006fd03a in cp_parser_template_parameter (is_parameter_pack=0x7fffffffdb0f, is_non_type=<synthetic pointer>, parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:16267
+#4  cp_parser_template_parameter_list (parser=parser@entry=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:15900
+#5  0x0000000000704bff in cp_parser_explicit_template_declaration (parser=0x7ffff6c587b8, member_p=<optimized out>) at ../.././gcc/cp/parser.c:29310
+#6  0x0000000000707b1a in cp_parser_declaration (parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:13382
+#7  0x00000000007080e5 in cp_parser_translation_unit (parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:4734
+#8  c_parse_file () at ../.././gcc/cp/parser.c:43975
+#9  0x00000000007d056c in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#10 0x0000000000c22f44 in compile_file () at ../.././gcc/toplev.c:458
+#11 0x00000000005fc94c in do_compile () at ../.././gcc/toplev.c:2274
+#12 toplev::main (this=this@entry=0x7fffffffdcde, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffddd8) at ../.././gcc/toplev.c:2413
+#13 0x00000000006003af in main (argc=14, argv=0x7fffffffddd8) at ../.././gcc/main.c:39
