@@ -1,0 +1,23 @@
+(gdb) bt
+#0  push_template_decl_real (decl=0x7ffff6c58d10, is_friend=<optimized out>) at ../.././gcc/cp/pt.c:6008
+#1  0x00000000006c59c8 in maybe_process_template_type_declaration (b=0x7ffff6c33e10, is_friend=0, type=0x7ffff6d88d20) at ../.././gcc/cp/name-lookup.c:6760
+#2  do_pushtag (scope=ts_current, type=0x7ffff6d88d20, name=0x7ffff6d98c80) at ../.././gcc/cp/name-lookup.c:6897
+#3  pushtag (name=0x7ffff6d98c80, type=0x7ffff6d88d20, scope=ts_current) at ../.././gcc/cp/name-lookup.c:6988
+#4  0x000000000066a9a1 in xref_tag (tag_code=tag_code@entry=class_type, name=name@entry=0x7ffff6d98c80, scope=ts_current, template_header_p=template_header_p@entry=true) at ../.././gcc/cp/decl.c:15004
+#5  0x00000000006dfee9 in cp_parser_class_head (nested_name_specifier_p=<synthetic pointer>, parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:24584
+#6  cp_parser_class_specifier_1 (parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:23811
+#7  0x00000000006e0244 in cp_parser_class_specifier (parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:24180
+#8  cp_parser_type_specifier (parser=0x7ffff6c587b8, flags=<optimized out>, decl_specs=0x7fffffffda20, is_declaration=<optimized out>, declares_class_or_enum=0x7fffffffd910, is_cv_qualifier=<optimized out>) at ../.././gcc/cp/parser.c:17711
+#9  0x00000000006e11b7 in cp_parser_decl_specifier_seq (parser=0x7ffff6c587b8, flags=33, decl_specs=0x7fffffffda20, declares_class_or_enum=0x7fffffffda1c) at ../.././gcc/cp/parser.c:14358
+#10 0x0000000000704316 in cp_parser_single_declaration (parser=0x7ffff6c587b8, checks=0x0, member_p=<optimized out>, explicit_specialization_p=<optimized out>, friend_p=0x7fffffffdb0e) at ../.././gcc/cp/parser.c:29396
+#11 0x000000000070468e in cp_parser_template_declaration_after_parameters (parser=parser@entry=0x7ffff6c587b8, parameter_list=parameter_list@entry=0x7ffff6d9a500, member_p=member_p@entry=false) at ../.././gcc/cp/parser.c:29059
+#12 0x0000000000704c3b in cp_parser_explicit_template_declaration (parser=0x7ffff6c587b8, member_p=<optimized out>) at ../.././gcc/cp/parser.c:29325
+#13 0x0000000000707b1a in cp_parser_declaration (parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:13382
+#14 0x00000000007080e5 in cp_parser_translation_unit (parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:4734
+#15 c_parse_file () at ../.././gcc/cp/parser.c:43975
+#16 0x00000000007d056c in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#17 0x0000000000c22f44 in compile_file () at ../.././gcc/toplev.c:458
+#18 0x00000000005fc94c in do_compile () at ../.././gcc/toplev.c:2274
+#19 toplev::main (this=this@entry=0x7fffffffdcde, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffddd8) at ../.././gcc/toplev.c:2413
+#20 0x00000000006003af in main (argc=14, argv=0x7fffffffddd8) at ../.././gcc/main.c:39
+
