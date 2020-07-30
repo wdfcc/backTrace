@@ -1,0 +1,19 @@
+(gdb) bt
+#0  finish_base_specifier (base=<optimized out>, base@entry=0x7ffff6d88888, access=access@entry=0x7ffff6c40840, virtual_p=virtual_p@entry=true) at ../.././gcc/cp/semantics.c:3465
+#1  0x00000000006dfc7d in cp_parser_base_specifier (parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:25719
+#2  cp_parser_base_clause (parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:25542
+#3  cp_parser_class_head (nested_name_specifier_p=<synthetic pointer>, parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:24637
+#4  cp_parser_class_specifier_1 (parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:23811
+#5  0x00000000006e0244 in cp_parser_class_specifier (parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:24180
+#6  cp_parser_type_specifier (parser=0x7ffff6c587b8, flags=<optimized out>, decl_specs=0x7fffffffd950, is_declaration=<optimized out>, declares_class_or_enum=0x7fffffffd800, is_cv_qualifier=<optimized out>) at ../.././gcc/cp/parser.c:17711
+#7  0x00000000006e11b7 in cp_parser_decl_specifier_seq (parser=0x7ffff6c587b8, flags=1, decl_specs=0x7fffffffd950, declares_class_or_enum=0x7fffffffd938) at ../.././gcc/cp/parser.c:14358
+#8  0x00000000006e1b92 in cp_parser_simple_declaration (parser=0x7ffff6c587b8, function_definition_allowed_p=true, maybe_range_for_decl=0x0) at ../.././gcc/cp/parser.c:13613
+#9  0x00000000007079c3 in cp_parser_declaration (parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:13433
+#10 0x00000000007080e5 in cp_parser_translation_unit (parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:4734
+#11 c_parse_file () at ../.././gcc/cp/parser.c:43975
+#12 0x00000000007d056c in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#13 0x0000000000c22f44 in compile_file () at ../.././gcc/toplev.c:458
+#14 0x00000000005fc94c in do_compile () at ../.././gcc/toplev.c:2274
+#15 toplev::main (this=this@entry=0x7fffffffdcde, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffddd8) at ../.././gcc/toplev.c:2413
+#16 0x00000000006003af in main (argc=14, argv=0x7fffffffddd8) at ../.././gcc/main.c:39
+
