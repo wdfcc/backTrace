@@ -17,3 +17,30 @@
 #13 toplev::main (this=this@entry=0x7fffffffdbde, argc=<optimized out>, argc@entry=16, argv=<optimized out>, argv@entry=0x7fffffffdcd8) at ../../gcc/toplev.c:2340
 #14 0x00000000005f106f in main (argc=16, argv=0x7fffffffdcd8) at ../../gcc/main.c:39
 
+Thread 2.1 "cc1plus" hit Breakpoint 2, xref_basetypes (ref=0x7ffff69d3dc8, base_list=<optimized out>, base_list@entry=0x7ffff69ce640) at ../.././gcc/cp/decl.c:15223
+15223	    CLASSTYPE_DIAMOND_SHAPED_P (ref) = 1;
+(gdb) p ref.base 
+$1 = {code = RECORD_TYPE, side_effects_flag = 0, constant_flag = 0, addressable_flag = 0, volatile_flag = 0, readonly_flag = 0, asm_written_flag = 0, nowarning_flag = 0, visited = 0, 
+  used_flag = 0, nothrow_flag = 0, static_flag = 0, public_flag = 0, private_flag = 0, protected_flag = 0, deprecated_flag = 0, default_def_flag = 0, u = {bits = {lang_flag_0 = 0, 
+      lang_flag_1 = 0, lang_flag_2 = 0, lang_flag_3 = 0, lang_flag_4 = 0, lang_flag_5 = 0, lang_flag_6 = 1, saturating_flag = 0, unsigned_flag = 0, packed_flag = 0, user_align = 0, 
+      nameless_flag = 0, atomic_flag = 0, spare0 = 0, spare1 = 0, address_space = 0}, int_length = {unextended = 64 '@', extended = 0 '\000', offset = 0 '\000'}, length = 64, vector_cst = {
+      log2_npatterns = 64, nelts_per_pattern = 0, unused = 0}, version = 64, chrec_var = 64, ifn = IFN_LOG1P, omp_atomic_memory_order = 64, dependence_info = {clique = 64, base = 0}}}
+(gdb) p ref.type_common.name .decl_minimal.name .identifier .id
+$2 = {str = 0x7ffff685f398 "C", len = 1, hash_value = 4294967251}
+(gdb) bt
+#0  xref_basetypes (ref=0x7ffff69d3dc8, base_list=<optimized out>, base_list@entry=0x7ffff69ce640) at ../.././gcc/cp/decl.c:15223
+#1  0x000000000070ac7a in cp_parser_class_head (nested_name_specifier_p=<synthetic pointer>, parser=0x7ffff688a7b8) at ../.././gcc/cp/parser.c:24649
+#2  cp_parser_class_specifier_1 (parser=0x7ffff688a7b8) at ../.././gcc/cp/parser.c:23811
+#3  0x000000000070af04 in cp_parser_class_specifier (parser=0x7ffff688a7b8) at ../.././gcc/cp/parser.c:24180
+#4  cp_parser_type_specifier (parser=0x7ffff688a7b8, flags=<optimized out>, decl_specs=0x7fffffffd860, is_declaration=<optimized out>, declares_class_or_enum=0x7fffffffd710, 
+    is_cv_qualifier=<optimized out>) at ../.././gcc/cp/parser.c:17711
+#5  0x000000000070be77 in cp_parser_decl_specifier_seq (parser=0x7ffff688a7b8, flags=1, decl_specs=0x7fffffffd860, declares_class_or_enum=0x7fffffffd848) at ../.././gcc/cp/parser.c:14358
+#6  0x000000000070c852 in cp_parser_simple_declaration (parser=0x7ffff688a7b8, function_definition_allowed_p=true, maybe_range_for_decl=0x0) at ../.././gcc/cp/parser.c:13613
+#7  0x0000000000732683 in cp_parser_declaration (parser=0x7ffff688a7b8) at ../.././gcc/cp/parser.c:13433
+#8  0x0000000000732da5 in cp_parser_translation_unit (parser=0x7ffff688a7b8) at ../.././gcc/cp/parser.c:4734
+#9  c_parse_file () at ../.././gcc/cp/parser.c:43975
+#10 0x00000000007fb20c in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#11 0x0000000000c4de24 in compile_file () at ../.././gcc/toplev.c:458
+#12 0x00000000006275ec in do_compile () at ../.././gcc/toplev.c:2273
+#13 toplev::main (this=this@entry=0x7fffffffdbee, argc=<optimized out>, argc@entry=16, argv=<optimized out>, argv@entry=0x7fffffffdce8) at ../.././gcc/toplev.c:2412
+#14 0x000000000062b07f in main (argc=16, argv=0x7fffffffdce8) at ../.././gcc/main.c:39
