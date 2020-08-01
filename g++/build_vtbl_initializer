@@ -1,0 +1,25 @@
+(gdb) bt
+#0  build_vtbl_initializer (inits=0x7fffffffd3a0, non_fn_entries_p=<synthetic pointer>, rtti_binfo=0x7ffff6c34478, t=0x7ffff6da1dc8, orig_binfo=0x7ffff6c34340, binfo=0x7ffff6c34478)
+    at ../.././gcc/cp/class.c:9625
+#1  dfs_accumulate_vtbl_inits (l=<optimized out>, t=<optimized out>, orig_vtbl=<optimized out>, rtti_binfo=<optimized out>, orig_binfo=<optimized out>, binfo=<optimized out>) at ../.././gcc/cp/class.c:9543
+#2  accumulate_vtbl_inits (binfo=0x7ffff6c34478, orig_binfo=0x7ffff6c34340, rtti_binfo=0x7ffff6c34478, vtbl=0x7ffff6da42d0, t=0x7ffff6da1dc8, inits=0x7fffffffd3a0) at ../.././gcc/cp/class.c:9447
+#3  0x0000000000625a94 in build_ctor_vtbl_group (t=0x7ffff6da1dc8, binfo=0x7ffff6c34478) at ../.././gcc/cp/class.c:9380
+#4  build_vtt_inits (binfo=0x7ffff6c34478, t=0x7ffff6da1dc8, inits=0x7fffffffd4b8, index=0x7fffffffd4b0) at ../.././gcc/cp/class.c:9215
+#5  0x0000000000625a0e in build_vtt_inits (binfo=0x7ffff6da5000, t=0x7ffff6da1dc8, inits=0x7fffffffd4b8, index=0x7fffffffd4b0) at ../.././gcc/cp/class.c:9234
+#6  0x0000000000627812 in build_vtt (t=0x7ffff6da1dc8) at ../.././gcc/cp/class.c:9129
+#7  finish_struct_1 (t=<optimized out>) at ../.././gcc/cp/class.c:7328
+#8  0x0000000000628d2d in finish_struct (t=<optimized out>, t@entry=0x7ffff6da1dc8, attributes=0x0) at ../.././gcc/cp/class.c:7520
+#9  0x00000000006de7d9 in cp_parser_class_specifier_1 (parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:23881
+#10 0x00000000006e0244 in cp_parser_class_specifier (parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:24180
+#11 cp_parser_type_specifier (parser=0x7ffff6c587b8, flags=<optimized out>, decl_specs=0x7fffffffd940, is_declaration=<optimized out>, declares_class_or_enum=0x7fffffffd7f0, is_cv_qualifier=<optimized out>)
+    at ../.././gcc/cp/parser.c:17711
+#12 0x00000000006e11b7 in cp_parser_decl_specifier_seq (parser=0x7ffff6c587b8, flags=1, decl_specs=0x7fffffffd940, declares_class_or_enum=0x7fffffffd928) at ../.././gcc/cp/parser.c:14358
+#13 0x00000000006e1b92 in cp_parser_simple_declaration (parser=0x7ffff6c587b8, function_definition_allowed_p=true, maybe_range_for_decl=0x0) at ../.././gcc/cp/parser.c:13613
+#14 0x00000000007079c3 in cp_parser_declaration (parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:13433
+#15 0x00000000007080e5 in cp_parser_translation_unit (parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:4734
+#16 c_parse_file () at ../.././gcc/cp/parser.c:43975
+#17 0x00000000007d056c in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#18 0x0000000000c22f44 in compile_file () at ../.././gcc/toplev.c:458
+#19 0x00000000005fc94c in do_compile () at ../.././gcc/toplev.c:2274
+#20 toplev::main (this=this@entry=0x7fffffffdcce, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffddc8) at ../.././gcc/toplev.c:2413
+#21 0x00000000006003af in main (argc=14, argv=0x7fffffffddc8) at ../.././gcc/main.c:39
