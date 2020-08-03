@@ -29,3 +29,40 @@
 #20 0x00000000005fc94c in do_compile () at ../.././gcc/toplev.c:2274
 #21 toplev::main (this=this@entry=0x7fffffffdcce, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffddc8) at ../.././gcc/toplev.c:2413
 #22 0x00000000006003af in main (argc=14, argv=0x7fffffffddc8) at ../.././gcc/main.c:39
+
+
+
+(gdb) bt
+#0  ovl_make (fn=0x7ffff6869200, next=0x7ffff6863540) at ../.././gcc/cp/tree.c:2238
+#1  0x000000000075fe84 in ovl_insert (fn=fn@entry=0x7ffff6869200, maybe_ovl=<optimized out>, maybe_ovl@entry=0x7ffff6863540, using_p=using_p@entry=false)
+at ../.././gcc/cp/tree.c:2264
+#2  0x000000000061c70e in add_method (type=0x7ffff68652a0, method=0x7ffff6869200, via_using=false) at ../.././gcc/cp/class.c:1180
+#3  0x000000000061df62 in clone_function_decl (fn=<optimized out>, update_methods=update_methods@entry=true) at ../.././gcc/cp/class.c:4857
+#4  0x00000000006266f9 in clone_constructors_and_destructors (t=0x7ffff68652a0) at ../.././gcc/cp/cp-tree.h:819
+#5  check_bases_and_members (t=0x7ffff68652a0) at ../.././gcc/cp/class.c:6017
+#6  finish_struct_1 (t=0x7ffff68652a0) at ../.././gcc/cp/class.c:7216
+#7  0x0000000000628d2d in finish_struct (t=<optimized out>, t@entry=0x7ffff68652a0, attributes=0x0) at ../.././gcc/cp/class.c:7520
+#8  0x00000000006de7d9 in cp_parser_class_specifier_1 (parser=0x7ffff6c58a18) at ../.././gcc/cp/parser.c:23881
+#9  0x00000000006e0244 in cp_parser_class_specifier (parser=0x7ffff6c58a18) at ../.././gcc/cp/parser.c:24180
+#10 cp_parser_type_specifier (parser=0x7ffff6c58a18, flags=<optimized out>, decl_specs=0x7fffffffd830, is_declaration=<optimized out>, 
+declares_class_or_enum=0x7fffffffd6e0, is_cv_qualifier=<optimized out>) at ../.././gcc/cp/parser.c:17711
+#11 0x00000000006e11b7 in cp_parser_decl_specifier_seq (parser=0x7ffff6c58a18, flags=1, decl_specs=0x7fffffffd830, declares_class_or_enum=0x7fffffffd818)
+at ../.././gcc/cp/parser.c:14358
+#12 0x00000000006e1b92 in cp_parser_simple_declaration (parser=0x7ffff6c58a18, function_definition_allowed_p=true, maybe_range_for_decl=0x0)
+at ../.././gcc/cp/parser.c:13613
+#13 0x00000000007079c3 in cp_parser_declaration (parser=0x7ffff6c58a18) at ../.././gcc/cp/parser.c:13433
+#14 0x0000000000707703 in cp_parser_toplevel_declaration (parser=0x7ffff6c58a18) at ../.././gcc/cp/parser.c:13461
+#15 cp_parser_declaration_seq_opt (parser=<optimized out>) at ../.././gcc/cp/parser.c:13309
+#16 cp_parser_namespace_body (parser=<optimized out>) at ../.././gcc/cp/parser.c:19717
+#17 cp_parser_namespace_definition (parser=parser@entry=0x7ffff6c58a18) at ../.././gcc/cp/parser.c:19695
+#18 0x0000000000707b09 in cp_parser_declaration (parser=0x7ffff6c58a18) at ../.././gcc/cp/parser.c:13413
+#19 0x00000000007083fc in cp_parser_declaration_seq_opt (parser=<optimized out>) at ../.././gcc/cp/parser.c:13309
+#20 cp_parser_linkage_specification (parser=0x7ffff6c58a18) at ../.././gcc/cp/parser.c:14627
+#21 0x0000000000707a33 in cp_parser_declaration (parser=0x7ffff6c58a18) at ../.././gcc/cp/parser.c:13370
+#22 0x00000000007080e5 in cp_parser_translation_unit (parser=0x7ffff6c58a18) at ../.././gcc/cp/parser.c:4734
+#23 c_parse_file () at ../.././gcc/cp/parser.c:43975
+#24 0x00000000007d056c in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#25 0x0000000000c22f44 in compile_file () at ../.././gcc/toplev.c:458
+#26 0x00000000005fc94c in do_compile () at ../.././gcc/toplev.c:2274
+#27 toplev::main (this=this@entry=0x7fffffffdcde, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffddd8) at ../.././gcc/toplev.c:2413
+#28 0x00000000006003af in main (argc=14, argv=0x7fffffffddd8) at ../.././gcc/main.c:39
