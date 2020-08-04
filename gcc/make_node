@@ -42,3 +42,38 @@
 #35 0x00000000005da39c in do_compile () at ../.././gcc/toplev.c:2274
 #36 toplev::main (this=this@entry=0x7fffffffcdde, argc=<optimized out>, argc@entry=102, argv=<optimized out>, argv@entry=0x7fffffffced8) at ../.././gcc/toplev.c:2413
 
+(gdb) bt
+#0  0x0000000000d4ff39 in make_node (code=code@entry=LABEL_DECL) at ../.././gcc/tree.c:1079
+#1  0x0000000000d57349 in build_decl (type=0x7ffff6874f18, name=0x0, code=LABEL_DECL, loc=0) at ../.././gcc/tree.c:5074
+#2  create_artificial_label (loc=loc@entry=0) at ../.././gcc/tree.c:12393
+#3  0x00000000008b5571 in gimplify_cond_expr (expr_p=0x7ffff69b1070, pre_p=0x7fffffffd5e0, fallback=<optimized out>) at ../.././gcc/gimplify.c:4201
+#4  0x00000000008ad5bc in gimplify_expr (expr_p=0x7ffff69b1070, pre_p=<optimized out>, post_p=<optimized out>, gimple_test_f=<optimized out>, fallback=<optimized out>)
+    at ../.././gcc/gimplify.c:13565
+#5  0x00000000008adda6 in gimplify_stmt (seq_p=<optimized out>, stmt_p=<optimized out>) at ../.././gcc/gimplify.c:6825
+#6  gimplify_statement_list (pre_p=<optimized out>, expr_p=0x7ffff69ae3e0) at ../.././gcc/gimplify.c:1869
+#7  gimplify_expr (expr_p=0x7ffff69ae3e0, pre_p=<optimized out>, post_p=<optimized out>, gimple_test_f=<optimized out>, fallback=<optimized out>) at ../.././gcc/gimplify.c:14052
+#8  0x00000000008b3eea in gimplify_stmt (seq_p=0x7fffffffd5e0, stmt_p=0x7ffff69ae3e0) at ../.././gcc/gimplify.c:6825
+#9  gimplify_bind_expr (expr_p=expr_p@entry=0x7ffff69b1100, pre_p=pre_p@entry=0x7fffffffd948) at ../.././gcc/gimplify.c:1424
+#10 0x00000000008ad7a3 in gimplify_expr (expr_p=0x7ffff69b1100, pre_p=<optimized out>, post_p=<optimized out>, gimple_test_f=<optimized out>, fallback=<optimized out>)
+    at ../.././gcc/gimplify.c:13809
+#11 0x00000000008adda6 in gimplify_stmt (seq_p=<optimized out>, stmt_p=<optimized out>) at ../.././gcc/gimplify.c:6825
+#12 gimplify_statement_list (pre_p=<optimized out>, expr_p=0x7ffff698c5c0) at ../.././gcc/gimplify.c:1869
+#13 gimplify_expr (expr_p=0x7ffff698c5c0, pre_p=<optimized out>, post_p=<optimized out>, gimple_test_f=<optimized out>, fallback=<optimized out>) at ../.././gcc/gimplify.c:14052
+#14 0x00000000008b0f53 in gimplify_stmt (seq_p=0x7fffffffd948, stmt_p=0x7ffff698c5c0) at ../.././gcc/gimplify.c:6825
+#15 gimplify_body (fndecl=0x7ffff698c500, do_parms=<optimized out>) at ../.././gcc/gimplify.c:14857
+#16 0x00000000008b1376 in gimplify_function_tree (fndecl=fndecl@entry=0x7ffff698c500) at ../.././gcc/gimplify.c:15030
+#17 0x0000000000752a28 in cgraph_node::analyze (this=0x7ffff69b2000) at ../.././gcc/cgraphunit.c:670
+#18 0x0000000000755138 in analyze_functions (first_time=<optimized out>) at ../.././gcc/cgraphunit.c:1227
+#19 0x0000000000755d03 in symbol_table::finalize_compilation_unit (this=0x7ffff685e100) at ../.././gcc/cgraphunit.c:2974
+#20 0x0000000000b1596f in compile_file () at ../.././gcc/toplev.c:483
+#21 0x000000000060358c in do_compile () at ../.././gcc/toplev.c:2273
+#22 toplev::main (this=this@entry=0x7fffffffdc0e, argc=<optimized out>, argc@entry=15, argv=<optimized out>, argv@entry=0x7fffffffdd08) at ../.././gcc/toplev.c:2412
+#23 0x000000000060702f in main (argc=15, argv=0x7fffffffdd08) at ../.././gcc/main.c:39
+(gdb) l
+1074		{
+1075		  DECL_UID (t) = allocate_decl_uid ();
+1076		  SET_DECL_PT_UID (t, -1);
+1077		}
+1078	      if (TREE_CODE (t) == LABEL_DECL)
+1079		LABEL_DECL_UID (t) = -1;
+
