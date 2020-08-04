@@ -1,0 +1,17 @@
+(gdb) bt
+#0  0x0000000000879346 in gimple_set_bb (stmt=stmt@entry=0x7ffff68670a8, bb=bb@entry=0x7ffff6866478) at ../.././gcc/vec.h:865
+#1  0x0000000000b45557 in make_blocks_1 (seq=<optimized out>, seq@entry=0x7ffff699ca00, bb=0x7ffff6866478) at ../.././gcc/tree-cfg.c:559
+#2  0x0000000000b4de31 in make_blocks (seq=<optimized out>) at ../.././gcc/tree-cfg.c:660
+#3  build_gimple_cfg (seq=<optimized out>) at ../.././gcc/tree-cfg.c:225
+#4  execute_build_cfg () at ../.././gcc/tree-cfg.c:369
+#5  (anonymous namespace)::pass_build_cfg::execute (this=<optimized out>) at ../.././gcc/tree-cfg.c:405
+#6  0x0000000000a56548 in execute_one_pass (pass=0x200a300) at ../.././gcc/passes.c:2502
+#7  0x0000000000a56e90 in execute_pass_list_1 (pass=0x200a300) at ../.././gcc/passes.c:2590
+#8  0x0000000000a56ec9 in execute_pass_list (fn=0x7ffff69af000, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#9  0x000000000075298b in cgraph_node::analyze (this=0x7ffff69b2000) at ../.././gcc/context.h:48
+#10 0x0000000000755138 in analyze_functions (first_time=<optimized out>) at ../.././gcc/cgraphunit.c:1227
+#11 0x0000000000755d03 in symbol_table::finalize_compilation_unit (this=0x7ffff685e100) at ../.././gcc/cgraphunit.c:2974
+#12 0x0000000000b1596f in compile_file () at ../.././gcc/toplev.c:483
+#13 0x000000000060358c in do_compile () at ../.././gcc/toplev.c:2273
+#14 toplev::main (this=this@entry=0x7fffffffdc0e, argc=<optimized out>, argc@entry=15, argv=<optimized out>, argv@entry=0x7fffffffdd08) at ../.././gcc/toplev.c:2412
+#15 0x000000000060702f in main (argc=15, argv=0x7fffffffdd08) at ../.././gcc/main.c:39
