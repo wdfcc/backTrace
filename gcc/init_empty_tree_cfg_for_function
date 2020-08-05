@@ -1,0 +1,28 @@
+(gdb) bt
+#0  init_empty_tree_cfg_for_function (fn=0x7ffff6d7d000) at ../.././gcc/tree-cfg.c:187
+#1  0x0000000000b2476c in init_empty_tree_cfg () at ../.././gcc/tree-cfg.c:226
+#2  build_gimple_cfg (seq=0x7ffff6d6aa50) at ../.././gcc/tree-cfg.c:226
+#3  execute_build_cfg () at ../.././gcc/tree-cfg.c:377
+#4  (anonymous namespace)::pass_build_cfg::execute (this=<optimized out>) at ../.././gcc/tree-cfg.c:413
+#5  0x0000000000a2d3d8 in execute_one_pass (pass=0x21f5910) at ../.././gcc/passes.c:2502
+#6  0x0000000000a2dd20 in execute_pass_list_1 (pass=0x21f5910) at ../.././gcc/passes.c:2590
+#7  0x0000000000a2dd59 in execute_pass_list (fn=0x7ffff6d7d000, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#8  0x00000000007297db in cgraph_node::analyze (this=0x7ffff6d80000) at ../.././gcc/context.h:48
+#9  0x000000000072bf98 in analyze_functions (first_time=<optimized out>) at ../.././gcc/cgraphunit.c:1227
+#10 0x000000000072cb63 in symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2974
+#11 0x0000000000aec58f in compile_file () at ../.././gcc/toplev.c:483
+#12 0x00000000005da39c in do_compile () at ../.././gcc/toplev.c:2274
+#13 toplev::main (this=this@entry=0x7fffffffdcfe, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffddf8)
+    at ../.././gcc/toplev.c:2413
+#14 0x00000000005dde0f in main (argc=13, argv=0x7fffffffddf8) at ../.././gcc/main.c:39
+(gdb) l
+182	  /* Initialize the basic block array.  */
+183	  init_flow (fn);
+184	  profile_status_for_fn (fn) = PROFILE_ABSENT;
+185	  n_basic_blocks_for_fn (fn) = NUM_FIXED_BLOCKS;
+186	  last_basic_block_for_fn (fn) = NUM_FIXED_BLOCKS;
+187	  vec_alloc (basic_block_info_for_fn (fn), initial_cfg_capacity);
+188	  vec_safe_grow_cleared (basic_block_info_for_fn (fn),
+189				 initial_cfg_capacity);
+190	
+191	  /* Build a mapping of labels to their associated blocks.  */
