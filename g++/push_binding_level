@@ -1,0 +1,9 @@
+(gdb) bt
+#0  push_binding_level (scope=scope@entry=0x7ffff6c335e8) at ../.././gcc/cp/name-lookup.c:3313
+#1  0x00000000006bc746 in begin_scope (kind=<optimized out>, kind@entry=sk_namespace, entity=0x7ffff6c44000) at ../.././gcc/cp/name-lookup.c:3379
+#2  0x0000000000676a8d in cxx_init_decl_processing () at ../.././gcc/cp/decl.c:4275
+#3  0x00000000006a5222 in cxx_init () at ../.././gcc/cp/lex.c:327
+#4  0x00000000005fc8b6 in lang_dependent_init (name=0x7fffffffe0f6 "19.cpp") at ../.././gcc/toplev.c:1970
+#5  do_compile () at ../.././gcc/toplev.c:2259
+#6  toplev::main (this=this@entry=0x7fffffffdcde, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffddd8) at ../.././gcc/toplev.c:2413
+#7  0x00000000006003af in main (argc=14, argv=0x7fffffffddd8) at ../.././gcc/main.c:39
