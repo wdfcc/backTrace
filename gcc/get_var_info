@@ -1,0 +1,22 @@
+(gdb) bt
+#0  0x0000000000b5ee8a in get_var_info (decl=0x7ffff6a44400) at ../.././gcc/tree-into-ssa.c:363
+#1  get_common_info (var=0x7ffff6a44400, var@entry=0x23250e8) at ../.././gcc/tree-into-ssa.c:393
+#2  set_livein_block (var=var@entry=0x7ffff6a44400, bb=bb@entry=0x7ffff4ef9e38) at ../.././gcc/tree-into-ssa.c:517
+#3  0x0000000000b5f0db in mark_def_sites (kills=0x225d160, stmt=0x7ffff4efd000, bb=0x7ffff4ef9e38) at ../.././gcc/tree-into-ssa.c:677
+#4  mark_def_dom_walker::before_dom_children (this=<optimized out>, bb=0x7ffff4ef9e38) at ../.././gcc/tree-into-ssa.c:2342
+#5  0x0000000001297718 in dom_walker::walk (this=0x7fffffffcbd0, bb=0x7ffff4ef9e38) at ../.././gcc/domwalk.c:329
+#6  0x0000000000b6248e in (anonymous namespace)::pass_build_ssa::execute (this=<optimized out>, fun=0x7ffff6a3abb0) at ../.././gcc/tree-into-ssa.c:2460
+#7  0x0000000000a2d3d8 in execute_one_pass (pass=0x21f5d40) at ../.././gcc/passes.c:2502
+#8  0x0000000000a2dd20 in execute_pass_list_1 (pass=0x21f5d40) at ../.././gcc/passes.c:2590
+#9  0x0000000000a2dd59 in execute_pass_list (fn=fn@entry=0x7ffff6a3abb0, pass=pass@entry=0x21f5ce0) at ../.././gcc/passes.c:2601
+#10 0x0000000000a2b2ee in do_per_function_toporder (callback=callback@entry=0xa2dd40 <execute_pass_list(function*, opt_pass*)>, data=0x21f5ce0) at ../.././gcc/passes.c:1726
+#11 0x0000000000a2e2df in do_per_function_toporder (data=<optimized out>, callback=0xa2dd40 <execute_pass_list(function*, opt_pass*)>) at ../.././gcc/passes.c:2934
+#12 execute_ipa_pass_list (pass=0x21f5c80) at ../.././gcc/passes.c:2934
+#13 0x000000000072ae5f in ipa_passes () at ../.././gcc/cgraphunit.c:2620
+#14 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2755
+#15 0x000000000072cbdd in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#16 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#17 0x0000000000aec58f in compile_file () at ../.././gcc/toplev.c:483
+#18 0x00000000005da39c in do_compile () at ../.././gcc/toplev.c:2274
+#19 toplev::main (this=this@entry=0x7fffffffce8e, argc=<optimized out>, argc@entry=102, argv=<optimized out>, argv@entry=0x7fffffffcf88) at ../.././gcc/toplev.c:2413
+#20 0x00000000005dde0f in main (argc=102, argv=0x7fffffffcf88) at ../.././gcc/main.c:39
