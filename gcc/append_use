@@ -1,0 +1,28 @@
+(gdb) bt
+#0  append_use (use_p=0x7ffff4f009a0) at ../.././gcc/tree-ssa-operands.c:457
+#1  add_stmt_operand (flags=<optimized out>, stmt=0x7ffff4efdf00, var_p=0x7ffff4f009a0, fn=0x7ffff6a3ad10) at ../.././gcc/tree-ssa-operands.c:528
+#2  get_expr_operands (fn=0x7ffff6a3ad10, stmt=0x7ffff4efdf00, expr_p=<optimized out>, flags=<optimized out>) at ../.././gcc/tree-ssa-operands.c:748
+#3  0x0000000000c22280 in get_expr_operands (fn=0x7ffff6a3ad10, stmt=0x7ffff4efdf00, expr_p=<optimized out>, flags=<optimized out>) at ../.././gcc/tree-ssa-operands.c:773
+#4  0x0000000000c22bd1 in parse_ssa_operands (fn=0x7ffff6a3ad10, stmt=0x7ffff4efdf00) at ../.././gcc/tree-ssa-operands.c:933
+#5  0x0000000000c23b70 in build_ssa_operands (stmt=0x7ffff4efdf00, fn=0x7ffff6a3ad10) at ../.././gcc/tree-ssa-operands.c:949
+#6  update_stmt_operands (fn=0x7ffff6a3ad10, stmt=stmt@entry=0x7ffff4efdf00) at ../.././gcc/tree-ssa-operands.c:1083
+#7  0x0000000000b5f155 in update_stmt (s=0x7ffff4efdf00) at ../.././gcc/gimple-ssa.h:175
+#8  update_stmt (s=0x7ffff4efdf00) at ../.././gcc/gimple-ssa.h:170
+#9  mark_def_sites (kills=0x225d160, stmt=0x7ffff4efdf00, bb=0x7ffff4f07680) at ../.././gcc/tree-into-ssa.c:649
+#10 mark_def_dom_walker::before_dom_children (this=<optimized out>, bb=0x7ffff4f07680) at ../.././gcc/tree-into-ssa.c:2342
+#11 0x0000000001297718 in dom_walker::walk (this=0x7fffffffcbd0, bb=0x7ffff4f07680) at ../.././gcc/domwalk.c:329
+#12 0x0000000000b6248e in (anonymous namespace)::pass_build_ssa::execute (this=<optimized out>, fun=0x7ffff6a3ad10) at ../.././gcc/tree-into-ssa.c:2460
+#13 0x0000000000a2d3d8 in execute_one_pass (pass=0x21f5d40) at ../.././gcc/passes.c:2502
+#14 0x0000000000a2dd20 in execute_pass_list_1 (pass=0x21f5d40) at ../.././gcc/passes.c:2590
+#15 0x0000000000a2dd59 in execute_pass_list (fn=fn@entry=0x7ffff6a3ad10, pass=pass@entry=0x21f5ce0) at ../.././gcc/passes.c:2601
+#16 0x0000000000a2b2ee in do_per_function_toporder (callback=callback@entry=0xa2dd40 <execute_pass_list(function*, opt_pass*)>, data=0x21f5ce0) at ../.././gcc/passes.c:1726
+#17 0x0000000000a2e2df in do_per_function_toporder (data=<optimized out>, callback=0xa2dd40 <execute_pass_list(function*, opt_pass*)>) at ../.././gcc/passes.c:2934
+#18 execute_ipa_pass_list (pass=0x21f5c80) at ../.././gcc/passes.c:2934
+#19 0x000000000072ae5f in ipa_passes () at ../.././gcc/cgraphunit.c:2620
+#20 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2755
+#21 0x000000000072cbdd in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#22 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#23 0x0000000000aec58f in compile_file () at ../.././gcc/toplev.c:483
+#24 0x00000000005da39c in do_compile () at ../.././gcc/toplev.c:2274
+#25 toplev::main (this=this@entry=0x7fffffffce8e, argc=<optimized out>, argc@entry=102, argv=<optimized out>, argv@entry=0x7fffffffcf88) at ../.././gcc/toplev.c:2413
+#26 0x00000000005dde0f in main (argc=102, argv=0x7fffffffcf88) at ../.././gcc/main.c:39
