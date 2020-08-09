@@ -1,0 +1,14 @@
+(gdb) bt
+#0  0x000000000070c0b0 in cp_parser_decl_specifier_seq (parser=0x7ffff688a7b8, flags=33, decl_specs=0x7fffffffd970, declares_class_or_enum=0x7fffffffd96c) at ../.././gcc/cp/parser.c:14169
+#1  0x000000000072efd6 in cp_parser_single_declaration (parser=0x7ffff688a7b8, checks=0x0, member_p=<optimized out>, explicit_specialization_p=<optimized out>, friend_p=0x0)
+    at ../.././gcc/cp/parser.c:29396
+#2  0x000000000072ffa1 in cp_parser_explicit_specialization (parser=parser@entry=0x7ffff688a7b8) at ../.././gcc/cp/parser.c:17603
+#3  0x0000000000730038 in cp_parser_explicit_specialization (parser=parser@entry=0x7ffff688a7b8) at ../.././gcc/cp/parser.c:17599
+#4  0x000000000073283b in cp_parser_declaration (parser=0x7ffff688a7b8) at ../.././gcc/cp/parser.c:13379
+#5  0x0000000000732da5 in cp_parser_translation_unit (parser=0x7ffff688a7b8) at ../.././gcc/cp/parser.c:4734
+#6  c_parse_file () at ../.././gcc/cp/parser.c:43975
+#7  0x00000000007fb20c in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#8  0x0000000000c4de24 in compile_file () at ../.././gcc/toplev.c:458
+#9  0x00000000006275ec in do_compile () at ../.././gcc/toplev.c:2273
+#10 toplev::main (this=this@entry=0x7fffffffdbee, argc=<optimized out>, argc@entry=16, argv=<optimized out>, argv@entry=0x7fffffffdce8) at ../.././gcc/toplev.c:2412
+#11 0x000000000062b07f in main (argc=16, argv=0x7fffffffdce8) at ../.././gcc/main.c:39:
