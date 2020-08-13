@@ -1,0 +1,39 @@
+(gdb) bt
+#0  build1 (code=code@entry=ADDR_EXPR, type=type@entry=0x7ffff685be70, node=node@entry=0x7ffff6859300) at ../.././gcc/tree.c:4714
+#1  0x0000000000961e55 in build1_loc (arg1=0x7ffff6859300, type=0x7ffff685be70, code=ADDR_EXPR, loc=0) at ../.././gcc/tree.h:4336
+#2  build_fold_addr_expr_with_type_loc (loc=0, t=0x7ffff6859300, ptrtype=0x7ffff685be70) at ../.././gcc/fold-const.c:8545
+#3  0x0000000000961f7b in build_fold_addr_expr_loc (loc=<optimized out>, t=<optimized out>) at ../.././gcc/fold-const.c:8557
+#4  0x000000000076f2f6 in build_address (t=<optimized out>) at ../.././gcc/cp/typeck.c:6112
+#5  build_address (t=0x7ffff6859300) at ../.././gcc/cp/typeck.c:6110
+#6  0x00000000006118b0 in build_over_call (cand=<optimized out>, flags=<optimized out>, complain=<optimized out>) at ../.././gcc/cp/call.c:9096
+#7  0x0000000000613a9f in build_new_method_call_1 (instance=0x7ffff685d870, fns=0x7ffff6858120, args=<optimized out>, conversion_path=<optimized out>, flags=1, fn_p=0x0, complain=3) at ../.././gcc/cp/call.c:10354
+#8  0x0000000000614757 in build_new_method_call (complain=3, fn_p=0x0, flags=1, conversion_path=0x7ffff6831c00, args=0x7fffffffd110, fns=0x7ffff685c810, instance=0x7ffff685d870) at ../.././gcc/cp/call.c:10429
+#9  build_special_member_call (instance=instance@entry=0x7ffff685d870, name=0x7ffff6c42900, args=0x7fffffffd110, binfo=<optimized out>, binfo@entry=0x7ffff6831c00, flags=flags@entry=1, complain=complain@entry=3) at ../.././gcc/cp/call.c:9830
+#10 0x00000000006994a4 in expand_default_init (complain=3, flags=1, init=<optimized out>, exp=0x7ffff685d870, true_exp=<optimized out>, binfo=0x7ffff6831c00) at ../.././gcc/cp/init.c:1964
+#11 expand_aggr_init_1 (binfo=0x7ffff6831c00, true_exp=0x7ffff685d870, exp=0x7ffff685d870, init=<optimized out>, flags=1, complain=3) at ../.././gcc/cp/init.c:2079
+#12 0x000000000069b437 in build_aggr_init (exp=exp@entry=0x7ffff685d870, init=init@entry=0x7ffff6857f00, flags=flags@entry=1, complain=complain@entry=3) at ../.././gcc/cp/init.c:1814
+#13 0x0000000000667f8e in build_aggr_init_full_exprs (flags=1, init=0x7ffff6857f00, decl=0x7ffff685d870) at ../.././gcc/cp/decl.c:6596
+#14 check_initializer (decl=0x7ffff685d870, init=0x7ffff6857f00, flags=1, cleanups=0x7fffffffd250) at ../.././gcc/cp/decl.c:6780
+#15 0x000000000067bcfd in cp_finish_decl (decl=decl@entry=0x7ffff685d870, init=<optimized out>, init_const_expr_p=<optimized out>, asmspec_tree=<optimized out>, asmspec_tree@entry=0x0, flags=1) at ../.././gcc/cp/decl.c:7758
+#16 0x00000000006fed52 in cp_parser_init_declarator (parser=0x7ffff6c587b8, flags=<optimized out>, decl_specifiers=0x7fffffffd3e0, checks=<optimized out>, function_definition_allowed_p=<optimized out>, member_p=<optimized out>, 
+    declares_class_or_enum=0, function_definition_p=0x7fffffffd480, maybe_range_for_decl=0x0, init_loc=0x7fffffffd3cc, auto_result=0x7fffffffd520) at ../.././gcc/cp/parser.c:20910
+#17 0x00000000006e1ca3 in cp_parser_simple_declaration (parser=0x7ffff6c587b8, function_definition_allowed_p=<optimized out>, maybe_range_for_decl=0x0) at ../.././gcc/cp/parser.c:13734
+#18 0x00000000006e387b in cp_parser_declaration_statement (parser=parser@entry=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:13166
+#19 0x00000000006e4456 in cp_parser_statement (parser=0x7ffff6c587b8, in_statement_expr=0x0, in_compound=<optimized out>, if_p=<optimized out>, chain=<optimized out>, loc_after_labels=0x0) at ../.././gcc/cp/parser.c:11472
+#20 0x00000000006e5269 in cp_parser_statement_seq_opt (parser=parser@entry=0x7ffff6c587b8, in_statement_expr=in_statement_expr@entry=0x0) at ../.././gcc/cp/parser.c:11838
+#21 0x00000000006e5321 in cp_parser_compound_statement (parser=parser@entry=0x7ffff6c587b8, in_statement_expr=in_statement_expr@entry=0x0, bcs_flags=bcs_flags@entry=0, function_body=function_body@entry=true) at ../.././gcc/cp/parser.c:11788
+#22 0x00000000006fade1 in cp_parser_function_body (in_function_try_block=false, parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:23091
+#23 cp_parser_ctor_initializer_opt_and_function_body (parser=parser@entry=0x7ffff6c587b8, in_function_try_block=in_function_try_block@entry=false) at ../.././gcc/cp/parser.c:23114
+#24 0x00000000006fe3ee in cp_parser_function_definition_after_declarator (parser=parser@entry=0x7ffff6c587b8, inline_p=inline_p@entry=false) at ../.././gcc/cp/parser.c:28995
+#25 0x00000000006ff2d0 in cp_parser_function_definition_from_specifiers_and_declarator (declarator=0x23f6a80, attributes=0x0, decl_specifiers=<optimized out>, parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:28912
+#26 cp_parser_init_declarator (parser=0x7ffff6c587b8, flags=<optimized out>, decl_specifiers=<optimized out>, checks=0x0, function_definition_allowed_p=<optimized out>, member_p=<optimized out>, declares_class_or_enum=0, 
+    function_definition_p=0x7fffffffd9f0, maybe_range_for_decl=0x0, init_loc=0x7fffffffd93c, auto_result=0x7fffffffda90) at ../.././gcc/cp/parser.c:20670
+#27 0x00000000006e1ca3 in cp_parser_simple_declaration (parser=0x7ffff6c587b8, function_definition_allowed_p=<optimized out>, maybe_range_for_decl=0x0) at ../.././gcc/cp/parser.c:13734
+#28 0x00000000007079c3 in cp_parser_declaration (parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:13433
+#29 0x00000000007080e5 in cp_parser_translation_unit (parser=0x7ffff6c587b8) at ../.././gcc/cp/parser.c:4734
+#30 c_parse_file () at ../.././gcc/cp/parser.c:43975
+#31 0x00000000007d056c in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#32 0x0000000000c22f44 in compile_file () at ../.././gcc/toplev.c:458
+#33 0x00000000005fc94c in do_compile () at ../.././gcc/toplev.c:2274
+#34 toplev::main (this=this@entry=0x7fffffffdcde, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffddd8) at ../.././gcc/toplev.c:2413
+#35 0x00000000006003af in main (argc=14, argv=0x7fffffffddd8) at ../.././gcc/main.c:39
