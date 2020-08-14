@@ -1,0 +1,27 @@
+(gdb) bt
+#0  cp_build_reference_type (to_type=<optimized out>, rval=<optimized out>) at ../.././gcc/cp/tree.c:1224
+#1  0x000000000069c052 in grokdeclarator (declarator=0x21fa260, declspecs=declspecs@entry=0x21fa2c8, decl_context=<optimized out>, decl_context@entry=PARM, initialized=0, 
+    attrlist=attrlist@entry=0x21fa338) at ../.././gcc/cp/decl.c:12481
+#2  0x0000000000727737 in cp_parser_parameter_declaration_list (parser=parser@entry=0x7ffff688a7b8, flags=96) at ../.././gcc/cp/parser.c:22598
+#3  0x0000000000727a66 in cp_parser_parameter_declaration_clause (parser=parser@entry=0x7ffff688a7b8, flags=flags@entry=96) at ../.././gcc/cp/parser.c:22515
+#4  0x00000000007167ca in cp_parser_direct_declarator (static_p=<optimized out>, friend_p=<optimized out>, member_p=<optimized out>, ctor_dtor_or_conv_p=<optimized out>, 
+    flags=<optimized out>, dcl_kind=<optimized out>, parser=<optimized out>) at ../.././gcc/cp/parser.c:21192
+#5  cp_parser_declarator (parser=<optimized out>, dcl_kind=<optimized out>, flags=<optimized out>, ctor_dtor_or_conv_p=<optimized out>, parenthesized_p=<optimized out>, 
+    member_p=<optimized out>, friend_p=<optimized out>, static_p=<optimized out>) at ../.././gcc/cp/parser.c:21057
+#6  0x000000000073121a in cp_parser_member_declaration (parser=0x7ffff688a7b8) at ../.././gcc/cp/parser.c:25162
+#7  0x000000000070944a in cp_parser_member_specification_opt (parser=<optimized out>) at ../.././gcc/cp/parser.c:24776
+#8  cp_parser_class_specifier_1 (parser=0x7ffff688a7b8) at ../.././gcc/cp/parser.c:23873
+#9  0x000000000070af04 in cp_parser_class_specifier (parser=0x7ffff688a7b8) at ../.././gcc/cp/parser.c:24180
+#10 cp_parser_type_specifier (parser=0x7ffff688a7b8, flags=<optimized out>, decl_specs=0x7fffffffd870, is_declaration=<optimized out>, declares_class_or_enum=0x7fffffffd720, 
+    is_cv_qualifier=<optimized out>) at ../.././gcc/cp/parser.c:17711
+#11 0x000000000070be77 in cp_parser_decl_specifier_seq (parser=0x7ffff688a7b8, flags=1, decl_specs=0x7fffffffd870, declares_class_or_enum=0x7fffffffd858) at ../.././gcc/cp/parser.c:14358
+#12 0x000000000070c852 in cp_parser_simple_declaration (parser=0x7ffff688a7b8, function_definition_allowed_p=true, maybe_range_for_decl=0x0) at ../.././gcc/cp/parser.c:13613
+#13 0x0000000000732683 in cp_parser_declaration (parser=0x7ffff688a7b8) at ../.././gcc/cp/parser.c:13433
+#14 0x0000000000732da5 in cp_parser_translation_unit (parser=0x7ffff688a7b8) at ../.././gcc/cp/parser.c:4734
+#15 c_parse_file () at ../.././gcc/cp/parser.c:43975
+#16 0x00000000007fb20c in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#17 0x0000000000c4de24 in compile_file () at ../.././gcc/toplev.c:458
+#18 0x00000000006275ec in do_compile () at ../.././gcc/toplev.c:2273
+#19 toplev::main (this=this@entry=0x7fffffffdbfe, argc=<optimized out>, argc@entry=16, argv=<optimized out>, argv@entry=0x7fffffffdcf8) at ../.././gcc/toplev.c:2412
+#20 0x000000000062b07f in main (argc=16, argv=0x7fffffffdcf8) at ../.././gcc/main.c:39
+
