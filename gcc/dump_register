@@ -1,0 +1,10 @@
+(gdb) bt
+#0  gcc::dump_manager::dump_register (this=this@entry=0x2255a90, suffix=suffix@entry=0x224d690 ".omplower", swtch=swtch@entry=0x224d6b0 "tree-omplower", 
+    glob=0x224d770 "tree-omplower", dkind=dkind@entry=DK_tree, optgroup_flags=OPTGROUP_OMP, take_ownership=true) at ../.././gcc/dumpfile.c:217
+#1  0x0000000000a2f105 in gcc::pass_manager::register_one_dump_file (this=0x2255ad0, pass=0x22566d0) at ../.././gcc/passes.c:826
+#2  0x0000000000a2f1c5 in gcc::pass_manager::register_dump_files (this=this@entry=0x2255ad0, pass=0x22566d0) at ../.././gcc/passes.c:843
+#3  0x0000000000a34b24 in gcc::pass_manager::pass_manager (this=0x2255ad0, ctxt=<optimized out>) at ../.././gcc/passes.c:1595
+#4  0x00000000005d9e6d in general_init (init_signals=<optimized out>, argv0=<optimized out>) at ../.././gcc/toplev.c:1251
+#5  toplev::main (this=this@entry=0x7fffffffdcee, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffdde8)
+    at ../.././gcc/toplev.c:2363
+#6  0x00000000005dde6f in main (argc=13, argv=0x7fffffffdde8) at ../.././gcc/main.c:39
