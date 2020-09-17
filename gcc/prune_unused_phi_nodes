@@ -1,0 +1,22 @@
+(gdb) bt
+#0  0x0000000000b61704 in prune_unused_phi_nodes (uses=<optimized out>, kills=<optimized out>, phis=<optimized out>) at ../.././gcc/tree-into-ssa.c:984
+#1  insert_phi_nodes_for (var=0x7ffff6ddc200, phi_insertion_points=0x22ba2c0, update_p=false) at ../.././gcc/tree-into-ssa.c:984
+#2  0x0000000000b62928 in insert_phi_nodes (dfs=<optimized out>) at ../.././gcc/tree-into-ssa.c:1140
+#3  (anonymous namespace)::pass_build_ssa::execute (this=<optimized out>, fun=<optimized out>) at ../.././gcc/tree-into-ssa.c:2463
+#4  0x0000000000a2d518 in execute_one_pass (pass=0x2256d40) at ../.././gcc/passes.c:2502
+#5  0x0000000000a2de60 in execute_pass_list_1 (pass=0x2256d40) at ../.././gcc/passes.c:2590
+#6  0x0000000000a2de99 in execute_pass_list (fn=fn@entry=0x7ffff6dde000, pass=pass@entry=0x2256ce0) at ../.././gcc/passes.c:2601
+#7  0x0000000000a2b42e in do_per_function_toporder (callback=callback@entry=0xa2de80 <execute_pass_list(function*, opt_pass*)>, data=0x2256ce0)
+    at ../.././gcc/passes.c:1726
+#8  0x0000000000a2e41f in do_per_function_toporder (data=<optimized out>, callback=0xa2de80 <execute_pass_list(function*, opt_pass*)>)
+    at ../.././gcc/passes.c:2934
+#9  execute_ipa_pass_list (pass=0x2256c80) at ../.././gcc/passes.c:2934
+#10 0x000000000072aebf in ipa_passes () at ../.././gcc/cgraphunit.c:2620
+#11 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2755
+#12 0x000000000072cc3d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#13 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3002
+#14 0x0000000000aec6cf in compile_file () at ../.././gcc/toplev.c:483
+#15 0x00000000005da3fc in do_compile () at ../.././gcc/toplev.c:2274
+#16 toplev::main (this=this@entry=0x7fffffffdcee, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffdde8)
+    at ../.././gcc/toplev.c:2413
+#17 0x00000000005dde6f in main (argc=13, argv=0x7fffffffdde8) at ../.././gcc/main.c:39
