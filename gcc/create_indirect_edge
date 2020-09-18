@@ -1,0 +1,18 @@
+(gdb) bt
+#0  symbol_table::create_edge (this=0x7ffff6c2c100, caller=0x7ffff6d7f9d8, callee=0x0, call_stmt=0x7ffff7ff8d80, count=..., 
+    indir_unknown_callee=<optimized out>, cloning_p=false) at ../.././gcc/cgraph.c:894
+#1  0x00000000007229da in cgraph_node::create_indirect_edge (this=this@entry=0x7ffff6d7f9d8, call_stmt=call_stmt@entry=0x7ffff7ff8d80, ecf_flags=0, 
+    count=..., cloning_p=cloning_p@entry=false) at ../.././gcc/cgraph.c:975
+#2  0x0000000000726db7 in (anonymous namespace)::pass_build_cgraph_edges::execute (this=<optimized out>, fun=0x7ffff6d80160)
+    at ../.././gcc/cgraphbuild.c:326
+#3  0x0000000000a2d518 in execute_one_pass (pass=0x2256b60) at ../.././gcc/passes.c:2502
+#4  0x0000000000a2de60 in execute_pass_list_1 (pass=0x2256b60) at ../.././gcc/passes.c:2590
+#5  0x0000000000a2de99 in execute_pass_list (fn=0x7ffff6d80160, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#6  0x000000000072983b in cgraph_node::analyze (this=0x7ffff6d7f9d8) at ../.././gcc/context.h:48
+#7  0x000000000072bff8 in analyze_functions (first_time=<optimized out>) at ../.././gcc/cgraphunit.c:1227
+#8  0x000000000072cbc3 in symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2974
+#9  0x0000000000aec6cf in compile_file () at ../.././gcc/toplev.c:483
+#10 0x00000000005da3fc in do_compile () at ../.././gcc/toplev.c:2274
+#11 toplev::main (this=this@entry=0x7fffffffdcee, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffdde8)
+    at ../.././gcc/toplev.c:2413
+#12 0x00000000005dde6f in main (argc=13, argv=0x7fffffffdde8) at ../.././gcc/main.c:39
