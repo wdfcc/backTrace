@@ -1,0 +1,23 @@
+(gdb) bt
+#0  inform (location=location@entry=221893, gmsgid=gmsgid@entry=0x144eb06 "(near initialization for %qs)") at ../.././gcc/diagnostic.c:1383
+#1  0x00000000005fcb32 in pedwarn_init (loc=loc@entry=221893, opt=opt@entry=535, gmsgid=gmsgid@entry=0x1450508 "initialization of %qT from incompatible pointer type %qT") at ../.././gcc/c/c-typeck.c:6417
+#2  0x000000000060618d in convert_for_assignment (location=221893, expr_loc=0, type=0x7ffff6d63540, rhs=0x7ffff6d691c0, origtype=<optimized out>, errtype=ic_init, null_pointer_constant=false, fundecl=0x0, function=<optimized out>, parmnum=0, warnopt=0)
+    at ../.././gcc/c/c-typeck.c:7321
+#3  0x000000000060fee0 in digest_init (init_loc=221893, type=0x7ffff6d63540, init=<optimized out>, origtype=0x7ffff6d632a0, null_pointer_constant=<optimized out>, strict_string=<optimized out>, require_constant=1) at ../.././gcc/c/c-typeck.c:7995
+#4  0x0000000000611b11 in output_init_element (loc=loc@entry=221893, value=0x7ffff6d691a0, value@entry=0x7ffff6d69180, origtype=origtype@entry=0x7ffff6d632a0, strict_string=strict_string@entry=false, type=type@entry=0x7ffff6d63540, 
+    field=0x7ffff6c51428, pending=true, implicit=false, braced_init_obstack=0x7fffffffd870) at ../.././gcc/c/c-typeck.c:9570
+#5  0x0000000000612988 in process_init_element (loc=loc@entry=221893, value=..., implicit=implicit@entry=false, braced_init_obstack=braced_init_obstack@entry=0x7fffffffd870) at ../.././gcc/c/c-typeck.c:10105
+#6  0x000000000062fd00 in c_parser_initval (parser=0x7ffff7ff8ab0, after=0x0, braced_init_obstack=0x7fffffffd870) at ../.././gcc/c/c-parser.c:5534
+#7  0x000000000062ffc1 in c_parser_initelt (braced_init_obstack=<optimized out>, parser=<optimized out>) at ../.././gcc/c/c-parser.c:5506
+#8  c_parser_braced_init (parser=0x7ffff7ff8ab0, type=<optimized out>, nested_p=<optimized out>, outer_obstack=<optimized out>) at ../.././gcc/c/c-parser.c:5274
+#9  0x0000000000630f44 in c_parser_initializer (parser=0x7ffff7ff8ab0) at ../.././gcc/c/c-parser.c:5222
+#10 0x000000000064185b in c_parser_declaration_or_fndef (parser=0x7ffff7ff8ab0, fndef_ok=false, static_assert_ok=<optimized out>, empty_ok=<optimized out>, nested=<optimized out>, start_attr_ok=<optimized out>, 
+    objc_foreach_object_declaration=<optimized out>, omp_declare_simd_clauses=..., have_attrs=<optimized out>, attrs=<optimized out>, oacc_routine_data=<optimized out>, fallthru_attr_p=<optimized out>) at ../.././gcc/c/c-parser.c:2248
+#11 0x0000000000649514 in c_parser_external_declaration (parser=0x7ffff7ff8ab0) at ../.././gcc/c/c-parser.c:1745
+#12 0x000000000064a012 in c_parser_translation_unit (parser=<optimized out>) at ../.././gcc/c/c-parser.c:1618
+#13 c_parse_file () at ../.././gcc/c/c-parser.c:21745
+#14 0x000000000069412c in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#15 0x0000000000aec484 in compile_file () at ../.././gcc/toplev.c:458
+#16 0x00000000005da3fc in do_compile () at ../.././gcc/toplev.c:2274
+#17 toplev::main (this=this@entry=0x7fffffffdcee, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffdde8) at ../.././gcc/toplev.c:2413
+#18 0x00000000005dde6f in main (argc=13, argv=0x7fffffffdde8) at ../.././gcc/main.c:39
