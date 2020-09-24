@@ -1,0 +1,16 @@
+(gdb) bt
+#0  0x00000000007280e5 in varpool_node::finalize_decl (decl=decl@entry=0x7ffff7ff8b40) at ../.././gcc/cgraphunit.c:946
+#1  0x0000000000a2bdba in rest_of_decl_compilation (decl=0x7ffff7ff8b40, top_level=1, at_end=0) at ../.././gcc/passes.c:227
+#2  0x00000000005f3870 in finish_decl (decl=decl@entry=0x7ffff7ff8b40, init_loc=init_loc@entry=255008, init=<optimized out>, init@entry=0x7ffff6d82018, origtype=<optimized out>, asmspec_tree=<optimized out>, 
+    asmspec_tree@entry=0x0) at ../.././gcc/c/c-decl.c:5455
+#3  0x00000000006418f8 in c_parser_declaration_or_fndef (parser=0x7ffff7ff8ab0, fndef_ok=false, static_assert_ok=<optimized out>, empty_ok=<optimized out>, nested=<optimized out>, start_attr_ok=<optimized out>, 
+    objc_foreach_object_declaration=<optimized out>, omp_declare_simd_clauses=..., have_attrs=<optimized out>, attrs=<optimized out>, oacc_routine_data=<optimized out>, fallthru_attr_p=<optimized out>)
+    at ../.././gcc/c/c-parser.c:2257
+#4  0x0000000000649514 in c_parser_external_declaration (parser=0x7ffff7ff8ab0) at ../.././gcc/c/c-parser.c:1745
+#5  0x000000000064a012 in c_parser_translation_unit (parser=<optimized out>) at ../.././gcc/c/c-parser.c:1618
+#6  c_parse_file () at ../.././gcc/c/c-parser.c:21745
+#7  0x000000000069412c in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#8  0x0000000000aec484 in compile_file () at ../.././gcc/toplev.c:458
+#9  0x00000000005da3fc in do_compile () at ../.././gcc/toplev.c:2274
+#10 toplev::main (this=this@entry=0x7fffffffdcee, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffdde8) at ../.././gcc/toplev.c:2413
+#11 0x00000000005dde6f in main (argc=13, argv=0x7fffffffdde8) at ../.././gcc/main.c:39
