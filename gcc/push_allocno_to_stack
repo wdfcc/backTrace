@@ -1,0 +1,28 @@
+(gdb) bt
+#0  push_allocno_to_stack (a=0x21c2b78) at ../.././gcc/ira-color.c:2501
+#1  remove_allocno_from_bucket_and_push (allocno=0x21c2b78, colorable_p=<optimized out>) at ../.././gcc/ira-color.c:2501
+#2  0x000000000098088a in push_only_colorable () at ../.././gcc/ira-color.c:2511
+#3  push_allocnos_to_stack () at ../.././gcc/ira-color.c:2648
+#4  color_allocnos () at ../.././gcc/ira-color.c:3231
+#5  color_pass (loop_tree_node=loop_tree_node@entry=0x20739a0) at ../.././gcc/ira-color.c:3344
+#6  0x000000000096c1f7 in ira_traverse_loop_tree (bb_p=bb_p@entry=false, loop_node=0x20739a0,
+    preorder_func=preorder_func@entry=0x97f620 <color_pass(ira_loop_tree_node_t)>, postorder_func=postorder_func@entry=0x0) at ../.././gcc/ira-build.c:1778
+#7  0x000000000097df24 in do_coloring () at ../.././gcc/ira-color.c:3495
+#8  color () at ../.././gcc/ira-color.c:4866
+#9  ira_color () at ../.././gcc/ira-color.c:4995
+#10 0x0000000000964d91 in ira (f=<optimized out>) at ../.././gcc/ira.c:5366
+#11 (anonymous namespace)::pass_ira::execute (this=<optimized out>) at ../.././gcc/ira.c:5666
+#12 0x0000000000a56d98 in execute_one_pass (pass=0x2012270) at ../.././gcc/passes.c:2502
+#13 0x0000000000a576e0 in execute_pass_list_1 (pass=0x2012270) at ../.././gcc/passes.c:2590
+#14 0x0000000000a576f2 in execute_pass_list_1 (pass=0x2010ff0) at ../.././gcc/passes.c:2591
+#15 0x0000000000a57719 in execute_pass_list (fn=0x7ffffed41790, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#16 0x0000000000752e0e in cgraph_node::expand (this=0x7ffffed46708) at ../.././gcc/context.h:48
+#17 0x0000000000753ea0 in expand_all_functions () at ../.././gcc/cgraphunit.c:2471
+#18 symbol_table::compile (this=0x7ffffebb5100) at ../.././gcc/cgraphunit.c:2822
+#19 0x0000000000755f0d in symbol_table::compile (this=0x7ffffebb5100) at ../.././gcc/cgraphunit.c:3002
+#20 symbol_table::finalize_compilation_unit (this=0x7ffffebb5100) at ../.././gcc/cgraphunit.c:3002
+#21 0x0000000000b161bf in compile_file () at ../.././gcc/toplev.c:483
+#22 0x0000000000603586 in do_compile () at ../.././gcc/toplev.c:2278
+#23 toplev::main (this=this@entry=0x7ffffffee09e, argc=<optimized out>, argc@entry=15, argv=<optimized out>, argv@entry=0x7ffffffee1a8)
+    at ../.././gcc/toplev.c:2417
+#24 0x000000000060702f in main (argc=15, argv=0x7ffffffee1a8) at ../.././gcc/main.c:39
