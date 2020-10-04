@@ -1,0 +1,14 @@
+(gdb) bt
+#0  0x000000000098de63 in loop_optimizer_init (flags=flags@entry=16) at ../.././gcc/loop-init.c:93
+#1  0x0000000000b4e19f in execute_build_cfg () at ../.././gcc/tree-cfg.c:377
+#2  (anonymous namespace)::pass_build_cfg::execute (this=<optimized out>) at ../.././gcc/tree-cfg.c:405
+#3  0x0000000000a564c8 in execute_one_pass (pass=0x200a2f0) at ../.././gcc/passes.c:2502
+#4  0x0000000000a56e10 in execute_pass_list_1 (pass=0x200a2f0) at ../.././gcc/passes.c:2590
+#5  0x0000000000a56e49 in execute_pass_list (fn=0x7ffff6fde790, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#6  0x000000000075292b in cgraph_node::analyze (this=0x7ffff6fe3708) at ../.././gcc/context.h:48
+#7  0x00000000007550d8 in analyze_functions (first_time=<optimized out>) at ../.././gcc/cgraphunit.c:1227
+#8  0x0000000000755ca3 in symbol_table::finalize_compilation_unit (this=0x7ffff6e52100) at ../.././gcc/cgraphunit.c:2974
+#9  0x0000000000b158ef in compile_file () at ../.././gcc/toplev.c:483
+#10 0x000000000060352c in do_compile () at ../.././gcc/toplev.c:2273
+#11 toplev::main (this=this@entry=0x7fffffffde1e, argc=<optimized out>, argc@entry=15, argv=<optimized out>, argv@entry=0x7fffffffdf28) at ../.././gcc/toplev.c:2412
+#12 0x0000000000606fcf in main (argc=15, argv=0x7fffffffdf28) at ../.././gcc/main.c:39
