@@ -1,0 +1,28 @@
+Old value = 0
+New value = 86
+ira_create_allocno (regno=regno@entry=86, cap_p=cap_p@entry=false, loop_tree_node=0x2681e20) at ../.././gcc/ira-build.c:485
+485	  ALLOCNO_LOOP_TREE_NODE (a) = loop_tree_node;
+(gdb) bt
+#0  ira_create_allocno (regno=regno@entry=86, cap_p=cap_p@entry=false, loop_tree_node=0x2681e20) at ../.././gcc/ira-build.c:485
+#1  0x0000000000940f84 in create_insn_allocnos (x=<optimized out>, outer=0x7ffff4d0f120, output_p=<optimized out>) at ../.././gcc/ira-build.c:1849
+#2  0x0000000000940e98 in create_insn_allocnos (x=0x7ffff4d0f120, outer=<optimized out>, output_p=<optimized out>) at ../.././gcc/ira-build.c:1893
+#3  0x000000000094130d in create_bb_allocnos (bb_node=<optimized out>, bb_node=<optimized out>) at ../.././gcc/rtl.h:1501
+#4  create_loop_tree_node_allocnos (loop_node=<optimized out>) at ../.././gcc/ira-build.c:1961
+#5  0x0000000000943453 in ira_traverse_loop_tree (bb_p=<optimized out>, loop_node=0x2681e20, preorder_func=0x9411e0 <create_loop_tree_node_allocnos(ira_loop_tree_node_t)>, postorder_func=0x0) at ../.././gcc/ira-build.c:1796
+#6  0x0000000000944f5c in create_allocnos () at ../.././gcc/ira-build.c:3431
+#7  ira_build () at ../.././gcc/ira-build.c:3431
+#8  0x000000000093beb3 in ira (f=<optimized out>) at ../.././gcc/ira.c:5353
+#9  (anonymous namespace)::pass_ira::execute (this=<optimized out>) at ../.././gcc/ira.c:5666
+#10 0x0000000000a2d8f8 in execute_one_pass (pass=0x225ee70) at ../.././gcc/passes.c:2502
+#11 0x0000000000a2e240 in execute_pass_list_1 (pass=0x225ee70) at ../.././gcc/passes.c:2590
+#12 0x0000000000a2e252 in execute_pass_list_1 (pass=0x225dbf0) at ../.././gcc/passes.c:2591
+#13 0x0000000000a2e279 in execute_pass_list (fn=0x7ffff507a9a0, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#14 0x0000000000729f0e in cgraph_node::expand (this=0x7ffff5093438) at ../.././gcc/context.h:48
+#15 0x000000000072afa0 in expand_all_functions () at ../.././gcc/cgraphunit.c:2560
+#16 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2911
+#17 0x000000000072d01d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3091
+#18 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3091
+#19 0x0000000000aecaaf in compile_file () at ../.././gcc/toplev.c:483
+#20 0x00000000005da4ec in do_compile () at ../.././gcc/toplev.c:2274
+#21 toplev::main (this=this@entry=0x7fffffffce6e, argc=<optimized out>, argc@entry=102, argv=<optimized out>, argv@entry=0x7fffffffcf68) at ../.././gcc/toplev.c:2413
+#22 0x00000000005ddf5f in main (argc=102, argv=0x7fffffffcf68) at ../.././gcc/main.c:39
