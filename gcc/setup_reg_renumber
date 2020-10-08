@@ -1,0 +1,18 @@
+(gdb) bt
+#0  setup_reg_renumber () at ../.././gcc/ira.c:2364
+#1  0x000000000093bf67 in ira (f=<optimized out>) at ../.././gcc/ira.c:5433
+#2  (anonymous namespace)::pass_ira::execute (this=<optimized out>) at ../.././gcc/ira.c:5666
+#3  0x0000000000a2d8f8 in execute_one_pass (pass=0x225ee70) at ../.././gcc/passes.c:2502
+#4  0x0000000000a2e240 in execute_pass_list_1 (pass=0x225ee70) at ../.././gcc/passes.c:2590
+#5  0x0000000000a2e252 in execute_pass_list_1 (pass=0x225dbf0) at ../.././gcc/passes.c:2591
+#6  0x0000000000a2e279 in execute_pass_list (fn=0x7ffff507a9a0, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#7  0x0000000000729f0e in cgraph_node::expand (this=0x7ffff5093438) at ../.././gcc/context.h:48
+#8  0x000000000072afa0 in expand_all_functions () at ../.././gcc/cgraphunit.c:2560
+#9  symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2911
+#10 0x000000000072d01d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3091
+#11 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3091
+#12 0x0000000000aecaaf in compile_file () at ../.././gcc/toplev.c:483
+#13 0x00000000005da4ec in do_compile () at ../.././gcc/toplev.c:2274
+#14 toplev::main (this=this@entry=0x7fffffffce6e, argc=<optimized out>, argc@entry=102, argv=<optimized out>, argv@entry=0x7fffffffcf68) at ../.././gcc/toplev.c:2413
+#15 0x00000000005ddf5f in main (argc=102, argv=0x7fffffffcf68) at ../.././gcc/main.c:3etup_reg_renumber
+
