@@ -1,0 +1,21 @@
+Old value = 1073729536
+New value = 4096
+fast_allocation () at ../.././gcc/ira-color.c:4964
+4964	      for (l = 0; l < nr; l++)
+#0  fast_allocation () at ../.././gcc/ira-color.c:4964
+#1  ira_color () at ../.././gcc/ira-color.c:4997
+#2  0x000000000093bf21 in ira (f=<optimized out>) at ../.././gcc/ira.c:5366
+#3  (anonymous namespace)::pass_ira::execute (this=<optimized out>) at ../.././gcc/ira.c:5666
+#4  0x0000000000a2d8f8 in execute_one_pass (pass=0x225ee70) at ../.././gcc/passes.c:2502
+#5  0x0000000000a2e240 in execute_pass_list_1 (pass=0x225ee70) at ../.././gcc/passes.c:2590
+#6  0x0000000000a2e252 in execute_pass_list_1 (pass=0x225dbf0) at ../.././gcc/passes.c:2591
+#7  0x0000000000a2e279 in execute_pass_list (fn=0x7ffff6dde000, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#8  0x0000000000729f0e in cgraph_node::expand (this=0x7ffff6dbf9d8) at ../.././gcc/context.h:48
+#9  0x000000000072b004 in output_in_order () at ../.././gcc/cgraphunit.c:2667
+#10 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2908
+#11 0x000000000072d01d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3091
+#12 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3091
+#13 0x0000000000aecaaf in compile_file () at ../.././gcc/toplev.c:483
+#14 0x00000000005da4ec in do_compile () at ../.././gcc/toplev.c:2274
+#15 toplev::main (this=this@entry=0x7fffffffdcee, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffdde8) at ../.././gcc/toplev.c:2413
+#16 0x00000000005ddf5f in main (argc=13, argv=0x7fffffffdde8) at ../.././gcc/main.c:39
