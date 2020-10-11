@@ -1,0 +1,23 @@
+(gdb) bt
+#0  substitute_and_fold_engine::substitute_and_fold (this=this@entry=0x7fffffffdf10, block=block@entry=0x0) at ../../gcc/tree-ssa-propagate.c:1184
+#1  0x0000000000be2e8e in ccp_finalize (nonzero_p=true) at ../../gcc/tree-ssa-ccp.c:1019
+#2  0x0000000000be3549 in do_ssa_ccp (nonzero_p=false) at ../../gcc/tree-ssa-ccp.c:2583
+#3  (anonymous namespace)::pass_ccp::execute (this=<optimized out>) at ../../gcc/tree-ssa-ccp.c:2626
+#4  0x0000000000a564c8 in execute_one_pass (pass=0x2003290) at ../../gcc/passes.c:2502
+#5  0x0000000000a56e10 in execute_pass_list_1 (pass=0x2003290) at ../../gcc/passes.c:2590
+#6  0x0000000000a56e22 in execute_pass_list_1 (pass=0x2003160) at ../../gcc/passes.c:2591
+#7  0x0000000000a56e49 in execute_pass_list (fn=fn@entry=0x7ffff75a2000, pass=pass@entry=0x2002fe0) at ../../gcc/passes.c:2601
+#8  0x0000000000a543de in do_per_function_toporder (callback=callback@entry=0xa56e30 <execute_pass_list(function*, opt_pass*)>, data=0x2002fe0)
+    at ../../gcc/passes.c:1726
+#9  0x0000000000a573cf in do_per_function_toporder (data=<optimized out>, callback=0xa56e30 <execute_pass_list(function*, opt_pass*)>)
+    at ../../gcc/passes.c:2934
+#10 execute_ipa_pass_list (pass=0x2002f80) at ../../gcc/passes.c:2934
+#11 0x0000000000753faf in ipa_passes () at ../../gcc/cgraphunit.c:2620
+#12 symbol_table::compile (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:2755
+#13 0x0000000000755d1d in symbol_table::compile (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:3002
+#14 symbol_table::finalize_compilation_unit (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:3002
+#15 0x0000000000b158ef in compile_file () at ../../gcc/toplev.c:483
+#16 0x000000000060352c in do_compile () at ../../gcc/toplev.c:2273
+#17 toplev::main (this=this@entry=0x7fffffffe22e, argc=<optimized out>, argc@entry=15, argv=<optimized out>, argv@entry=0x7fffffffe338)
+    at ../../gcc/toplev.c:2412
+#18 0x0000000000606fcf in main (argc=15, argv=0x7fffffffe338) at ../../gcc/main.c:39
