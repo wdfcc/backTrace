@@ -1,0 +1,18 @@
+(gdb) bt  
+#0  decode_opc (env=env@entry=0x55555657cdf0, ctx=ctx@entry=0x7ffff4840810) at /root/qemu-4.1.0/target/mips/translate.c:29184
+#1  0x00005555558a2cd6 in mips_tr_translate_insn (dcbase=0x7ffff4840810, cs=<optimized out>)
+    at /root/qemu-4.1.0/target/mips/translate.c:30025
+#2  0x0000555555815941 in translator_loop (ops=0x5555561e2fa0 <mips_tr_ops>, db=0x7ffff4840810, cpu=0x555556574400, 
+    tb=<optimized out>, max_insns=<optimized out>) at /root/qemu-4.1.0/accel/tcg/translator.c:95
+#3  0x00005555558a7002 in gen_intermediate_code (cs=<optimized out>, tb=<optimized out>, max_insns=<optimized out>)
+    at /root/qemu-4.1.0/target/mips/translate.c:30128
+#4  0x00005555558146e3 in tb_gen_code (cpu=cpu@entry=0x555556574400, pc=pc@entry=2147484928, cs_base=cs_base@entry=0, 
+    flags=flags@entry=144, cflags=-16252928, cflags@entry=524288) at /root/qemu-4.1.0/accel/tcg/translate-all.c:1738
+#5  0x0000555555812d51 in tb_find (cf_mask=524288, tb_exit=0, last_tb=0x0, cpu=0x0) at /root/qemu-4.1.0/accel/tcg/cpu-exec.c:409
+#6  cpu_exec (cpu=cpu@entry=0x555556574400) at /root/qemu-4.1.0/accel/tcg/cpu-exec.c:731
+#7  0x00005555557db972 in tcg_cpu_exec (cpu=0x555556574400) at /root/qemu-4.1.0/cpus.c:1435
+#8  0x00005555557ddb40 in qemu_tcg_cpu_thread_fn (arg=arg@entry=0x555556574400) at /root/qemu-4.1.0/cpus.c:1743
+#9  0x0000555555bd4fb6 in qemu_thread_start (args=<optimized out>) at util/qemu-thread-posix.c:502
+#10 0x00007ffff5c74e25 in start_thread () from /lib64/libpthread.so.0
+#11 0x00007ffff59a135d in clone () from /lib64/libc.so.6
+
