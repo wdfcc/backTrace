@@ -1,0 +1,20 @@
+(gdb) bt
+#0  lex_identifier (pfile=pfile@entry=0x22369f0, 
+    base=0x2291e3e "diagnostic ignored \"-Wformat-diag\"\n#include <stdio.h>\n/*\nstatic inline int test(int a,int b)\n{\n\treturn a+b;\n}\n*/\nint main()\n{\n\tint s=23;\n\tint a,b,c,d;\n//\tc=test(a,b);\n\tprintf(\"%d\",c);\n\tif(a)\n\t\tb=3;\n\ti"..., starts_ucn=starts_ucn@entry=false, nst=nst@entry=0x7fffffffd724, spelling=spelling@entry=0x2289bc8) at ../.././libcpp/lex.c:1475
+#1  0x00000000013eb817 in _cpp_lex_direct (pfile=pfile@entry=0x22369f0) at ../.././libcpp/lex.c:2848
+#2  0x00000000013ed009 in _cpp_lex_token (pfile=pfile@entry=0x22369f0) at ../.././libcpp/lex.c:2608
+#3  0x00000000013f2908 in cpp_get_token_1 (pfile=pfile@entry=0x22369f0, location=location@entry=0x0) at ../.././libcpp/macro.c:2808
+#4  0x00000000013f2d27 in cpp_get_token (pfile=pfile@entry=0x22369f0) at ../.././libcpp/macro.c:2950
+#5  0x00000000013dc440 in do_pragma (pfile=0x22369f0) at ../.././libcpp/directives.c:1466
+#6  0x00000000013de339 in _cpp_handle_directive (pfile=pfile@entry=0x22369f0, indented=<optimized out>) at ../.././libcpp/directives.c:541
+#7  0x00000000013ed055 in _cpp_lex_token (pfile=pfile@entry=0x22369f0) at ../.././libcpp/lex.c:2620
+#8  0x00000000013f2908 in cpp_get_token_1 (pfile=0x22369f0, location=location@entry=0x7fffffffdb3c) at ../.././libcpp/macro.c:2808
+#9  0x00000000013f41d5 in cpp_get_token_with_location (pfile=<optimized out>, loc=loc@entry=0x7fffffffdb3c) at ../.././libcpp/macro.c:2994
+#10 0x000000000068cfff in c_lex_with_flags (value=0x7fffffffdb40, loc=0x7fffffffdb3c, cpp_flags=0x7fffffffdb48 "", lex_flags=2) at ../.././gcc/c-family/c-lex.c:458
+#11 0x000000000061d166 in c_lex_one_token (parser=parser@entry=0x7fffffffdb30, token=token@entry=0x7fffffffdb38, raw=raw@entry=false) at ../.././gcc/c/c-parser.c:270
+#12 0x0000000000649fa8 in c_parser_peek_token (parser=0x7fffffffdb30) at ../.././gcc/c/c-parser.c:21731
+#13 c_parse_file () at ../.././gcc/c/c-parser.c:21731
+#14 0x000000000069421c in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#15 0x0000000000aec864 in compile_file () at ../.././gcc/toplev.c:458
+#16 0x00000000005da4ec in do_compile () at ../.././gcc/toplev.c:2274
+#17 toplev::main (this=this@entry=0x7fffffffdcae, argc=<optimized out>, argc@entry=13, argv=<optimized out>, arg)})
