@@ -1,0 +1,19 @@
+(gdb) bt
+#0  0x00000000013eb697 in _cpp_lex_direct (pfile=pfile@entry=0x22369f0) at ../.././libcpp/lex.c:2769
+#1  0x00000000013ed009 in _cpp_lex_token (pfile=pfile@entry=0x22369f0) at ../.././libcpp/lex.c:2608
+#2  0x00000000013f2908 in cpp_get_token_1 (pfile=0x22369f0, location=location@entry=0x7ffff7ff8abc) at ../.././libcpp/macro.c:2808
+#3  0x00000000013f41d5 in cpp_get_token_with_location (pfile=<optimized out>, loc=loc@entry=0x7ffff7ff8abc) at ../.././libcpp/macro.c:2994
+#4  0x000000000068cfff in c_lex_with_flags (value=0x7ffff7ff8ac0, loc=0x7ffff7ff8abc, cpp_flags=0x7ffff7ff8ac8 "\001", lex_flags=2) at ../.././gcc/c-family/c-lex.c:458
+#5  0x000000000061d166 in c_lex_one_token (parser=parser@entry=0x7ffff7ff8ab0, token=0x7ffff7ff8ab8, raw=raw@entry=false) at ../.././gcc/c/c-parser.c:270
+#6  0x00000000006209f2 in c_parser_peek_token (parser=<optimized out>) at ../.././gcc/c/c-parser.c:474
+#7  pragma_lex (value=value@entry=0x7fffffffd9e8, loc=loc@entry=0x7fffffffd9e4) at ../.././gcc/c/c-parser.c:12525
+#8  0x0000000000696995 in handle_pragma_diagnostic (dummy=<optimized out>) at ../.././gcc/c-family/c-pragma.c:798
+#9  0x00000000006229d8 in c_parser_pragma (parser=0x7ffff7ff8ab0, context=pragma_external, if_p=0x0) at ../.././gcc/c/c-parser.c:12509
+#10 0x00000000006498b6 in c_parser_external_declaration (parser=0x7ffff7ff8ab0) at ../.././gcc/c/c-parser.c:1726
+#11 0x000000000064a102 in c_parser_translation_unit (parser=<optimized out>) at ../.././gcc/c/c-parser.c:1618
+#12 c_parse_file () at ../.././gcc/c/c-parser.c:21745
+#13 0x000000000069421c in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#14 0x0000000000aec864 in compile_file () at ../.././gcc/toplev.c:458
+#15 0x00000000005da4ec in do_compile () at ../.././gcc/toplev.c:2274
+#16 toplev::main (this=this@entry=0x7fffffffdcae, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffdda8) at ../.././gcc/toplev.c:2413
+#17 0x00000000005ddf5f in main (argc=13, argv=0x7fffffffdda8) at ../.././gcc/main.c:39
