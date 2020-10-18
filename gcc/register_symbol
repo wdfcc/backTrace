@@ -1,0 +1,20 @@
+(gdb) bt
+#0  symtab_node::register_symbol (this=0x7ffff6d7f168) at ../.././gcc/symtab.c:379
+#1  0x000000000071c6f3 in cgraph_node::create (decl=0x7ffff6d5a700) at ../.././gcc/cgraph.c:519
+#2  0x000000000071c5ad in cgraph_node::get_create (decl=decl@entry=0x7ffff6d5a700) at ../.././gcc/cgraph.c:541
+#3  0x000000000068a55e in c_genericize (fndecl=fndecl@entry=0x7ffff6d5a700) at ../.././gcc/c-family/c-gimplify.c:152
+#4  0x00000000005ecde1 in finish_function (end_loc=201152) at ../.././gcc/c/c-decl.c:9985
+#5  0x00000000006428d9 in c_parser_declaration_or_fndef (parser=0x7ffff7ff8ab0, fndef_ok=true, static_assert_ok=<optimized out>, empty_ok=<optimized out>, nested=<optimized out>, 
+    start_attr_ok=<optimized out>, objc_foreach_object_declaration=<optimized out>, omp_declare_simd_clauses=..., have_attrs=<optimized out>, attrs=<optimized out>, 
+    oacc_routine_data=<optimized out>, fallthru_attr_p=<optimized out>) at ../.././gcc/c/c-parser.c:2524
+#6  0x0000000000649604 in c_parser_external_declaration (parser=0x7ffff7ff8ab0) at ../.././gcc/c/c-parser.c:1745
+#7  0x000000000064a102 in c_parser_translation_unit (parser=<optimized out>) at ../.././gcc/c/c-parser.c:1618
+#8  c_parse_file () at ../.././gcc/c/c-parser.c:21745
+#9  0x000000000069421c in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#10 0x0000000000aec864 in compile_file () at ../.././gcc/toplev.c:458
+#11 0x00000000005da4ec in do_compile () at ../.././gcc/toplev.c:2274
+#12 toplev::main (this=this@entry=0x7fffffffdc6e, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffdd68) at ../.././gcc/toplev.c:2413
+#13 0x00000000005ddf5f in main (argc=14, argv=0x7fffffffdd68) at ../.././gcc/main.c:39
+(gdb) p this.order 
+$1 = 1
+
