@@ -1,0 +1,31 @@
+(gdb) bt
+#0  build_new_int_cst (type=0x7ffff74685e8, cst=...) at ../../gcc/tree.c:1332
+#1  0x0000000000d60c65 in wide_int_to_tree_1 (type=0x7ffff74685e8, pcst=...) at ../../gcc/tree.c:1595
+#2  0x0000000000840d1a in int_const_binop (code=PLUS_EXPR, arg1=0x7ffff75a6030, arg2=0x7ffff75a6240, overflowable=1) at ../../gcc/poly-int.h:652
+#3  0x0000000000e6746e in gimple_resimplify2 (seq=seq@entry=0x0, res_op=res_op@entry=0x7fffffffda60, valueize=valueize@entry=0xbe36a0 <valueize_op_1(tree)>) at ../../gcc/gimple-match.h:34
+#4  0x0000000000e97945 in gimple_simplify (stmt=stmt@entry=0x7ffff75a9318, res_op=res_op@entry=0x7fffffffda60, seq=seq@entry=0x0, valueize=valueize@entry=0xbe36a0 <valueize_op_1(tree)>,
+    top_valueize=top_valueize@entry=0xbe37b0 <valueize_op(tree)>) at ../../gcc/gimple-match-head.c:957
+#5  0x000000000088548a in gimple_fold_stmt_to_constant_1 (stmt=stmt@entry=0x7ffff75a9318, valueize=valueize@entry=0xbe37b0 <valueize_op(tree)>, gvalueize=gvalueize@entry=0xbe36a0 <valueize_op_1(tree)>) at ../../gcc/gimple-fold.c:6283
+#6  0x0000000000be8cbb in ccp_fold (stmt=0x7ffff75a9318) at ../../gcc/tree-ssa-ccp.c:1285
+#7  evaluate_stmt (stmt=0x7ffff75a9318) at ../../gcc/tree-ssa-ccp.c:1824
+#8  0x0000000000bea8f6 in visit_assignment (stmt=0x7ffff75a9318, output_p=0x7fffffffdec8) at ../../gcc/tree-ssa-ccp.c:2463
+#9  0x0000000000c5faa4 in ssa_propagation_engine::simulate_stmt (this=this@entry=0x7fffffffdfa0, stmt=stmt@entry=0x7ffff75a9318) at ../../gcc/tree-ssa-propagate.c:230
+#10 0x0000000000c5fd3b in ssa_propagation_engine::simulate_block (this=0x7fffffffdfa0, block=0x7ffff745af08) at ../../gcc/gimple-iterator.h:213
+#11 0x0000000000c60976 in ssa_propagation_engine::ssa_propagate (this=this@entry=0x7fffffffdfa0) at ../../gcc/tree-ssa-propagate.c:800
+#12 0x0000000000be352a in do_ssa_ccp (nonzero_p=false) at ../../gcc/tree-ssa-ccp.c:2582
+#13 (anonymous namespace)::pass_ccp::execute (this=<optimized out>) at ../../gcc/tree-ssa-ccp.c:2626
+#14 0x0000000000a564c8 in execute_one_pass (pass=0x2003290) at ../../gcc/passes.c:2502
+#15 0x0000000000a56e10 in execute_pass_list_1 (pass=0x2003290) at ../../gcc/passes.c:2590
+#16 0x0000000000a56e22 in execute_pass_list_1 (pass=0x2003160) at ../../gcc/passes.c:2591
+#17 0x0000000000a56e49 in execute_pass_list (fn=fn@entry=0x7ffff75a4160, pass=pass@entry=0x2002fe0) at ../../gcc/passes.c:2601
+#18 0x0000000000a543de in do_per_function_toporder (callback=callback@entry=0xa56e30 <execute_pass_list(function*, opt_pass*)>, data=0x2002fe0) at ../../gcc/passes.c:1726
+#19 0x0000000000a573cf in do_per_function_toporder (data=<optimized out>, callback=0xa56e30 <execute_pass_list(function*, opt_pass*)>) at ../../gcc/passes.c:2934
+#20 execute_ipa_pass_list (pass=0x2002f80) at ../../gcc/passes.c:2934
+#21 0x0000000000753faf in ipa_passes () at ../../gcc/cgraphunit.c:2620
+#22 symbol_table::compile (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:2755
+#23 0x0000000000755d1d in symbol_table::compile (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:3002
+#24 symbol_table::finalize_compilation_unit (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:3002
+#25 0x0000000000b158ef in compile_file () at ../../gcc/toplev.c:483
+#26 0x000000000060352c in do_compile () at ../../gcc/toplev.c:2273
+#27 toplev::main (this=this@entry=0x7fffffffe24e, argc=<optimized out>, argc@entry=15, argv=<optimized out>, argv@entry=0x7fffffffe358) at ../../gcc/toplev.c:2412
+#28 0x0000000000606fcf in main (argc=15, argv=0x7fffffffe358) at ../../gcc/main.c:39
