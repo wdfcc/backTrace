@@ -1,0 +1,26 @@
+(gdb) bt
+#0  0x00007ffff6f74466 in __memcpy_ssse3_back () from /lib64/libc.so.6
+#1  0x0000000000850aaa in gimple_copy (stmt=stmt@entry=0x7ffff6d82000) at ../.././gcc/gimple.c:119
+#2  0x0000000000b52e08 in remap_gimple_stmt (stmt=0x7ffff6d82000, id=0x7fffffffd8b0) at ../.././gcc/tree-inline.c:1830
+#3  0x0000000000b55700 in copy_bb (id=0x7fffffffd8b0, bb=0x7ffff6c34270, num=..., den=...) at ../.././gcc/tree-inline.c:1999
+#4  0x0000000000b56a8d in copy_cfg_body (new_entry=0x0, exit_block_map=0x7ffff6c34b60, entry_block_map=0x7ffff6c34478, id=0x7fffffffd8b0) at ../.././gcc/tree-inline.c:3022
+#5  copy_body (id=0x7fffffffd8b0, entry_block_map=0x7ffff6c34478, exit_block_map=0x7ffff6c34b60, new_entry=0x0) at ../.././gcc/tree-inline.c:3270
+#6  0x0000000000b59a09 in expand_call_inline (bb=<optimized out>, stmt=<optimized out>, id=0x7fffffffd8b0, to_purge=<optimized out>) at ../.././gcc/tree-inline.c:5061
+#7  0x0000000000b5afca in gimple_expand_calls_inline (to_purge=0x7fffffffd890, id=0x7fffffffd8b0, bb=0x7ffff6c34478) at ../.././gcc/tree-inline.c:5251
+#8  optimize_inline_calls (fn=0x7ffff6d5a700) at ../.././gcc/tree-inline.c:5424
+#9  0x000000000131900f in early_inliner (fun=0x7ffff6d7e0b0) at ../.././gcc/ipa-inline.c:2976
+#10 0x0000000000a2d8f8 in execute_one_pass (pass=0x2258100) at ../.././gcc/passes.c:2502
+#11 0x0000000000a2e240 in execute_pass_list_1 (pass=0x2258100) at ../.././gcc/passes.c:2590
+#12 0x0000000000a2e279 in execute_pass_list (fn=fn@entry=0x7ffff6d7e0b0, pass=pass@entry=0x2257fe0) at ../.././gcc/passes.c:2601
+#13 0x0000000000a2b80e in do_per_function_toporder (callback=callback@entry=0xa2e260 <execute_pass_list(function*, opt_pass*)>, data=0x2257fe0) at ../.././gcc/passes.c:1726
+#14 0x0000000000a2e7ff in do_per_function_toporder (data=<optimized out>, callback=0xa2e260 <execute_pass_list(function*, opt_pass*)>) at ../.././gcc/passes.c:2934
+#15 execute_ipa_pass_list (pass=0x2257f80) at ../.././gcc/passes.c:2934
+#16 0x000000000072b29f in ipa_passes () at ../.././gcc/cgraphunit.c:2709
+#17 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2844
+#18 0x000000000072d01d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3091
+#19 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3091
+#20 0x0000000000aecaaf in compile_file () at ../.././gcc/toplev.c:483
+#21 0x00000000005da4ec in do_compile () at ../.././gcc/toplev.c:2274
+#22 toplev::main (this=this@entry=0x7fffffffdc9e, argc=<optimized out>, argc@entry=13, argv=<optimized out>, argv@entry=0x7fffffffdd98) at ../.././gcc/toplev.c:2413
+#23 0x00000000005ddf5f in main (argc=13, argv=0x7fffffffdd98) at ../.././gcc/main.c:39
+
