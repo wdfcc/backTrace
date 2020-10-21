@@ -1,0 +1,16 @@
+(gdb) bt
+#0  ipa_reverse_postorder (order=order@entry=0x1ffd730) at ../../gcc/ipa-utils.c:285
+#1  0x0000000000a541d0 in do_per_function_toporder (callback=callback@entry=0xa56e30 <execute_pass_list(function*, opt_pass*)>, data=0x2002ce0)
+    at ../../gcc/passes.c:1701
+#2  0x0000000000a573cf in do_per_function_toporder (data=<optimized out>, callback=0xa56e30 <execute_pass_list(function*, opt_pass*)>)
+    at ../../gcc/passes.c:2934
+#3  execute_ipa_pass_list (pass=0x2002c80) at ../../gcc/passes.c:2934
+#4  0x0000000000753faf in ipa_passes () at ../../gcc/cgraphunit.c:2620
+#5  symbol_table::compile (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:2755
+#6  0x0000000000755d1d in symbol_table::compile (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:3002
+#7  symbol_table::finalize_compilation_unit (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:3002
+#8  0x0000000000b158ef in compile_file () at ../../gcc/toplev.c:483
+#9  0x000000000060352c in do_compile () at ../../gcc/toplev.c:2273
+#10 toplev::main (this=this@entry=0x7fffffffe24e, argc=<optimized out>, argc@entry=15, argv=<optimized out>, argv@entry=0x7fffffffe358)
+    at ../../gcc/toplev.c:2412
+#11 0x0000000000606fcf in main (argc=15, argv=0x7fffffffe358) at ../../gcc/main.c:39
