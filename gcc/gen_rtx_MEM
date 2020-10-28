@@ -1,0 +1,41 @@
+gdb) bt       
+#0  0x0000000000abfcb5 in rtx_init (code=MEM, rt=0x7ffff3457948) at ../.././gcc/rtl.h:2966
+#1  rtx_alloc_stat_v (extra=0, code=MEM) at ../.././gcc/rtl.c:222
+#2  rtx_alloc (code=code@entry=MEM) at ../.././gcc/rtl.c:239
+#3  0x00000000007e933a in gen_rtx_fmt_e0_stat (arg0=0x7ffff3457930, mode=E_SImode, code=MEM) at ./genrtl.h:745
+#4  gen_rtx_MEM (addr=0x7ffff3457930, mode=E_SImode) at ../.././gcc/emit-rtl.c:856
+#5  change_address_1 (memref=0x7ffff3457918, mode=E_SImode, addr=0x7ffff3457930, validate=<optimized out>, inplace=<optimized out>) at ../.././gcc/emit-rtl.c:2332
+#6  0x00000000007ec951 in adjust_address_1 (memref=memref@entry=0x7ffff3457918, mode=E_SImode, offset=..., validate=validate@entry=1, adjust_address=adjust_address@entry=1, adjust_object=adjust_object@entry=0, 
+    size=...) at ../.././gcc/emit-rtl.c:2452
+#7  0x000000000081e013 in expand_expr_real_1 (exp=<optimized out>, target=<optimized out>, tmode=E_VOIDmode, modifier=EXPAND_NORMAL, alt_rtl=0x0, inner_reference_p=<optimized out>) at ../.././gcc/poly-int.h:671
+#8  0x000000000081dbfb in expand_expr_real (inner_reference_p=false, alt_rtl=<optimized out>, modifier=<optimized out>, tmode=E_VOIDmode, target=<optimized out>, exp=<optimized out>) at ../.././gcc/expr.c:8358
+#9  expand_expr_real_1 (exp=0x7ffff344a630, target=<optimized out>, tmode=E_VOIDmode, modifier=EXPAND_NORMAL, alt_rtl=0x0, inner_reference_p=<optimized out>) at ../.././gcc/expr.c:10058
+#10 0x000000000081894d in expand_expr_real (inner_reference_p=false, alt_rtl=0x0, modifier=EXPAND_NORMAL, tmode=E_VOIDmode, target=<optimized out>, exp=<optimized out>) at ../.././gcc/expr.c:8358
+#11 expand_expr (modifier=EXPAND_NORMAL, mode=E_VOIDmode, target=<optimized out>, exp=<optimized out>) at ../.././gcc/expr.h:282
+#12 expand_expr_real_2 (ops=<optimized out>, target=<optimized out>, tmode=<optimized out>, modifier=EXPAND_NORMAL) at ../.././gcc/expr.c:9305
+#13 0x000000000081e0fe in expand_expr_real_1 (exp=0x7ffff344a678, target=<optimized out>, tmode=E_VOIDmode, modifier=EXPAND_NORMAL, alt_rtl=0x0, inner_reference_p=<optimized out>) at ../.././gcc/expr.c:10054
+#14 0x000000000071a972 in expand_expr (modifier=<optimized out>, mode=E_VOIDmode, target=0x0, exp=0x7ffff344a678) at ../.././gcc/expr.h:282
+#15 expand_asm_stmt (stmt=<optimized out>) at ../.././gcc/cfgexpand.c:3228
+#16 0x000000000071efd9 in expand_gimple_stmt_1 (stmt=0x7ffff343ac30) at ../.././gcc/cfgexpand.c:3679
+#17 expand_gimple_stmt (stmt=0x7ffff343ac30) at ../.././gcc/cfgexpand.c:3847
+#18 0x0000000000724b1b in expand_gimple_basic_block (disable_tail_calls=<optimized out>, bb=<optimized out>) at ../.././gcc/cfgexpand.c:5887
+#19 (anonymous namespace)::pass_expand::execute (this=<optimized out>, fun=<optimized out>) at ../.././gcc/cfgexpand.c:6542
+#20 0x0000000000a569e8 in execute_one_pass (pass=0x206eb90) at ../.././gcc/passes.c:2502
+#21 0x0000000000a57330 in execute_pass_list_1 (pass=0x206eb90) at ../.././gcc/passes.c:2590
+#22 0x0000000000a57369 in execute_pass_list (fn=0x7ffff334a8f0, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#23 0x0000000000752ffe in cgraph_node::expand (this=0x7ffff33762d0) at ../.././gcc/context.h:48
+#24 0x0000000000754090 in expand_all_functions () at ../.././gcc/cgraphunit.c:2560
+#25 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2911
+#26 0x000000000075610d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3091
+#27 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3091
+#28 0x0000000000b15b9f in compile_file () at ../.././gcc/toplev.c:483
+#29 0x00000000006035dc in do_compile () at ../.././gcc/toplev.c:2274
+#30 toplev::main (this=this@entry=0x7fffffffcb7e, argc=<optimized out>, argc@entry=112, argv=<optimized out>, argv@entry=0x7fffffffcc78) at ../.././gcc/toplev.c:2413
+#31 0x000000000060704f in main (argc=112, argv=0x7fffffffcc78) at ../.././gcc/main.c:39
+(gdb) frame 14
+#14 0x000000000071a972 in expand_expr (modifier=<optimized out>, mode=E_VOIDmode, target=0x0, exp=0x7ffff344a678) at ../.././gcc/expr.h:282
+282	  return expand_expr_real (exp, target, mode, modifier, NULL, false);
+(gdb) frame 13
+#13 0x000000000081e0fe in expand_expr_real_1 (exp=0x7ffff344a678, target=<optimized out>, tmode=E_VOIDmode, modifier=EXPAND_NORMAL, alt_rtl=0x0, inner_reference_p=<optimized out>) at ../.././gcc/expr.c:10054
+10054		      r = expand_expr_real_2 (&ops, target, tmode, modifier);
+
