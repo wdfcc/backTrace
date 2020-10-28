@@ -1,0 +1,30 @@
+(gdb) bt
+#0  0x0000000000a76d32 in rtx_writer::print_rtx_operand_code_u (this=0x7fffffffc650, in_rtx=<optimized out>, idx=<optimized out>) at ../.././gcc/rtl.h:1445
+#1  0x0000000000a76080 in rtx_writer::print_rtx (this=this@entry=0x7fffffffc650, in_rtx=in_rtx@entry=0x7ffff341d038) at ../.././gcc/print-rtl.c:905
+#2  0x0000000000a77861 in rtx_writer::print_rtl_single_with_indent (this=this@entry=0x7fffffffc650, x=0x7ffff341d038, ind=ind@entry=0) at ../.././gcc/print-rtl.c:1212
+#3  0x0000000000a778c0 in print_rtl_single (outf=<optimized out>, x=<optimized out>) at ../.././gcc/print-rtl.c:1195
+#4  0x0000000000736915 in rtl_dump_bb (outf=0x7ffff71e51c0 <_IO_2_1_stderr_>, bb=0x7ffff340f8f0, indent=<optimized out>, flags=40) at ../.././gcc/cfgrtl.c:2164
+#5  0x000000000072739f in dump_bb (outf=0x7ffff71e51c0 <_IO_2_1_stderr_>, bb=0x7ffff340f8f0, indent=2, flags=40) at ../.././gcc/cfghooks.c:286
+#6  0x0000000000b47f1b in dump_function_to_file (fndecl=0x7ffff51f1400, file=0x7ffff71e51c0 <_IO_2_1_stderr_>, flags=40) at ../.././gcc/tree-cfg.c:8303
+#7  <function called from gdb>
+#8  lra_set_insn_recog_data (insn=0x7ffff3425600) at ../.././gcc/rtl.h:1445
+#9  0x00000000009a1550 in lra_get_insn_recog_data (insn=insn@entry=0x7ffff3425600) at ../.././gcc/lra-int.h:488
+#10 remove_scratches_1 (insn=insn@entry=0x7ffff3425600) at ../.././gcc/lra.c:2061
+#11 0x00000000009a1942 in remove_scratches () at ../.././gcc/lra.c:2097
+#12 lra (f=<optimized out>) at ../.././gcc/lra.c:2399
+#13 0x000000000095f9d2 in do_reload () at ../.././gcc/ira.c:5523
+#14 (anonymous namespace)::pass_reload::execute (this=<optimized out>) at ../.././gcc/ira.c:5709
+#15 0x0000000000a569e8 in execute_one_pass (pass=0x206fed0) at ../.././gcc/passes.c:2502
+#16 0x0000000000a57330 in execute_pass_list_1 (pass=0x206fed0) at ../.././gcc/passes.c:2590
+#17 0x0000000000a57342 in execute_pass_list_1 (pass=0x206ebf0) at ../.././gcc/passes.c:2591
+#18 0x0000000000a57369 in execute_pass_list (fn=0x7ffff334a790, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#19 0x0000000000752ffe in cgraph_node::expand (this=0x7ffff33679d8) at ../.././gcc/context.h:48
+#20 0x0000000000754090 in expand_all_functions () at ../.././gcc/cgraphunit.c:2560
+#21 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2911
+#22 0x000000000075610d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3091
+#23 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3091
+#24 0x0000000000b15b9f in compile_file () at ../.././gcc/toplev.c:483
+#25 0x00000000006035dc in do_compile () at ../.././gcc/toplev.c:2274
+#26 toplev::main (this=this@entry=0x7fffffffcb7e, argc=<optimized out>, argc@entry=112, argv=<optimized out>, argv@entry=0x7fffffffcc78) at ../.././gcc/toplev.c:2413
+#27 0x000000000060704f in main (argc=112, argv=0x7fffffffcc78) at ../.././gcc/main.c:39
+
