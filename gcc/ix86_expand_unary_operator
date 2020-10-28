@@ -1,0 +1,34 @@
+(gdb) bt
+#0  0x00007ffff6eb08b1 in __memset_sse2 () from /lib64/libc.so.6
+#1  0x00000000008f60d7 in ggc_internal_alloc (size=<optimized out>, f=0x0, s=0, n=1) at ../../gcc/ggc-page.c:1400
+#2  0x0000000000d4dbec in ggc_internal_alloc (s=16) at ../../gcc/ggc.h:303
+#3  ggc_alloc_rtx_def_stat (s=16) at ../../gcc/ggc.h:303
+#4  rtx_alloc_stat_v (extra=0, code=NOT) at ../../gcc/rtl.c:219
+#5  rtx_alloc (code=NOT) at ../../gcc/rtl.c:239
+#6  0x000000000119580b in gen_rtx_fmt_e_stat (arg0=0x7ffff327dd68, mode=E_SImode, code=NOT) at ./genrtl.h:588
+#7  ix86_expand_unary_operator (code=NOT, mode=E_SImode, operands=0x7fffffffb960) at ../../gcc/config/i386/i386-expand.c:1106
+#8  0x00000000014e387e in gen_one_cmplsi2 (operand0=0x7ffff327dd50, operand1=0x7ffff327dd38) at ../../gcc/config/i386/i386.md:10443
+#9  0x0000000000ca65fc in expand_unop_direct (unsignedp=1, target=0x0, op0=0x7ffff327dd38, unoptab=one_cmpl_optab, mode=E_SImode) at ../../gcc/optabs.c:2741
+#10 expand_unop_direct (mode=E_SImode, unoptab=one_cmpl_optab, op0=0x7ffff327dd38, target=0x0, unsignedp=1) at ../../gcc/optabs.c:2729
+#11 0x0000000000ca4da9 in expand_unop (mode=E_SImode, unoptab=one_cmpl_optab, op0=0x7ffff327dd38, target=0x0, unsignedp=1) at ../../gcc/optabs.c:2783
+#12 0x0000000000a66e59 in expand_expr_real_2 (ops=0x7fffffffbd20, target=0x0, tmode=<optimized out>, modifier=EXPAND_NORMAL) at ../../gcc/expr.c:9443
+#13 0x0000000000a6d6c9 in expand_expr_real_1 (exp=0x7ffff326a900, target=<optimized out>, tmode=E_VOIDmode, modifier=EXPAND_NORMAL, alt_rtl=0x0, inner_reference_p=<optimized out>) at ../../gcc/expr.c:10170
+#14 0x0000000000945e98 in expand_expr (modifier=<optimized out>, mode=E_VOIDmode, target=0x0, exp=0x7ffff326a900) at ../../gcc/expr.h:282
+#15 expand_asm_stmt (stmt=<optimized out>) at ../../gcc/cfgexpand.c:3229
+#16 0x000000000094b04c in expand_gimple_stmt_1 (stmt=0x7ffff3262b60) at ../../gcc/gimple.h:942
+#17 expand_gimple_stmt (stmt=0x7ffff3262b60) at ../../gcc/cfgexpand.c:3848
+#18 0x0000000000950c64 in expand_gimple_basic_block (bb=<optimized out>, disable_tail_calls=<optimized out>) at ../../gcc/cfgexpand.c:5889
+#19 0x0000000000952667 in (anonymous namespace)::pass_expand::execute (this=<optimized out>, fun=0x7ffff31698f0) at ../../gcc/cfgexpand.c:6573
+#20 0x0000000000cdad7d in execute_one_pass (pass=0x25a9e10) at ../../gcc/passes.c:2517
+#21 0x0000000000cdb620 in execute_pass_list_1 (pass=0x25a9e10) at ../../gcc/passes.c:2606
+#22 0x0000000000cdb659 in execute_pass_list (fn=0x7ffff31698f0, pass=<optimized out>) at ../../gcc/passes.c:2617
+#23 0x00000000009876f6 in cgraph_node::expand (this=0x7ffff3198250) at ../../gcc/context.h:48
+#24 0x0000000000988c28 in expand_all_functions () at ../../gcc/cgraphunit.c:1995
+#25 symbol_table::compile (this=0x7ffff6c2c100) at ../../gcc/cgraphunit.c:2359
+#26 0x000000000098b658 in symbol_table::compile (this=0x7ffff6c2c100) at ../../gcc/cgraphunit.c:2540
+#27 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../../gcc/cgraphunit.c:2540
+#28 0x0000000000db2a1a in compile_file () at ../../gcc/toplev.c:485
+#29 0x00000000007e3386 in do_compile () at ../../gcc/toplev.c:2321
+#30 toplev::main (this=0x7fffffffcb5e, argc=<optimized out>, argv=<optimized out>) at ../../gcc/toplev.c:2460
+#31 0x00000000007e710f in main (argc=114, argv=0x7fffffffcc58) at ../../gcc/main.c:39
+
