@@ -1,0 +1,30 @@
+(gdb) bt
+#0  make_insn_raw (pattern=0x7ffff345ef60) at ../.././gcc/emit-rtl.c:4058
+#1  emit_insn (x=0x7ffff345ef60) at ../.././gcc/emit-rtl.c:5137
+#2  emit_insn (x=0x7ffff345ef60) at ../.././gcc/emit-rtl.c:5102
+#3  0x0000000000e282c6 in ix86_expand_move (mode=mode@entry=E_SImode, operands=operands@entry=0x7fffffffb940) at ./genrtl.h:39
+#4  0x00000000010a8c39 in gen_movsi (operand0=0x7ffff345ef48, operand1=0x7ffff345ef18) at ../.././gcc/config/i386/i386.md:1870
+#5  0x000000000081f978 in insn_gen_fn::operator() (a1=0x7ffff345ef18, a0=0x7ffff345ef48, this=<optimized out>) at ../.././gcc/recog.h:317
+#6  emit_move_insn_1 (x=0x7ffff345ef48, y=0x7ffff345ef18) at ../.././gcc/expr.c:3759
+#7  0x000000000081fd02 in emit_move_insn (x=x@entry=0x7ffff345ef48, y=y@entry=0x7ffff345ef18) at ../.././gcc/expr.c:3855
+#8  0x00000000009a15b3 in lra_emit_move (x=0x7ffff345ef48, y=y@entry=0x7ffff345ef18) at ../.././gcc/lra.c:499
+#9  0x00000000009ab52a in match_reload (out=out@entry=0 '\000', ins=ins@entry=0x7fffffffc400 "\001\377\377\377\377\177", outs=outs@entry=0x7fffffffc220 "\377", goal_class=GENERAL_REGS, before=before@entry=0x7fffffffbbe0, 
+    after=after@entry=0x7fffffffbbe8, early_clobber_p=false) at ../.././gcc/lra-constraints.c:1047
+#10 0x00000000009b1cf1 in curr_insn_transform (check_only_p=<optimized out>) at ../.././gcc/lra-constraints.c:4480
+#11 0x00000000009b3337 in lra_constraints (first_p=<optimized out>) at ../.././gcc/lra-constraints.c:5029
+#12 0x00000000009a1ae5 in lra (f=<optimized out>) at ../.././gcc/lra.c:2440
+#13 0x000000000095f9d2 in do_reload () at ../.././gcc/ira.c:5523
+#14 (anonymous namespace)::pass_reload::execute (this=<optimized out>) at ../.././gcc/ira.c:5709
+#15 0x0000000000a569e8 in execute_one_pass (pass=0x206fed0) at ../.././gcc/passes.c:2502
+#16 0x0000000000a57330 in execute_pass_list_1 (pass=0x206fed0) at ../.././gcc/passes.c:2590
+#17 0x0000000000a57342 in execute_pass_list_1 (pass=0x206ebf0) at ../.././gcc/passes.c:2591
+#18 0x0000000000a57369 in execute_pass_list (fn=0x7ffff334a8f0, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#19 0x0000000000752ffe in cgraph_node::expand (this=0x7ffff33762d0) at ../.././gcc/context.h:48
+#20 0x0000000000754090 in expand_all_functions () at ../.././gcc/cgraphunit.c:2560
+#21 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2911
+#22 0x000000000075610d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3091
+#23 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3091
+#24 0x0000000000b15b9f in compile_file () at ../.././gcc/toplev.c:483
+#25 0x00000000006035dc in do_compile () at ../.././gcc/toplev.c:2274
+#26 toplev::main (this=this@entry=0x7fffffffcb7e, argc=<optimized out>, argc@entry=112, argv=<optimized out>, argv@entry=0x7fffffffcc78) at ../.././gcc/toplev.c:2413
+#27 0x000000000060704f in main (argc=112, argv=0x7fffffffcc78) at ../.././gcc/main.c:39
