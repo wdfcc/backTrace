@@ -1,0 +1,27 @@
+gdb) bt    
+#0  0x000000000117c778 in lookup_handler (scode=6291473, scode@entry=32767) at insn-opinit.c:3386
+#1  raw_optab_handler (scode=scode@entry=6291473) at insn-opinit.c:3399
+#2  0x0000000000a25c6c in optab_handler (mode=E_SImode, op=one_cmpl_optab) at ../.././gcc/optabs-query.h:42
+#3  expand_unop_direct (unsignedp=1, target=0x0, op0=0x7ffff3457948, unoptab=one_cmpl_optab, mode=E_SImode) at ../.././gcc/optabs.c:2725
+#4  expand_unop (mode=E_SImode, unoptab=one_cmpl_optab, op0=0x7ffff3457948, target=0x0, unsignedp=1) at ../.././gcc/optabs.c:2776
+#5  0x000000000081898d in expand_expr_real_2 (ops=<optimized out>, target=0x0, tmode=<optimized out>, modifier=EXPAND_NORMAL) at ../.././gcc/expr.c:9323
+#6  0x000000000081e0fe in expand_expr_real_1 (exp=0x7ffff344a678, target=<optimized out>, tmode=E_VOIDmode, modifier=EXPAND_NORMAL, alt_rtl=0x0, inner_reference_p=<optimized out>) at ../.././gcc/expr.c:10054
+#7  0x000000000071a972 in expand_expr (modifier=<optimized out>, mode=E_VOIDmode, target=0x0, exp=0x7ffff344a678) at ../.././gcc/expr.h:282
+#8  expand_asm_stmt (stmt=<optimized out>) at ../.././gcc/cfgexpand.c:3228
+#9  0x000000000071efd9 in expand_gimple_stmt_1 (stmt=0x7ffff343ac30) at ../.././gcc/cfgexpand.c:3679
+#10 expand_gimple_stmt (stmt=0x7ffff343ac30) at ../.././gcc/cfgexpand.c:3847
+#11 0x0000000000724b1b in expand_gimple_basic_block (disable_tail_calls=<optimized out>, bb=<optimized out>) at ../.././gcc/cfgexpand.c:5887
+#12 (anonymous namespace)::pass_expand::execute (this=<optimized out>, fun=<optimized out>) at ../.././gcc/cfgexpand.c:6542
+#13 0x0000000000a569e8 in execute_one_pass (pass=0x206eb90) at ../.././gcc/passes.c:2502
+#14 0x0000000000a57330 in execute_pass_list_1 (pass=0x206eb90) at ../.././gcc/passes.c:2590
+#15 0x0000000000a57369 in execute_pass_list (fn=0x7ffff334a8f0, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#16 0x0000000000752ffe in cgraph_node::expand (this=0x7ffff33762d0) at ../.././gcc/context.h:48
+#17 0x0000000000754090 in expand_all_functions () at ../.././gcc/cgraphunit.c:2560
+#18 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2911
+#19 0x000000000075610d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3091
+#20 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3091
+#21 0x0000000000b15b9f in compile_file () at ../.././gcc/toplev.c:483
+#22 0x00000000006035dc in do_compile () at ../.././gcc/toplev.c:2274
+#23 toplev::main (this=this@entry=0x7fffffffcb7e, argc=<optimized out>, argc@entry=112, argv=<optimized out>, argv@entry=0x7fffffffcc78) at ../.././gcc/toplev.c:2413
+#24 0x000000000060704f in main (argc=112, argv=0x7fffffffcc78) at ../.././gcc/main.c:39
+
