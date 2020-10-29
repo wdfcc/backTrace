@@ -1,0 +1,22 @@
+(gdb) bt
+#0  decode_asm_operands (body=<optimized out>, operands=0x0, operand_locs=0x25e0c70, constraints=0x7fffffffc670, modes=0x7fffffffc5f0, loc=0x0) at ../../gcc/recog.c:1622
+#1  0x0000000000c203a2 in lra_set_insn_recog_data (insn=0x7ffff327e6c0) at ../../gcc/rtl.h:1501
+#2  0x0000000000c21170 in lra_get_insn_recog_data (insn=0x7ffff327e6c0) at ../../gcc/lra-int.h:488
+#3  remove_scratches_1 (insn=0x7ffff327e6c0) at ../../gcc/lra.c:2064
+#4  0x0000000000c216a0 in remove_scratches () at ../../gcc/lra.c:2100
+#5  lra (f=<optimized out>) at ../../gcc/lra.c:2374
+#6  0x0000000000bdd322 in do_reload () at ../../gcc/ira.c:5529
+#7  (anonymous namespace)::pass_reload::execute (this=<optimized out>) at ../../gcc/ira.c:5715
+#8  0x0000000000cdad7d in execute_one_pass (pass=0x25ab1b0) at ../../gcc/passes.c:2517
+#9  0x0000000000cdb620 in execute_pass_list_1 (pass=0x25ab1b0) at ../../gcc/passes.c:2606
+#10 0x0000000000cdb632 in execute_pass_list_1 (pass=0x25a9e70) at ../../gcc/passes.c:2607
+#11 0x0000000000cdb659 in execute_pass_list (fn=0x7ffff31698f0, pass=<optimized out>) at ../../gcc/passes.c:2617
+#12 0x00000000009876f6 in cgraph_node::expand (this=0x7ffff3198250) at ../../gcc/context.h:48
+#13 0x0000000000988c28 in expand_all_functions () at ../../gcc/cgraphunit.c:1995
+#14 symbol_table::compile (this=0x7ffff6c2c100) at ../../gcc/cgraphunit.c:2359
+#15 0x000000000098b658 in symbol_table::compile (this=0x7ffff6c2c100) at ../../gcc/cgraphunit.c:2540
+#16 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../../gcc/cgraphunit.c:2540
+#17 0x0000000000db2a1a in compile_file () at ../../gcc/toplev.c:485
+#18 0x00000000007e3386 in do_compile () at ../../gcc/toplev.c:2321
+#19 toplev::main (this=0x7fffffffcb5e, argc=<optimized out>, argv=<optimized out>) at ../../gcc/toplev.c:2460
+#20 0x00000000007e710f in main (argc=114, argv=0x7fffffffcc58) at ../../gcc/main.c:39
