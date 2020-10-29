@@ -1,0 +1,22 @@
+(gdb) bt
+#0  init_rtx_fmt_ssiEEEi (arg6=-2147411102, arg5=0x7ffff33a6158, arg4=0x7ffff3457a38, arg3=0x7ffff3457a20, arg2=0, arg1=0x1c1336d "", arg0=0x7ffff3457a50 "addl %2,%0\n\tadcl $0,%0", mode=<optimized out>, rt=0x7ffff3456900)
+    at ./genrtl.h:451
+#1  gen_rtx_fmt_ssiEEEi_stat (arg6=-2147411102, arg5=0x7ffff33a6158, arg4=0x7ffff3457a38, arg3=0x7ffff3457a20, arg2=0, arg1=0x1c1336d "", arg0=0x7ffff3457a50 "addl %2,%0\n\tadcl $0,%0", mode=<optimized out>, code=ASM_OPERANDS)
+    at ./genrtl.h:470
+#2  expand_asm_stmt (stmt=<optimized out>) at ../.././gcc/cfgexpand.c:3313
+#3  0x000000000071efd9 in expand_gimple_stmt_1 (stmt=0x7ffff343ac30) at ../.././gcc/cfgexpand.c:3679
+#4  expand_gimple_stmt (stmt=0x7ffff343ac30) at ../.././gcc/cfgexpand.c:3847
+#5  0x0000000000724b1b in expand_gimple_basic_block (disable_tail_calls=<optimized out>, bb=<optimized out>) at ../.././gcc/cfgexpand.c:5887
+#6  (anonymous namespace)::pass_expand::execute (this=<optimized out>, fun=<optimized out>) at ../.././gcc/cfgexpand.c:6542
+#7  0x0000000000a569e8 in execute_one_pass (pass=0x206eb90) at ../.././gcc/passes.c:2502
+#8  0x0000000000a57330 in execute_pass_list_1 (pass=0x206eb90) at ../.././gcc/passes.c:2590
+#9  0x0000000000a57369 in execute_pass_list (fn=0x7ffff334a8f0, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#10 0x0000000000752ffe in cgraph_node::expand (this=0x7ffff33762d0) at ../.././gcc/context.h:48
+#11 0x0000000000754090 in expand_all_functions () at ../.././gcc/cgraphunit.c:2560
+#12 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2911
+#13 0x000000000075610d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3091
+#14 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3091
+#15 0x0000000000b15b9f in compile_file () at ../.././gcc/toplev.c:483
+#16 0x00000000006035dc in do_compile () at ../.././gcc/toplev.c:2274
+#17 toplev::main (this=this@entry=0x7fffffffcb7e, argc=<optimized out>, argc@entry=112, argv=<optimized out>, argv@entry=0x7fffffffcc78) at ../.././gcc/toplev.c:2413
+#18 0x000000000060704f in main (argc=112, argv=0x7fffffffcc78) at ../.././gcc/main.c:39
