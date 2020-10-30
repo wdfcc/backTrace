@@ -1,0 +1,24 @@
+(gdb) bt
+#0  do_SUBST (into=0x7ffff327de08, newval=0x7ffff3272c60) at ../../gcc/combine.c:756
+#1  0x00000000016c6072 in subst (x=0x7ffff327e680, from=0x7ffff327dd50, to=0x7ffff3272c60, in_dest=0, in_cond=0, unique_copy=0) at ../../gcc/combine.c:5597
+#2  0x00000000016c5e2f in subst (x=0x7ffff327de88, from=0x7ffff327dd50, to=0x7ffff3272c60, in_dest=0, in_cond=0, unique_copy=0) at ../../gcc/combine.c:5658
+#3  0x00000000016c6425 in subst (x=0x7ffff3272c80, from=0x7ffff327dd50, to=0x7ffff3272c60, in_dest=0, in_cond=0, unique_copy=0) at ../../gcc/combine.c:5511
+#4  0x00000000016c8cd7 in try_combine (i3=<optimized out>, i2=<optimized out>, i1=<optimized out>, i0=<optimized out>, new_direct_jump_p=0x7fffffffc89c, last_combined_insn=0x7ffff327e6c0)
+    at ../../gcc/rtl.h:1501
+#5  0x00000000016ceeae in combine_instructions (nregs=<optimized out>, f=<optimized out>) at ../../gcc/combine.c:1303
+#6  rest_of_handle_combine () at ../../gcc/combine.c:15071
+#7  (anonymous namespace)::pass_combine::execute (this=<optimized out>) at ../../gcc/combine.c:15116
+#8  0x0000000000cdad7d in execute_one_pass (pass=0x25aaa80) at ../../gcc/passes.c:2517
+#9  0x0000000000cdb620 in execute_pass_list_1 (pass=0x25aaa80) at ../../gcc/passes.c:2606
+#10 0x0000000000cdb632 in execute_pass_list_1 (pass=0x25a9e70) at ../../gcc/passes.c:2607
+#11 0x0000000000cdb659 in execute_pass_list (fn=0x7ffff31698f0, pass=<optimized out>) at ../../gcc/passes.c:2617
+#12 0x00000000009876f6 in cgraph_node::expand (this=0x7ffff3198250) at ../../gcc/context.h:48
+#13 0x0000000000988c28 in expand_all_functions () at ../../gcc/cgraphunit.c:1995
+#14 symbol_table::compile (this=0x7ffff6c2c100) at ../../gcc/cgraphunit.c:2359
+#15 0x000000000098b658 in symbol_table::compile (this=0x7ffff6c2c100) at ../../gcc/cgraphunit.c:2540
+#16 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../../gcc/cgraphunit.c:2540
+#17 0x0000000000db2a1a in compile_file () at ../../gcc/toplev.c:485
+#18 0x00000000007e3386 in do_compile () at ../../gcc/toplev.c:2321
+#19 toplev::main (this=0x7fffffffcb5e, argc=<optimized out>, argv=<optimized out>) at ../../gcc/toplev.c:2460
+#20 0x00000000007e710f in main (argc=114, argv=0x7fffffffcc58) at ../../gcc/main.c:39
+

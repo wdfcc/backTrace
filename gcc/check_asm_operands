@@ -1,0 +1,23 @@
+(gdb) bt
+#0  check_asm_operands (x=x@entry=0x7ffff3458150) at ../.././gcc/recog.c:173
+#1  0x00000000012915f6 in recog_for_combine_1 (pnewpat=0x7fffffffc7d0, insn=0x7ffff3456940, pnotes=0x7fffffffc7e0) at ../.././gcc/combine.c:11468
+#2  0x00000000012937cf in recog_for_combine (pnewpat=pnewpat@entry=0x7fffffffc7d0, insn=insn@entry=0x7ffff3456940, pnotes=pnotes@entry=0x7fffffffc7e0) at ../.././gcc/combine.c:11723
+#3  0x00000000012a4fab in try_combine (i3=<optimized out>, i2=<optimized out>, i1=0x7ffff3456880, i0=0x0, new_direct_jump_p=0x7fffffffc8cc, last_combined_insn=0x7ffff3456940)
+    at ../.././gcc/combine.c:3656
+#4  0x00000000012a8ea3 in combine_instructions (nregs=<optimized out>, f=<optimized out>) at ../.././gcc/combine.c:1324
+#5  rest_of_handle_combine () at ../.././gcc/combine.c:15066
+#6  (anonymous namespace)::pass_combine::execute (this=<optimized out>) at ../.././gcc/combine.c:15111
+#7  0x0000000000a569e8 in execute_one_pass (pass=0x206f800) at ../.././gcc/passes.c:2502
+#8  0x0000000000a57330 in execute_pass_list_1 (pass=0x206f800) at ../.././gcc/passes.c:2590
+#9  0x0000000000a57342 in execute_pass_list_1 (pass=0x206ebf0) at ../.././gcc/passes.c:2591
+#10 0x0000000000a57369 in execute_pass_list (fn=0x7ffff334a8f0, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#11 0x0000000000752ffe in cgraph_node::expand (this=0x7ffff33762d0) at ../.././gcc/context.h:48
+#12 0x0000000000754090 in expand_all_functions () at ../.././gcc/cgraphunit.c:2560
+#13 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2911
+#14 0x000000000075610d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3091
+#15 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3091
+#16 0x0000000000b15b9f in compile_file () at ../.././gcc/toplev.c:483
+#17 0x00000000006035dc in do_compile () at ../.././gcc/toplev.c:2274
+#18 toplev::main (this=this@entry=0x7fffffffcb7e, argc=<optimized out>, argc@entry=112, argv=<optimized out>, argv@entry=0x7fffffffcc78) at ../.././gcc/toplev.c:2413
+#19 0x000000000060704f in main (argc=112, argv=0x7fffffffcc78) at ../.././gcc/main.c:39
+
