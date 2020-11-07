@@ -1,0 +1,11 @@
+(gdb) bt
+#0  0x0000000000414ec3 in md_reader::read_char (this=0x45e7b0) at ../../gcc/read-md.c:396
+#1  0x000000000041554c in md_reader::read_name_1 (this=this@entry=0x45e7b0, name=name@entry=0x7fffffffdf80, out_loc=out_loc@entry=0x7fffffffdf50)
+    at ../../gcc/read-md.c:484
+#2  0x0000000000416126 in md_reader::read_name (name=0x7fffffffdf80, this=0x45e7b0) at ../../gcc/read-md.c:520
+#3  md_reader::handle_enum (this=this@entry=0x45e7b0, loc=..., md_p=md_p@entry=false) at ../../gcc/read-md.c:941
+#4  0x0000000000416626 in md_reader::handle_file (this=this@entry=0x45e7b0) at ../../gcc/read-md.c:1148
+#5  0x00000000004169ab in md_reader::handle_toplevel_file (this=0x45e7b0) at ../../gcc/read-md.c:1174
+#6  md_reader::read_md_files (this=0x45e7b0, argc=<optimized out>, argv=<optimized out>, parse_opt=0x0) at ../../gcc/read-md.c:1289
+#7  0x000000000040fd4d in init_rtx_reader_args_cb (argc=2, argv=0x7fffffffe498, parse_opt=0x0) at ../../gcc/gensupport.c:2604
+#8  0x000000000040319e in main (argc=<optimized out>, argv=<optimized out>) at ../../gcc/genemit.c:855
