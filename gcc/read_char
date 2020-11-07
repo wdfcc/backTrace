@@ -1,0 +1,9 @@
+(gdb) bt
+#0  md_reader::read_char (this=0x45e7b0) at ../../gcc/read-md.c:395
+#1  0x000000000041530d in read_char () at ../../gcc/read-md.h:381
+#2  read_skip_spaces () at ../../gcc/read-md.c:316
+#3  0x0000000000416593 in md_reader::handle_file (this=this@entry=0x45e7b0) at ../../gcc/read-md.c:1136
+#4  0x00000000004169ab in md_reader::handle_toplevel_file (this=0x45e7b0) at ../../gcc/read-md.c:1174
+#5  md_reader::read_md_files (this=0x45e7b0, argc=<optimized out>, argv=<optimized out>, parse_opt=0x0) at ../../gcc/read-md.c:1289
+#6  0x000000000040fd4d in init_rtx_reader_args_cb (argc=2, argv=0x7fffffffe498, parse_opt=0x0) at ../../gcc/gensupport.c:2604
+#7  0x000000000040319e in main (argc=<optimized out>, argv=<optimized out>) at ../../gcc/genemit.c:855
