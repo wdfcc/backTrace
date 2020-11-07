@@ -1,0 +1,9 @@
+(gdb) bt
+#0  rtx_reader::read_rtx_code (this=0x45e7b0, code_name=<optimized out>) at ../../gcc/read-rtl.c:1673
+#1  0x00000000004087a1 in rtx_reader::read_rtx (this=0x45e7b0, rtx_name=0x7fffffffe0e0 "define_attr", rtxen=0x7fffffffdf80) at ../../gcc/read-rtl.c:1426
+#2  0x000000000040f694 in gen_reader::handle_unknown_directive (this=<optimized out>, loc=..., rtx_name=<optimized out>) at ../../gcc/gensupport.c:2315
+#3  0x0000000000416680 in md_reader::handle_file (this=this@entry=0x45e7b0) at ../../gcc/read-md.c:1156
+#4  0x00000000004169ab in md_reader::handle_toplevel_file (this=0x45e7b0) at ../../gcc/read-md.c:1174
+#5  md_reader::read_md_files (this=0x45e7b0, argc=<optimized out>, argv=<optimized out>, parse_opt=0x0) at ../../gcc/read-md.c:1289
+#6  0x000000000040fd4d in init_rtx_reader_args_cb (argc=2, argv=0x7fffffffe498, parse_opt=0x0) at ../../gcc/gensupport.c:2604
+#7  0x000000000040319e in main (argc=<optimized out>, argv=<optimized out>) at ../../gcc/genemit.c:855
