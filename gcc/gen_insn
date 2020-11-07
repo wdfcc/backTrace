@@ -1,0 +1,16 @@
+(gdb) bt
+#0  __GI___libc_write (fd=1, buf=0x158ac10, nbytes=13) at ../sysdeps/unix/sysv/linux/write.c:25
+#1  0x00007ffff7d0e00d in _IO_new_file_write (f=0x7ffff7e686a0 <_IO_2_1_stdout_>, data=0x158ac10, n=13) at fileops.c:1176
+#2  0x00007ffff7d0fad1 in new_do_write (to_do=13, data=0x158ac10 "\t\toperand0),\n,\n (CCmode,\n_rtx_REG (CCmode,\nED)\nmit'\n",
+    fp=0x7ffff7e686a0 <_IO_2_1_stdout_>) at libioP.h:948
+#3  _IO_new_do_write (to_do=13, data=0x158ac10 "\t\toperand0),\n,\n (CCmode,\n_rtx_REG (CCmode,\nED)\nmit'\n", fp=0x7ffff7e686a0 <_IO_2_1_stdout_>)
+    at fileops.c:426
+#4  _IO_new_do_write (fp=0x7ffff7e686a0 <_IO_2_1_stdout_>, data=0x158ac10 "\t\toperand0),\n,\n (CCmode,\n_rtx_REG (CCmode,\nED)\nmit'\n", to_do=13)
+    at fileops.c:423
+#5  0x00007ffff7d0e835 in _IO_new_file_xsputn (n=3, data=<optimized out>, f=<optimized out>) at libioP.h:948
+#6  _IO_new_file_xsputn (f=0x7ffff7e686a0 <_IO_2_1_stdout_>, data=<optimized out>, n=3) at fileops.c:1197
+#7  0x00007ffff7d0d500 in __GI___fputs_unlocked (str=0x42900f ",\n\t", fp=0x7ffff7e686a0 <_IO_2_1_stdout_>) at libioP.h:948
+#8  0x00000000004045a2 in gen_exp (x=0x5c9ca0, subroutine_type=DEFINE_INSN, used=0x0, info=<optimized out>) at ../../gcc/genemit.c:223
+#9  0x00000000004045ef in gen_exp (x=0x5c9c60, subroutine_type=DEFINE_INSN, used=0x0, info=<optimized out>) at ../../gcc/genemit.c:227
+#10 0x0000000000403cfb in gen_insn (info=0x7fffffffe330) at ../../gcc/genemit.c:435
+#11 main (argc=<optimized out>, argv=<optimized out>) at ../../gcc/genemit.c:911
