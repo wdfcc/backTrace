@@ -1,0 +1,4 @@
+(gdb) bt
+#0  0x000000000041696b in md_reader::read_md_files (this=0x45e7b0, argc=<optimized out>, argv=<optimized out>, parse_opt=0x0) at ../../gcc/read-md.c:1283
+#1  0x000000000040fd4d in init_rtx_reader_args_cb (argc=2, argv=0x7fffffffe498, parse_opt=0x0) at ../../gcc/gensupport.c:2604
+#2  0x000000000040319e in main (argc=<optimized out>, argv=<optimized out>) at ../../gcc/genemit.c:855
