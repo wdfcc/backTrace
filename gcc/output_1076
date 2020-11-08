@@ -1,0 +1,22 @@
+(gdb) bt
+#0  output_1076 (operands=0x1f8c1e0 <recog_data>, insn=0x7ffff4d1e9c0) at ../.././gcc/config/i386/i386.md:20136
+#1  0x0000000000831d56 in final_scan_insn_1 (insn=0x7ffff4d1e9c0, file=0x7ffff71e5400 <_IO_2_1_stdout_>, seen=<optimized out>, nopeepholes=<optimized out>, optimize_p=<optimized out>) at ../.././gcc/final.c:3039
+#2  0x000000000083220c in final_scan_insn (insn=<optimized out>, file=<optimized out>, optimize_p=<optimized out>, nopeepholes=<optimized out>, seen=<optimized out>) at ../.././gcc/final.c:3152
+#3  0x00000000008324f5 in final_1 (first=0x7ffff4d221c0, file=0x7ffff71e5400 <_IO_2_1_stdout_>, seen=<optimized out>, optimize_p=2) at ../.././gcc/final.c:2020
+#4  0x0000000000832c85 in rest_of_handle_final () at ../.././gcc/final.c:4658
+#5  (anonymous namespace)::pass_final::execute (this=<optimized out>) at ../.././gcc/final.c:4736
+#6  0x0000000000a569e8 in execute_one_pass (pass=0x2070d70) at ../.././gcc/passes.c:2502
+#7  0x0000000000a57330 in execute_pass_list_1 (pass=0x2070d70) at ../.././gcc/passes.c:2590
+#8  0x0000000000a57342 in execute_pass_list_1 (pass=0x2070890) at ../.././gcc/passes.c:2591
+#9  0x0000000000a57342 in execute_pass_list_1 (pass=0x206ebf0) at ../.././gcc/passes.c:2591
+#10 0x0000000000a57369 in execute_pass_list (fn=0x7ffff50dd630, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#11 0x0000000000752ffe in cgraph_node::expand (this=0x7ffff51072d0) at ../.././gcc/context.h:48
+#12 0x0000000000754090 in expand_all_functions () at ../.././gcc/cgraphunit.c:2560
+#13 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2911
+#14 0x000000000075610d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3091
+#15 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3091
+#16 0x0000000000b15b9f in compile_file () at ../.././gcc/toplev.c:483
+#17 0x00000000006035dc in do_compile () at ../.././gcc/toplev.c:2274
+#18 toplev::main (this=this@entry=0x7fffffffce1e, argc=<optimized out>, argc@entry=102, argv=<optimized out>, argv@entry=0x7fffffffcf18) at ../.././gcc/toplev.c:2413
+#19 0x000000000060704f in main (argc=102, argv=0x7fffffffcf18) at ../.././gcc/main.c:39
+

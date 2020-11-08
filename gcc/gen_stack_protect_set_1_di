@@ -1,0 +1,22 @@
+(gdb) bt
+#0  gen_stack_protect_set_1_di (operand0=0x7ffff4d21b40, operand1=0x7ffff4d21ba0) at insn-emit.c:3370
+#1  0x00000000010ef59a in insn_gen_fn::operator() (a1=0x7ffff4d21ba0, a0=0x7ffff4d21b40, this=<optimized out>) at ../.././gcc/recog.h:317
+#2  maybe_gen_stack_protect_set_1 (x1=0x7ffff4d21ba0, x0=0x7ffff4d21b40, arg0=<optimized out>) at ../.././gcc/config/i386/sync.md:3193
+#3  gen_stack_protect_set_1 (x1=0x7ffff4d21ba0, x0=0x7ffff4d21b40, arg0=<optimized out>) at ./insn-opinit.h:810
+#4  gen_stack_protect_set (operand0=0x7ffff4d21b40, operand1=0x7ffff4d21ba0) at ../.././gcc/config/i386/i386.md:20115
+#5  0x0000000000db8237 in target_gen_stack_protect_set (x0=<optimized out>, x1=<optimized out>) at ../.././gcc/config/i386/i386.md:13374
+#6  0x0000000000726009 in stack_protect_prologue () at ../.././gcc/cfgexpand.c:6288
+#7  (anonymous namespace)::pass_expand::execute (this=<optimized out>, fun=0x7ffff50dd630) at ../.././gcc/cfgexpand.c:6517
+#8  0x0000000000a569e8 in execute_one_pass (pass=0x206eb90) at ../.././gcc/passes.c:2502
+#9  0x0000000000a57330 in execute_pass_list_1 (pass=0x206eb90) at ../.././gcc/passes.c:2590
+#10 0x0000000000a57369 in execute_pass_list (fn=0x7ffff50dd630, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#11 0x0000000000752ffe in cgraph_node::expand (this=0x7ffff51072d0) at ../.././gcc/context.h:48
+#12 0x0000000000754090 in expand_all_functions () at ../.././gcc/cgraphunit.c:2560
+#13 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2911
+#14 0x000000000075610d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3091
+#15 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3091
+#16 0x0000000000b15b9f in compile_file () at ../.././gcc/toplev.c:483
+#17 0x00000000006035dc in do_compile () at ../.././gcc/toplev.c:2274
+#18 toplev::main (this=this@entry=0x7fffffffce1e, argc=<optimized out>, argc@entry=102, argv=<optimized out>, argv@entry=0x7fffffffcf18) at ../.././gcc/toplev.c:2413
+#19 0x000000000060704f in main (argc=102, argv=0x7fffffffcf18) at ../.././gcc/main.c:39
+
