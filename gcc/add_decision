@@ -1,0 +1,10 @@
+Old value = <unreadable>
+New value = 1088
+add_decision (trans=0x1f35280, test=..., from=0x1f351a0) at ../.././gcc/genrecog.c:1619
+1619	  from->push_back (d);
+(gdb) bt
+#0  add_decision (trans=0x1f35280, test=..., from=0x1f351a0) at ../.././gcc/genrecog.c:1619
+#1  add_decision (from=from@entry=0x1f351a0, test=..., labels=..., optional=optional@entry=false) at ../.././gcc/genrecog.c:1631
+#2  0x000000000040c74e in match_pattern_1 (s=0x1f351a0, s@entry=0x7fffffffdc40, info=<optimized out>, pattern=0x1f33e00, acceptance=...) at ../.././gcc/genrecog.c:1361
+#3  0x000000000040d731 in match_pattern (s=0x7fffffffdcf0, info=<optimized out>, pattern=<optimized out>, acceptance=...) at ../.././gcc/genrecog.c:4250
+#4  0x0000000000402802 in main (argc=<optimized out>, argv=<optimized out>) at ../.././gcc/genrecog.c:5374dd_decision
