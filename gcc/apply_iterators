@@ -1,0 +1,15 @@
+(gdb) bt
+#0  __memmove_avx_unaligned_erms () at ../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:290
+#1  0x0000000000411028 in md_reader::apply_iterator_to_string (this=this@entry=0x46a7b0, string=string@entry=0x5c4ca0 "<r>,?m<r>,$k") at ../../gcc/read-rtl.c:467
+#2  0x0000000000411289 in md_reader::copy_rtx_for_iterators (this=this@entry=0x46a7b0, original=<optimized out>) at ../../gcc/read-rtl.c:509
+#3  0x000000000041123b in md_reader::copy_rtx_for_iterators (this=this@entry=0x46a7b0, original=<optimized out>) at ../../gcc/read-rtl.c:514
+#4  0x000000000041123b in md_reader::copy_rtx_for_iterators (this=this@entry=0x46a7b0, original=<optimized out>) at ../../gcc/read-rtl.c:514
+#5  0x00000000004112ca in md_reader::copy_rtx_for_iterators (this=0x46a7b0, original=original@entry=0x5c4fd0) at ../../gcc/read-rtl.c:523
+#6  0x000000000041344c in apply_iterators (queue=0x7fffffffdec0, original=0x5c4fd0) at ../../gcc/read-rtl.c:848
+#7  rtx_reader::read_rtx (this=<optimized out>, rtx_name=<optimized out>, rtxen=rtxen@entry=0x7fffffffdec0) at ../../gcc/read-rtl.c:1426
+#8  0x000000000041ad94 in gen_reader::handle_unknown_directive (this=<optimized out>, loc=..., rtx_name=<optimized out>) at ../../gcc/gensupport.c:2315
+#9  0x0000000000420a7e in md_reader::handle_file (this=this@entry=0x46a7b0) at ../../gcc/read-md.c:1156
+#10 0x0000000000420d7b in md_reader::handle_toplevel_file (this=0x46a7b0) at ../../gcc/read-md.c:1174
+#11 md_reader::read_md_files (this=this@entry=0x46a7b0, argc=argc@entry=2, argv=argv@entry=0x7fffffffe478, parse_opt=parse_opt@entry=0x0) at ../../gcc/read-md.c:1289
+#12 0x0000000000419a1e in init_rtx_reader_args_cb (argc=2, argv=0x7fffffffe478, parse_opt=0x0) at ../../gcc/gensupport.c:2604
+#13 0x000000000040331d in main (argc=<optimized out>, argv=<optimized out>) at ../../gcc/genrecog.c:5348
