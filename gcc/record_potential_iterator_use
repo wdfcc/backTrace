@@ -1,0 +1,20 @@
+(gdb) bt
+#0  md_reader::record_potential_iterator_use (this=this@entry=0x65b520, group=group@entry=0x645400 <modes>, loc=..., x=x@entry=0x7adea0, index=index@entry=0, name=0x7fffffffc880 "SDWIM") at ../.././gcc/read-rtl.c:1170
+#1  0x000000000040740b in rtx_reader::read_rtx_code (this=0x65b520, code_name=<optimized out>) at ../.././gcc/read-rtl.c:1661
+#2  0x000000000040856b in rtx_reader::read_nested_rtx (this=0x65b520) at ../.././gcc/read-rtl.c:2010
+#3  0x0000000000408602 in rtx_reader::read_rtx_operand (this=0x65b520, return_rtx=0x7ade80, idx=0) at ../.././gcc/read-rtl.c:1764
+#4  0x00000000004070e4 in rtx_reader::read_rtx_code (this=0x65b520, code_name=<optimized out>) at ../.././gcc/read-rtl.c:1674
+#5  0x000000000040856b in rtx_reader::read_nested_rtx (this=0x65b520) at ../.././gcc/read-rtl.c:2010
+#6  0x0000000000408602 in rtx_reader::read_rtx_operand (this=0x65b520, return_rtx=0x7ade40, idx=1) at ../.././gcc/read-rtl.c:1764
+#7  0x00000000004070e4 in rtx_reader::read_rtx_code (this=0x65b520, code_name=<optimized out>) at ../.././gcc/read-rtl.c:1674
+#8  0x000000000040856b in rtx_reader::read_nested_rtx (this=this@entry=0x65b520) at ../.././gcc/read-rtl.c:2010
+#9  0x0000000000408726 in rtx_reader::read_rtx_operand (this=0x65b520, return_rtx=0x7ade00, idx=<optimized out>) at ../.././gcc/read-rtl.c:1821
+#10 0x00000000004070e4 in rtx_reader::read_rtx_code (this=0x65b520, code_name=<optimized out>) at ../.././gcc/read-rtl.c:1674
+#11 0x0000000000407776 in rtx_reader::read_rtx (this=<optimized out>, rtx_name=<optimized out>, rtxen=rtxen@entry=0x7fffffffd9c0) at ../.././gcc/read-rtl.c:1426
+#12 0x000000000040f254 in gen_reader::handle_unknown_directive (this=<optimized out>, loc=..., rtx_name=<optimized out>) at ../.././gcc/gensupport.c:2315
+#13 0x0000000000414f3e in md_reader::handle_file (this=this@entry=0x65b520) at ../.././gcc/read-md.c:1156
+#14 0x000000000041523b in md_reader::handle_toplevel_file (this=0x65b520) at ../.././gcc/read-md.c:1174
+#15 md_reader::read_md_files (this=this@entry=0x65b520, argc=argc@entry=2, argv=argv@entry=0x7fffffffdeb8, parse_opt=parse_opt@entry=0x0) at ../.././gcc/read-md.c:1289
+#16 0x000000000040dede in init_rtx_reader_args_cb (argc=2, argv=0x7fffffffdeb8, parse_opt=0x0) at ../.././gcc/gensupport.c:2604
+#17 0x000000000040229e in main (argc=<optimized out>, argv=<optimized out>) at ../.././gcc/genemit.c:855
+
