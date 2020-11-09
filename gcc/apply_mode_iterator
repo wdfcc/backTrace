@@ -1,0 +1,10 @@
+(gdb) bt
+#0  apply_mode_iterator (x=0x7adea0, mode=15) at ../.././gcc/read-rtl.c:172
+#1  0x00000000004078cd in apply_iterators (queue=0x7fffffffd9c0, original=0x7ade00) at ../.././gcc/read-rtl.c:843
+#2  rtx_reader::read_rtx (this=<optimized out>, rtx_name=<optimized out>, rtxen=rtxen@entry=0x7fffffffd9c0) at ../.././gcc/read-rtl.c:1426
+#3  0x000000000040f254 in gen_reader::handle_unknown_directive (this=<optimized out>, loc=..., rtx_name=<optimized out>) at ../.././gcc/gensupport.c:2315
+#4  0x0000000000414f3e in md_reader::handle_file (this=this@entry=0x65b520) at ../.././gcc/read-md.c:1156
+#5  0x000000000041523b in md_reader::handle_toplevel_file (this=0x65b520) at ../.././gcc/read-md.c:1174
+#6  md_reader::read_md_files (this=this@entry=0x65b520, argc=argc@entry=2, argv=argv@entry=0x7fffffffdeb8, parse_opt=parse_opt@entry=0x0) at ../.././gcc/read-md.c:1289
+#7  0x000000000040dede in init_rtx_reader_args_cb (argc=2, argv=0x7fffffffdeb8, parse_opt=0x0) at ../.././gcc/gensupport.c:2604
+#8  0x000000000040229e in main (argc=<optimized out>, argv=<optimized out>) at ../.././gcc/genemit.c:855
