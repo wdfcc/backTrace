@@ -1,0 +1,11 @@
+(gdb) bt
+#0  0x00007ffff7862726 in __memcpy_ssse3_back () from /lib64/libc.so.6
+#1  0x0000000000404be8 in add_mapping (group=group@entry=0x645400 <modes>, table=table@entry=0x65fa60, name=0x7fffffffd690 "r") at ../.././gcc/read-rtl.c:902
+#2  0x00000000004064d5 in md_reader::read_mapping (this=0x65b520, group=group@entry=0x645400 <modes>, table=0x65fa60) at ../.././gcc/read-rtl.c:1212
+#3  0x0000000000407a74 in rtx_reader::read_rtx (this=<optimized out>, rtx_name=<optimized out>, rtxen=rtxen@entry=0x7fffffffd9c0) at ../.././gcc/read-rtl.c:1389
+#4  0x000000000040f254 in gen_reader::handle_unknown_directive (this=<optimized out>, loc=..., rtx_name=<optimized out>) at ../.././gcc/gensupport.c:2315
+#5  0x0000000000414f3e in md_reader::handle_file (this=this@entry=0x65b520) at ../.././gcc/read-md.c:1156
+#6  0x000000000041523b in md_reader::handle_toplevel_file (this=0x65b520) at ../.././gcc/read-md.c:1174
+#7  md_reader::read_md_files (this=this@entry=0x65b520, argc=argc@entry=2, argv=argv@entry=0x7fffffffdeb8, parse_opt=parse_opt@entry=0x0) at ../.././gcc/read-md.c:1289
+#8  0x000000000040dede in init_rtx_reader_args_cb (argc=2, argv=0x7fffffffdeb8, parse_opt=0x0) at ../.././gcc/gensupport.c:2604
+#9  0x000000000040229e in main (argc=<optimized out>, argv=<optimized out>) at ../.././gcc/genemit.c:855
