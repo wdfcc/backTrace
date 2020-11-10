@@ -1,0 +1,5 @@
+(gdb) bt
+#0  process_template (d=0x1798f80, template_code=0x7b6690 "@\n   test{b}\\t%0, %0\n   cmp{b}\\t{%1, %0|%0, %1}\n   kortestb\\t%0, %0") at ../.././gcc/genoutput.c:648
+#1  0x00000000004027e4 in gen_insn (info=0x7fffffffdd60) at ../.././gcc/genoutput.c:892
+#2  main (argc=<optimized out>, argv=<optimized out>) at ../.././gcc/genoutput.c:1011
+
