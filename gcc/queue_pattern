@@ -1,0 +1,10 @@
+(gdb) bt
+#0  queue_pattern (loc=..., list_tail=0x446118 <define_insn_tail>, pattern=0x5b8d70) at ../../gcc/gensupport.c:413
+#1  process_rtx (loc=..., desc=0x5b8d70) at ../../gcc/gensupport.c:556
+#2  gen_reader::handle_unknown_directive (this=<optimized out>, loc=..., rtx_name=<optimized out>) at ../../gcc/gensupport.c:2321
+#3  0x0000000000415e9e in md_reader::handle_file (this=this@entry=0x45df80) at ../../gcc/read-md.c:1156
+#4  0x000000000041619b in md_reader::handle_toplevel_file (this=0x45df80) at ../../gcc/read-md.c:1174
+#5  md_reader::read_md_files (this=this@entry=0x45df80, argc=argc@entry=2, argv=argv@entry=0x7fffffffe478, parse_opt=parse_opt@entry=0x0)
+    at ../../gcc/read-md.c:1289
+#6  0x000000000040ee3e in init_rtx_reader_args_cb (argc=2, argv=0x7fffffffe478, parse_opt=0x0) at ../../gcc/gensupport.c:2604
+#7  0x0000000000402ed5 in main (argc=2, argv=0x7fffffffe478) at ../../gcc/genoutput.c:999
