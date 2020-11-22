@@ -1,0 +1,24 @@
+(gdb) bt
+#0  output_cfi_directive (f=0x201b000, cfi=0x7ffff75b4648) at ../../gcc/dwarf2cfi.c:3360
+#1  0x0000000000830d4e in final_scan_insn_1 (insn=0x7ffff745b578, file=0x201b000, seen=0x7fffffffdfac, nopeepholes=<optimized out>,
+    optimize_p=<optimized out>) at ../../gcc/final.c:2286
+#2  0x0000000000831d1c in final_scan_insn (insn=<optimized out>, file=<optimized out>, optimize_p=<optimized out>, nopeepholes=<optimized out>,
+    seen=<optimized out>) at ../../gcc/final.c:3152
+#3  0x0000000000832005 in final_1 (first=0x7ffff745b380, file=0x201b000, seen=<optimized out>, optimize_p=0) at ../../gcc/final.c:2020
+#4  0x0000000000832795 in rest_of_handle_final () at ../../gcc/final.c:4658
+#5  (anonymous namespace)::pass_final::execute (this=<optimized out>) at ../../gcc/final.c:4736
+#6  0x0000000000a564c8 in execute_one_pass (pass=0x200ad70) at ../../gcc/passes.c:2502
+#7  0x0000000000a56e10 in execute_pass_list_1 (pass=0x200ad70) at ../../gcc/passes.c:2590
+#8  0x0000000000a56e22 in execute_pass_list_1 (pass=0x200a890) at ../../gcc/passes.c:2591
+#9  0x0000000000a56e22 in execute_pass_list_1 (pass=0x2008bf0) at ../../gcc/passes.c:2591
+#10 0x0000000000a56e49 in execute_pass_list (fn=0x7ffff75a5000, pass=<optimized out>) at ../../gcc/passes.c:2601
+#11 0x0000000000752c1e in cgraph_node::expand (this=0x7ffff75a6000) at ../../gcc/context.h:48
+#12 0x0000000000753d14 in output_in_order () at ../../gcc/cgraphunit.c:2578
+#13 symbol_table::compile (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:2819
+#14 0x0000000000755d1d in symbol_table::compile (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:3002
+#15 symbol_table::finalize_compilation_unit (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:3002
+#16 0x0000000000b158ef in compile_file () at ../../gcc/toplev.c:483
+#17 0x000000000060352c in do_compile () at ../../gcc/toplev.c:2273
+#18 toplev::main (this=this@entry=0x7fffffffe24e, argc=<optimized out>, argc@entry=15, argv=<optimized out>, argv@entry=0x7fffffffe358)
+    at ../../gcc/toplev.c:2412
+#19 0x0000000000606fcf in main (argc=15, argv=0x7fffffffe358) at ../../gcc/main.c:39
