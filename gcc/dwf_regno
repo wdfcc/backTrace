@@ -1,0 +1,22 @@
+(gdb) bt
+#0  dwf_regno (reg=0x7ffff744f3c0, reg=0x7ffff744f3c0) at ../../gcc/rtl.h:1924
+#1  dwarf2out_flush_queued_reg_saves () at ../../gcc/dwarf2cfi.c:1096
+#2  0x0000000000792d66 in scan_trace (trace=<optimized out>, entry=<optimized out>) at ../../gcc/dwarf2cfi.c:2726
+#3  0x0000000000793419 in create_cfi_notes () at ../../gcc/dwarf2cfi.c:2753
+#4  execute_dwarf2_frame () at ../../gcc/dwarf2cfi.c:3122
+#5  (anonymous namespace)::pass_dwarf2_frame::execute (this=<optimized out>) at ../../gcc/dwarf2cfi.c:3610
+#6  0x0000000000a564c8 in execute_one_pass (pass=0x200ad10) at ../../gcc/passes.c:2502
+#7  0x0000000000a56e10 in execute_pass_list_1 (pass=0x200ad10) at ../../gcc/passes.c:2590
+#8  0x0000000000a56e22 in execute_pass_list_1 (pass=0x200a890) at ../../gcc/passes.c:2591
+#9  0x0000000000a56e22 in execute_pass_list_1 (pass=0x2008bf0) at ../../gcc/passes.c:2591
+#10 0x0000000000a56e49 in execute_pass_list (fn=0x7ffff75a5000, pass=<optimized out>) at ../../gcc/passes.c:2601
+#11 0x0000000000752c1e in cgraph_node::expand (this=0x7ffff75a6000) at ../../gcc/context.h:48
+#12 0x0000000000753d14 in output_in_order () at ../../gcc/cgraphunit.c:2578
+#13 symbol_table::compile (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:2819
+#14 0x0000000000755d1d in symbol_table::compile (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:3002
+#15 symbol_table::finalize_compilation_unit (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:3002
+#16 0x0000000000b158ef in compile_file () at ../../gcc/toplev.c:483
+#17 0x000000000060352c in do_compile () at ../../gcc/toplev.c:2273
+#18 toplev::main (this=this@entry=0x7fffffffe24e, argc=<optimized out>, argc@entry=15, argv=<optimized out>, argv@entry=0x7fffffffe358)
+    at ../../gcc/toplev.c:2412
+#19 0x0000000000606fcf in main (argc=15, argv=0x7fffffffe358) at ../../gcc/main.c:39
