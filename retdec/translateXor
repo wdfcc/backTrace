@@ -1,0 +1,19 @@
+(gdb) bt
+#0  retdec::capstone2llvmir::Capstone2LlvmIrTranslatorX86_impl::translateXor (this=0x3374070, i=0x4f9c630, xi=0x4f9c780, irb=...)
+    at /data/retdec/src/capstone2llvmir/x86/x86.cpp:3580
+#1  0x0000000000c70718 in retdec::capstone2llvmir::Capstone2LlvmIrTranslatorX86_impl::translateInstruction (this=0x3374070, i=0x4f9c630, irb=...)
+    at /data/retdec/src/capstone2llvmir/x86/x86.cpp:233
+#2  0x0000000000cc968e in retdec::capstone2llvmir::Capstone2LlvmIrTranslator_impl<cs_x86, cs_x86_op>::translateOne (this=0x3374070, 
+    bytes=@0x7fffffffc630: 0x325f722 "I\211\321^H\211\342H\203\344\360PTI\307\300@\023@", size=@0x7fffffffc638: 46, a=..., irb=...)
+    at /data/retdec/src/capstone2llvmir/capstone2llvmir_impl.cpp:260
+#3  0x00000000005efd3d in retdec::bin2llvmir::Decoder::translate (this=0x31d1d30, bytes={...}, addr=..., irb=...)
+    at /data/retdec/src/bin2llvmir/optimizations/decoder/decoder.cpp:340
+#4  0x00000000005ef9cd in retdec::bin2llvmir::Decoder::decodeJumpTarget (this=0x31d1d30, jt=...) at /data/retdec/src/bin2llvmir/optimizations/decoder/decoder.cpp:298
+#5  0x00000000005ef0b1 in retdec::bin2llvmir::Decoder::decode (this=0x31d1d30) at /data/retdec/src/bin2llvmir/optimizations/decoder/decoder.cpp:152
+#6  0x00000000005ef01a in retdec::bin2llvmir::Decoder::run (this=0x31d1d30) at /data/retdec/src/bin2llvmir/optimizations/decoder/decoder.cpp:115
+#7  0x00000000005eeeb5 in retdec::bin2llvmir::Decoder::runCatcher (this=0x31d1d30) at /data/retdec/src/bin2llvmir/optimizations/decoder/decoder.cpp:89
+#8  0x00000000005eedf3 in retdec::bin2llvmir::Decoder::runOnModule (this=0x31d1d30, m=...) at /data/retdec/src/bin2llvmir/optimizations/decoder/decoder.cpp:58
+#9  0x0000000001acb17a in llvm::legacy::PassManagerImpl::run(llvm::Module&) ()
+#10 0x0000000000556ea1 in retdec::decompile (config=..., outString=0x0) at /data/retdec/src/retdec/retdec.cpp:516
+#11 0x000000000049ec1e in decompile (config=..., po=...) at /data/retdec/src/retdec-decompiler/retdec-decompiler.cpp:955
+#12 0x000000000049f55c in main (argc=2, argv=0x7fffffffe518) at /data/retdec/src/retdec-decompiler/retdec-decompiler.cpp:105
