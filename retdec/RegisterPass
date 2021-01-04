@@ -1,0 +1,11 @@
+(gdb) bt
+#0  llvm::RegisterPass<retdec::bin2llvmir::AsmInstructionRemover>::RegisterPass (this=0x2e07aa0 <retdec::bin2llvmir::X>, PassArg=..., Name=..., CFGOnly=false, 
+    is_analysis=false) at /data/retdec/build/external/src/llvm-project/include/llvm/PassSupport.h:97
+#1  0x00000000005c04e8 in __static_initialization_and_destruction_0 (__initialize_p=1, __priority=65535)
+    at /data/retdec/src/bin2llvmir/optimizations/asm_inst_remover/asm_inst_remover.cpp:24
+#2  0x00000000005c06f8 in _GLOBAL__sub_I_asm_inst_remover.cpp(void) () at /data/retdec/src/bin2llvmir/optimizations/asm_inst_remover/asm_inst_remover.cpp:102
+#3  0x0000000001c8967d in __libc_csu_init ()
+#4  0x00007ffff6abab95 in __libc_start_main () from /lib64/libc.so.6
+#5  0x0000000000497bb5 in _start ()
+(gdb) p Name
+$2 = {static npos = 18446744073709551615, Data = 0x1cac198 "Assembly mapping instruction removal", Length = 36}
