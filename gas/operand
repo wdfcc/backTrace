@@ -1,0 +1,11 @@
+(gdb) bt
+#0  operand (expressionP=0x6048e0 <disp_expressions>, mode=expr_normal) at expr.c:778
+#1  0x00000000004138b4 in expr (rankarg=0, resultP=0x6048e0 <disp_expressions>, mode=expr_normal) at expr.c:1772
+#2  0x0000000000446712 in i386_displacement (disp_start=0x60fb35 "1f", disp_end=0x60fb37 "") at config/tc-i386.c:10072
+#3  0x0000000000447de1 in i386_att_operand (operand_string=0x60fb35 "1f") at config/tc-i386.c:10776
+#4  0x000000000043bd85 in parse_operands (l=0x60fb37 "", mnemonic=0x7fffffffe0e0 "jmp") at config/tc-i386.c:5007
+#5  0x000000000043a5f6 in md_assemble (line=0x60fb34 " 1f") at config/tc-i386.c:4313
+#6  0x000000000041f097 in assemble_one (line=0x60fb31 "jmp 1f") at read.c:711
+#7  0x000000000041fbb5 in read_a_source_file (name=0x7fffffffe7ae "hunxiao.s") at read.c:1179
+#8  0x0000000000406efc in perform_an_assembly_pass (argc=0, argv=0x60aa28) at as.c:1209
+#9  0x0000000000407278 in main (argc=2, argv=0x60aa20) at as.c:1367
