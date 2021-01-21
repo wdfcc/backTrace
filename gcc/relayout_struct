@@ -1,0 +1,22 @@
+(gdb) bt
+#0  relayout_struct (type=0x7ffff3a8ea80) at ../scripts/gcc-plugins/randomize_layout_plugin.c:469
+#1  randomize_type (type=<optimized out>) at ../scripts/gcc-plugins/randomize_layout_plugin.c:469
+#2  finish_type (data=<optimized out>, event_data=0x7ffff3a8ea80) at ../scripts/gcc-plugins/randomize_layout_plugin.c:578
+#3  finish_type (event_data=0x7ffff3a8ea80, data=<optimized out>) at ../scripts/gcc-plugins/randomize_layout_plugin.c:556
+#4  0x0000000000a5efe2 in invoke_plugin_callbacks_full (event=event@entry=3, gcc_data=gcc_data@entry=0x7ffff3a8ea80) at ../.././gcc/plugin.c:588
+#5  0x0000000000664817 in invoke_plugin_callbacks (event=3, gcc_data=<optimized out>) at ../.././gcc/plugin.h:191
+#6  c_parser_declspecs (parser=0x7ffff7ff8cf0, specs=0x206e810, scspec_ok=<optimized out>, typespec_ok=<optimized out>, start_attr_ok=<optimized out>, 
+    alignspec_ok=<optimized out>, auto_type_ok=<optimized out>, start_std_attr_ok=<optimized out>, end_std_attr_ok=<optimized out>, la=<optimized out>)
+    at ../.././gcc/c/c-parser.c:2962
+#7  0x000000000066a4e8 in c_parser_declaration_or_fndef (parser=0x7ffff7ff8cf0, fndef_ok=true, static_assert_ok=<optimized out>, empty_ok=<optimized out>, 
+    nested=<optimized out>, start_attr_ok=<optimized out>, objc_foreach_object_declaration=<optimized out>, omp_declare_simd_clauses=..., have_attrs=false, 
+    attrs=<optimized out>, oacc_routine_data=<optimized out>, fallthru_attr_p=<optimized out>) at ../.././gcc/c/c-parser.c:1960
+#8  0x00000000006726d4 in c_parser_external_declaration (parser=0x7ffff7ff8cf0) at ../.././gcc/c/c-parser.c:1745
+#9  0x00000000006731d2 in c_parser_translation_unit (parser=<optimized out>) at ../.././gcc/c/c-parser.c:1618
+#10 c_parse_file () at ../.././gcc/c/c-parser.c:21745
+#11 0x00000000006bd2ec in c_common_parse_file () at ../.././gcc/c-family/c-opts.c:1190
+#12 0x0000000000b15ad4 in compile_file () at ../.././gcc/toplev.c:458
+#13 0x00000000006035bc in do_compile () at ../.././gcc/toplev.c:2274
+#14 toplev::main (this=this@entry=0x7fffffffca3e, argc=<optimized out>, argc@entry=145, argv=<optimized out>, argv@entry=0x7fffffffcb38) at ../.././gcc/toplev.c:2413
+#15 0x000000000060702f in main (argc=145, argv=0x7fffffffcb38) at ../.././gcc/main.c:39
+
