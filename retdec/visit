@@ -1,0 +1,21 @@
+(gdb) bt
+#0  retdec::llvmir2hll::CHLLWriter::visit (this=0x5268400, type=...) at /data/retdec/src/llvmir2hll/hll/hll_writers/c_hll_writer.cpp:1222
+#1  0x00000000008cc029 in retdec::llvmir2hll::VoidType::accept (this=0x4f9b7c0, v=0x5268400) at /data/retdec/src/llvmir2hll/ir/void_type.cpp:48
+#2  0x000000000084eb00 in retdec::llvmir2hll::CHLLWriter::emitFunctionHeader (this=0x5268400, func=...)
+    at /data/retdec/src/llvmir2hll/hll/hll_writers/c_hll_writer.cpp:1414
+#3  0x000000000084df59 in retdec::llvmir2hll::CHLLWriter::emitFunctionPrototype (this=0x5268400, func=...)
+    at /data/retdec/src/llvmir2hll/hll/hll_writers/c_hll_writer.cpp:1328
+#4  0x000000000084d896 in retdec::llvmir2hll::CHLLWriter::emitFunctionPrototypes (this=0x5268400, funcs=...)
+    at /data/retdec/src/llvmir2hll/hll/hll_writers/c_hll_writer.cpp:1250
+#5  0x000000000084da66 in retdec::llvmir2hll::CHLLWriter::emitStandardFunctionPrototypes (this=0x5268400)
+    at /data/retdec/src/llvmir2hll/hll/hll_writers/c_hll_writer.cpp:1278
+#6  0x0000000000844310 in retdec::llvmir2hll::CHLLWriter::emitFunctionPrototypes (this=0x5268400) at /data/retdec/src/llvmir2hll/hll/hll_writers/c_hll_writer.cpp:473
+#7  0x0000000000836c16 in retdec::llvmir2hll::HLLWriter::emitTargetCode (this=0x5268400, module=...) at /data/retdec/src/llvmir2hll/hll/hll_writer.cpp:238
+#8  0x0000000000844efe in retdec::llvmir2hll::CHLLWriter::emitTargetCode (this=0x5268400, module=...)
+    at /data/retdec/src/llvmir2hll/hll/hll_writers/c_hll_writer.cpp:562
+#9  0x0000000000bbfd48 in retdec::llvmir2hll::LlvmIr2Hll::emitTargetHLLCode (this=0x3240f80) at /data/retdec/src/llvmir2hll/llvmir2hll.cpp:681
+#10 0x0000000000bbd498 in retdec::llvmir2hll::LlvmIr2Hll::runOnModule (this=0x3240f80, m=...) at /data/retdec/src/llvmir2hll/llvmir2hll.cpp:239
+#11 0x0000000001acb17a in llvm::legacy::PassManagerImpl::run(llvm::Module&) ()
+#12 0x0000000000556ea1 in retdec::decompile (config=..., outString=0x0) at /data/retdec/src/retdec/retdec.cpp:516
+#13 0x000000000049ec1e in decompile (config=..., po=...) at /data/retdec/src/retdec-decompiler/retdec-decompiler.cpp:955
+#14 0x000000000049f55c in main (argc=2, argv=0x7fffffffe528) at /data/retdec/src/retdec-decompiler/retdec-decompiler.cpp:1053
