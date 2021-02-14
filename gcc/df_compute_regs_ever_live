@@ -1,0 +1,17 @@
+(gdb) bt
+#0  df_compute_regs_ever_live (reset=reset@entry=false) at ../../gcc/df-scan.c:3897
+#1  0x000000000076e001 in rest_of_handle_df_initialize () at ../../gcc/df-core.c:716
+#2  (anonymous namespace)::pass_df_initialize_opt::execute (this=<optimized out>) at ../../gcc/df-core.c:747
+#3  0x0000000000a564c8 in execute_one_pass (pass=0x2008dd0) at ../../gcc/passes.c:2502
+#4  0x0000000000a56e10 in execute_pass_list_1 (pass=0x2008dd0) at ../../gcc/passes.c:2590
+#5  0x0000000000a56e22 in execute_pass_list_1 (pass=0x2008bf0) at ../../gcc/passes.c:2591
+#6  0x0000000000a56e49 in execute_pass_list (fn=0x7ffff40fd000, pass=<optimized out>) at ../../gcc/passes.c:2601
+#7  0x0000000000752c1e in cgraph_node::expand (this=0x7ffff40efca8) at ../../gcc/context.h:48
+#8  0x0000000000753cb0 in expand_all_functions () at ../../gcc/cgraphunit.c:2471
+#9  symbol_table::compile (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:2822
+#10 0x0000000000755d1d in symbol_table::compile (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:3002
+#11 symbol_table::finalize_compilation_unit (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:3002
+#12 0x0000000000b158ef in compile_file () at ../../gcc/toplev.c:483
+#13 0x000000000060352c in do_compile () at ../../gcc/toplev.c:2273
+#14 toplev::main (this=this@entry=0x7fffffffce9e, argc=<optimized out>, argc@entry=129, argv=<optimized out>, argv@entry=0x7fffffffcfa8) at ../../gcc/toplev.c:2412
+#15 0x0000000000606fcf in main (argc=129, argv=0x7fffffffcfa8) at ../../gcc/main.c:39
