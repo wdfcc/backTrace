@@ -1,0 +1,27 @@
+(gdb) bt
+#0  df_install_ref (this_ref=0x241acf8, reg_info=<optimized out>, ref_info=0x2496830, add_to_table=false) at ../../gcc/df-scan.c:2306
+#1  0x000000000077b173 in df_install_refs (is_notes=<optimized out>, ref_info=0x2496830, reg_info=0x22deeb0, old_vec=0x7fffffffc800, bb=<optimized out>)
+    at ../../gcc/df-scan.c:2376
+#2  df_install_refs (bb=<optimized out>, old_vec=0x7fffffffc800, reg_info=0x22deeb0, ref_info=0x2496830, is_notes=<optimized out>) at ../../gcc/df-scan.c:2335
+#3  0x000000000077b3eb in df_refs_add_to_chains (collection_rec=0x7fffffffc3f0, bb=0x7ffff4147410, insn=<optimized out>, flags=15) at ../../gcc/df-scan.c:2429
+#4  0x000000000078088d in df_insn_rescan (insn=insn@entry=0x7ffff3ae4b40) at ../../gcc/df-scan.c:1092
+#5  0x00000000007edff8 in add_insn_before (bb=0x7ffff4147410, before=0x7ffff3ae4600, insn=0x7ffff3ae4b40) at ../../gcc/emit-rtl.c:4305
+#6  emit_pattern_before_noloc (x=<optimized out>, before=0x7ffff3ae4600, last=<optimized out>, bb=0x0, make_raw=<optimized out>) at ../../gcc/emit-rtl.c:4571
+#7  0x00000000007ee04f in emit_pattern_before_setloc (pattern=0x7ffff3ae4b40, before=<optimized out>, loc=2147540511, insnp=<optimized out>, make_raw=<optimized out>)
+    at ../../gcc/emit-rtl.c:4981
+#8  0x00000000012a786a in make_more_copies () at ../../gcc/combine.c:15046
+#9  rest_of_handle_combine () at ../../gcc/combine.c:15056
+#10 (anonymous namespace)::pass_combine::execute (this=<optimized out>) at ../../gcc/combine.c:15111
+#11 0x0000000000a564c8 in execute_one_pass (pass=0x2009800) at ../../gcc/passes.c:2502
+#12 0x0000000000a56e10 in execute_pass_list_1 (pass=0x2009800) at ../../gcc/passes.c:2590
+#13 0x0000000000a56e22 in execute_pass_list_1 (pass=0x2008bf0) at ../../gcc/passes.c:2591
+#14 0x0000000000a56e49 in execute_pass_list (fn=0x7ffff40d5840, pass=<optimized out>) at ../../gcc/passes.c:2601
+#15 0x0000000000752c1e in cgraph_node::expand (this=0x7ffff40e0870) at ../../gcc/context.h:48
+#16 0x0000000000753cb0 in expand_all_functions () at ../../gcc/cgraphunit.c:2471
+#17 symbol_table::compile (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:2822
+#18 0x0000000000755d1d in symbol_table::compile (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:3002
+#19 symbol_table::finalize_compilation_unit (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:3002
+#20 0x0000000000b158ef in compile_file () at ../../gcc/toplev.c:483
+#21 0x000000000060352c in do_compile () at ../../gcc/toplev.c:2273
+#22 toplev::main (this=this@entry=0x7fffffffce9e, argc=<optimized out>, argc@entry=129, argv=<optimized out>, argv@entry=0x7fffffffcfa8) at ../../gcc/toplev.c:2412
+#23 0x0000000000606fcf in main (argc=129, argv=0x7fffffffcfa8) at ../../gcc/main.c:39
