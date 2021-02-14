@@ -1,0 +1,39 @@
+(gdb) bt
+#0  rtx_alloc (code=code@entry=REG) at ../../gcc/rtl.c:230
+#1  0x00000000007ea69a in gen_raw_REG (regno=4, mode=E_SImode) at ../../gcc/emit-rtl.c:850
+#2  gen_rtx_REG (mode=mode@entry=E_SImode, regno=4) at ../../gcc/emit-rtl.c:850
+#3  0x0000000000dba309 in construct_container (mode=E_SImode, orig_mode=E_SImode, type=0x7ffff74685e8, in_return=<optimized out>, nintregs=5, nsseregs=<optimized out>, 
+    intreg=0x15752b4 <x86_64_int_parameter_registers+4>, sse_regno=0) at ../../gcc/config/i386/i386.c:2570
+#4  0x0000000000dba6ee in function_arg_64 (named=<optimized out>, type=<optimized out>, orig_mode=<optimized out>, mode=E_SImode, cum=0x7fffffffd9f0)
+    at ../../gcc/config/i386/i386.c:3149
+#5  ix86_function_arg (cum_v=..., arg=...) at ../../gcc/config/i386/i386.c:3263
+#6  0x000000000070b4d3 in initialize_argument_information (call_from_thunk_p=<optimized out>, may_tailcall=<synthetic pointer>, ecf_flags=<synthetic pointer>, 
+    must_preallocate=<synthetic pointer>, old_pending_adj=<synthetic pointer>, old_stack_level=0x7fffffffd9b0, reg_parm_stack_space=<optimized out>, args_so_far=..., 
+    fntype=<optimized out>, fndecl=<optimized out>, struct_value_addr_value=<optimized out>, exp=0x7fffffffd9f0, n_named_args=<optimized out>, args_size=0x7fffffffd9c0, 
+    args=<optimized out>, num_actuals=<optimized out>) at ../../gcc/calls.c:2454
+#7  expand_call (exp=exp@entry=0x7ffff74639c0, target=<optimized out>, target@entry=0x7ffff75ff2a0, ignore=ignore@entry=0) at ../../gcc/calls.c:3958
+#8  0x000000000081cb47 in expand_expr_real_1 (exp=0x7ffff74639c0, target=<optimized out>, tmode=E_SImode, modifier=<optimized out>, alt_rtl=0x7fffffffdd88, 
+    inner_reference_p=<optimized out>) at ../../gcc/expr.c:11135
+#9  0x0000000000826ac3 in expand_expr_real (inner_reference_p=false, alt_rtl=0x7fffffffdd88, modifier=<optimized out>, tmode=<optimized out>, target=<optimized out>, 
+    exp=0x7ffff74639c0) at ../../gcc/expr.c:8358
+#10 store_expr (exp=0x7ffff74639c0, target=0x7ffff75ff2a0, call_param_p=0, nontemporal=<optimized out>, reverse=<optimized out>) at ../../gcc/expr.c:5752
+#11 0x0000000000827ff2 in expand_assignment (to=0x7ffff75ba1f8, from=0x7ffff74639c0, nontemporal=<optimized out>) at ../../gcc/expr.c:5514
+#12 0x000000000071eb73 in expand_call_stmt (stmt=0x7ffff7ffbf30) at ../../gcc/cfgexpand.c:2701
+#13 expand_gimple_stmt_1 (stmt=0x7ffff7ffbf30) at ../../gcc/cfgexpand.c:3682
+#14 expand_gimple_stmt (stmt=0x7ffff7ffbf30) at ../../gcc/cfgexpand.c:3847
+#15 0x0000000000724a2b in expand_gimple_basic_block (disable_tail_calls=<optimized out>, bb=<optimized out>) at ../../gcc/cfgexpand.c:5887
+#16 (anonymous namespace)::pass_expand::execute (this=<optimized out>, fun=<optimized out>) at ../../gcc/cfgexpand.c:6542
+#17 0x0000000000a564c8 in execute_one_pass (pass=0x2008b90) at ../../gcc/passes.c:2502
+#18 0x0000000000a56e10 in execute_pass_list_1 (pass=0x2008b90) at ../../gcc/passes.c:2590
+#19 0x0000000000a56e49 in execute_pass_list (fn=0x7ffff75f30b0, pass=<optimized out>) at ../../gcc/passes.c:2601
+#20 0x0000000000752c1e in cgraph_node::expand (this=0x7ffff75d6870) at ../../gcc/context.h:48
+#21 0x0000000000753d14 in output_in_order () at ../../gcc/cgraphunit.c:2578
+#22 symbol_table::compile (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:2819
+#23 0x0000000000755d1d in symbol_table::compile (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:3002
+#24 symbol_table::finalize_compilation_unit (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:3002
+#25 0x0000000000b158ef in compile_file () at ../../gcc/toplev.c:483
+#26 0x000000000060352c in do_compile () at ../../gcc/toplev.c:2273
+#27 toplev::main (this=this@entry=0x7fffffffe1fe, argc=<optimized out>, argc@entry=15, argv=<optimized out>, argv@entry=0x7fffffffe308) at ../../gcc/toplev.c:2412
+--Type <RET> for more, q to quit, c to continue without paging--
+#28 0x0000000000606fcf in main (argc=15, argv=0x7fffffffe308) at ../../gcc/main.c:39
+
