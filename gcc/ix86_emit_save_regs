@@ -1,0 +1,27 @@
+(gdb) bt
+#0  rtx_alloc (code=code@entry=REG) at ../../gcc/rtl.c:230
+#1  0x00000000007ea69a in gen_raw_REG (regno=42, mode=E_DImode) at ../../gcc/emit-rtl.c:850
+#2  gen_rtx_REG (mode=E_DImode, regno=regno@entry=42) at ../../gcc/emit-rtl.c:850
+#3  0x0000000000dc36fd in ix86_emit_save_regs () at ../../gcc/machmode.h:417
+#4  ix86_expand_prologue () at ../../gcc/config/i386/i386.c:8199
+#5  0x00000000010d212c in gen_prologue () at ../../gcc/config/i386/i386.md:13442
+#6  0x0000000000db7617 in target_gen_prologue () at ../../gcc/config/i386/i386.md:20062
+#7  0x000000000086b09f in make_prologue_seq () at ../../gcc/function.c:5787
+#8  0x000000000086b252 in thread_prologue_and_epilogue_insns () at ../../gcc/function.c:5904
+#9  0x000000000086b7e3 in rest_of_handle_thread_prologue_and_epilogue () at ../../gcc/function.c:6395
+#10 (anonymous namespace)::pass_thread_prologue_and_epilogue::execute (this=<optimized out>) at ../../gcc/function.c:6471
+#11 0x0000000000a564c8 in execute_one_pass (pass=0x200a1d0) at ../../gcc/passes.c:2502
+#12 0x0000000000a56e10 in execute_pass_list_1 (pass=0x200a1d0) at ../../gcc/passes.c:2590
+#13 0x0000000000a56e22 in execute_pass_list_1 (pass=0x2009f90) at ../../gcc/passes.c:2591
+#14 0x0000000000a56e22 in execute_pass_list_1 (pass=0x2008bf0) at ../../gcc/passes.c:2591
+#15 0x0000000000a56e49 in execute_pass_list (fn=0x7ffff40d5840, pass=<optimized out>) at ../../gcc/passes.c:2601
+#16 0x0000000000752c1e in cgraph_node::expand (this=0x7ffff40e0870) at ../../gcc/context.h:48
+#17 0x0000000000753cb0 in expand_all_functions () at ../../gcc/cgraphunit.c:2471
+#18 symbol_table::compile (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:2822
+#19 0x0000000000755d1d in symbol_table::compile (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:3002
+#20 symbol_table::finalize_compilation_unit (this=0x7ffff7452100) at ../../gcc/cgraphunit.c:3002
+#21 0x0000000000b158ef in compile_file () at ../../gcc/toplev.c:483
+#22 0x000000000060352c in do_compile () at ../../gcc/toplev.c:2273
+#23 toplev::main (this=this@entry=0x7fffffffce9e, argc=<optimized out>, argc@entry=129, argv=<optimized out>, argv@entry=0x7fffffffcfa8) at ../../gcc/toplev.c:2412
+#24 0x0000000000606fcf in main (argc=129, argv=0x7fffffffcfa8) at ../../gcc/main.c:39
+
