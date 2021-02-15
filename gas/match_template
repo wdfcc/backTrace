@@ -1,0 +1,6 @@
+(gdb) bt
+#0  match_template (mnem_suffix=mnem_suffix@entry=113 'q') at config/tc-i386.c:6143
+#1  0x000000000043d541 in md_assemble (line=<optimized out>, line@entry=0x5ba042 "pushq %rbp") at config/tc-i386.c:4735
+#2  0x00000000004226f2 in assemble_one (line=0x5ba042 "pushq %rbp") at read.c:711
+#3  read_a_source_file (name=<optimized out>) at read.c:1180
+#4  0x0000000000404be3 in perform_an_assembly_pass (argv=0x5b4f08, argc=0) at as.c:1252
