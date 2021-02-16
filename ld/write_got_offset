@@ -1,0 +1,20 @@
+#0  0x0000000000437542 in bfd_putl32 (data=12258, p=0x766ac2) at libbfd.c:785
+#1  0x0000000000445858 in elf_x86_64_finish_dynamic_symbol (output_bfd=0x68edb0, info=0x670180 <link_info>, h=0x7bc370, sym=0x7fffffffda10) at elf64-x86-64.c:4262
+#2  0x000000000046c3a9 in elf_link_output_extsym (bh=<optimized out>, data=0x7fffffffdbf0) at elflink.c:10235
+#3  0x0000000000436ca0 in bfd_hash_traverse (table=0x690f00, func=func@entry=0x46c130 <elf_link_output_extsym>, info=info@entry=0x7fffffffdbf0) at hash.c:657
+#4  0x000000000047a20f in bfd_elf_final_link (abfd=<optimized out>, info=<optimized out>) at elflink.c:12626
+#5  0x000000000041b9c4 in ldwrite () at ldwrite.c:545
+#6  0x0000000000403f9c in main (argc=<optimized out>, argv=<optimized out>) at ./ldmain.c:510
+(gdb) frame 1
+#1  0x0000000000445858 in elf_x86_64_finish_dynamic_symbol (output_bfd=0x68edb0, info=0x670180 <link_info>, h=0x7bc370, sym=0x7fffffffda10) at elf64-x86-64.c:4262
+4262	      bfd_put_32 (output_bfd, plt_got_pcrel_offset,
+(gdb) l
+4257	      if ((plt_got_pcrel_offset + 0x80000000) > 0xffffffff)
+4258		/* xgettext:c-format */
+4259		info->callbacks->einfo (_("%F%pB: PC-relative offset overflow in PLT entry for `%s'\n"),
+4260					output_bfd, h->root.root.string);
+4261	
+4262	      bfd_put_32 (output_bfd, plt_got_pcrel_offset,
+4263			  (resolved_plt->contents + plt_offset
+4264			   + htab->plt.plt_got_offset));
+
