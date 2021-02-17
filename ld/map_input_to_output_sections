@@ -1,0 +1,10 @@
+(gdb) bt
+#0  bfd_make_section_anyway_with_flags (abfd=0x68edb0, name=0x682c10 ".rela.plt", flags=flags@entry=1065227) at section.c:1168
+#1  0x000000000041129c in init_os (s=s@entry=0x6774b8, flags=flags@entry=1065227) at ldlang.c:2396
+#2  0x000000000041231a in lang_add_section (ptr=0x682830, section=0x763438, sflag_info=<optimized out>, output=0x6774b8) at ldlang.c:2658
+#3  0x0000000000413861 in walk_wild (s=0x682800, callback=0x412340 <output_section_callback>, data=0x6774b8) at ldlang.c:964
+#4  0x0000000000413c8f in wild (target=<optimized out>, output=0x6774b8, s=0x682800) at ldlang.c:3194
+#5  map_input_to_output_sections (s=0x682800, os=os@entry=0x6774b8, target=<optimized out>) at ldlang.c:4112
+#6  0x0000000000413d2c in map_input_to_output_sections (s=0x6774b8, os=os@entry=0x0, target=<optimized out>) at ldlang.c:4134
+#7  0x0000000000416db5 in lang_process () at ldlang.c:8039
+#8  0x0000000000403f58 in main (argc=<optimized out>, argv=<optimized out>) at ./ldmain.c:494

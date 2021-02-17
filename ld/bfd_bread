@@ -1,0 +1,21 @@
+(gdb) bt
+#0  __memmove_avx_unaligned_erms () at ../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:418
+#1  0x00007ffff7e575db in __GI__IO_file_xsgetn (fp=0x6c8bb0, data=<optimized out>, n=420) at fileops.c:1296
+#2  0x00007ffff7e4b063 in __GI__IO_fread (buf=buf@entry=0x6d56d8, size=size@entry=1, count=count@entry=420, fp=fp@entry=0x6c8bb0) at iofread.c:38
+#3  0x0000000000434844 in cache_bread_1 (nbytes=420, buf=0x6d56d8, f=0x6c8bb0) at cache.c:358
+#4  cache_bread (abfd=<optimized out>, buf=0x6d56d8, nbytes=420) at cache.c:358
+#5  0x0000000000433a33 in bfd_bread (ptr=<optimized out>, size=<optimized out>, size@entry=420, abfd=<optimized out>, abfd@entry=0x6c8d90) at bfdio.c:236
+#6  0x000000000042efae in _bfd_slurp_extended_name_table (abfd=0x6c8d90) at archive.c:1280
+#7  0x000000000042e84d in bfd_generic_archive_p (abfd=0x6c8d90) at archive.c:895
+#8  0x0000000000435f3a in bfd_check_format_matches (abfd=0x6c8d90, format=format@entry=bfd_archive, matching=matching@entry=0x0) at format.c:277
+#9  0x0000000000436487 in bfd_check_format (abfd=<optimized out>, format=format@entry=bfd_archive) at format.c:94
+#10 0x000000000042021a in ldfile_try_open_bfd (attempt=attempt@entry=0x6bb0f0 "/usr/lib/gcc/x86_64-linux-gnu/10.1.0/libgcc.a", entry=entry@entry=0x6768f0)
+    at ./ldfile.c:173
+#11 0x000000000042076a in ldfile_open_file_search (arch=0x676670 "", entry=entry@entry=0x6768f0, lib=lib@entry=0x63629e "lib", suffix=suffix@entry=0x50138a ".a")
+    at ./ldfile.c:378
+#12 0x000000000042088f in ldfile_open_file (entry=entry@entry=0x6768f0) at ./ldfile.c:440
+#13 0x0000000000413eb5 in load_symbols (place=0x7fffffffdd10, entry=0x6768f0) at ldlang.c:3024
+#14 open_input_bfds (s=0x6768f0, mode=mode@entry=OPEN_BFD_NORMAL) at ldlang.c:3627
+#15 0x0000000000416681 in lang_process () at ldlang.c:7853
+#16 0x0000000000403f58 in main (argc=<optimized out>, argv=<optimized out>) at ./ldmain.c:494
+

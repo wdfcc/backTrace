@@ -1,0 +1,15 @@
+(gdb) bt
+#0  bfd_get_section_by_name (abfd=<optimized out>, name=<optimized out>) at section.c:902
+#1  0x0000000000411280 in init_os (s=s@entry=0x677850, flags=flags@entry=283) at ldlang.c:2394
+#2  0x000000000041231a in lang_add_section (ptr=0x683780, section=0x6a2cb8, sflag_info=<optimized out>, output=0x677850) at ldlang.c:2658
+#3  0x000000000040f375 in walk_wild_consider_section (data=0x677850, callback=0x412340 <output_section_callback>, sec=0x683ae0, s=0x6a2cb8, file=0x676730, ptr=0x683750)
+    at ldlang.c:324
+#4  walk_wild_consider_section (data=0x677850, callback=0x412340 <output_section_callback>, sec=0x683ae0, s=0x6a2cb8, file=0x676730, ptr=0x683750) at ldlang.c:313
+#5  walk_wild_section_specs4_wild2 (ptr=0x683750, file=0x676730, callback=0x412340 <output_section_callback>, data=0x677850) at ldlang.c:765
+#6  0x0000000000413861 in walk_wild (s=0x683750, callback=0x412340 <output_section_callback>, data=0x677850) at ldlang.c:964
+#7  0x0000000000413c8f in wild (target=<optimized out>, output=0x677850, s=0x683750) at ldlang.c:3194
+#8  map_input_to_output_sections (s=0x683750, os=os@entry=0x677850, target=<optimized out>) at ldlang.c:4112
+#9  0x0000000000413d2c in map_input_to_output_sections (s=0x677850, os=os@entry=0x0, target=<optimized out>) at ldlang.c:4134
+#10 0x0000000000416db5 in lang_process () at ldlang.c:8039
+#11 0x0000000000403f58 in main (argc=<optimized out>, argv=<optimized out>) at ./ldmain.c:494
+
