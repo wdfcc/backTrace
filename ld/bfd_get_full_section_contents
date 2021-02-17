@@ -1,0 +1,16 @@
+(gdb) bt
+#0  __memmove_avx_unaligned_erms () at ../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:307
+#1  0x00007ffff7e575db in __GI__IO_file_xsgetn (fp=0x6bb5f0, data=<optimized out>, n=21) at fileops.c:1296
+#2  0x00007ffff7e4b063 in __GI__IO_fread (buf=buf@entry=0x964760, size=size@entry=1, count=count@entry=21, fp=fp@entry=0x6bb5f0) at iofread.c:38
+#3  0x0000000000434844 in cache_bread_1 (nbytes=21, buf=0x964760, f=0x6bb5f0) at cache.c:358
+#4  cache_bread (abfd=<optimized out>, buf=0x964760, nbytes=21) at cache.c:358
+#5  0x0000000000433a33 in bfd_bread (ptr=ptr@entry=0x964760, size=<optimized out>, size@entry=21, abfd=<optimized out>, abfd@entry=0x6bb4c0) at bfdio.c:236
+#6  0x000000000043771e in _bfd_generic_get_section_contents (abfd=0x6bb4c0, section=0x6c97d8, location=0x964760, offset=<optimized out>, count=21) at libbfd.c:907
+#7  0x00000000004b9c0c in bfd_get_full_section_contents (abfd=abfd@entry=0x6bb4c0, sec=sec@entry=0x6c97d8, ptr=ptr@entry=0x7fffffffdcc8) at compress.c:288
+#8  0x000000000043efdc in bfd_malloc_and_get_section (abfd=abfd@entry=0x6bb4c0, sec=sec@entry=0x6c97d8, buf=buf@entry=0x7fffffffdcc8) at section.c:1627
+#9  0x000000000044bbf6 in elf_x86_64_check_relocs (abfd=0x6bb4c0, info=0x670180 <link_info>, sec=0x6c97d8, relocs=0x6d4598) at elf64-x86-64.c:1870
+#10 0x0000000000470b7f in _bfd_elf_link_check_relocs (abfd=0x6bb4c0, info=0x670180 <link_info>) at elflink.c:3981
+#11 0x0000000000416d75 in lang_check_relocs () at ldlang.c:7797
+#12 lang_process () at ldlang.c:8029
+#13 0x0000000000403f58 in main (argc=<optimized out>, argv=<optimized out>) at ./ldmain.c:494
+
