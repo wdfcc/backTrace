@@ -1,0 +1,17 @@
+(gdb) bt
+#0  0x0000000000437542 in bfd_putl32 (data=4294967040, p=0x96476a) at libbfd.c:785
+#1  0x000000000043dd26 in _bfd_relocate_contents (howto=howto@entry=0x62ca20 <x86_64_elf_howto_table+160>, input_bfd=input_bfd@entry=0x6bb4c0, 
+    relocation=<optimized out>, location=0x96476a "") at reloc.c:1512
+#2  0x000000000043de48 in _bfd_final_link_relocate (howto=howto@entry=0x62ca20 <x86_64_elf_howto_table+160>, input_bfd=input_bfd@entry=0x6bb4c0, 
+    input_section=input_section@entry=0x6c97d8, contents=contents@entry=0x964760 "UH\211\345\277\004 @", address=<optimized out>, value=4294967295, 
+    addend=18446744073709551612) at reloc.c:1385
+#3  0x0000000000447b01 in elf_x86_64_relocate_section (local_sections=<optimized out>, local_syms=<optimized out>, relocs=0xf, contents=<optimized out>, 
+    input_section=0x6bb4c0, input_bfd=0x6bb4c0, info=0x670180 <link_info>, output_bfd=0x62ca20 <x86_64_elf_howto_table+160>) at elf64-x86-64.c:4074
+#4  elf_x86_64_relocate_section (output_bfd=output_bfd@entry=0x68edb0, info=0x670180 <link_info>, input_bfd=input_bfd@entry=0x6bb4c0, 
+    input_section=input_section@entry=0x6c97d8, contents=<optimized out>, relocs=relocs@entry=0x6d4598, local_syms=<optimized out>, local_sections=<optimized out>)
+    at elf64-x86-64.c:2415
+#5  0x000000000047aff7 in elf_link_input_bfd (input_bfd=<optimized out>, flinfo=0x7fffffffdc80) at elflink.c:11128
+#6  bfd_elf_final_link (abfd=<optimized out>, info=<optimized out>) at elflink.c:12446
+#7  0x000000000041b9c4 in ldwrite () at ldwrite.c:545
+#8  0x0000000000403f9c in main (argc=<optimized out>, argv=<optimized out>) at ./ldmain.c:510
+
