@@ -1,0 +1,8 @@
+(gdb) bt
+#0  0x0000000000412f63 in frag_append_1_char (datum=137) at frags.c:415
+#1  0x000000000043f9d3 in output_insn () at config/tc-i386.c:9323
+#2  md_assemble (line=<optimized out>, line@entry=0x5ba219 "movq %rsp,%rbp") at config/tc-i386.c:4985
+#3  0x00000000004226f2 in assemble_one (line=0x5ba219 "movq %rsp,%rbp") at read.c:711
+#4  read_a_source_file (name=<optimized out>) at read.c:1180
+#5  0x0000000000404be3 in perform_an_assembly_pass (argv=0x5b4f08, argc=0) at as.c:1252
+#6  main (argc=<optimized out>, argv=<optimized out>) at as.c:1416
