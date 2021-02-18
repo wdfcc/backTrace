@@ -1,0 +1,11 @@
+(gdb) bt
+#0  bfd_elf64_swap_reloca_in (abfd=0x6fb1c0, s=0x6fb2e0 "\005", dst=0x727ad8) at elfcode.h:423
+#1  0x0000000000491ba1 in elf_link_read_relocs_from_section (abfd=0x6fb1c0, sec=0x71e028, shdr=0x712958, external_relocs=0x6fb2e0, internal_relocs=0x727ad8)
+    at elflink.c:2529
+#2  0x0000000000491f0c in _bfd_elf_link_read_relocs (abfd=0x6fb1c0, o=0x71e028, external_relocs=0x6fb2e0, internal_relocs=0x727ad8, keep_memory=1) at elflink.c:2637
+#3  0x00000000004973d5 in elf_link_add_object_symbols (abfd=0x6fb1c0, info=0x6cbc40 <link_info>) at elflink.c:5175
+#4  0x0000000000498a4d in bfd_elf_link_add_symbols (abfd=0x6fb1c0, info=0x6cbc40 <link_info>) at elflink.c:5809
+#5  0x00000000004129aa in load_symbols (entry=0x6d1230, place=0x7fffffffdde0) at ldlang.c:3098
+#6  0x0000000000413626 in open_input_bfds (s=0x6d1230, mode=OPEN_BFD_NORMAL) at ldlang.c:3568
+#7  0x000000000041aaed in lang_process () at ldlang.c:7649
+#8  0x000000000041f3dd in main (argc=39, argv=0x7fffffffe058) at ./ldmain.c:444
