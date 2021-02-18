@@ -1,0 +1,11 @@
+(gdb) bt
+#0  bfd_section_from_shdr (abfd=0x6fb1c0, shindex=2) at elf.c:2486
+#1  0x000000000046e349 in bfd_elf64_object_p (abfd=0x6fb1c0) at elfcode.h:815
+#2  0x00000000004443bb in bfd_check_format_matches (abfd=0x6fb1c0, format=bfd_object, matching=0x0) at format.c:261
+#3  0x0000000000443f39 in bfd_check_format (abfd=0x6fb1c0, format=bfd_object) at format.c:94
+#4  0x00000000004285ea in ldfile_try_open_bfd (attempt=0x7fffffffe6d2 "/tmp/ccPJHg3c.o", entry=0x6d1230) at ./ldfile.c:318
+#5  0x000000000042886f in ldfile_open_file (entry=0x6d1230) at ./ldfile.c:402
+#6  0x00000000004124f4 in load_symbols (entry=0x6d1230, place=0x7fffffffdde0) at ldlang.c:2967
+#7  0x0000000000413626 in open_input_bfds (s=0x6d1230, mode=OPEN_BFD_NORMAL) at ldlang.c:3568
+#8  0x000000000041aaed in lang_process () at ldlang.c:7649
+#9  0x000000000041f3dd in main (argc=39, argv=0x7fffffffe058) at ./ldmain.c:444
