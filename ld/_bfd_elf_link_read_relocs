@@ -1,0 +1,8 @@
+(gdb) bt
+#0  _bfd_elf_link_read_relocs (abfd=0x6f9510, o=0x6fba58, external_relocs=0x0, internal_relocs=0x0, keep_memory=1) at elflink.c:2583
+#1  0x00000000004973d5 in elf_link_add_object_symbols (abfd=0x6f9510, info=0x6cbc40 <link_info>) at elflink.c:5175
+#2  0x0000000000498a4d in bfd_elf_link_add_symbols (abfd=0x6f9510, info=0x6cbc40 <link_info>) at elflink.c:5809
+#3  0x00000000004129aa in load_symbols (entry=0x6d1110, place=0x7fffffffdde0) at ldlang.c:3098
+#4  0x0000000000413626 in open_input_bfds (s=0x6d1110, mode=OPEN_BFD_NORMAL) at ldlang.c:3568
+#5  0x000000000041aaed in lang_process () at ldlang.c:7649
+#6  0x000000000041f3dd in main (argc=39, argv=0x7fffffffe058) at ./ldmain.c:444
