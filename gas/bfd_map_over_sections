@@ -1,0 +1,8 @@
+(gdb) bt
+#0  bfd_set_section_contents (abfd=0x5b4670, section=section@entry=0x5cb050, location=location@entry=0x5cc060, offset=offset@entry=0, count=63) at bfd.h:1245
+#1  0x000000000042a435 in write_contents (abfd=<optimized out>, sec=0x5cb050, xxx=<optimized out>) at write.c:1618
+#2  0x00000000004525bf in bfd_map_over_sections (abfd=0x5b4670, operation=operation@entry=0x42a210 <write_contents>, user_storage=user_storage@entry=0x0)
+    at section.c:1379
+#3  0x000000000042d527 in write_object_file () at write.c:2493
+#4  0x0000000000404e1c in main (argc=<optimized out>, argv=<optimized out>) at as.c:1452
+
