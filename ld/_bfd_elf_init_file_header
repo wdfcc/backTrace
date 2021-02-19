@@ -1,0 +1,6 @@
+(gdb) bt
+#0  _bfd_elf_init_file_header (abfd=0x6e7a20, info=0x6cbc40 <link_info>) at elf.c:6408
+#1  0x000000000047b4f5 in _bfd_elf_compute_section_file_positions (abfd=0x6e7a20, link_info=0x6cbc40 <link_info>) at elf.c:4307
+#2  0x00000000004a8615 in bfd_elf_final_link (abfd=0x6e7a20, info=0x6cbc40 <link_info>) at elflink.c:12072
+#3  0x00000000004225f0 in ldwrite () at ldwrite.c:545
+#4  0x000000000041f469 in main (argc=39, argv=0x7fffffffe058) at ./ldmain.c:460
