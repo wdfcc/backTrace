@@ -1,0 +1,7 @@
+(gdb) bt
+#0  cache_bwrite (abfd=0x6e7a20, from=0x0, nbytes=4152881213) at cache.c:380
+#1  0x00000000004414df in bfd_bwrite (ptr=0x7fffffffddd0, size=64, abfd=0x6e7a20) at bfdio.c:233
+#2  0x000000000046e943 in bfd_elf64_write_shdrs_and_ehdr (abfd=0x6e7a20) at elfcode.h:1028
+#3  0x00000000004811c2 in _bfd_elf_write_object_contents (abfd=0x6e7a20) at elf.c:6674
+#4  0x000000000044cc88 in bfd_close (abfd=0x6e7a20) at opncls.c:755
+#5  0x000000000041f52a in main (argc=39, argv=0x7fffffffe058) at ./ldmain.c:495
