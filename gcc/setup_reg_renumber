@@ -15,4 +15,3 @@
 #13 0x00000000005da4ec in do_compile () at ../.././gcc/toplev.c:2274
 #14 toplev::main (this=this@entry=0x7fffffffce6e, argc=<optimized out>, argc@entry=102, argv=<optimized out>, argv@entry=0x7fffffffcf68) at ../.././gcc/toplev.c:2413
 #15 0x00000000005ddf5f in main (argc=102, argv=0x7fffffffcf68) at ../.././gcc/main.c:3etup_reg_renumber
-

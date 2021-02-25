@@ -1,0 +1,16 @@
+(gdb) bt
+#0  (anonymous namespace)::pass_rtl_unroll_loops::execute (this=0x2010310, fun=0x7ffff4cdf8f0) at ../.././gcc/loop-init.c:573
+#1  0x0000000000a56b28 in execute_one_pass (pass=0x2010310) at ../.././gcc/passes.c:2502
+#2  0x0000000000a57470 in execute_pass_list_1 (pass=0x2010310) at ../.././gcc/passes.c:2590
+#3  0x0000000000a57482 in execute_pass_list_1 (pass=0x20101f0) at ../.././gcc/passes.c:2591
+#4  0x0000000000a57482 in execute_pass_list_1 (pass=0x200fbf0) at ../.././gcc/passes.c:2591
+#5  0x0000000000a574a9 in execute_pass_list (fn=0x7ffff4cdf8f0, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#6  0x000000000075321e in cgraph_node::expand (this=0x7ffff4ce89d8) at ../.././gcc/context.h:48
+#7  0x00000000007542b0 in expand_all_functions () at ../.././gcc/cgraphunit.c:2600
+#8  symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2951
+#9  0x000000000075632d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3131
+#10 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3131
+#11 0x0000000000b15d1f in compile_file () at ../.././gcc/toplev.c:483
+#12 0x00000000006035bc in do_compile () at ../.././gcc/toplev.c:2274
+#13 toplev::main (this=this@entry=0x7fffffffe20e, argc=<optimized out>, argc@entry=16, argv=<optimized out>, argv@entry=0x7fffffffe308) at ../.././gcc/toplev.c:2413
+#14 0x000000000060702f in main (argc=16, argv=0x7fffffffe308) at ../.././gcc/main.c:39
