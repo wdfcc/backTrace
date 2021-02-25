@@ -1,0 +1,38 @@
+(gdb) bt
+#0  0x0000000000abfe35 in rtx_init (code=INSN, rt=0x7ffff4d6cdc0) at ../.././gcc/rtl.h:2966
+#1  rtx_alloc_stat_v (extra=0, code=INSN) at ../.././gcc/rtl.c:222
+#2  rtx_alloc (code=code@entry=INSN) at ../.././gcc/rtl.c:239
+#3  0x00000000007e934e in make_insn_raw (pattern=0x7ffff4d6f270) at ../.././gcc/emit-rtl.c:4054
+#4  0x00000000007ea47c in emit_pattern_after_noloc (x=<optimized out>, after=0x7ffff4d6cd80, bb=<optimized out>, make_raw=<optimized out>)
+    at ../.././gcc/emit-rtl.c:4732
+#5  0x00000000007ea4f3 in emit_pattern_after_setloc (pattern=0x7ffff4d6f270, after=0x7ffff4d6cd80, loc=2147514256, make_raw=<optimized out>)
+    at ../.././gcc/emit-rtl.c:4873
+#6  0x00000000007f1c2e in emit_insn_after (after=0x7ffff4d6cd80, pattern=<optimized out>) at ../.././gcc/emit-rtl.c:4924
+#7  emit_copy_of_insn_after (insn=insn@entry=0x7ffff4d6c880, after=0x7ffff4d6cd80) at ../.././gcc/emit-rtl.c:6469
+#8  0x000000000073b87f in duplicate_insn_chain (from=<optimized out>, to=0x7ffff4d6c880) at ../.././gcc/emit-rtl.h:432
+#9  0x000000000073b9aa in cfg_layout_duplicate_bb (bb=0x7ffff4cf4dd0) at ../.././gcc/cfgrtl.c:4300
+#10 0x0000000000728a20 in duplicate_block (bb=bb@entry=0x7ffff4cf4dd0, e=e@entry=0x0, after=0x7ffff4d66af8, id=id@entry=0x7fffffffdc28) at ../.././gcc/cfghooks.c:1089
+#11 0x000000000072911a in copy_bbs (bbs=bbs@entry=0x31adb30, n=n@entry=4, new_bbs=new_bbs@entry=0x50768b0, edges=edges@entry=0x7fffffffddd0, 
+    num_edges=num_edges@entry=2, new_edges=new_edges@entry=0x7fffffffdde0, base=0x7ffff5962d20, after=<optimized out>, update_dominance=true)
+    at ../.././gcc/cfghooks.c:1357
+#12 0x0000000000733a27 in duplicate_loop_to_header_edge (loop=loop@entry=0x7ffff5962d20, e=0x7ffff4d30c90, ndupl=ndupl@entry=1, wont_exit=wont_exit@entry=0x61a7770, 
+    orig=orig@entry=0x7ffff4cf89f0, to_remove=to_remove@entry=0x7fffffffdf18, flags=1) at ../.././gcc/cfgloopmanip.c:1303
+#13 0x000000000099b802 in unroll_loop_runtime_iterations (loop=0x7ffff5962d20) at ../.././gcc/sbitmap.h:297
+#14 unroll_loops (flags=<optimized out>) at ../.././gcc/loop-unroll.c:298
+#15 0x000000000098da40 in (anonymous namespace)::pass_rtl_unroll_loops::execute (this=<optimized out>, fun=<optimized out>) at ../.././gcc/loop-init.c:584
+#16 (anonymous namespace)::pass_rtl_unroll_loops::execute (this=<optimized out>, fun=<optimized out>) at ../.././gcc/loop-init.c:571
+#17 0x0000000000a56b28 in execute_one_pass (pass=0x2010310) at ../.././gcc/passes.c:2502
+#18 0x0000000000a57470 in execute_pass_list_1 (pass=0x2010310) at ../.././gcc/passes.c:2590
+#19 0x0000000000a57482 in execute_pass_list_1 (pass=0x20101f0) at ../.././gcc/passes.c:2591
+#20 0x0000000000a57482 in execute_pass_list_1 (pass=0x200fbf0) at ../.././gcc/passes.c:2591
+#21 0x0000000000a574a9 in execute_pass_list (fn=0x7ffff4cdf9a0, pass=<optimized out>) at ../.././gcc/passes.c:2601
+#22 0x000000000075321e in cgraph_node::expand (this=0x7ffff4ce89d8) at ../.././gcc/context.h:48
+#23 0x00000000007542b0 in expand_all_functions () at ../.././gcc/cgraphunit.c:2600
+#24 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2951
+#25 0x000000000075632d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3131
+#26 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3131
+#27 0x0000000000b15d1f in compile_file () at ../.././gcc/toplev.c:483
+#28 0x00000000006035bc in do_compile () at ../.././gcc/toplev.c:2274
+#29 toplev::main (this=this@entry=0x7fffffffe20e, argc=<optimized out>, argc@entry=15, argv=<optimized out>, argv@entry=0x7fffffffe308) at ../.././gcc/toplev.c:2413
+#30 0x000000000060702f in main (argc=15, argv=0x7fffffffe308) at ../.././gcc/main.c:39
+
