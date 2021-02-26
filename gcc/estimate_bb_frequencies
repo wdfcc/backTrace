@@ -1,0 +1,21 @@
+(gdb) bt
+#0  0x0000000000a6f196 in estimate_bb_frequencies (force=force@entry=false) at ../.././gcc/profile-count.h:1120
+#1  0x0000000000a74206 in tree_estimate_probability (dry_run=<optimized out>) at ../.././gcc/predict.c:3106
+#2  0x0000000000a74394 in (anonymous namespace)::pass_profile::execute (this=<optimized out>, fun=0x7ffff6a28000) at ../.././gcc/predict.c:4023
+#3  (anonymous namespace)::pass_profile::execute (this=<optimized out>, fun=0x7ffff6a28000) at ../.././gcc/predict.c:4006
+#4  0x0000000000a56b28 in execute_one_pass (pass=0x200a800) at ../.././gcc/passes.c:2502
+#5  0x0000000000a57470 in execute_pass_list_1 (pass=0x200a800) at ../.././gcc/passes.c:2590
+#6  0x0000000000a57482 in execute_pass_list_1 (pass=0x200a160) at ../.././gcc/passes.c:2591
+#7  0x0000000000a574a9 in execute_pass_list (fn=fn@entry=0x7ffff6a28000, pass=pass@entry=0x2009fe0) at ../.././gcc/passes.c:2601
+#8  0x0000000000a54a3e in do_per_function_toporder (callback=callback@entry=0xa57490 <execute_pass_list(function*, opt_pass*)>, data=0x2009fe0) at ../.././gcc/passes.c:1726
+#9  0x0000000000a57a2f in do_per_function_toporder (data=<optimized out>, callback=0xa57490 <execute_pass_list(function*, opt_pass*)>) at ../.././gcc/passes.c:2934
+#10 execute_ipa_pass_list (pass=0x2009f80) at ../.././gcc/passes.c:2934
+#11 0x00000000007545af in ipa_passes () at ../.././gcc/cgraphunit.c:2749
+#12 symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:2884
+#13 0x000000000075632d in symbol_table::compile (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3131
+#14 symbol_table::finalize_compilation_unit (this=0x7ffff6c2c100) at ../.././gcc/cgraphunit.c:3131
+#15 0x0000000000b15d1f in compile_file () at ../.././gcc/toplev.c:483
+#16 0x00000000006035bc in do_compile () at ../.././gcc/toplev.c:2274
+#17 toplev::main (this=this@entry=0x7fffffffe21e, argc=<optimized out>, argc@entry=15, argv=<optimized out>, argv@entry=0x7fffffffe318) at ../.././gcc/toplev.c:2413
+#18 0x000000000060702f in main (argc=15, argv=0x7fffffffe318) at ../.././gcc/main.c:39
+
