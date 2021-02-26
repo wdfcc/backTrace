@@ -1,0 +1,20 @@
+(gdb) bt
+#0  maybe_hot_count_p (fun=fun@entry=0x0, count=...) at ../../gcc/profile-count.h:785
+#1  0x00000000012c4c00 in afdo_callsite_hot_enough_for_early_inline (edge=edge@entry=0x7ffff6dfd478) at ../../gcc/auto-profile.c:1701
+#2  0x000000000139a205 in want_early_inline_function_p (e=0x7ffff6dfd478) at ../../gcc/timevar.h:220
+#3  early_inline_small_functions (node=0x7ffff6df4438) at ../../gcc/ipa-inline.c:2870
+#4  early_inliner (fun=0x7ffff6df6160) at ../../gcc/ipa-inline.c:2973
+#5  0x0000000000a9ef28 in execute_one_pass (pass=0x2253b20) at ../../gcc/passes.c:2502
+#6  0x0000000000a9f870 in execute_pass_list_1 (pass=0x2253b20) at ../../gcc/passes.c:2590
+#7  0x0000000000a9f8a9 in execute_pass_list (fn=fn@entry=0x7ffff6df6160, pass=pass@entry=0x2253a00) at ../../gcc/passes.c:2601
+#8  0x0000000000a9ce3e in do_per_function_toporder (callback=callback@entry=0xa9f890 <execute_pass_list(function*, opt_pass*)>, data=0x2253a00) at ../../gcc/passes.c:1726
+#9  0x0000000000a9fe2f in do_per_function_toporder (data=<optimized out>, callback=0xa9f890 <execute_pass_list(function*, opt_pass*)>) at ../../gcc/passes.c:2934
+#10 execute_ipa_pass_list (pass=0x22539a0) at ../../gcc/passes.c:2934
+#11 0x000000000079c32f in ipa_passes () at ../../gcc/cgraphunit.c:2620
+#12 symbol_table::compile (this=0x7ffff6c07100) at ../../gcc/cgraphunit.c:2755
+#13 0x000000000079e09d in symbol_table::compile (this=0x7ffff6c07100) at ../../gcc/cgraphunit.c:3002
+#14 symbol_table::finalize_compilation_unit (this=0x7ffff6c07100) at ../../gcc/cgraphunit.c:3002
+#15 0x0000000000b5e34f in compile_file () at ../../gcc/toplev.c:483
+#16 0x000000000064b690 in do_compile () at ../../gcc/toplev.c:2278
+#17 toplev::main (this=this@entry=0x7fffffffddbe, argc=<optimized out>, argc@entry=16, argv=<optimized out>, argv@entry=0x7fffffffdec8) at ../../gcc/toplev.c:2417
+#18 0x000000000064f1bf in main (argc=16, argv=0x7fffffffdec8) at ../../gcc/main.c:39
