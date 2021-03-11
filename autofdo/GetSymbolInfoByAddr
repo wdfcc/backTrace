@@ -1,0 +1,11 @@
+(gdb) bt
+#0  autofdo::SymbolMap::GetSymbolInfoByAddr (this=0x7fffffffd5b0, addr=4484, name=name@entry=0x7fffffffd248, start_addr=start_addr@entry=0x7fffffffd250, end_addr=end_addr@entry=0x7fffffffd258)
+    at symbol_map.cc:210
+#1  0x00005555555a9997 in autofdo::Profile::GetProfileMaps (this=0x7fffffffd450, addr=<optimized out>) at profile.cc:36
+#2  0x00005555555aa2cf in autofdo::Profile::AggregatePerFunctionProfile (this=this@entry=0x7fffffffd450) at profile.cc:53
+#3  0x00005555555aa5fb in autofdo::Profile::ComputeProfile (this=this@entry=0x7fffffffd450) at profile.cc:168
+#4  0x0000555555593d19 in autofdo::ProfileCreator::ComputeProfile (this=0x7fffffffdf40, symbol_map=0x7fffffffd450) at profile_creator.cc:153
+#5  0x0000555555595262 in autofdo::ProfileCreator::CreateProfile (this=0x7fffffffdf40, input_profile_name="perf.data", profiler="perf", writer=0x7fffffffdf10, output_profile_name="sort.gcov")
+    at profile_creator.cc:111
+#6  0x0000555555581d51 in main (argc=<optimized out>, argv=<optimized out>) at create_gcov.cc:34
+
