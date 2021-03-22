@@ -1,0 +1,23 @@
+(gdb) bt
+#0  ovl_make (fn=0x7fffeef5e900, next=0x7fffeef72200) at ../../gcc/cp/tree.c:2238
+#1  0x000000000078ab74 in ovl_insert (fn=fn@entry=0x7fffeef5e900, maybe_ovl=<optimized out>, maybe_ovl@entry=0x7fffeef72200, using_p=using_p@entry=true) at ../../gcc/cp/tree.c:2264
+#2  0x00000000006473fe in add_method (type=0x7fffeef733f0, method=0x7fffeef5e900, via_using=true) at ../../gcc/cp/class.c:1180
+#3  0x0000000000647ecc in handle_using_decl (using_decl=0x7fffeef6dda8, t=0x7fffeef733f0) at ../../gcc/cp/cp-tree.h:819
+#4  0x000000000065143c in check_bases_and_members (t=0x7fffeef733f0) at ../../gcc/cp/class.c:6021
+#5  finish_struct_1 (t=0x7fffeef733f0) at ../../gcc/cp/class.c:7216
+#6  0x0000000000653a1d in finish_struct (t=<optimized out>, t@entry=0x7fffeef733f0, attributes=0x0) at ../../gcc/cp/class.c:7520
+#7  0x00000000007094c9 in cp_parser_class_specifier_1 (parser=0x7ffff072fa18) at ../../gcc/cp/parser.c:23881
+#8  0x000000000070af34 in cp_parser_class_specifier (parser=0x7ffff072fa18) at ../../gcc/cp/parser.c:24180
+#9  cp_parser_type_specifier (parser=0x7ffff072fa18, flags=<optimized out>, decl_specs=0x7fffffffde90, is_declaration=<optimized out>, declares_class_or_enum=0x7fffffffdd40, is_cv_qualifier=<optimized out>)
+    at ../../gcc/cp/parser.c:17711
+#10 0x000000000070bea7 in cp_parser_decl_specifier_seq (parser=0x7ffff072fa18, flags=1, decl_specs=0x7fffffffde90, declares_class_or_enum=0x7fffffffde78) at ../../gcc/cp/parser.c:14358
+#11 0x000000000070c882 in cp_parser_simple_declaration (parser=0x7ffff072fa18, function_definition_allowed_p=true, maybe_range_for_decl=0x0) at ../../gcc/cp/parser.c:13613
+#12 0x00000000007326b3 in cp_parser_declaration (parser=0x7ffff072fa18) at ../../gcc/cp/parser.c:13433
+#13 0x0000000000732dd5 in cp_parser_translation_unit (parser=0x7ffff072fa18) at ../../gcc/cp/parser.c:4734
+#14 c_parse_file () at ../../gcc/cp/parser.c:43975
+#15 0x00000000007fb25c in c_common_parse_file () at ../../gcc/c-family/c-opts.c:1190
+#16 0x0000000000c4e004 in compile_file () at ../../gcc/toplev.c:458
+#17 0x000000000062763c in do_compile () at ../../gcc/toplev.c:2274
+#18 toplev::main (this=this@entry=0x7fffffffe21e, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffe318) at ../../gcc/toplev.c:2413
+#19 0x000000000062b09f in main (argc=14, argv=0x7fffffffe318) at ../../gcc/main.c:39
+
