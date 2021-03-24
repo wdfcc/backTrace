@@ -1,0 +1,22 @@
+(gdb) bt
+#0  get_insn_template (code=66, insn=0x7fffeeb94c80) at ../../gcc/final.c:2062
+#1  0x000000000096e816 in final_scan_insn_1 (insn=0x7fffeeb94c80, file=0x224fa80, seen=<optimized out>, nopeepholes=<optimized out>, optimize_p=<optimized out>) at ../../gcc/final.c:3039
+#2  0x000000000096eccc in final_scan_insn (insn=<optimized out>, file=<optimized out>, optimize_p=<optimized out>, nopeepholes=<optimized out>, seen=<optimized out>) at ../../gcc/final.c:3152
+#3  0x000000000096efb5 in final_1 (first=0x7fffeeb95a80, file=0x224fa80, seen=<optimized out>, optimize_p=0) at ../../gcc/final.c:2020
+#4  0x000000000096f745 in rest_of_handle_final () at ../../gcc/final.c:4658
+#5  (anonymous namespace)::pass_final::execute (this=<optimized out>) at ../../gcc/final.c:4736
+#6  0x0000000000b924e8 in execute_one_pass (pass=0x2213200) at ../../gcc/passes.c:2502
+#7  0x0000000000b92e30 in execute_pass_list_1 (pass=0x2213200) at ../../gcc/passes.c:2590
+#8  0x0000000000b92e42 in execute_pass_list_1 (pass=0x2212d20) at ../../gcc/passes.c:2591
+#9  0x0000000000b92e42 in execute_pass_list_1 (pass=0x2211080) at ../../gcc/passes.c:2591
+#10 0x0000000000b92e69 in execute_pass_list (fn=0x7fffeeedee70, pass=<optimized out>) at ../../gcc/passes.c:2601
+#11 0x000000000088d41e in cgraph_node::expand (this=0x7fffeef87000) at ../../gcc/context.h:48
+#12 0x000000000088e514 in output_in_order () at ../../gcc/cgraphunit.c:2667
+#13 symbol_table::compile (this=0x7ffff0703100) at ../../gcc/cgraphunit.c:2908
+#14 0x000000000089052d in symbol_table::compile (this=0x7ffff0703100) at ../../gcc/cgraphunit.c:3091
+#15 symbol_table::finalize_compilation_unit (this=0x7ffff0703100) at ../../gcc/cgraphunit.c:3091
+#16 0x0000000000c4e24f in compile_file () at ../../gcc/toplev.c:483
+#17 0x000000000062763c in do_compile () at ../../gcc/toplev.c:2274
+#18 toplev::main (this=this@entry=0x7fffffffe21e, argc=<optimized out>, argc@entry=14, argv=<optimized out>, argv@entry=0x7fffffffe318) at ../../gcc/toplev.c:2413
+#19 0x000000000062b09f in main (argc=14, argv=0x7fffffffe318) at ../../gcc/main.c:39
+
