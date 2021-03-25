@@ -1,0 +1,14 @@
+(gdb) bt
+#0  set_option (opts=<optimized out>, opts_set=<optimized out>, opt_index=<optimized out>, value=1, arg=0x0, kind=<optimized out>, loc=0, dc=0x2034480 <global_diagnostic_context>)
+    at ../../gcc/opts-common.c:1434
+#1  0x00000000013e29f4 in handle_option (opts=opts@entry=0x2032ec0 <global_options>, opts_set=0x2031a00 <global_options_set>, decoded=decoded@entry=0x204a4d8, lang_mask=lang_mask@entry=16, kind=kind@entry=0, 
+    loc=loc@entry=0, handlers=0x7fffffffe1d0, generated_p=false, dc=0x2034480 <global_diagnostic_context>) at ../../gcc/opts-common.c:1138
+#2  0x00000000013e2ba9 in read_cmdline_option (opts=0x2032ec0 <global_options>, opts_set=<optimized out>, decoded=0x204a4d8, loc=0, lang_mask=16, handlers=0x7fffffffe1d0, 
+    dc=0x2034480 <global_diagnostic_context>) at ../../gcc/opts-common.c:1394
+#3  0x0000000000a52d85 in read_cmdline_options (dc=0x2034480 <global_diagnostic_context>, handlers=0x7fffffffe1d0, lang_mask=16, loc=0, decoded_options_count=<optimized out>, decoded_options=<optimized out>, 
+    opts_set=0x2031a00 <global_options_set>, opts=0x2032ec0 <global_options>) at ../../gcc/opts-global.c:237
+#4  decode_options (opts=0x2032ec0 <global_options>, opts_set=0x2031a00 <global_options_set>, decoded_options=<optimized out>, decoded_options_count=<optimized out>, loc=loc@entry=0, 
+    dc=0x2034480 <global_diagnostic_context>, target_option_override_hook=0xe164d0 <ix86_option_override()>) at ../../gcc/opts-global.c:319
+#5  0x000000000060324b in toplev::main (this=this@entry=0x7fffffffe30e, argc=<optimized out>, argc@entry=6, argv=<optimized out>, argv@entry=0x7fffffffe408) at ../../gcc/toplev.c:2391
+#6  0x000000000060704f in main (argc=6, argv=0x7fffffffe408) at ../../gcc/main.c:39
+
