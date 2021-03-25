@@ -1,0 +1,7 @@
+(gdb) bt
+#0  c_common_init () at ../../gcc/c-family/c-opts.c:1164
+#1  0x0000000000603546 in lang_dependent_init (name=0x7fffffffe6cb "q.c") at ../../gcc/toplev.c:1970
+#2  do_compile () at ../../gcc/toplev.c:2259
+#3  toplev::main (this=this@entry=0x7fffffffe30e, argc=<optimized out>, argc@entry=6, argv=<optimized out>, argv@entry=0x7fffffffe408) at ../../gcc/toplev.c:2413
+#4  0x000000000060704f in main (argc=6, argv=0x7fffffffe408) at ../../gcc/main.c:39
+
