@@ -1,0 +1,8 @@
+(gdb) bt
+#0  __libc_open64 (file=0x555555f05ce0 "/lib/ld-linux-aarch64.so.1", oflag=0) at ../sysdeps/unix/sysv/linux/open64.c:37
+#1  0x000055555581a979 in load_elf_interp (filename=0x555555f05ce0 "/lib/ld-linux-aarch64.so.1", info=0x7fffffffd620, bprm_buf=0x7fffffffdaa0 "\177ELF\002\001\001") at ../linux-user/elfload.c:2937
+#2  0x000055555581b4ab in load_elf_binary (bprm=0x7fffffffdaa0, info=0x7fffffffd890) at ../linux-user/elfload.c:3202
+#3  0x00005555557b8035 in loader_exec (fdexec=3, filename=0x7fffffffe350 "/home/zhangsan/hello", argv=0x555555f04f00, envp=0x555555f57d60, regs=0x7fffffffd990, infop=0x7fffffffd890, bprm=0x7fffffffdaa0)
+    at ../linux-user/linuxload.c:147
+#4  0x00005555557c68ba in main (argc=2, argv=0x7fffffffdff8, envp=0x7fffffffe010) at ../linux-user/main.c:813
+
