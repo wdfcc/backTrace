@@ -1,0 +1,4 @@
+(gdb) bt
+#0  do_syscall (cpu_env=0x555555f1c4a0, num=214, arg1=4782896, arg2=4782896, arg3=4775936, arg4=4775936, arg5=4766032, arg6=8, arg7=0, arg8=0) at ../linux-user/syscall.c:13271
+#1  0x000055555563c4da in cpu_loop (env=0x555555f1c4a0) at ../linux-user/aarch64/cpu_loop.c:92
+#2  0x00005555557c6bb1 in main (argc=2, argv=0x7fffffffdfe8, envp=0x7fffffffe000) at ../linux-user/main.c:864
