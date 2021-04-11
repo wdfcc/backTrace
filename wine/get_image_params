@@ -1,0 +1,12 @@
+(gdb) bt
+#0  get_image_params (mapping=0x555555f937a0, file_size=32344, unix_fd=26) at ../server/mapping.c:797
+#1  0x00005555555853f9 in create_mapping (root=0x0, name=0x7fffffffd7d0, attr=0, size=0, flags=16777216, handle=12, file_access=1, sd=0x0) at ../server/mapping.c:894
+#2  0x0000555555585c9a in req_create_mapping (req=0x555555e69d68, reply=0x7fffffffd820) at ../server/mapping.c:1106
+#3  0x00005555555a16ba in call_req_handler (thread=0x555555e69c20) at ../server/request.c:312
+#4  0x00005555555a17ee in read_request (thread=0x555555e69c20) at ../server/request.c:346
+#5  0x00005555555a8f58 in thread_poll_event (fd=0x555555f5fe00, event=1) at ../server/thread.c:385
+#6  0x00005555555779b0 in fd_poll_event (fd=0x555555f5fe00, event=1) at ../server/fd.c:525
+#7  0x0000555555577cb9 in main_loop_epoll () at ../server/fd.c:620
+#8  0x0000555555578284 in main_loop () at ../server/fd.c:988
+#9  0x0000555555583049 in main (argc=1, argv=0x7fffffffe068) at ../server/main.c:149
+
