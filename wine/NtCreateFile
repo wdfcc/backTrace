@@ -1,0 +1,10 @@
+(gdb) bt
+#0  NtCreateFile (handle=0x11ed38, access=1048608, attr=0x11ed60, io=0x11ed40, alloc_size=0x0, attributes=0, sharing=3, disposition=1, options=33, ea_buffer=0x0, ea_length=0)
+    at ../dlls/ntdll/unix/file.c:3716
+#1  0x00007ffff7d0436e in NtOpenFile (handle=0x11ed38, access=1048608, attr=0x11ed60, io=0x11ed40, sharing=3, options=33) at ../dlls/ntdll/unix/file.c:3808
+#2  0x00007ffff7ceffe1 in __wine_syscall_dispatcher_xsavec ()
+#3  0x000000007bc31864 in NtOpenFile ()
+#4  0x000000007bc6d122 in RtlSetCurrentDirectory_U (dir=0x122418) at ../dlls/ntdll/path.c:851
+#5  0x000000007bc4cdb4 in init_user_process_params () at ../dlls/ntdll/env.c:677
+#6  0x000000007bc6184a in LdrInitializeThunk (context=0x11fb00, unknown2=0, unknown3=140737351521184, unknown4=0) at ../dlls/ntdll/loader.c:3651
+
