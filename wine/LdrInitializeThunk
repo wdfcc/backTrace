@@ -1,0 +1,2 @@
+(gdb) bt
+#0  LdrInitializeThunk (context=0x0, unknown2=0, unknown3=0, unknown4=0) at ../dlls/ntdll/loader.c:3606
