@@ -1,0 +1,14 @@
+gdb) bt
+#0  load_main_exe (dos_name=0x0, unix_name=0x7fffffffe317 "/home/zhangsan/Si3586Setup.exe", curdir=0x7d40d190, 
+    image=0x7fffffffdc20, module=0x7fffffffdc10) at ../dlls/ntdll/unix/loader.c:1472
+#1  0x00007ffff7cfa702 in build_initial_params () at ../dlls/ntdll/unix/env.c:1936
+#2  0x00007ffff7cfaad8 in init_startup_info () at ../dlls/ntdll/unix/env.c:2013
+#3  0x00007ffff7d1408b in start_main_thread () at ../dlls/ntdll/unix/loader.c:1759
+#4  0x00007ffff7d14345 in __wine_main (argc=2, argv=0x7fffffffdfb8, envp=0x7fffffffdfd0)
+    at ../dlls/ntdll/unix/loader.c:2103
+#5  0x000000007d001647 in main (argc=2, argv=0x7fffffffdfb8) at ../loader/main.c:157
+#6  0x00007ffff7dbecb2 in ?? ()
+#7  0x00007fffffffdfb8 in ?? ()
+#8  0x00000002f7dbead3 in ?? ()
+#9  0x000000007d0015e6 in load_ntdll (argv0=0x7d407390 "") at ../loader/main.c:144
+
