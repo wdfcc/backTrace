@@ -1,0 +1,22 @@
+(gdb) bt
+#0  0x00007ffff7d124bd in open_builtin_file (name=0x7d40da88 "/home/zhangsan/wine/build/dlls/shell32/shell32.dll.so", attr=0x11dc70, module=0x11e5e0, size=0x11e5d8, image_info=0x11dd20, machine=34404, 
+    prefer_native=0) at ../dlls/ntdll/unix/loader.c:1229
+#1  0x00007ffff7d128f7 in find_builtin_dll (nt_name=0x11dd60, module=0x11e5e0, size_ptr=0x11e5d8, image_info=0x11dd20, machine=34404, prefer_native=0) at ../dlls/ntdll/unix/loader.c:1289
+#2  0x00007ffff7d12d55 in load_builtin (image_info=0x7d40cc80, filename=0x7d40ccd8, module=0x11e5e0, size=0x11e5d8) at ../dlls/ntdll/unix/loader.c:1373
+#3  0x00007ffff7d56975 in virtual_map_section (handle=0x24, addr_ptr=0x11e5e0, zero_bits_64=0, commit_size=0, offset_ptr=0x0, size_ptr=0x11e5d8, alloc_type=0, protect=32)
+    at ../dlls/ntdll/unix/virtual.c:2496
+#4  0x00007ffff7d5c814 in NtMapViewOfSection (handle=0x24, process=0xffffffffffffffff, addr_ptr=0x11e5e0, zero_bits=0, commit_size=0, offset_ptr=0x0, size_ptr=0x11e5d8, inherit=ViewShare, alloc_type=0, 
+    protect=32) at ../dlls/ntdll/unix/virtual.c:4334
+#5  0x00007ffff7ceffe1 in __wine_syscall_dispatcher_xsavec ()
+#6  0x000000007bc317a4 in NtMapViewOfSection ()
+#7  0x000000007bc5dadd in load_native_dll (load_path=0x0, nt_name=0x11e6d0, mapping=0x24, image_info=0x11e670, id=0x11e6c0, flags=0, pwm=0x11e828) at ../dlls/ntdll/loader.c:2325
+#8  0x000000007bc5f3ac in load_dll (load_path=0x0, libname=0x11e7e0, default_ext=0x7bca3628, flags=0, pwm=0x11e828) at ../dlls/ntdll/loader.c:2799
+#9  0x000000007bc588da in import_dll (module=0x7ffff68b0000, descr=0x7ffff69134b0, load_path=0x0, pwm=0x11e980) at ../dlls/ntdll/loader.c:791
+#10 0x000000007bc59e3d in fixup_imports (wm=0x123380, load_path=0x0) at ../dlls/ntdll/loader.c:1147
+#11 0x000000007bc5c2d8 in build_module (load_path=0x0, nt_name=0x11ebe0, module=0x11eaf0, image_info=0x11eb80, id=0x11ebd0, flags=0, pwm=0x11ed38) at ../dlls/ntdll/loader.c:1881
+#12 0x000000007bc5dc60 in load_native_dll (load_path=0x0, nt_name=0x11ebe0, mapping=0x20, image_info=0x11eb80, id=0x11ebd0, flags=0, pwm=0x11ed38) at ../dlls/ntdll/loader.c:2343
+#13 0x000000007bc5f3ac in load_dll (load_path=0x0, libname=0x11ecf0, default_ext=0x7bca3628, flags=0, pwm=0x11ed38) at ../dlls/ntdll/loader.c:2799
+#14 0x000000007bc588da in import_dll (module=0x7ffff6b40000, descr=0x7ffff6b57130, load_path=0x0, pwm=0x11ee90) at ../dlls/ntdll/loader.c:791
+#15 0x000000007bc59e3d in fixup_imports (wm=0x122be0, load_path=0x0) at ../dlls/ntdll/loader.c:1147
+#16 0x000000007bc619ad in LdrInitializeThunk (context=0x11fb00, unknown2=0, unknown3=140737351521184, unknown4=0) at ../dlls/ntdll/loader.c:3680
+
