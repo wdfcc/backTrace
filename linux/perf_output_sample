@@ -1,0 +1,20 @@
+0xffffffff812933e0 perf_output_sample(): ../kernel/events/core.c, line 6352	
+
+0xffffffff81294187 __perf_event_output(): ../kernel/events/core.c, line 6709	
+
+0xffffffff81294187 perf_event_output_forward(): ../kernel/events/core.c, line 6723	
+
+0xffffffff81288bc7 __perf_event_overflow(): ../include/linux/compiler.h, line 199	
+
+0xffffffff812951b4 perf_event_overflow(): ../kernel/events/core.c, line 8204	
+
+0xffffffff810104ad __intel_pmu_pebs_event(): ../arch/x86/events/intel/ds.c, line 1763	
+
+0xffffffff81010a50 intel_pmu_drain_pebs_nhm(): ../arch/x86/events/intel/ds.c, line 1934	
+
+0xffffffff8100dd7f handle_pmi_common(): ../arch/x86/events/intel/core.c, line 2378	
+
+0xffffffff8100e0fa intel_pmu_handle_irq(): ../arch/x86/events/intel/core.c, line 2563	
+
+0xffffffff810062a5 perf_event_nmi_handler(): ../arch/x86/events/core.c, line 1561	
+
