@@ -1,0 +1,12 @@
+(gdb) bt
+#0  LdrInitializeThunk (context=0x0, unknown2=0, unknown3=0, unknown4=0) at ../dlls/ntdll/loader.c:360
+
+(gdb) bt
+#0  BaseThreadInitThunk (unknown=3, entry=0x7bcd2360 <__wine_dbch_relay>, arg=0x0) at ../dlls/kernel32/thread.c:60
+#1  0x000000007bc8d721 in RtlUserThreadStart (entry=0x7ffff6b6bb4c, arg=0x7fffffdaf000) at ../dlls/ntdll/thread.c:137
+
+(gdb) bt
+#0  wmainCRTStartup () at ../dlls/msvcrt/crt_wmain.c:42
+#1  0x000000007b654446 in BaseThreadInitThunk (unknown=0, entry=0x7ffff6b6bb4c <wmainCRTStartup>, arg=0x7fffffdaf000) at ../dlls/kernel32/thread.c:61
+#2  0x000000007bc8d721 in RtlUserThreadStart (entry=0x7ffff6b6bb4c <wmainCRTStartup>, arg=0x7fffffdaf000) at ../dlls/ntdll/thread.c:137
+

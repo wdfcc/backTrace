@@ -1,0 +1,19 @@
+(gdb) bt
+#0  NtCreateFile (handle=0x7fffffffd248, access=1048608, attr=0x7fffffffd260, io=0x7fffffffd250, alloc_size=0x0, 
+    attributes=0, sharing=3, disposition=1, options=33, ea_buffer=0x0, ea_length=0)
+    at ../dlls/ntdll/unix/file.c:3716
+#1  0x00007ffff7d0436e in NtOpenFile (handle=0x7fffffffd248, access=1048608, attr=0x7fffffffd260, 
+    io=0x7fffffffd250, sharing=3, options=33) at ../dlls/ntdll/unix/file.c:3808
+#2  0x00007ffff7d17040 in get_unix_curdir (params=0x7fffffffd7c0) at ../dlls/ntdll/unix/process.c:446
+#3  0x00007ffff7d17be7 in NtCreateUserProcess (process_handle_ptr=0x7fffffffd728, 
+    thread_handle_ptr=0x7fffffffd720, process_access=2097151, thread_access=2097151, process_attr=0x7fffffffd3a0, 
+    thread_attr=0x0, process_flags=0, thread_flags=1, params=0x7fffffffd7c0, info=0x7fffffffd730, 
+    attr=0x7fffffffd790) at ../dlls/ntdll/unix/process.c:725
+#4  0x00007ffff7cfa235 in run_wineboot (env=0x7d40d3d0, size=4126) at ../dlls/ntdll/unix/env.c:1854
+#5  0x00007ffff7cfa61e in build_initial_params () at ../dlls/ntdll/unix/env.c:1925
+#6  0x00007ffff7cfaad8 in init_startup_info () at ../dlls/ntdll/unix/env.c:2013
+#7  0x00007ffff7d1408b in start_main_thread () at ../dlls/ntdll/unix/loader.c:1759
+#8  0x00007ffff7d14345 in __wine_main (argc=2, argv=0x7fffffffdfb8, envp=0x7fffffffdfd0)
+    at ../dlls/ntdll/unix/loader.c:2103
+#9  0x000000007d001647 in main (argc=2, argv=0x7fffffffdfb8) at ../loader/main.c:157
+
