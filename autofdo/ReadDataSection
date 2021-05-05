@@ -1,0 +1,13 @@
+(gdb) bt
+#0  quipper::PerfReader::ReadDataSection (this=0x7fffffffd850, data=0x7fffffffd700) at chromiumos-wide-profiling/perf_reader.cc:1264
+#1  0x0000555555594ccb in quipper::PerfReader::ReadFromData (this=0x7fffffffd850, data=0x7fffffffd700) at chromiumos-wide-profiling/perf_reader.cc:706
+#2  0x000055555559515c in quipper::PerfReader::ReadFromPointer (size=<optimized out>, data=<optimized out>, this=0x7fffffffd850) at chromiumos-wide-profiling/perf_reader.cc:657
+#3  quipper::PerfReader::ReadFromVector (data=std::vector of length 3180392, capacity 3180392 = {...}, this=0x7fffffffd850) at chromiumos-wide-profiling/perf_reader.cc:648
+#4  quipper::PerfReader::ReadFile (this=this@entry=0x7fffffffd850, filename="/home/zhangsan/fdo/perf.data") at chromiumos-wide-profiling/perf_reader.cc:644
+#5  0x000055555557aaf3 in autofdo::PerfDataSampleReader::Append (this=0x555555626300, profile_file="/home/zhangsan/fdo/perf.data") at sample_reader.cc:203
+#6  0x0000555555579b92 in autofdo::FileSampleReader::Read (this=0x555555626300) at sample_reader.cc:89
+#7  autofdo::SampleReader::ReadAndSetTotalCount (this=this@entry=0x555555626300) at sample_reader.cc:72
+#8  0x0000555555572dc1 in autofdo::ProfileCreator::ReadSample (this=0x7fffffffdce0, input_profile_name=..., profiler=...) at profile_creator.cc:74
+#9  0x0000555555573d77 in autofdo::ProfileCreator::CreateProfile (this=0x7fffffffdce0, input_profile_name=..., profiler=..., writer=0x7fffffffdcb0, output_profile_name="sort.gcov") at profile_creator.cc:45
+#10 0x0000555555562441 in main (argc=<optimized out>, argv=<optimized out>) at create_gcov.cc:34
+
