@@ -1,0 +1,24 @@
+(gdb) bt
+#0  inject_trap_pa (drakvuf=drakvuf@entry=0x5555557f4fb0, trap=trap@entry=0x5555557fb120, pa=<optimized out>) at vmi.c:1309
+#1  0x00005555555f3622 in inject_trap_breakpoint (drakvuf=drakvuf@entry=0x5555557f4fb0, trap=0x5555557fb120) at drakvuf.c:409
+#2  0x00005555555f3c70 in drakvuf_add_trap (drakvuf=0x5555557f4fb0, trap=<optimized out>) at drakvuf.c:479
+#3  0x000055555560dfdc in setup_linux(drakvuf*, syscalls*) ()
+#4  0x00005555556032c6 in syscalls::syscalls(drakvuf*, syscalls_config const*, output_format_t) ()
+#5  0x0000555555601368 in drakvuf_plugins::start(drakvuf_plugin, plugins_options const*) ()
+#6  0x00005555555f2440 in drakvuf_c::start_plugins(bool const*, plugins_options const*) ()
+#7  0x00005555555f1d49 in main ()
+(gdb) p/x bp
+$24 = 0xcc
+(gdb) l
+1304	    }
+1305	    else
+1306	    {
+1307	        container->breakpoint.doubletrap = 0;
+1308	
+1309	        if ( VMI_FAILURE == vmi_write_8_pa(vmi, rpa, &bp) )
+1310	        {
+1311	            PRINT_DEBUG("Using breakpoint instruction @ 0x%lx is not possible. Using fallback.\n", container->breakpoint.pa);
+1312	            container->breakpoint.guard.memaccess.access |= VMI_MEMACCESS_X;
+1313	        }
+(gdb) 
+
