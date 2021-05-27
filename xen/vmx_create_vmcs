@@ -1,0 +1,9 @@
+0xffff82d040297b00 vmx_create_vmcs(): vmcs.c, line 1816	
+0xffff82d04029cbba vmx_vcpu_initialise(): vmx.c, line 463	
+0xffff82d0402b22c8 hvm_vcpu_initialise(): hvm.c, line 1559	
+0xffff82d04031e405 arch_vcpu_create(): nospec.h, line 15	
+0xffff82d0402052b0 vcpu_create(): domain.c, line 272	
+0xffff82d04023df89 do_domctl(): domctl.c, line 467	
+0xffff82d0403112e9 pv_hypercall(): hypercall.c, line 161	
+0xffff82d040393432 lstar_enter(): entry.S, line 283	
+
