@@ -1,0 +1,16 @@
+Breakpoint 1, xen_pause (xen=0x5555557eff60, domID=1) at xen_helper.c:249
+249	{
+#0  xen_pause (xen=0x5555557eff60, domID=1) at xen_helper.c:249
+#1  0x00005555555f3b29 in drakvuf_pause (drakvuf=drakvuf@entry=0x5555557f4fb0) at drakvuf.c:551
+#2  0x00005555555f3c08 in drakvuf_add_trap (drakvuf=0x5555557f4fb0, trap=<optimized out>) at drakvuf.c:474
+#3  0x000055555560ee5f in linux_cb(drakvuf*, drakvuf_trap_info*) ()
+#4  0x00005555555f93e4 in int3_cb (vmi=<optimized out>, event=0x5555557f5238) at vmi.c:699
+#5  0x00007ffff7f66c35 in process_software_breakpoint (vmi=0x5555557f72c0, vmec=0x7fffffffd1b0) at libvmi/driver/xen/xen_events.c:697
+#6  0x00007ffff7f65193 in process_requests_7 (vmi=0x5555557f72c0, requests_processed=0x7fffffffd430) at libvmi/driver/xen/xen_events.c:3031
+#7  0x00007ffff7f6624f in xen_events_listen (vmi=0x5555557f72c0, timeout=<optimized out>) at libvmi/driver/xen/xen_events.c:3273
+#8  0x00005555555f96ee in drakvuf_vmi_event_callback (fd=<optimized out>, data=<optimized out>) at vmi.c:1478
+#9  0x00005555555f6d9e in drakvuf_poll (drakvuf=drakvuf@entry=0x5555557f4fb0, timeout=timeout@entry=1000) at vmi.c:1511
+#10 0x00005555555f976d in drakvuf_loop (drakvuf=0x5555557f4fb0, is_interrupted=0x5555555f29c0 <is_interrupted(drakvuf*, void*)>, data=0x0) at vmi.c:1524
+#11 0x00005555555f2966 in drakvuf_c::loop(int) ()
+#12 0x00005555555f1d67 in main ()
+
