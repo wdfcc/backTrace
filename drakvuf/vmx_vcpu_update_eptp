@@ -1,0 +1,12 @@
+0xffff82d04029b00d vmx_vcpu_update_eptp(): vmx.c, line 2135	
+0xffff82d0402f9435 altp2m_vcpu_update_p2m(): hvm.h, line 651	
+0xffff82d0402f9435 p2m_switch_vcpu_altp2m_by_id(): p2m.c, line 2045	
+0xffff82d0402f94b3 p2m_altp2m_check(): p2m.c, line 2025	
+0xffff82d04023444c vm_event_resume(): vm_event.c, line 419	
+0xffff82d04023444c vm_event_resume(): vm_event.c, line 419	
+0xffff82d0402347b1 monitor_notification(): vm_event.c, line 535	
+0xffff82d040207f2c evtchn_send(): rwlock.h, line 131	
+0xffff82d040209566 do_event_channel_op(): event_channel.c, line 1275	
+0xffff82d0403112e9 pv_hypercall(): hypercall.c, line 161	
+0xffff82d040393432 lstar_enter(): entry.S, line 283	
+

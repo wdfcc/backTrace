@@ -1,0 +1,7 @@
+0xffff82d040300b0d ept_set_entry(): p2m-ept.c, line 672	
+0xffff82d0402fa350 p2m_change_altp2m_gfn(): p2m.c, line 2374	
+0xffff82d0402b50b8 do_altp2m_op(): mm-frame.h, line 45	
+0xffff82d0402b9a9f do_hvm_op(): hvm.c, line 5067	
+0xffff82d0403112e9 pv_hypercall(): hypercall.c, line 161	
+0xffff82d040393432 lstar_enter(): entry.S, line 283	
+
