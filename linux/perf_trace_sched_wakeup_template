@@ -1,0 +1,11 @@
+0xffffffff81211f20 perf_output_sample(): ../kernel/events/core.c, line 6358	
+0xffffffff81212cc7 __perf_event_output(): ../kernel/events/core.c, line 6715	
+0xffffffff81212cc7 perf_event_output_forward(): ../kernel/events/core.c, line 6729	
+0xffffffff81207767 __perf_event_overflow(): ../include/linux/compiler.h, line 199	
+0xffffffff812078a4 perf_swevent_overflow(): ../kernel/events/core.c, line 8272	
+0xffffffff8120792d perf_swevent_event(): ../kernel/events/core.c, line 8300	
+0xffffffff812081ed perf_tp_event(): ../kernel/events/core.c, line 8728	
+0xffffffff81208333 perf_trace_run_bpf_submit(): ../kernel/events/core.c, line 8702	
+0xffffffff810cf815 perf_trace_sched_wakeup_template(): ../include/trace/events/sched.h, line 57	
+0xffffffff810d70b3 trace_sched_wakeup(): ../include/trace/events/sched.h, line 96	
+
