@@ -1,0 +1,25 @@
+(gdb) bt
+#0  rust_fatal_error (location=..., fmt=fmt@entry=0x1df7cf1 "Failed to lower expr: [%s]") at ../../gcc/rust/rust-diagnostics.cc:171
+#1  0x00000000009d7937 in Rust::HIR::ASTLoweringExpr::translate (expr=0x2b96c60, terminated=terminated@entry=0x7fffffffcdf8) at /usr/include/c++/10/bits/basic_string.h:2299
+#2  0x00000000009d7a1e in Rust::HIR::ASTLoweringStmt::visit (this=0x7fffffffcde0, stmt=...) at ../../gcc/rust/ast/rust-stmt.h:260
+#3  0x00000000009d4707 in Rust::HIR::ASTLoweringStmt::translate (terminated=<synthetic pointer>, stmt=0x2b96c20) at ../../gcc/rust/hir/rust-ast-lower-stmt.h:41
+#4  operator() (s=0x2b96c20, __closure=0x7fffffffcf40) at ../../gcc/rust/hir/rust-ast-lower.cc:74
+#5  std::__invoke_impl<bool, Rust::HIR::ASTLoweringBlock::visit(Rust::AST::BlockExpr&)::<lambda(Rust::AST::Stmt*)>&, Rust::AST::Stmt*> (__f=...) at /usr/include/c++/10/bits/invoke.h:60
+#6  std::__invoke_r<bool, Rust::HIR::ASTLoweringBlock::visit(Rust::AST::BlockExpr&)::<lambda(Rust::AST::Stmt*)>&, Rust::AST::Stmt*> (__fn=...) at /usr/include/c++/10/bits/invoke.h:141
+#7  std::_Function_handler<bool(Rust::AST::Stmt*), Rust::HIR::ASTLoweringBlock::visit(Rust::AST::BlockExpr&)::<lambda(Rust::AST::Stmt*)> >::_M_invoke(const std::_Any_data &, Rust::AST::Stmt *&&) (
+    __functor=..., __args#0=<optimized out>) at /usr/include/c++/10/bits/std_function.h:291
+#8  0x00000000009d3aab in std::function<bool (Rust::AST::Stmt*)>::operator()(Rust::AST::Stmt*) const (__args#0=<optimized out>, this=0x7fffffffcf40) at /usr/include/c++/10/bits/std_function.h:617
+#9  Rust::AST::BlockExpr::iterate_stmts(std::function<bool (Rust::AST::Stmt*)>) (cb=..., this=0x2b90a80) at ../../gcc/rust/ast/rust-expr.h:2914
+#10 Rust::HIR::ASTLoweringBlock::visit (this=0x7fffffffcfb0, expr=...) at ../../gcc/rust/hir/rust-ast-lower.cc:69
+#11 0x00000000009d7779 in Rust::HIR::ASTLoweringBlock::translate (expr=0x2b90a80, terminated=0x7fffffffd04f) at ../../gcc/rust/hir/rust-ast-lower-block.h:36
+#12 0x00000000009e263d in Rust::HIR::ASTLoweringItem::visit (this=0x7fffffffd380, function=...) at ../../gcc/rust/ast/rust-item.h:1570
+#13 0x00000000009d4488 in Rust::HIR::ASTLoweringItem::translate (item=0x2b6b680) at ../../gcc/rust/hir/rust-ast-lower-item.h:43
+#14 Rust::HIR::ASTLowering::go (this=this@entry=0x7fffffffd3d0) at ../../gcc/rust/hir/rust-ast-lower.cc:48
+#15 0x00000000009d4669 in Rust::HIR::ASTLowering::Resolve (astCrate=...) at ../../gcc/rust/hir/rust-ast-lower.cc:36
+#16 0x000000000092b2cf in Rust::Session::parse_file (this=this@entry=0x29beee0 <session>, filename=<optimized out>) at ../../gcc/rust/rust-session-manager.cc:559
+#17 0x000000000092b719 in Rust::Session::parse_files (this=0x29beee0 <session>, num_files=1, files=<optimized out>) at ../../gcc/rust/rust-session-manager.cc:459
+#18 0x0000000000f2ab93 in compile_file () at ../../gcc/toplev.c:457
+#19 0x00000000008c9d53 in do_compile () at ../../gcc/toplev.c:2201
+#20 toplev::main (this=this@entry=0x7fffffffd9e6, argc=<optimized out>, argc@entry=20, argv=<optimized out>, argv@entry=0x7fffffffdaf8) at ../../gcc/toplev.c:2340
+#21 0x00000000008cc820 in main (argc=20, argv=0x7fffffffdaf8) at ../../gcc/main.c:39
+
