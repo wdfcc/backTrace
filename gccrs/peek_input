@@ -1,0 +1,24 @@
+(gdb) bt
+#0  0x00000000008e2d66 in fgetc_unlocked (__fp=0x2b31ab0) at /usr/include/x86_64-linux-gnu/bits/stdio.h:58
+#1  Rust::Lexer::InputSource::operator() (this=0x7fffffffd510, this=0x7fffffffd510) at ../../gcc/rust/lex/rust-lex.h:165
+#2  Rust::buffered_queue<int, Rust::Lexer::InputSource>::peek (this=this@entry=0x7fffffffd510, n=n@entry=0) at ../../gcc/rust/rust-buffered-queue.h:110
+#3  0x00000000008dcc82 in Rust::Lexer::peek_input (n=0, this=0x7fffffffd4f0) at ../../gcc/rust/lex/rust-lex.cc:1649
+#4  Rust::Lexer::peek_input (this=0x7fffffffd4f0) at ../../gcc/rust/lex/rust-lex.cc:167
+#5  Rust::Lexer::parse_identifier_or_keyword (this=0x7fffffffd4f0, loc=...) at ../../gcc/rust/lex/rust-lex.cc:1649
+#6  0x00000000008e1897 in Rust::Lexer::build_token (this=0x7fffffffd4f0) at ../../gcc/rust/lex/rust-lex.cc:759
+#7  0x00000000008e3986 in Rust::Lexer::TokenSource::operator() (this=<optimized out>) at ../../gcc/rust/lex/rust-lex.h:183
+#8  Rust::buffered_queue<std::shared_ptr<Rust::Token>, Rust::Lexer::TokenSource>::peek (this=<optimized out>, n=0) at ../../gcc/rust/rust-buffered-queue.h:110
+#9  0x000000000093961b in Rust::Lexer::peek_token (n=0, this=0x7fffffffd560) at ../../gcc/rust/lex/rust-lex.h:119
+#10 Rust::Lexer::peek_token (this=0x7fffffffd560) at ../../gcc/rust/lex/rust-lex.h:119
+#11 Rust::Parser<Rust::Lexer>::expect_token (this=this@entry=0x7fffffffd560, token_id=token_id@entry=Rust::IDENTIFIER) at ../../gcc/rust/parse/rust-parse-impl.h:12177
+#12 0x000000000097799f in Rust::Parser<Rust::Lexer>::parse_function (this=this@entry=0x7fffffffd560, vis=..., outer_attrs=std::vector of length 0, capacity 0) at /usr/include/c++/10/bits/shared_ptr_base.h:1183
+#13 0x000000000097e78e in Rust::Parser<Rust::Lexer>::parse_vis_item (this=this@entry=0x7fffffffd560, outer_attrs=std::vector of length 0, capacity 0) at /usr/include/c++/10/bits/stl_vector.h:102
+#14 0x000000000097f27b in Rust::Parser<Rust::Lexer>::parse_item (this=this@entry=0x7fffffffd560, called_from_statement=called_from_statement@entry=false) at /usr/include/c++/10/bits/stl_vector.h:102
+#15 0x000000000097f3fc in Rust::Parser<Rust::Lexer>::parse_crate (this=this@entry=0x7fffffffd560) at ../../gcc/rust/lex/rust-token.h:373
+#16 0x000000000092af6b in Rust::Session::parse_file (this=this@entry=0x29beee0 <session>, filename=<optimized out>) at ../../gcc/rust/rust-session-manager.cc:483
+#17 0x000000000092b719 in Rust::Session::parse_files (this=0x29beee0 <session>, num_files=1, files=<optimized out>) at ../../gcc/rust/rust-session-manager.cc:459
+#18 0x0000000000f2ab93 in compile_file () at ../../gcc/toplev.c:457
+#19 0x00000000008c9d53 in do_compile () at ../../gcc/toplev.c:2201
+#20 toplev::main (this=this@entry=0x7fffffffd9e6, argc=<optimized out>, argc@entry=20, argv=<optimized out>, argv@entry=0x7fffffffdaf8) at ../../gcc/toplev.c:2340
+#21 0x00000000008cc820 in main (argc=20, argv=0x7fffffffdaf8) at ../../gcc/main.c:39
+
