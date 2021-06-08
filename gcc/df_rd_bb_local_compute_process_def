@@ -1,0 +1,26 @@
+(gdb) bt
+#0  df_rd_bb_local_compute_process_def (bb_info=bb_info@entry=0x2787460, def=0x0, top_flag=top_flag@entry=0) at ../../gcc/df-problems.c:291
+#1  0x00000000007bd62d in df_rd_bb_local_compute (bb_index=3) at ../../gcc/df.h:1101
+#2  df_rd_local_compute (all_blocks=<optimized out>) at ../../gcc/df-problems.c:405
+#3  0x00000000007b7712 in df_analyze_problem (dflow=0x2776280, blocks_to_consider=0x2678b78, postorder=0x22ea708, n_blocks=2) at ../../gcc/df-core.c:1171
+#4  0x00000000007b780a in df_analyze_1 () at ../../gcc/vec.h:1413
+#5  0x00000000009d8586 in find_defs (loop=0x7ffff23c8230) at ../../gcc/loop-invariant.c:686
+#6  find_invariants (loop=0x7ffff23c8230) at ../../gcc/loop-invariant.c:1238
+#7  move_single_loop_invariants (loop=0x7ffff23c8230) at ../../gcc/loop-invariant.c:1945
+#8  move_loop_invariants () at ../../gcc/loop-invariant.c:2285
+#9  0x00000000009d5739 in (anonymous namespace)::pass_rtl_move_loop_invariants::execute (this=<optimized out>, fun=<optimized out>) at ../../gcc/loop-init.c:523
+#10 0x0000000000a9ef28 in execute_one_pass (pass=0x2259cd0) at ../../gcc/passes.c:2502
+#11 0x0000000000a9f870 in execute_pass_list_1 (pass=0x2259cd0) at ../../gcc/passes.c:2590
+#12 0x0000000000a9f882 in execute_pass_list_1 (pass=0x2259c10) at ../../gcc/passes.c:2591
+#13 0x0000000000a9f882 in execute_pass_list_1 (pass=0x2259610) at ../../gcc/passes.c:2591
+#14 0x0000000000a9f8a9 in execute_pass_list (fn=0x7ffff264ab00, pass=<optimized out>) at ../../gcc/passes.c:2601
+#15 0x000000000079af9e in cgraph_node::expand (this=0x7ffff26a2ca8) at ../../gcc/context.h:48
+#16 0x000000000079c030 in expand_all_functions () at ../../gcc/cgraphunit.c:2471
+#17 symbol_table::compile (this=0x7ffff6bf2100) at ../../gcc/cgraphunit.c:2822
+#18 0x000000000079e09d in symbol_table::compile (this=0x7ffff6bf2100) at ../../gcc/cgraphunit.c:3002
+#19 symbol_table::finalize_compilation_unit (this=0x7ffff6bf2100) at ../../gcc/cgraphunit.c:3002
+#20 0x0000000000b5e34f in compile_file () at ../../gcc/toplev.c:483
+#21 0x000000000064b690 in do_compile () at ../../gcc/toplev.c:2278
+#22 toplev::main (this=this@entry=0x7fffffffc78e, argc=<optimized out>, argc@entry=131, argv=<optimized out>, argv@entry=0x7fffffffc898) at ../../gcc/toplev.c:2417
+#23 0x000000000064f1bf in main (argc=131, argv=0x7fffffffc898) at ../../gcc/main.c:39
+
