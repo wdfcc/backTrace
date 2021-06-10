@@ -1,0 +1,8 @@
+(gdb) bt
+#0  go_parse_input_files (filenames=0x2199370, filename_count=1, only_check_syntax=false) at ../../gcc/go/gofrontend/go.cc:58
+#1  0x0000000000703a00 in go_langhook_parse_file () at ../../gcc/go/go-lang.c:335
+#2  0x0000000000bd17e4 in compile_file () at ../../gcc/toplev.c:458
+#3  0x00000000006a5096 in do_compile () at ../../gcc/toplev.c:2278
+#4  toplev::main (this=this@entry=0x7fffffffda4e, argc=<optimized out>, argc@entry=19, argv=<optimized out>, argv@entry=0x7fffffffdb58) at ../../gcc/toplev.c:2417
+#5  0x00000000006a8b5f in main (argc=19, argv=0x7fffffffdb58) at ../../gcc/main.c:39
+
