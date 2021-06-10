@@ -1,0 +1,11 @@
+(gdb) bt
+#0  Gogo::set_package_name (this=0x218ec40, package_name="main", location=location@entry=...) at ../../gcc/go/gofrontend/gogo.cc:375
+#1  0x000000000074331e in Parse::package_clause (this=this@entry=0x7fffffffd880) at ../../gcc/go/gofrontend/parse.cc:5742
+#2  0x000000000074ff74 in Parse::program (this=this@entry=0x7fffffffd880) at ../../gcc/go/gofrontend/parse.cc:5800
+#3  0x0000000000707d72 in go_parse_input_files (filenames=0x2199370, filename_count=<optimized out>, only_check_syntax=<optimized out>) at ../../gcc/go/gofrontend/go.cc:81
+#4  0x0000000000703a00 in go_langhook_parse_file () at ../../gcc/go/go-lang.c:335
+#5  0x0000000000bd17e4 in compile_file () at ../../gcc/toplev.c:458
+#6  0x00000000006a5096 in do_compile () at ../../gcc/toplev.c:2278
+#7  toplev::main (this=this@entry=0x7fffffffda4e, argc=<optimized out>, argc@entry=19, argv=<optimized out>, argv@entry=0x7fffffffdb58) at ../../gcc/toplev.c:2417
+#8  0x00000000006a8b5f in main (argc=19, argv=0x7fffffffdb58) at ../../gcc/main.c:39
+
