@@ -1,0 +1,10 @@
+(gdb) bt
+#0  Parse::import_decl (this=0x7fffffffd820) at ../../gcc/go/gofrontend/parse.cc:5750
+#1  0x0000000000750493 in Parse::program (this=this@entry=0x7fffffffd820) at ../../gcc/go/gofrontend/parse.cc:5811
+#2  0x0000000000707d72 in go_parse_input_files (filenames=0x2199370, filename_count=<optimized out>, only_check_syntax=<optimized out>) at ../../gcc/go/gofrontend/go.cc:81
+#3  0x0000000000703a00 in go_langhook_parse_file () at ../../gcc/go/go-lang.c:335
+#4  0x0000000000bd17e4 in compile_file () at ../../gcc/toplev.c:458
+#5  0x00000000006a5096 in do_compile () at ../../gcc/toplev.c:2278
+#6  toplev::main (this=this@entry=0x7fffffffd9ee, argc=<optimized out>, argc@entry=19, argv=<optimized out>, argv@entry=0x7fffffffdaf8) at ../../gcc/toplev.c:2417
+#7  0x00000000006a8b5f in main (argc=19, argv=0x7fffffffdaf8) at ../../gcc/main.c:39
+
