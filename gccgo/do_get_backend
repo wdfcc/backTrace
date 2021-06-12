@@ -1,0 +1,41 @@
+(gdb) 
+#0  make_node (code=code@entry=FUNCTION_DECL) at ../../gcc/tree.c:1049
+#1  0x0000000000e1008a in build_decl (loc=loc@entry=36928, code=code@entry=FUNCTION_DECL, name=0x7ffff6857960, type=type@entry=0x7ffff685bbd0) at ../../gcc/tree.c:5074
+#2  0x00000000006fd363 in Gcc_backend::function (this=0x21ae0e0, fntype=<optimized out>, name="main.set..1main.test", asm_name="main.test.set", flags=5, location=...) at ../../gcc/go/go-location.h:27
+#3  0x000000000071236e in Function::get_or_make_decl (this=0x21ba250, gogo=gogo@entry=0x2191c40, no=0x21ba5b0) at ../../gcc/go/gofrontend/gogo.h:1462
+#4  0x00000000006cf673 in Func_expression::get_code_pointer (gogo=0x2191c40, no=<optimized out>, loc=...) at ../../gcc/go/gofrontend/gogo.h:2764
+#5  0x00000000006f0e7d in Expression::get_backend (context=0x7fffffffd230, this=<optimized out>) at ../../gcc/go/gofrontend/expressions.cc:561
+#6  Struct_construction_expression::do_get_backend (this=0x21d89b0, context=0x7fffffffd230) at ../../gcc/go/gofrontend/expressions.cc:15121
+#7  0x00000000006f1048 in Expression::get_backend (context=0x7fffffffd230, this=<optimized out>) at ../../gcc/go/gofrontend/expressions.cc:561
+#8  Array_construction_expression::get_constructor (this=0x22af690, context=0x7fffffffd230, array_btype=0x2273cc0) at ../../gcc/go/gofrontend/expressions.cc:15397
+#9  0x00000000006e37d4 in Expression::get_backend (context=0x7fffffffd230, this=<optimized out>) at ../../gcc/go/gofrontend/expressions.cc:561
+#10 Unary_expression::do_get_backend (this=0x21d84f0, context=0x7fffffffd230) at ../../gcc/go/gofrontend/expressions.cc:5112
+#11 0x00000000006cd2ec in Expression::get_backend (context=0x7fffffffd230, this=<optimized out>) at ../../gcc/go/gofrontend/expressions.cc:561
+#12 Unsafe_type_conversion_expression::do_get_backend (this=0x21d83b0, context=0x7fffffffd230) at ../../gcc/go/gofrontend/expressions.cc:4454
+#13 0x00000000006cc244 in Expression::get_backend (context=0x7fffffffd230, this=<optimized out>) at ../../gcc/go/gofrontend/expressions.cc:561
+#14 Slice_value_expression::do_get_backend (this=0x22af6d0, context=0x7fffffffd230) at ../../gcc/go/gofrontend/expressions.cc:17747
+#15 0x00000000006f0e7d in Expression::get_backend (context=0x7fffffffd230, this=<optimized out>) at ../../gcc/go/gofrontend/expressions.cc:561
+#16 Struct_construction_expression::do_get_backend (this=0x21d3000, context=0x7fffffffd230) at ../../gcc/go/gofrontend/expressions.cc:15121
+#17 0x00000000006e37d4 in Expression::get_backend (context=0x7fffffffd230, this=<optimized out>) at ../../gcc/go/gofrontend/expressions.cc:561
+#18 Unary_expression::do_get_backend (this=0x21d30c0, context=0x7fffffffd230) at ../../gcc/go/gofrontend/expressions.cc:5112
+#19 0x00000000006f0e7d in Expression::get_backend (context=0x7fffffffd230, this=<optimized out>) at ../../gcc/go/gofrontend/expressions.cc:561
+#20 Struct_construction_expression::do_get_backend (this=0x21d2ab0, context=0x7fffffffd230) at ../../gcc/go/gofrontend/expressions.cc:15121
+#21 0x00000000006f0e7d in Expression::get_backend (context=0x7fffffffd230, this=<optimized out>) at ../../gcc/go/gofrontend/expressions.cc:561
+#22 Struct_construction_expression::do_get_backend (this=0x21d28b0, context=0x7fffffffd230) at ../../gcc/go/gofrontend/expressions.cc:15121
+#23 0x0000000000783b39 in Type::make_type_descriptor_var (this=0x21cd340, gogo=0x2191c40) at ../../gcc/go/gofrontend/types.cc:1411
+#24 0x0000000000783dbe in Type::type_descriptor_pointer (this=<optimized out>, gogo=0x2191c40, location=...) at ../../gcc/go/gofrontend/types.cc:1291
+#25 0x00000000006e63af in Expression::get_backend (context=0x7fffffffd500, this=<optimized out>) at ../../gcc/go/gofrontend/expressions.cc:561
+#26 Type_conversion_expression::do_get_backend (this=0x21d2850, context=0x7fffffffd500) at ../../gcc/go/gofrontend/expressions.cc:4244
+#27 0x00000000006f0e7d in Expression::get_backend (context=0x7fffffffd500, this=<optimized out>) at ../../gcc/go/gofrontend/expressions.cc:561
+#28 Struct_construction_expression::do_get_backend (this=0x21d2820, context=0x7fffffffd500) at ../../gcc/go/gofrontend/expressions.cc:15121
+#29 0x00000000006f0e7d in Expression::get_backend (context=0x7fffffffd500, this=<optimized out>) at ../../gcc/go/gofrontend/expressions.cc:561
+#30 Struct_construction_expression::do_get_backend (this=0x21d8320, context=0x7fffffffd500) at ../../gcc/go/gofrontend/expressions.cc:15121
+#31 0x0000000000783b39 in Type::make_type_descriptor_var (this=0x21b9d90, gogo=0x2191c40) at ../../gcc/go/gofrontend/types.cc:1411
+#32 0x0000000000783dbe in Type::type_descriptor_pointer (this=this@entry=0x21b9d90, gogo=gogo@entry=0x2191c40, location=...) at ../../gcc/go/gofrontend/types.cc:1291
+#33 0x000000000071d310 in Named_object::get_backend (this=0x21b9a40, gogo=0x2191c40, const_decls=..., type_decls=std::vector of length 1, capacity 1 = {...}, func_decls=...)
+    at ../../gcc/go/gofrontend/go-linemap.h:110
+#34 0x0000000000726585 in Gogo::write_globals (this=0x2191c40) at ../../gcc/go/gofrontend/gogo.cc:1605
+#35 0x0000000000bd1844 in compile_file () at ../../gcc/toplev.c:458
+#36 0x00000000006a50f6 in do_compile () at ../../gcc/toplev.c:2278
+#37 toplev::main (this=this@entry=0x7fffffffd9ce, argc=<optimized out>, argc@entry=20, argv=<optimized out>, argv@entry=0x7fffffffdad8) at ../../gcc/toplev.c:2417
+#38 0x00000000006a8bbf in main (argc=20, argv=0x7fffffffdad8) at ../../gcc/main.c:39

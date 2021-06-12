@@ -1,0 +1,21 @@
+(gdb) bt
+#0  Expression::dump_expression (this=0x2260f20, ast_dump_context=0x7fffffffd700) at ../../gcc/go/gofrontend/expressions.cc:724
+#1  0x00000000006aacce in Ast_dump_context::dump_expression (this=<optimized out>, e=<optimized out>) at ../../gcc/go/gofrontend/ast-dump.cc:248
+#2  0x000000000075a80e in Variable_declaration_statement::do_dump_statement (this=0x21ca3a0, ast_dump_context=0x7fffffffd700) at ../../gcc/go/gofrontend/gogo.h:1918
+#3  0x00000000006aa412 in Ast_dump_traverse_statements::statement (this=0x7fffffffd310, block=0x21b9910, pindex=0x7fffffffd2d8, statement=0x21ca3a0) at ../../gcc/go/gofrontend/ast-dump.cc:100
+#4  0x000000000075ca56 in Statement::traverse (this=0x21ca3a0, block=<optimized out>, pindex=<optimized out>, traverse=0x7fffffffd310) at ../../gcc/go/gofrontend/statements.cc:46
+#5  0x000000000070e1aa in Block::traverse (this=this@entry=0x21b9910, traverse=traverse@entry=0x7fffffffd310) at /usr/local/include/c++/10.2.0/bits/stl_vector.h:1043
+#6  0x00000000006aa5c2 in Ast_dump_traverse_blocks_and_functions::block (this=0x7fffffffd490, block=0x21b9910) at ../../gcc/go/gofrontend/ast-dump.cc:85
+#7  0x000000000070e0d7 in Block::traverse (this=0x21b9910, traverse=0x7fffffffd490) at ../../gcc/go/gofrontend/gogo.cc:6794
+#8  0x000000000070e3a8 in Function::traverse (this=0x21b6aa0, traverse=<optimized out>) at ../../gcc/go/gofrontend/gogo.cc:5795
+#9  0x0000000000712fec in Bindings::traverse (this=0x21b62f0, traverse=0x7fffffffd490, is_global=true) at ../../gcc/go/gofrontend/gogo.h:2764
+#10 0x0000000000713352 in Gogo::traverse (this=this@entry=0x218ec40, traverse=traverse@entry=0x7fffffffd490) at ../../gcc/go/gofrontend/gogo.h:3383
+#11 0x00000000006aa9fa in Ast_dump_context::dump (this=0x7fffffffd700, gogo=0x218ec40, basename=0x7fffffffdf27 "go_lang/range.go") at ../../gcc/go/gofrontend/ast-dump.cc:212
+#12 0x00000000006ab459 in Gogo::dump_ast (this=<optimized out>, basename=<optimized out>) at ../../gcc/go/gofrontend/ast-dump.cc:469
+#13 0x0000000000708154 in go_parse_input_files (filenames=0x2199370, filename_count=<optimized out>, only_check_syntax=<optimized out>) at ../../gcc/go/gofrontend/go.cc:185
+#14 0x0000000000703a00 in go_langhook_parse_file () at ../../gcc/go/go-lang.c:335
+#15 0x0000000000bd17e4 in compile_file () at ../../gcc/toplev.c:458
+#16 0x00000000006a5096 in do_compile () at ../../gcc/toplev.c:2278
+#17 toplev::main (this=this@entry=0x7fffffffd9be, argc=<optimized out>, argc@entry=20, argv=<optimized out>, argv@entry=0x7fffffffdac8) at ../../gcc/toplev.c:2417
+#18 0x00000000006a8b5f in main (argc=20, argv=0x7fffffffdac8) at ../../gcc/main.c:39
+
