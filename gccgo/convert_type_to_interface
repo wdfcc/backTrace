@@ -1,0 +1,18 @@
+(gdb) bt
+#0  Expression::convert_type_to_interface (lhs_type=0x21c5610, rhs=0x21bb2f0, on_stack=false, 
+    location=...) at ../../gcc/go/gofrontend/expressions.cc:278
+#1  0x00000000006e640b in Type_conversion_expression::do_get_backend (this=0x2272160, 
+    context=0x7fffffffd400) at ../../gcc/go/gofrontend/expressions.cc:4096
+#2  0x000000000075cf7b in Temporary_statement::do_get_backend (this=0x22ac900, context=0x7fffffffd400)
+    at ../../gcc/go/gofrontend/statements.cc:632
+#3  0x000000000071ba54 in Block::get_backend (this=0x21baa70, context=0x7fffffffd560)
+    at ../../gcc/go/gofrontend/gogo.cc:7100
+#4  0x000000000071c5e7 in Function::build (this=0x21bab10, gogo=0x2191c40, named_function=0x216aa10)
+    at ../../gcc/go/gofrontend/gogo.cc:6567
+#5  0x0000000000726585 in Gogo::write_globals (this=0x2191c40) at ../../gcc/go/gofrontend/gogo.cc:1605
+#6  0x0000000000bd1844 in compile_file () at ../../gcc/toplev.c:458
+#7  0x00000000006a50f6 in do_compile () at ../../gcc/toplev.c:2278
+#8  toplev::main (this=this@entry=0x7fffffffd9ce, argc=<optimized out>, argc@entry=20, 
+    argv=<optimized out>, argv@entry=0x7fffffffdad8) at ../../gcc/toplev.c:2417
+#9  0x00000000006a8bbf in main (argc=20, argv=0x7fffffffdad8) at ../../gcc/main.c:39
+
