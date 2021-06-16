@@ -1,0 +1,35 @@
+(gdb) bt
+#0  make_node (code=code@entry=COMPONENT_REF) at ../../gcc/tree.c:1049
+#1  0x0000000000e0fae6 in build3 (code=code@entry=COMPONENT_REF, tt=tt@entry=0x7ffff67ea000, arg0=arg0@entry=0x7ffff6861990, arg1=arg1@entry=0x7ffff68048e8, arg2=arg2@entry=0x0) at ../../gcc/tree.c:4864
+#2  0x0000000000903fd3 in build3_loc (arg2=0x0, arg1=0x7ffff68048e8, arg0=0x7ffff6861990, type=0x7ffff67ea000, code=COMPONENT_REF, loc=98400) at ../../gcc/tree.h:4356
+#3  fold_build3_loc (loc=98400, code=code@entry=COMPONENT_REF, type=0x7ffff67ea000, op0=op0@entry=0x7ffff6861990, op1=0x7ffff68048e8, op2=op2@entry=0x0) at ../../gcc/fold-const.c:13233
+#4  0x00000000006ff94b in Gcc_backend::struct_field_expression (this=<optimized out>, bstruct=<optimized out>, index=<optimized out>, location=...) at ../../gcc/go/go-location.h:27
+#5  0x00000000006cd2ec in Expression::get_backend (context=0x7fffffffcef0, this=<optimized out>) at ../../gcc/go/gofrontend/expressions.cc:561
+#6  Unsafe_type_conversion_expression::do_get_backend (this=0x21dbe90, context=0x7fffffffcef0) at ../../gcc/go/gofrontend/expressions.cc:4454
+#7  0x00000000006cb67c in Expression::get_backend (context=0x7fffffffcef0, this=<optimized out>) at ../../gcc/go/gofrontend/expressions.cc:561
+#8  Compound_expression::do_get_backend (this=0x2274830, context=0x7fffffffcef0) at ../../gcc/go/gofrontend/expressions.cc:18573
+#9  0x00000000006e7dc0 in Expression::get_backend (context=0x7fffffffcef0, this=0x2274830) at ../../gcc/go/gofrontend/expressions.cc:561
+#10 Type_guard_expression::do_get_backend (this=0x21bba90, context=0x7fffffffcef0) at ../../gcc/go/gofrontend/expressions.cc:16993
+#11 0x00000000006e63af in Expression::get_backend (context=0x7fffffffcef0, this=<optimized out>) at ../../gcc/go/gofrontend/expressions.cc:561
+#12 Type_conversion_expression::do_get_backend (this=0x21d32e0, context=0x7fffffffcef0) at ../../gcc/go/gofrontend/expressions.cc:4244
+#13 0x000000000070f10a in Variable::get_init (this=this@entry=0x21bbac0, gogo=0x2191c40, function=<optimized out>) at ../../gcc/go/gofrontend/gogo.cc:7839
+#14 0x000000000076848e in Variable_declaration_statement::do_get_backend (this=0x21bbc00, context=0x7fffffffd030) at ../../gcc/go/gofrontend/gogo.h:3688
+#15 0x000000000071ba54 in Block::get_backend (this=0x21bb9c0, context=context@entry=0x7fffffffd110) at ../../gcc/go/gofrontend/gogo.cc:7100
+#16 0x0000000000757e6d in Block_statement::do_get_backend (this=<optimized out>, context=0x7fffffffd110) at ../../gcc/go/gofrontend/statements.cc:2205
+#17 0x000000000071ba54 in Block::get_backend (this=0x2271250, context=context@entry=0x7fffffffd1f0) at ../../gcc/go/gofrontend/gogo.cc:7100
+#18 0x0000000000757e6d in Block_statement::do_get_backend (this=<optimized out>, context=0x7fffffffd1f0) at ../../gcc/go/gofrontend/statements.cc:2205
+#19 0x000000000071ba54 in Block::get_backend (this=0x21bb3f0, context=context@entry=0x7fffffffd2d0) at ../../gcc/go/gofrontend/gogo.cc:7100
+#20 0x0000000000757e6d in Block_statement::do_get_backend (this=<optimized out>, context=0x7fffffffd2d0) at ../../gcc/go/gofrontend/statements.cc:2205
+#21 0x000000000071ba54 in Block::get_backend (this=0x21bb220, context=0x7fffffffd430) at ../../gcc/go/gofrontend/gogo.cc:7100
+#22 0x000000000071c5e7 in Function::build (this=0x21bb2c0, gogo=0x2191c40, named_function=0x216aa10) at ../../gcc/go/gofrontend/gogo.cc:6567
+#23 0x0000000000726585 in Gogo::write_globals (this=0x2191c40) at ../../gcc/go/gofrontend/gogo.cc:1605
+#24 0x0000000000bd1844 in compile_file () at ../../gcc/toplev.c:458
+#25 0x00000000006a50f6 in do_compile () at ../../gcc/toplev.c:2278
+#26 toplev::main (this=this@entry=0x7fffffffd89e, argc=<optimized out>, argc@entry=20, argv=<optimized out>, argv@entry=0x7fffffffd9a8) at ../../gcc/toplev.c:2417
+#27 0x00000000006a8bbf in main (argc=20, argv=0x7fffffffd9a8) at ../../gcc/main.c:39
+(gdb) frame 12
+#12 Type_conversion_expression::do_get_backend (this=0x21d32e0, context=0x7fffffffcef0) at ../../gcc/go/gofrontend/expressions.cc:4244
+4244	      Bexpression* bexpr = this->expr_->get_backend(context);
+(gdb) p this->expr_ .classification_ 
+$9 = Expression::EXPRESSION_TYPE_GUARD
+
