@@ -1,0 +1,17 @@
+(gdb) bt
+#0  build1 (code=code@entry=VIEW_CONVERT_EXPR, type=type@entry=0x7ffff68702a0, node=node@entry=0x7ffff67e1040) at ../../gcc/tree.c:4711
+#1  0x000000000090c62d in build1_loc (arg1=0x7ffff67e1040, type=0x7ffff68702a0, code=VIEW_CONVERT_EXPR, loc=86112) at ../../gcc/tree.h:4336
+#2  fold_build1_loc (loc=86112, code=VIEW_CONVERT_EXPR, type=0x7ffff68702a0, op0=0x7ffff67e1040) at ../../gcc/fold-const.c:13127
+#3  0x0000000000700af3 in Gcc_backend::assignment_statement (this=0x21ae0e0, bfn=0x22b7360, lhs=0x22b7e60, rhs=0x22b7e40, location=...) at ../../gcc/go/go-gcc.cc:2226
+#4  0x00000000006f2a73 in Call_expression::do_get_backend (this=0x2271a70, context=0x7fffffffd1e0) at ../../gcc/go/gofrontend/gogo.h:160
+#5  0x00000000007581d3 in Expression_statement::do_get_backend (this=<optimized out>, context=0x7fffffffd1e0) at ../../gcc/go/gofrontend/statements.cc:2109
+#6  0x000000000071ba54 in Block::get_backend (this=0x2272200, context=context@entry=0x7fffffffd2c0) at ../../gcc/go/gofrontend/gogo.cc:7100
+#7  0x0000000000757e6d in Block_statement::do_get_backend (this=<optimized out>, context=0x7fffffffd2c0) at ../../gcc/go/gofrontend/statements.cc:2205
+#8  0x000000000071ba54 in Block::get_backend (this=0x21ba980, context=0x7fffffffd420) at ../../gcc/go/gofrontend/gogo.cc:7100
+#9  0x000000000071c5e7 in Function::build (this=0x21baa20, gogo=0x2191c40, named_function=0x216aa10) at ../../gcc/go/gofrontend/gogo.cc:6567
+#10 0x0000000000726585 in Gogo::write_globals (this=0x2191c40) at ../../gcc/go/gofrontend/gogo.cc:1605
+#11 0x0000000000bd1844 in compile_file () at ../../gcc/toplev.c:458
+#12 0x00000000006a50f6 in do_compile () at ../../gcc/toplev.c:2278
+#13 toplev::main (this=this@entry=0x7fffffffd88e, argc=<optimized out>, argc@entry=20, argv=<optimized out>, argv@entry=0x7fffffffd998) at ../../gcc/toplev.c:2417
+#14 0x00000000006a8bbf in main (argc=20, argv=0x7fffffffd998) at ../../gcc/main.c:39
+
