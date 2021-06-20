@@ -1,0 +1,25 @@
+(gdb) bt
+#0  Type::make_type_descriptor_type () at ../../gcc/go/gofrontend/types.cc:1556
+#1  0x000000000077a819 in Type::make_type_descriptor_ptr_type () at ../../gcc/go/gofrontend/types.cc:1652
+#2  0x0000000000756ce7 in runtime_function_type (bft=<optimized out>) at ../../gcc/go/gofrontend/runtime.cc:202
+#3  0x0000000000757305 in Runtime::runtime_declaration (code=Runtime::IFACEE2T2P) at ../../gcc/go/gofrontend/runtime.cc:378
+#4  0x0000000000757485 in Runtime::make_call (code=code@entry=Runtime::IFACEE2T2P, loc=loc@entry=..., param_count=param_count@entry=2) at ../../gcc/go/gofrontend/runtime.cc:427
+#5  0x000000000075d8e4 in Tuple_type_guard_assignment_statement::lower_to_type (code=<optimized out>, this=<optimized out>) at ../../gcc/go/gofrontend/statements.cc:1969
+#6  Tuple_type_guard_assignment_statement::do_lower (this=0x21bb280, enclosing=<optimized out>) at ../../gcc/go/gofrontend/statements.cc:1936
+#7  0x000000000070a4c5 in Statement::lower (inserter=0x7fffffffd598, block=0x21ba980, function=<optimized out>, gogo=<optimized out>, this=0x21bb280) at ../../gcc/go/gofrontend/statements.h:310
+#8  Lower_parse_tree::statement (sorig=0x21bb280, pindex=0x7fffffffd458, block=0x21ba980, this=0x7fffffffd560) at ../../gcc/go/gofrontend/gogo.cc:3083
+#9  Lower_parse_tree::statement (this=0x7fffffffd560, block=0x21ba980, pindex=0x7fffffffd458, sorig=0x21bb280) at ../../gcc/go/gofrontend/gogo.cc:3060
+#10 0x000000000075cab6 in Statement::traverse (this=0x21bb280, block=<optimized out>, pindex=<optimized out>, traverse=0x7fffffffd560) at ../../gcc/go/gofrontend/statements.cc:46
+#11 0x000000000070e20a in Block::traverse (this=0x21ba980, traverse=0x7fffffffd560) at /usr/local/include/c++/10.2.0/bits/stl_vector.h:1043
+#12 0x000000000070e408 in Function::traverse (this=0x21baa20, traverse=<optimized out>) at ../../gcc/go/gofrontend/gogo.cc:5795
+#13 0x00000000007172e4 in Lower_parse_tree::function (this=0x7fffffffd560, no=0x216aa10) at ../../gcc/go/gofrontend/gogo.h:2764
+#14 0x000000000071323d in Bindings::traverse (this=0x21b92f0, traverse=0x7fffffffd560, is_global=true) at ../../gcc/go/gofrontend/gogo.cc:9165
+#15 0x00000000007133b2 in Gogo::traverse (this=0x2191c40, traverse=0x7fffffffd560) at ../../gcc/go/gofrontend/gogo.h:3383
+#16 0x00000000007236e6 in Gogo::lower_parse_tree (this=0x2191c40) at ../../gcc/go/gofrontend/gogo.cc:3143
+#17 0x00000000007080b8 in go_parse_input_files (filenames=0x219c370, filename_count=<optimized out>, only_check_syntax=<optimized out>) at ../../gcc/go/gofrontend/go.cc:123
+#18 0x0000000000703a60 in go_langhook_parse_file () at ../../gcc/go/go-lang.c:335
+#19 0x0000000000bd1844 in compile_file () at ../../gcc/toplev.c:458
+#20 0x00000000006a50f6 in do_compile () at ../../gcc/toplev.c:2278
+#21 toplev::main (this=this@entry=0x7fffffffd86e, argc=<optimized out>, argc@entry=20, argv=<optimized out>, argv@entry=0x7fffffffd978) at ../../gcc/toplev.c:2417
+#22 0x00000000006a8bbf in main (argc=20, argv=0x7fffffffd978) at ../../gcc/main.c:39
+
