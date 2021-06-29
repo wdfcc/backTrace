@@ -1,0 +1,38 @@
+(gdb) bt
+#0  serial_ioport_read (opaque=0x5595cad9ce20, addr=5, size=1) at hw/char/serial.c:483
+#1  0x00005595c8379ebe in memory_region_read_accessor (mr=0x5595cad9cf00, addr=5, value=0x7f8f608586d0, 
+    size=1, shift=0, mask=255, attrs=...) at /data/syzkaller/qemu-4.2.0/memory.c:434
+#2  0x00005595c8377a8e in access_with_adjusted_size (addr=addr@entry=5, 
+    value=value@entry=0x7f8f608586d0, size=size@entry=1, access_size_min=<optimized out>, 
+    access_size_max=<optimized out>, access_fn=0x5595c8379e80 <memory_region_read_accessor>, 
+    mr=0x5595cad9cf00, attrs=...) at /data/syzkaller/qemu-4.2.0/memory.c:544
+#3  0x00005595c837c08a in memory_region_dispatch_read1 (attrs=..., size=1, pval=0x7f8f608586d0, addr=5, 
+    mr=0x5595cad9cf00) at /data/syzkaller/qemu-4.2.0/memory.c:1395
+#4  memory_region_dispatch_read (mr=mr@entry=0x5595cad9cf00, addr=5, pval=pval@entry=0x7f8f608586d0, 
+    op=MO_8, attrs=attrs@entry=...) at /data/syzkaller/qemu-4.2.0/memory.c:1423
+#5  0x00005595c832d8e3 in flatview_read_continue (fv=fv@entry=0x7f8f58250eb0, addr=addr@entry=1021, 
+    attrs=..., buf=buf@entry=0x7f8f65510000 "", len=len@entry=1, addr1=<optimized out>, 
+    l=<optimized out>, mr=0x5595cad9cf00) at /data/syzkaller/qemu-4.2.0/include/qemu/host-utils.h:164
+#6  0x00005595c832dac3 in flatview_read (fv=0x7f8f58250eb0, addr=1021, attrs=..., 
+    buf=0x7f8f65510000 "", len=1) at /data/syzkaller/qemu-4.2.0/exec.c:3230
+#7  0x00005595c832dbdb in address_space_read_full (as=<optimized out>, addr=<optimized out>, attrs=..., 
+    buf=<optimized out>, len=<optimized out>) at /data/syzkaller/qemu-4.2.0/exec.c:3243
+#8  0x00005595c832dce5 in address_space_rw (as=<optimized out>, addr=addr@entry=1021, attrs=..., 
+    attrs@entry=..., buf=<optimized out>, len=len@entry=1, is_write=is_write@entry=false)
+    at /data/syzkaller/qemu-4.2.0/exec.c:3271
+#9  0x00005595c838c924 in kvm_handle_io (count=1, size=1, direction=<optimized out>, 
+    data=<optimized out>, attrs=..., port=1021) at /data/syzkaller/qemu-4.2.0/accel/kvm/kvm-all.c:2104
+#10 kvm_cpu_exec (cpu=cpu@entry=0x5595caa743c0) at /data/syzkaller/qemu-4.2.0/accel/kvm/kvm-all.c:2350
+#11 0x00005595c836e85e in qemu_kvm_cpu_thread_fn (arg=0x5595caa743c0)
+    at /data/syzkaller/qemu-4.2.0/cpus.c:1318
+#12 qemu_kvm_cpu_thread_fn (arg=arg@entry=0x5595caa743c0) at /data/syzkaller/qemu-4.2.0/cpus.c:1290
+#13 0x00005595c8749c8a in qemu_thread_start (args=<optimized out>) at util/qemu-thread-posix.c:519
+#14 0x00007f8f6397f14a in start_thread () from /lib64/libpthread.so.0
+#15 0x00007f8f636aedc3 in clone () from /lib64/libc.so.6
+(gdb) frame 9
+#9  0x00005595c838c924 in kvm_handle_io (count=1, size=1, direction=<optimized out>, 
+    data=<optimized out>, attrs=..., port=1021) at /data/syzkaller/qemu-4.2.0/accel/kvm/kvm-all.c:2104
+2104	        address_space_rw(&address_space_io, port, attrs,
+(gdb) p/x port
+$7 = 0x3fd
+
