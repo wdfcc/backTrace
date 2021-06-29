@@ -1,0 +1,32 @@
+(gdb) bt
+#0  acpi_os_read_port (port=45026, value=value@entry=0xffffc90000013b8c, width=width@entry=8)
+    at ../arch/x86/include/asm/io.h:334
+#1  0xffffffff81812cb2 in acpi_hw_gpe_read (value=value@entry=0xffffc90000013bb8, 
+    reg=reg@entry=0xffff888004b8deb0) at ../drivers/acpi/acpica/hwgpe.c:58
+#2  0xffffffff81812f4c in acpi_hw_low_set_gpe (gpe_event_info=gpe_event_info@entry=0xffff888004a61e30, 
+    action=action@entry=1) at ../drivers/acpi/acpica/hwgpe.c:152
+#3  0xffffffff81800548 in acpi_ev_match_gpe_method (obj_handle=0xffff888004b94de0, level=<optimized out>, 
+    context=<optimized out>, return_value=<optimized out>) at ../drivers/acpi/acpica/evgpeinit.c:407
+#4  0xffffffff8181ce7a in acpi_ns_walk_namespace (type=type@entry=8, start_node=<optimized out>, 
+    start_node@entry=0xffff888004445090, max_depth=max_depth@entry=4294967295, flags=flags@entry=0, 
+    descending_callback=0xffffffff818002f5 <acpi_ev_match_gpe_method>, 
+    ascending_callback=ascending_callback@entry=0x0 <fixed_percpu_data>, context=0xffffc90000013cd8, 
+    return_value=0x0 <fixed_percpu_data>) at ../drivers/acpi/acpica/nswalk.c:236
+#5  0xffffffff81800097 in acpi_ev_create_gpe_block (gpe_device=0xffff888004445090, address=<optimized out>, 
+    space_id=<optimized out>, register_count=register_count@entry=2, 
+    gpe_block_base_number=gpe_block_base_number@entry=0, interrupt_number=9, 
+    return_gpe_block=0xffffffff835c8e60 <acpi_gbl_gpe_fadt_blocks>) at ../drivers/acpi/acpica/evgpeblk.c:376
+#6  0xffffffff818006ce in acpi_ev_gpe_initialize () at ../drivers/acpi/acpica/evgpeinit.c:111
+#7  0xffffffff817feb9a in acpi_ev_initialize_events () at ../drivers/acpi/acpica/evevent.c:58
+#8  0xffffffff82c6e823 in acpi_enable_subsystem (flags=flags@entry=2) at ../drivers/acpi/acpica/utxfinit.c:170
+#9  0xffffffff82c6c194 in acpi_bus_init () at ../drivers/acpi/bus.c:1239
+#10 acpi_init () at ../drivers/acpi/bus.c:1333
+#11 0xffffffff81003918 in do_one_initcall (fn=0xffffffff82c6c0dc <acpi_init>) at ../init/main.c:1249
+#12 0xffffffff82c1aa57 in do_initcall_level (command_line=0xffff88800466bd80 "console", level=4)
+    at ../include/linux/compiler.h:234
+#13 do_initcalls () at ../init/main.c:1338
+#14 do_basic_setup () at ../init/main.c:1358
+#15 kernel_init_freeable () at ../init/main.c:1560
+#16 0xffffffff81dae808 in kernel_init (unused=<optimized out>) at ../init/main.c:1447
+#17 0xffffffff81004562 in ret_from_fork () at ../arch/x86/entry/entry_64.S:294
+
