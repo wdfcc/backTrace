@@ -1,0 +1,27 @@
+(gdb) bt
+#0  acpi_os_write_port (port=port@entry=1538, value=value@entry=0, width=width@entry=16)
+    at ../drivers/acpi/osl.c:680
+#1  0xffffffff8181466f in acpi_hw_write_port (address=1538, value=0, width=16)
+    at ../drivers/acpi/acpica/hwvalid.c:265
+#2  0xffffffff818137b9 in acpi_hw_write (value=value@entry=0, reg=0xffffffff835c9308 <acpi_gbl_xpm1a_enable>)
+    at ../drivers/acpi/acpica/hwregs.c:332
+#3  0xffffffff81813874 in acpi_hw_write_multiple (value=0, register_a=<optimized out>, 
+    register_b=0xffffffff835c92e8 <acpi_gbl_xpm1b_enable>) at ../drivers/acpi/acpica/hwregs.c:778
+#4  0xffffffff81813b9f in acpi_hw_register_write (register_id=2, value=<optimized out>)
+    at ../drivers/acpi/acpica/hwregs.c:620
+#5  0xffffffff81814a88 in acpi_write_bit_register (register_id=9, value=value@entry=0)
+    at ../drivers/acpi/acpica/hwxface.c:278
+#6  0xffffffff817feb52 in acpi_ev_fixed_event_initialize () at ../drivers/acpi/acpica/evevent.c:142
+#7  acpi_ev_initialize_events () at ../drivers/acpi/acpica/evevent.c:51
+#8  0xffffffff82c6e823 in acpi_enable_subsystem (flags=flags@entry=2) at ../drivers/acpi/acpica/utxfinit.c:170
+#9  0xffffffff82c6c194 in acpi_bus_init () at ../drivers/acpi/bus.c:1239
+#10 acpi_init () at ../drivers/acpi/bus.c:1333
+#11 0xffffffff81003918 in do_one_initcall (fn=0xffffffff82c6c0dc <acpi_init>) at ../init/main.c:1249
+#12 0xffffffff82c1aa57 in do_initcall_level (command_line=0xffff88800466bd80 "console", level=4)
+    at ../include/linux/compiler.h:234
+#13 do_initcalls () at ../init/main.c:1338
+#14 do_basic_setup () at ../init/main.c:1358
+#15 kernel_init_freeable () at ../init/main.c:1560
+#16 0xffffffff81dae808 in kernel_init (unused=<optimized out>) at ../init/main.c:1447
+#17 0xffffffff81004562 in ret_from_fork () at ../arch/x86/entry/entry_64.S:294
+
