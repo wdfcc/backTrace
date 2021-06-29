@@ -1,0 +1,23 @@
+(gdb) bt
+#0  outb_p (port=968, value=15 '\017') at ../arch/x86/include/asm/io.h:334
+#1  vga_io_w (val=15 '\017', port=968) at ../include/video/vga.h:209
+#2  vga_w (val=15 '\017', port=968, regbase=0x0 <fixed_percpu_data>) at ../include/video/vga.h:247
+#3  vga_set_palette (vc=vc@entry=0xffff888003c51000, 
+    table=table@entry=0xffffffff822cfb40 <color_table> "") at ../drivers/video/console/vgacon.c:661
+#4  0xffffffff817bea20 in vgacon_set_palette (vc=0xffff888003c51000, 
+    table=0xffffffff822cfb40 <color_table> "") at ../drivers/video/console/vgacon.c:673
+#5  0xffffffff818a0a93 in set_palette (vc=vc@entry=0xffff888003c51000)
+    at ../drivers/tty/vt/vt.c:4476
+#6  0xffffffff818a2716 in redraw_screen (vc=vc@entry=0xffff888003c51000, 
+    is_switch=is_switch@entry=0) at ../drivers/tty/vt/vt.c:1022
+#7  0xffffffff82c73cf5 in con_init () at ../drivers/tty/vt/vt.c:3503
+#8  0xffffffff82c49787 in console_init () at ../kernel/printk/printk.c:3091
+#9  0xffffffff82c1a671 in start_kernel () at ../init/main.c:1016
+#10 0xffffffff82c1959f in x86_64_start_reservations (
+    real_mode_data=real_mode_data@entry=0x13cd0 <bts_ctx+3280> <error: Cannot access memory at address 0x13cd0>) at ../arch/x86/kernel/head64.c:525
+#11 0xffffffff82c1962c in x86_64_start_kernel (
+    real_mode_data=0x13cd0 <bts_ctx+3280> <error: Cannot access memory at address 0x13cd0>)
+    at ../arch/x86/kernel/head64.c:506
+#12 0xffffffff81000107 in secondary_startup_64 () at ../arch/x86/kernel/head_64.S:283
+#13 0x0000000000000000 in ?? ()
+

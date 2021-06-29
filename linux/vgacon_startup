@@ -1,0 +1,13 @@
+(gdb) bt
+#0  vgacon_startup () at ../drivers/video/console/vgacon.c:289
+#1  0xffffffff82c73b3f in con_init () at ../drivers/tty/vt/vt.c:3459
+#2  0xffffffff82c49787 in console_init () at ../kernel/printk/printk.c:3091
+#3  0xffffffff82c1a671 in start_kernel () at ../init/main.c:1016
+#4  0xffffffff82c1959f in x86_64_start_reservations (
+    real_mode_data=real_mode_data@entry=0x13cd0 <bts_ctx+3280> <error: Cannot access memory at address 0x13cd0>)
+    at ../arch/x86/kernel/head64.c:525
+#5  0xffffffff82c1962c in x86_64_start_kernel (
+    real_mode_data=0x13cd0 <bts_ctx+3280> <error: Cannot access memory at address 0x13cd0>)
+    at ../arch/x86/kernel/head64.c:506
+#6  0xffffffff81000107 in secondary_startup_64 () at ../arch/x86/kernel/head_64.S:283
+

@@ -1,0 +1,34 @@
+gdb) bt
+#0  0xffffffff818b140a in io_serial_out (p=0xffffffff835d7c60 <serial8250_ports>, offset=<optimized out>, 
+    value=48) at ../arch/x86/include/asm/io.h:334
+#1  0xffffffff818b1edf in serial_port_out (value=48, offset=0, up=0xffffffff835d7c60 <serial8250_ports>)
+    at ../include/linux/serial_core.h:268
+#2  serial8250_console_putchar (port=0xffffffff835d7c60 <serial8250_ports>, ch=48)
+    at ../drivers/tty/serial/8250/8250_port.c:3251
+#3  0xffffffff818aa24a in uart_console_write (port=port@entry=0xffffffff835d7c60 <serial8250_ports>, 
+    s=0xffffffff82f4e9c7 <text+7> "000000] Linux version 5.13.0-rc5+ (root@VM-16-12-centos) (gcc (GCC) 10.2.1 20201112 (Red Hat 10.2.1-8), GNU ld version 2.35-6.el8) #1 SMP Mon Jun 28 09:58:09 CST 2021\n", 
+    s@entry=0xffffffff82f4e9c0 <text> "[    0.000000] Linux version 5.13.0-rc5+ (root@VM-16-12-centos) (gcc (GCC) 10.2.1 20201112 (Red Hat 10.2.1-8), GNU ld version 2.35-6.el8) #1 SMP Mon Jun 28 09:58:09 CST 2021\n", 
+    count=count@entry=174, putchar=putchar@entry=0xffffffff818b1eb0 <serial8250_console_putchar>)
+    at ../drivers/tty/serial/serial_core.c:1943
+#4  0xffffffff818b6754 in serial8250_console_write (up=0xffffffff835d7c60 <serial8250_ports>, 
+    s=0xffffffff82f4e9c0 <text> "[    0.000000] Linux version 5.13.0-rc5+ (root@VM-16-12-centos) (gcc (GCC) 10.2.1 20201112 (Red Hat 10.2.1-8), GNU ld version 2.35-6.el8) #1 SMP Mon Jun 28 09:58:09 CST 2021\n", count=174)
+    at ../drivers/tty/serial/8250/8250_port.c:3322
+#5  0xffffffff818af9c1 in univ8250_console_write (co=<optimized out>, s=<optimized out>, count=<optimized out>)
+    at ../drivers/tty/serial/8250/8250_core.c:586
+#6  0xffffffff8119b1aa in call_console_drivers (ext_text=0xffffffff82f4c9c0 <ext_text> "", 
+    text=0xffffffff82f4e9c0 <text> "[    0.000000] Linux version 5.13.0-rc5+ (root@VM-16-12-centos) (gcc (GCC) 10.2.1 20201112 (Red Hat 10.2.1-8), GNU ld version 2.35-6.el8) #1 SMP Mon Jun 28 09:58:09 CST 2021\n", len=174, 
+    ext_len=0) at ../kernel/printk/printk.c:1938
+#7  console_unlock () at ../kernel/printk/printk.c:2643
+#8  0xffffffff8119b58a in register_console (newcon=newcon@entry=0xffffffff82aab4e0 <univ8250_console>)
+    at ../kernel/printk/printk.c:2981
+#9  0xffffffff82c74761 in univ8250_console_init () at ../drivers/tty/serial/8250/8250_core.c:690
+#10 0xffffffff82c49787 in console_init () at ../kernel/printk/printk.c:3091
+#11 0xffffffff82c1a671 in start_kernel () at ../init/main.c:1016
+#12 0xffffffff82c1959f in x86_64_start_reservations (
+    real_mode_data=real_mode_data@entry=0x13cd0 <bts_ctx+3280> <error: Cannot access memory at address 0x13cd0>)
+    at ../arch/x86/kernel/head64.c:525
+#13 0xffffffff82c1962c in x86_64_start_kernel (
+    real_mode_data=0x13cd0 <bts_ctx+3280> <error: Cannot access memory at address 0x13cd0>)
+    at ../arch/x86/kernel/head64.c:506
+#14 0xffffffff81000107 in secondary_startup_64 () at ../arch/x86/kernel/head_64.S:283
+

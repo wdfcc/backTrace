@@ -1,0 +1,28 @@
+(gdb) bt
+#0  df_rd_simulate_one_insn (bb=bb@entry=0x7ffff3181b60, insn=insn@entry=0x7ffff2a4fa40, local_rd=local_rd@entry=0x7fffffffca10)
+    at ../../gcc/df-problems.c:264
+#1  0x000000000078e42b in df_chain_create_bb (bb_index=3) at ../../gcc/df-problems.c:2503
+#2  df_chain_finalize(bitmap_head*) () at ../../gcc/df-problems.c:2527
+#3  0x000000000078530e in df_analyze_problem (dflow=0x290a8b0, blocks_to_consider=0x281d3f8, postorder=0x2904f00, n_blocks=2) at ../../gcc/df-core.c:1180
+#4  0x00000000007853da in df_analyze_1() () at ../../gcc/df-core.c:1223
+#5  0x00000000009a60f6 in find_defs (loop=0x7ffff2da7578) at ../../gcc/loop-invariant.c:686
+#6  find_invariants (loop=0x7ffff2da7578) at ../../gcc/loop-invariant.c:1238
+#7  move_single_loop_invariants (loop=0x7ffff2da7578) at ../../gcc/loop-invariant.c:1945
+#8  move_loop_invariants() () at ../../gcc/loop-invariant.c:2285
+#9  0x00000000009a32a9 in (anonymous namespace)::pass_rtl_move_loop_invariants::execute (this=<optimized out>, fun=<optimized out>)
+    at ../../gcc/loop-init.c:523
+#10 0x0000000000a6c468 in execute_one_pass(opt_pass*) () at ../../gcc/passes.c:2502
+#11 0x0000000000a6cdb0 in execute_pass_list_1(opt_pass*) () at ../../gcc/passes.c:2590
+#12 0x0000000000a6cdc2 in execute_pass_list_1(opt_pass*) () at ../../gcc/passes.c:2591
+#13 0x0000000000a6cdc2 in execute_pass_list_1(opt_pass*) () at ../../gcc/passes.c:2591
+#14 0x0000000000a6cde9 in execute_pass_list(function*, opt_pass*) () at ../../gcc/passes.c:2601
+#15 0x0000000000768b5e in cgraph_node::expand() () at ../../gcc/context.h:48
+#16 0x0000000000769bf0 in expand_all_functions () at ../../gcc/cgraphunit.c:2471
+#17 symbol_table::compile() [clone .part.0] () at ../../gcc/cgraphunit.c:2822
+#18 0x000000000076bc6d in compile (this=0x7ffff7316100) at ../../gcc/cgraphunit.c:3002
+#19 symbol_table::finalize_compilation_unit (this=0x7ffff7316100) at ../../gcc/cgraphunit.c:3002
+#20 0x0000000000b2b8bf in compile_file () at ../../gcc/toplev.c:483
+#21 0x00000000006193bd in do_compile () at ../../gcc/toplev.c:2273
+#22 toplev::main(int, char**) () at ../../gcc/toplev.c:2412
+#23 0x000000000061cecf in main (argc=130, argv=0x7fffffffd068) at ../../gcc/main.c:39
+
