@@ -1,0 +1,18 @@
+(gdb) bt
+#0  prepare_vmcs02 (entry_failure_code=0xffffc90000b13cbc, vmcs12=0xffff88810d565000, vcpu=0xffff888103e2cc00) at ../arch/x86/kvm/vmx/nested.c:2494
+#1  nested_vmx_enter_non_root_mode (vcpu=vcpu@entry=0xffff888103e2cc00, from_vmentry=from_vmentry@entry=true) at ../arch/x86/kvm/vmx/nested.c:3359
+#2  0xffffffff810a24d6 in nested_vmx_run (vcpu=0xffff888103e2cc00, launch=launch@entry=false) at ../arch/x86/kvm/vmx/nested.c:3519
+#3  0xffffffff810a28b0 in handle_vmresume (vcpu=<optimized out>) at ../arch/x86/kvm/vmx/nested.c:4978
+#4  0xffffffff81095313 in __vmx_handle_exit (exit_fastpath=EXIT_FASTPATH_NONE, vcpu=0xffff888103e2cc00) at ../arch/x86/kvm/vmx/vmx.c:6090
+#5  vmx_handle_exit (vcpu=0xffff888103e2cc00, exit_fastpath=EXIT_FASTPATH_NONE) at ../arch/x86/kvm/vmx/vmx.c:6107
+#6  0xffffffff8104d5b4 in vcpu_enter_guest (vcpu=0xffff888103e2cc00) at ../arch/x86/kvm/x86.c:9231
+#7  vcpu_run (vcpu=0xffff888103e2cc00) at ../arch/x86/kvm/x86.c:9297
+#8  kvm_arch_vcpu_ioctl_run (vcpu=vcpu@entry=0xffff888103e2cc00) at ../arch/x86/kvm/x86.c:9525
+#9  0xffffffff81024077 in kvm_vcpu_ioctl (filp=<optimized out>, ioctl=44672, arg=0) at ../arch/x86/kvm/../../../virt/kvm/kvm_main.c:3316
+#10 0xffffffff813b11e1 in vfs_ioctl (arg=0, cmd=<optimized out>, filp=0xffff88810752a700) at ../fs/ioctl.c:48
+#11 __do_sys_ioctl (arg=0, cmd=44672, fd=13) at ../fs/ioctl.c:753
+#12 __se_sys_ioctl (arg=0, cmd=44672, fd=13) at ../fs/ioctl.c:739
+#13 __x64_sys_ioctl (regs=<optimized out>) at ../fs/ioctl.c:739
+#14 0xffffffff81c9c048 in do_syscall_64 (nr=<optimized out>, regs=0xffffc90000b13f58) at ../arch/x86/entry/common.c:46
+#15 0xffffffff81e0007c in entry_SYSCALL_64 () at ../arch/x86/entry/entry_64.S:112
+
