@@ -1,0 +1,28 @@
+(gdb) bt
+#0  get_cr3 (vcpu=0xffff888106578000) at ../arch/x86/kvm/mmu/mmu.c:3930
+#1  0xffffffff81072a0b in paging64_walk_addr_generic (walker=walker@entry=0xffffc90000afba78, vcpu=<optimized out>, mmu=<optimized out>, addr=addr@entry=18446744071585271940, access=16)
+    at ../arch/x86/kvm/mmu/paging_tmpl.h:336
+#2  0xffffffff810730c4 in paging64_walk_addr (access=<optimized out>, addr=<optimized out>, vcpu=<optimized out>, walker=0xffffc90000afba78) at ../arch/x86/kvm/mmu/paging_tmpl.h:976
+#3  paging64_gva_to_gpa (vcpu=<optimized out>, addr=18446744071585271940, access=<optimized out>, exception=0xffff88810561d3b0) at ../arch/x86/kvm/mmu/paging_tmpl.h:976
+#4  0xffffffff81037691 in kvm_fetch_guest_virt (ctxt=<optimized out>, addr=18446744071585271940, val=0xffff88810561d5b0, bytes=15, exception=0xffff88810561d3b0) at ../arch/x86/kvm/x86.c:6070
+#5  0xffffffff810514fb in __do_insn_fetch_bytes (ctxt=ctxt@entry=0xffff88810561d380, op_size=op_size@entry=1) at ../arch/x86/kvm/emulate.c:918
+#6  0xffffffff8105833b in x86_decode_insn (ctxt=ctxt@entry=0xffff88810561d380, insn=<optimized out>, insn_len=insn_len@entry=0) at ../arch/x86/kvm/emulate.c:5209
+#7  0xffffffff81040f11 in x86_decode_emulated_instruction (vcpu=vcpu@entry=0xffff888106578000, emulation_type=emulation_type@entry=0, insn=insn@entry=0x0 <fixed_percpu_data>, insn_len=insn_len@entry=0)
+    at ../arch/x86/kvm/x86.c:7438
+#8  0xffffffff81048b3b in x86_emulate_instruction (vcpu=vcpu@entry=0xffff888106578000, cr2_or_gpa=cr2_or_gpa@entry=0, emulation_type=emulation_type@entry=0, insn=insn@entry=0x0 <fixed_percpu_data>, 
+    insn_len=insn_len@entry=0) at ../arch/x86/kvm/x86.c:7470
+#9  0xffffffff81048ee7 in kvm_emulate_instruction (vcpu=vcpu@entry=0xffff888106578000, emulation_type=emulation_type@entry=0) at ../arch/x86/kvm/x86.c:7607
+#10 0xffffffff81082d03 in handle_io (vcpu=0xffff888106578000) at ../arch/x86/kvm/vmx/vmx.c:4933
+#11 0xffffffff81095313 in __vmx_handle_exit (exit_fastpath=EXIT_FASTPATH_NONE, vcpu=0xffff888106578000) at ../arch/x86/kvm/vmx/vmx.c:6090
+#12 vmx_handle_exit (vcpu=0xffff888106578000, exit_fastpath=EXIT_FASTPATH_NONE) at ../arch/x86/kvm/vmx/vmx.c:6107
+#13 0xffffffff8104d5b4 in vcpu_enter_guest (vcpu=0xffff888106578000) at ../arch/x86/kvm/x86.c:9231
+#14 vcpu_run (vcpu=0xffff888106578000) at ../arch/x86/kvm/x86.c:9297
+#15 kvm_arch_vcpu_ioctl_run (vcpu=vcpu@entry=0xffff888106578000) at ../arch/x86/kvm/x86.c:9525
+#16 0xffffffff81024077 in kvm_vcpu_ioctl (filp=<optimized out>, ioctl=44672, arg=0) at ../arch/x86/kvm/../../../virt/kvm/kvm_main.c:3316
+#17 0xffffffff813b11e1 in vfs_ioctl (arg=0, cmd=<optimized out>, filp=0xffff88810080f700) at ../fs/ioctl.c:48
+#18 __do_sys_ioctl (arg=0, cmd=44672, fd=12) at ../fs/ioctl.c:753
+#19 __se_sys_ioctl (arg=0, cmd=44672, fd=12) at ../fs/ioctl.c:739
+#20 __x64_sys_ioctl (regs=<optimized out>) at ../fs/ioctl.c:739
+#21 0xffffffff81c9c048 in do_syscall_64 (nr=<optimized out>, regs=0xffffc90000afbf58) at ../arch/x86/entry/common.c:46
+#22 0xffffffff81e0007c in entry_SYSCALL_64 () at ../arch/x86/entry/entry_64.S:112
+
