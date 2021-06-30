@@ -1,0 +1,17 @@
+(gdb) bt
+#0  nested_vmx_exit_handled_io (vmcs12=0xffff88810e31f000, vcpu=0xffff888107dd8000) at ../arch/x86/kvm/vmx/nested.c:5583
+#1  nested_vmx_l1_wants_exit (exit_reason=..., exit_reason=..., vcpu=0xffff888107dd8000) at ../arch/x86/kvm/vmx/nested.c:5879
+#2  nested_vmx_reflect_vmexit (vcpu=vcpu@entry=0xffff888107dd8000) at ../arch/x86/kvm/vmx/nested.c:5968
+#3  0xffffffff8109525e in __vmx_handle_exit (exit_fastpath=EXIT_FASTPATH_NONE, vcpu=0xffff888107dd8000) at ../arch/x86/kvm/vmx/vmx.c:5995
+#4  vmx_handle_exit (vcpu=0xffff888107dd8000, exit_fastpath=EXIT_FASTPATH_NONE) at ../arch/x86/kvm/vmx/vmx.c:6107
+#5  0xffffffff8104d5b4 in vcpu_enter_guest (vcpu=0xffff888107dd8000) at ../arch/x86/kvm/x86.c:9231
+#6  vcpu_run (vcpu=0xffff888107dd8000) at ../arch/x86/kvm/x86.c:9297
+#7  kvm_arch_vcpu_ioctl_run (vcpu=vcpu@entry=0xffff888107dd8000) at ../arch/x86/kvm/x86.c:9525
+#8  0xffffffff81024077 in kvm_vcpu_ioctl (filp=<optimized out>, ioctl=44672, arg=0) at ../arch/x86/kvm/../../../virt/kvm/kvm_main.c:3316
+#9  0xffffffff813b11e1 in vfs_ioctl (arg=0, cmd=<optimized out>, filp=0xffff888106e6f500) at ../fs/ioctl.c:48
+#10 __do_sys_ioctl (arg=0, cmd=44672, fd=15) at ../fs/ioctl.c:753
+#11 __se_sys_ioctl (arg=0, cmd=44672, fd=15) at ../fs/ioctl.c:739
+#12 __x64_sys_ioctl (regs=<optimized out>) at ../fs/ioctl.c:739
+#13 0xffffffff81c9c048 in do_syscall_64 (nr=<optimized out>, regs=0xffffc90000b13f58) at ../arch/x86/entry/common.c:46
+#14 0xffffffff81e0007c in entry_SYSCALL_64 () at ../arch/x86/entry/entry_64.S:112
+
