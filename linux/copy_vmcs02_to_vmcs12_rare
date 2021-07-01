@@ -1,0 +1,16 @@
+(gdb) bt
+#0  copy_vmcs02_to_vmcs12_rare (vcpu=vcpu@entry=0xffff888103ed8000, vmcs12=vmcs12@entry=0xffff888106e67000) at ../arch/x86/kvm/vmx/nested.c:3995
+#1  0xffffffff810a5e29 in handle_vmwrite (vcpu=0xffff888103ed8000) at ../arch/x86/kvm/vmx/nested.c:5130
+#2  0xffffffff81095313 in __vmx_handle_exit (exit_fastpath=EXIT_FASTPATH_NONE, vcpu=0xffff888103ed8000) at ../arch/x86/kvm/vmx/vmx.c:6090
+#3  vmx_handle_exit (vcpu=0xffff888103ed8000, exit_fastpath=EXIT_FASTPATH_NONE) at ../arch/x86/kvm/vmx/vmx.c:6107
+#4  0xffffffff8104d5b4 in vcpu_enter_guest (vcpu=0xffff888103ed8000) at ../arch/x86/kvm/x86.c:9231
+#5  vcpu_run (vcpu=0xffff888103ed8000) at ../arch/x86/kvm/x86.c:9297
+#6  kvm_arch_vcpu_ioctl_run (vcpu=vcpu@entry=0xffff888103ed8000) at ../arch/x86/kvm/x86.c:9525
+#7  0xffffffff81024077 in kvm_vcpu_ioctl (filp=<optimized out>, ioctl=44672, arg=0) at ../arch/x86/kvm/../../../virt/kvm/kvm_main.c:3316
+#8  0xffffffff813b11e1 in vfs_ioctl (arg=0, cmd=<optimized out>, filp=0xffff888100894f00) at ../fs/ioctl.c:48
+#9  __do_sys_ioctl (arg=0, cmd=44672, fd=14) at ../fs/ioctl.c:753
+#10 __se_sys_ioctl (arg=0, cmd=44672, fd=14) at ../fs/ioctl.c:739
+#11 __x64_sys_ioctl (regs=<optimized out>) at ../fs/ioctl.c:739
+#12 0xffffffff81c9c048 in do_syscall_64 (nr=<optimized out>, regs=0xffffc90000b1bf58) at ../arch/x86/entry/common.c:46
+#13 0xffffffff81e0007c in entry_SYSCALL_64 () at ../arch/x86/entry/entry_64.S:112
+
