@@ -1,0 +1,40 @@
+(gdb) bt
+#0  ptrace (request=request@entry=PTRACE_GETREGS) at ../sysdeps/unix/sysv/linux/ptrace.c:30
+#1  0x0000555555660856 in amd64_linux_nat_target::fetch_registers (this=<optimized out>, regcache=0x555555ff4eb0, regnum=-15296) at amd64-linux-nat.c:224
+#2  0x00005555559654a1 in target_fetch_registers (regcache=regcache@entry=0x555555ff4eb0, regno=regno@entry=16) at target.h:1334
+#3  0x00005555558c390a in regcache::raw_update (regnum=16, this=0x555555ff4eb0) at regcache.c:583
+#4  regcache::raw_update (this=0x555555ff4eb0, regnum=<optimized out>) at regcache.c:572
+#5  0x00005555558c394e in readable_regcache::raw_read (this=0x555555ff4eb0, regnum=16, buf=0x7fffffffd160 "") at regcache.c:597
+#6  0x00005555558c75ad in readable_regcache::cooked_read<unsigned long, void> (this=this@entry=0x555555ff4eb0, regnum=16, val=val@entry=0x7fffffffd1c0) at regcache.c:769
+#7  0x00005555558c5dc9 in regcache_cooked_read_unsigned (val=0x7fffffffd1c0, regnum=<optimized out>, regcache=0x555555ff4eb0) at regcache.c:790
+#8  regcache_read_pc (regcache=0x555555ff4eb0) at regcache.c:1294
+#9  0x000055555580e73a in save_stop_reason (lp=0x555555e26300) at linux-nat.c:2619
+#10 0x0000555555810ae0 in linux_nat_filter_event (status=<optimized out>, lwpid=<optimized out>) at linux-nat.c:3056
+#11 linux_nat_wait_1 (target_options=0, ourstatus=0x7fffffffd5e0, ptid=...) at linux-nat.c:3202
+#12 linux_nat_target::wait (this=<optimized out>, ptid=..., ourstatus=0x7fffffffd5e0, target_options=0) at linux-nat.c:3440
+#13 0x0000555555962f96 in target_wait (ptid=..., status=status@entry=0x7fffffffd5e0, options=options@entry=0) at target.c:2017
+#14 0x000055555585a42a in startup_inferior (proc_target=proc_target@entry=0x555555de1830 <the_amd64_linux_nat_target>, pid=-10784, pid@entry=62985, ntraps=ntraps@entry=1, 
+    last_waitstatus=last_waitstatus@entry=0x0, last_ptid=last_ptid@entry=0x0) at nat/fork-inferior.c:486
+#15 0x000055555579283b in gdb_startup_inferior (pid=pid@entry=62985, num_traps=num_traps@entry=1) at fork-child.c:129
+#16 0x00005555557d16c5 in inf_ptrace_target::create_inferior (this=this@entry=0x555555de1830 <the_amd64_linux_nat_target>, exec_file=exec_file@entry=0x555555fc1940 "/home/zhangsan/a.out", allargs="", 
+    env=env@entry=0x555555ea3360, from_tty=from_tty@entry=1) at inf-ptrace.c:101
+#17 0x000055555580ac45 in linux_nat_target::create_inferior (this=this@entry=0x555555de1830 <the_amd64_linux_nat_target>, exec_file=exec_file@entry=0x555555fc1940 "/home/zhangsan/a.out", allargs="", 
+    env=env@entry=0x555555ea3360, from_tty=from_tty@entry=1) at linux-nat.c:1106
+#18 0x00005555557d9fbe in run_command_1 (args=<optimized out>, from_tty=1, run_how=RUN_NORMAL) at /usr/include/c++/10/bits/basic_string.h:263
+#19 0x00005555556cab7a in cmd_func (cmd=<optimized out>, args=<optimized out>, from_tty=<optimized out>) at cli/cli-decode.c:2181
+#20 0x000055555597426c in execute_command (p=<optimized out>, p@entry=0x555555e241d0 "", from_tty=1) at top.c:668
+#21 0x0000555555782ee5 in command_handler (command=0x555555e241d0 "") at event-top.c:588
+#22 0x0000555555783271 in command_line_handler (rl=...) at event-top.c:773
+#23 0x00005555557838d2 in gdb_rl_callback_handler (rl=0x555556004ad0 "r") at /usr/include/c++/10/bits/unique_ptr.h:172
+#24 0x00005555559ea088 in rl_callback_read_char () at callback.c:281
+#25 0x0000555555782476 in gdb_rl_callback_read_char_wrapper_noexcept () at event-top.c:177
+#26 0x0000555555783785 in gdb_rl_callback_read_char_wrapper (client_data=<optimized out>) at event-top.c:193
+#27 0x0000555555782198 in stdin_event_handler (error=<optimized out>, client_data=0x555555e23fa0) at event-top.c:516
+#28 0x0000555555abc826 in gdb_wait_for_event (block=block@entry=1) at event-loop.cc:673
+#29 0x0000555555abcacd in gdb_wait_for_event (block=1) at event-loop.cc:569
+#30 gdb_do_one_event () at event-loop.cc:215
+#31 0x000055555582ca65 in start_event_loop () at main.c:356
+#32 captured_command_loop () at main.c:416
+#33 0x000055555582eda5 in captured_main (data=<optimized out>) at main.c:1253
+#34 gdb_main (args=<optimized out>) at main.c:1268
+#35 0x0000555555630250 in main (argc=<optimized out>, argv=<optimized out>) at gdb.c:3
