@@ -1,0 +1,42 @@
+(gdb) bt
+#0  ptrace (request=request@entry=PTRACE_PEEKTEXT) at ../sysdeps/unix/sysv/linux/ptrace.c:30
+#1  0x00005555557d1bbc in gdb_ptrace (data=0, addr=93824992235600, ptid=..., request=PTRACE_PEEKTEXT) at inf-ptrace.c:255
+#2  inf_ptrace_peek_poke (len=16, addr=93824992235600, writebuf=<optimized out>, readbuf=<optimized out>, ptid=...) at inf-ptrace.c:380
+#3  inf_ptrace_target::xfer_partial (this=<optimized out>, object=<optimized out>, annex=<optimized out>, readbuf=<optimized out>, writebuf=<optimized out>, offset=<optimized out>, len=<optimized out>, 
+    xfered_len=<optimized out>) at inf-ptrace.c:454
+#4  0x0000555555962994 in raw_memory_xfer_partial (ops=0x555555de1830 <the_amd64_linux_nat_target>, readbuf=0x0, writebuf=0x555556088ab0 "\220\350\215]\001", memaddr=93824992235602, len=16, 
+    xfered_len=0x7fffffffd1f0) at target.c:918
+#5  0x0000555555962b2c in memory_xfer_partial_1 (ops=0x555555de1830 <the_amd64_linux_nat_target>, object=TARGET_OBJECT_MEMORY, readbuf=0x0, writebuf=0x555556088ab0 "\220\350\215]\001", memaddr=93824992235602, 
+    len=<optimized out>, xfered_len=0x7fffffffd1f0) at target.c:1055
+#6  0x0000555555966995 in memory_xfer_partial (xfered_len=0x7fffffffd1f0, len=<optimized out>, memaddr=93824992235602, writebuf=0x55555608ca10 "\220\350\215]\001", readbuf=0x0, object=TARGET_OBJECT_MEMORY, 
+    ops=0x555555de1830 <the_amd64_linux_nat_target>) at /usr/include/c++/10/bits/stl_vector.h:1168
+#7  target_xfer_partial (ops=0x555555de1830 <the_amd64_linux_nat_target>, object=TARGET_OBJECT_MEMORY, annex=0x0, readbuf=0x0, writebuf=0x55555608ca10 "\220\350\215]\001", offset=93824992235602, 
+    len=<optimized out>, xfered_len=0x7fffffffd1f0) at target.c:1141
+#8  0x0000555555967001 in target_write_partial (xfered_len=0x7fffffffd1f0, len=16, offset=93824992235602, buf=0x55555608ca10 "\220\350\215]\001", annex=0x0, object=TARGET_OBJECT_MEMORY, 
+    ops=0x555555de1830 <the_amd64_linux_nat_target>) at target.c:1665
+#9  target_write_with_progress (ops=0x555555de1830 <the_amd64_linux_nat_target>, object=TARGET_OBJECT_MEMORY, annex=0x0, buf=0x55555608ca10 "\220\350\215]\001", offset=93824992235602, len=16, progress=0x0, 
+    baton=0x0) at target.c:1665
+#10 0x00005555559670ae in target_write (len=16, offset=93824992235602, buf=0x55555608ca10 "\220\350\215]\001", annex=0x0, object=TARGET_OBJECT_MEMORY, ops=<optimized out>) at target.c:1690
+#11 target_write_memory (memaddr=93824992235602, myaddr=0x55555608ca10 "\220\350\215]\001", len=16) at target.c:1302
+#12 0x00005555556f92dd in write_memory (memaddr=memaddr@entry=93824992235602, myaddr=myaddr@entry=0x55555608ca10 "\220\350\215]\001", len=len@entry=16) at corefile.c:348
+#13 0x000055555566753c in amd64_displaced_step_copy_insn (gdbarch=0x555556033a50, from=140737353951197, to=93824992235602, regs=<optimized out>) at amd64-tdep.c:1505
+#14 0x00005555557a54d2 in gdbarch_displaced_step_copy_insn (gdbarch=0x555556033a50, from=<optimized out>, to=<optimized out>, regs=<optimized out>) at gdbarch.c:3979
+#15 0x00005555557e994d in displaced_step_prepare_throw (tp=0x555555e25060) at infrun.c:1761
+#16 displaced_step_prepare (thread=0x555555e25060) at infrun.c:1804
+#17 resume_1 (sig=GDB_SIGNAL_0) at infrun.c:2438
+#18 resume (sig=GDB_SIGNAL_0) at infrun.c:2630
+#19 0x00005555557e9f63 in keep_going_pass_signal (ecs=0x7fffffffda50) at infrun.c:7876
+#20 0x00005555557eaf97 in keep_going (ecs=<optimized out>) at infrun.c:7895
+#21 handle_step_into_function (ecs=<optimized out>, gdbarch=<optimized out>) at infrun.c:7454
+#22 process_event_stop_test (ecs=0x7fffffffda50) at infrun.c:6868
+#23 0x00005555557ef73e in handle_inferior_event (ecs=0x7fffffffda50) at infrun.c:5549
+#24 0x00005555557f0423 in fetch_inferior_event () at infrun.c:3931
+#25 0x0000555555abc826 in gdb_wait_for_event (block=block@entry=0) at event-loop.cc:673
+#26 0x0000555555abcb1a in gdb_wait_for_event (block=0) at event-loop.cc:569
+#27 gdb_do_one_event () at event-loop.cc:190
+#28 0x000055555582ca65 in start_event_loop () at main.c:356
+#29 captured_command_loop () at main.c:416
+#30 0x000055555582eda5 in captured_main (data=<optimized out>) at main.c:1253
+#31 gdb_main (args=<optimized out>) at main.c:1268
+#32 0x0000555555630250 in main (argc=<optimized out>, argv=<optimized out>) at gdb.c:32
+
