@@ -1,0 +1,6 @@
+(gdb) bt
+#0  JavaMain (_args=0x7fffffff9990) at /home/zhangsan/jdk/src/java.base/share/native/libjli/java.c:398
+#1  0x00007ffff7fbc2bd in ThreadJavaMain (args=<optimized out>) at /home/zhangsan/jdk/src/java.base/unix/native/libjli/java_md.c:651
+#2  0x00007ffff7d67590 in start_thread (arg=0x7ffff59e2640) at pthread_create.c:463
+#3  0x00007ffff7ebc223 in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:95
+
