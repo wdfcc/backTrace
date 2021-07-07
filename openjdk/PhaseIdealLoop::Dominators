@@ -1,0 +1,20 @@
+(gdb) bt
+#0  PhaseIdealLoop::Dominators (this=this@entry=0x7fffc8113930) at /home/zhangsan/jdk/src/hotspot/share/opto/domgraph.cpp:390
+#1  0x00007ffff6e57f34 in PhaseIdealLoop::build_and_optimize (this=this@entry=0x7fffc8113930, mode=mode@entry=LoopOptsDefault) at /home/zhangsan/jdk/src/hotspot/share/opto/loopnode.cpp:3829
+#2  0x00007ffff6564700 in PhaseIdealLoop::PhaseIdealLoop (mode=LoopOptsDefault, igvn=..., this=0x7fffc8113930) at /home/zhangsan/jdk/src/hotspot/share/opto/loopnode.hpp:1068
+#3  PhaseIdealLoop::optimize (igvn=..., mode=mode@entry=LoopOptsDefault) at /home/zhangsan/jdk/src/hotspot/share/opto/loopnode.hpp:1146
+#4  0x00007ffff6561945 in Compile::optimize_loops (mode=<optimized out>, igvn=..., this=<optimized out>) at /home/zhangsan/jdk/src/hotspot/share/opto/compile.cpp:2017
+#5  Compile::optimize_loops (mode=LoopOptsDefault, igvn=..., this=0x7fffc8116bf0) at /home/zhangsan/jdk/src/hotspot/share/opto/compile.cpp:2011
+#6  Compile::Optimize (this=this@entry=0x7fffc8116bf0) at /home/zhangsan/jdk/src/hotspot/share/opto/compile.cpp:2240
+#7  0x00007ffff656316f in Compile::Compile (this=0x7fffc8116bf0, ci_env=<optimized out>, target=<optimized out>, osr_bci=<optimized out>, subsume_loads=<optimized out>, do_escape_analysis=<optimized out>, 
+    eliminate_boxing=true, do_locks_coarsening=true, install_code=true, directive=0x7ffff01bf760) at /home/zhangsan/jdk/src/hotspot/share/opto/compile.cpp:781
+#8  0x00007ffff638de16 in C2Compiler::compile_method (this=<optimized out>, env=0x7fffc8117920, target=0x7fffa8043910, entry_bci=-1, install_code=<optimized out>, directive=0x7ffff01bf760)
+    at /home/zhangsan/jdk/src/hotspot/share/opto/c2compiler.cpp:107
+#9  0x00007ffff6573c70 in CompileBroker::invoke_compiler_on_method (task=task@entry=0x7ffff0309420) at /home/zhangsan/jdk/src/hotspot/share/compiler/compileBroker.cpp:2291
+#10 0x00007ffff6574968 in CompileBroker::compiler_thread_loop () at /home/zhangsan/jdk/src/hotspot/share/compiler/compileBroker.cpp:1964
+#11 0x00007ffff75481f8 in JavaThread::thread_main_inner (this=0x7ffff02b3840) at /home/zhangsan/jdk/src/hotspot/share/runtime/thread.hpp:1075
+#12 0x00007ffff754eed4 in Thread::call_run (this=this@entry=0x7ffff02b3840) at /home/zhangsan/jdk/src/hotspot/share/runtime/thread.cpp:361
+#13 0x00007ffff70d07ec in thread_native_entry (thread=0x7ffff02b3840) at /home/zhangsan/jdk/src/hotspot/os/linux/os_linux.cpp:720
+#14 0x00007ffff7d67590 in start_thread (arg=0x7fffc8118640) at pthread_create.c:463
+#15 0x00007ffff7ebc223 in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:95
+
