@@ -1,0 +1,32 @@
+(gdb) bt
+#0  __memmove_avx_unaligned_erms () at ../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:455
+#1  0x00007ffff650f876 in memcpy (__len=976, __src=<optimized out>, __dest=<optimized out>) at /usr/include/x86_64-linux-gnu/bits/string_fortified.h:34
+#2  Copy::pd_disjoint_words (count=122, to=<optimized out>, from=<optimized out>) at /home/zhangsan/jdk/src/hotspot/os_cpu/linux_x86/copy_linux_x86.hpp:86
+#3  Copy::disjoint_words (count=122, to=<optimized out>, from=<optimized out>) at /home/zhangsan/jdk/src/hotspot/share/utilities/copy.hpp:102
+#4  CodeBuffer::relocate_code_to (this=this@entry=0x7fffa3ffe4e0, dest=dest@entry=0x7fffa3ffdbe0) at /home/zhangsan/jdk/src/hotspot/share/asm/codeBuffer.cpp:747
+#5  0x00007ffff6511dc1 in CodeBuffer::copy_code_to (this=this@entry=0x7fffa3ffe4e0, dest_blob=dest_blob@entry=0x7fffe1592490) at /home/zhangsan/jdk/src/hotspot/share/asm/codeBuffer.cpp:716
+#6  0x00007ffff7037600 in CodeBuffer::copy_code_and_locs_to (blob=0x7fffe1592490, this=0x7fffa3ffe4e0) at /home/zhangsan/jdk/src/hotspot/share/asm/codeBuffer.hpp:661
+#7  nmethod::nmethod (this=0x7fffe1592490, method=<optimized out>, type=<optimized out>, nmethod_size=<optimized out>, compile_id=<optimized out>, entry_bci=<optimized out>, offsets=0x7fffa3ffe4b8, 
+    orig_pc_offset=64, debug_info=0x7ffff02b5b10, dependencies=0x7fffa8056830, code_buffer=0x7fffa3ffe4e0, frame_size=12, oop_maps=0x7fffa80567a0, handler_table=0x7fffa3ffe470, nul_chk_table=0x7fffa3ffe490, 
+    compiler=0x7ffff023c9b0, comp_level=3, native_invokers=..., speculations=0x0, speculations_len=0, jvmci_data_size=0) at /home/zhangsan/jdk/src/hotspot/share/code/nmethod.cpp:825
+#8  0x00007ffff7037d18 in nmethod::new_nmethod (method=..., compile_id=2, entry_bci=entry_bci@entry=-1, offsets=offsets@entry=0x7fffa3ffe4b8, orig_pc_offset=orig_pc_offset@entry=64, debug_info=0x7ffff02b5b10, 
+    dependencies=0x7fffa8056830, code_buffer=0x7fffa3ffe4e0, frame_size=12, oop_maps=0x7fffa80567a0, handler_table=0x7fffa3ffe470, nul_chk_table=0x7fffa3ffe490, compiler=0x7ffff023c9b0, comp_level=3, 
+    native_invokers=..., speculations=0x0, speculations_len=0, nmethod_mirror_index=-1, nmethod_mirror_name=0x0, failed_speculations=0x0) at /home/zhangsan/jdk/src/hotspot/share/code/codeCache.hpp:254
+#9  0x00007ffff6418ad1 in ciEnv::register_method (this=this@entry=0x7fffa3ffe920, target=0x7fffa8043910, entry_bci=-1, offsets=offsets@entry=0x7fffa3ffe4b8, orig_pc_offset=64, 
+    code_buffer=code_buffer@entry=0x7fffa3ffe4e0, frame_words=12, oop_map_set=0x7fffa80567a0, handler_table=0x7fffa3ffe470, inc_table=0x7fffa3ffe490, compiler=0x7ffff023c9b0, has_unsafe_access=false, 
+    has_wide_vectors=false, rtm_state=NoRTM, native_invokers=...) at /home/zhangsan/jdk/src/hotspot/share/compiler/compileTask.hpp:117
+#10 0x00007ffff625df67 in Compilation::install_code (this=this@entry=0x7fffa3ffe3f0, frame_size=frame_size@entry=24) at /home/zhangsan/jdk/src/hotspot/share/c1/c1_Compilation.hpp:142
+#11 0x00007ffff6260e65 in Compilation::compile_method (this=0x7fffa3ffe3f0) at /home/zhangsan/jdk/src/hotspot/share/c1/c1_Compilation.cpp:469
+#12 Compilation::compile_method (this=0x7fffa3ffe3f0) at /home/zhangsan/jdk/src/hotspot/share/c1/c1_Compilation.cpp:429
+#13 0x00007ffff626171f in Compilation::Compilation (this=0x7fffa3ffe3f0, compiler=<optimized out>, env=<optimized out>, method=0x7fffa8043910, osr_bci=<optimized out>, buffer_blob=<optimized out>, 
+    install_code=true, directive=0x7ffff01bf640) at /home/zhangsan/jdk/src/hotspot/share/c1/c1_Compilation.cpp:584
+#14 0x00007ffff6262b47 in Compiler::compile_method (this=<optimized out>, env=0x7fffa3ffe920, method=0x7fffa8043910, entry_bci=-1, install_code=<optimized out>, directive=0x7ffff01bf640)
+    at /home/zhangsan/jdk/src/hotspot/share/c1/c1_Compiler.cpp:248
+#15 0x00007ffff6573c70 in CompileBroker::invoke_compiler_on_method (task=task@entry=0x7ffff03013f0) at /home/zhangsan/jdk/src/hotspot/share/compiler/compileBroker.cpp:2291
+#16 0x00007ffff6574968 in CompileBroker::compiler_thread_loop () at /home/zhangsan/jdk/src/hotspot/share/compiler/compileBroker.cpp:1964
+#17 0x00007ffff75481f8 in JavaThread::thread_main_inner (this=0x7ffff02b52a0) at /home/zhangsan/jdk/src/hotspot/share/runtime/thread.hpp:1075
+#18 0x00007ffff754eed4 in Thread::call_run (this=this@entry=0x7ffff02b52a0) at /home/zhangsan/jdk/src/hotspot/share/runtime/thread.cpp:361
+#19 0x00007ffff70d07ec in thread_native_entry (thread=0x7ffff02b52a0) at /home/zhangsan/jdk/src/hotspot/os/linux/os_linux.cpp:720
+#20 0x00007ffff7d67590 in start_thread (arg=0x7fffa3fff640) at pthread_create.c:463
+#21 0x00007ffff7ebc223 in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:95
+
