@@ -1,0 +1,11 @@
+(gdb) bt
+#0  kgdb_roundup_cpus () at ../arch/x86/kernel/kgdb.c:419
+#1  0xffffffff81213885 in kgdb_cpu_enter (ks=ks@entry=0xffffc90000013958, regs=regs@entry=0xffffc90000013a68, exception_state=exception_state@entry=1) at ../kernel/debug/debug_core.c:723
+#2  0xffffffff8121403f in kgdb_handle_exception (evector=<optimized out>, signo=5, ecode=2, regs=0xffffc90000013a68) at ../kernel/debug/debug_core.c:856
+#3  0xffffffff810fdeb1 in __kgdb_notify (args=args@entry=0xffffc900000139f8, cmd=cmd@entry=2) at ../arch/x86/kernel/kgdb.c:548
+#4  0xffffffff810fdfa6 in kgdb_ll_trap (cmd=cmd@entry=2, str=str@entry=0xffffffff825b03c1 "int3", regs=regs@entry=0xffffc90000013a68, err=err@entry=0, trap=trap@entry=3, sig=sig@entry=5)
+    at ../arch/x86/kernel/kgdb.c:571
+#5  0xffffffff810bd0c0 in do_int3 (regs=regs@entry=0xffffc90000013a68) at ../arch/x86/kernel/traps.c:614
+#6  0xffffffff81c9d1ed in exc_int3 (regs=0xffffc90000013a68) at ../arch/x86/kernel/traps.c:665
+#7  0xffffffff81e00aa1 in asm_exc_int3 () at ../arch/x86/include/asm/idtentry.h:576
+
