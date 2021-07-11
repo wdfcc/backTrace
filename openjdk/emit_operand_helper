@@ -1,0 +1,23 @@
+(gdb) bt
+#0  Assembler::emit_operand_helper (this=0x700000007, reg_enc=0, base_enc=0, index_enc=32767, scale=-160933536, disp=32767, rspec=..., rip_relative_correction=0)
+    at /home/zhangsan/jdk/src/hotspot/cpu/x86/assembler_x86.cpp:575
+#1  0x00007ffff61220e9 in Assembler::emit_operand (this=0x7ffff0029d20, reg=0x7, base=0x7, index=0xffffffffffffffff, scale=Address::no_scale, disp=0, rspec=..., rip_relative_correction=0)
+    at /home/zhangsan/jdk/src/hotspot/cpu/x86/assembler_x86.cpp:688
+#2  0x00007ffff6122ef8 in Assembler::emit_operand (this=0x7ffff0029d20, reg=0x7, adr=..., rip_relative_correction=0) at /home/zhangsan/jdk/src/hotspot/cpu/x86/assembler_x86.cpp:1200
+#3  0x00007ffff615a2ae in Assembler::clflush (this=0x7ffff0029d20, adr=...) at /home/zhangsan/jdk/src/hotspot/cpu/x86/assembler_x86.cpp:10041
+#4  0x00007ffff66cafd4 in ICacheStubGenerator::generate_icache_flush (this=0x7ffff5a8d7c0, flush_icache_stub=0x7ffff7d09730 <AbstractICache::_flush_icache_stub>)
+    at /home/zhangsan/jdk/src/hotspot/cpu/x86/icache_x86.cpp:51
+#5  0x00007ffff66caae8 in AbstractICache::initialize () at /home/zhangsan/jdk/src/hotspot/share/runtime/icache.cpp:45
+#6  0x00007ffff66cacd5 in icache_init () at /home/zhangsan/jdk/src/hotspot/share/runtime/icache.cpp:110
+#7  0x00007ffff63a4065 in CodeCache::initialize () at /home/zhangsan/jdk/src/hotspot/share/code/codeCache.cpp:961
+#8  0x00007ffff63a4091 in codeCache_init () at /home/zhangsan/jdk/src/hotspot/share/code/codeCache.cpp:970
+#9  0x00007ffff66de5a5 in init_globals () at /home/zhangsan/jdk/src/hotspot/share/runtime/init.cpp:119
+#10 0x00007ffff6ebefd3 in Threads::create_vm (args=0x7ffff5a8dd50, canTryAgain=0x7ffff5a8dc43) at /home/zhangsan/jdk/src/hotspot/share/runtime/thread.cpp:2808
+#11 0x00007ffff67e43f4 in JNI_CreateJavaVM_inner (vm=0x7ffff5a8dda8, penv=0x7ffff5a8ddb0, args=0x7ffff5a8dd50) at /home/zhangsan/jdk/src/hotspot/share/prims/jni.cpp:3592
+#12 0x00007ffff67e474d in JNI_CreateJavaVM (vm=0x7ffff5a8dda8, penv=0x7ffff5a8ddb0, args=0x7ffff5a8dd50) at /home/zhangsan/jdk/src/hotspot/share/prims/jni.cpp:3680
+#13 0x00007ffff7fb7a0f in InitializeJVM (pvm=0x7ffff5a8dda8, penv=0x7ffff5a8ddb0, ifn=0x7ffff5a8de00) at /home/zhangsan/jdk/src/java.base/share/native/libjli/java.c:1541
+#14 0x00007ffff7fb4532 in JavaMain (_args=0x7fffffffa980) at /home/zhangsan/jdk/src/java.base/share/native/libjli/java.c:415
+#15 0x00007ffff7fbb417 in ThreadJavaMain (args=0x7fffffffa980) at /home/zhangsan/jdk/src/java.base/unix/native/libjli/java_md.c:651
+#16 0x00007ffff7d61590 in start_thread (arg=0x7ffff5a8e640) at pthread_create.c:463
+#17 0x00007ffff7eb6223 in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:95
+
