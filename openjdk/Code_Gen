@@ -1,0 +1,29 @@
+Thread 14 "C2 CompilerThre" hit Breakpoint 4, Assembler::locate_operand (inst=0x7fffc8214da0 " 5\006\341\377\177", which=32767) at /home/zhangsan/jdk/src/hotspot/cpu/x86/assembler_x86.cpp:713
+713	address Assembler::locate_operand(address inst, WhichOperand which) {
+#0  Assembler::locate_operand (inst=0x7fffc8214da0 " 5\006\341\377\177", which=32767) at /home/zhangsan/jdk/src/hotspot/cpu/x86/assembler_x86.cpp:713
+#1  0x00007ffff6122e1a in Assembler::check_relocation (this=0x7fffc8214bc0, rspec=..., format=0) at /home/zhangsan/jdk/src/hotspot/cpu/x86/assembler_x86.cpp:1189
+#2  0x00007ffff61582da in Assembler::emit_data64 (this=0x7fffc8214bc0, data=140737340136776, rspec=..., format=0) at /home/zhangsan/jdk/src/hotspot/cpu/x86/assembler_x86.cpp:9596
+#3  0x00007ffff615bbc8 in Assembler::mov_literal64 (this=0x7fffc8214bc0, dst=0x7, imm64=140737340136776, rspec=...) at /home/zhangsan/jdk/src/hotspot/cpu/x86/assembler_x86.cpp:10305
+#4  0x00007ffff6a70729 in MacroAssembler::lea (this=0x7fffc8214bc0, dst=0x7, src=...) at /home/zhangsan/jdk/src/hotspot/cpu/x86/macroAssembler_x86.cpp:646
+#5  0x00007ffff6a712dd in MacroAssembler::stop (this=0x7fffc8214bc0, msg=0x7ffff72a5d48 "uncommon trap returned which should never happen") at /home/zhangsan/jdk/src/hotspot/cpu/x86/macroAssembler_x86.cpp:802
+#6  0x00007ffff5f379c7 in ShouldNotReachHereNode::emit (this=0x7fff9c009a78, cbuf=..., ra_=0x7fffc8215370) at /home/zhangsan/jdk/src/hotspot/cpu/x86/x86.ad:2611
+#7  0x00007ffff6c1353b in PhaseOutput::scratch_emit_size (this=0x7fffc8215570, n=0x7fff9c009a78) at /home/zhangsan/jdk/src/hotspot/share/opto/output.cpp:3331
+#8  0x00007ffff6a5b6eb in MachNode::emit_size (this=0x7fff9c009a78, ra_=0x7fffc8215370) at /home/zhangsan/jdk/src/hotspot/share/opto/machnode.cpp:158
+#9  0x00007ffff6a5b661 in MachNode::size (this=0x7fff9c009a78, ra_=0x7fffc8215370) at /home/zhangsan/jdk/src/hotspot/share/opto/machnode.cpp:150
+#10 0x00007ffff6c08cb3 in PhaseOutput::shorten_branches (this=0x7fffc8215570, blk_starts=0x7fff9c04fd40) at /home/zhangsan/jdk/src/hotspot/share/opto/output.cpp:610
+#11 0x00007ffff6c082fb in PhaseOutput::Output (this=0x7fffc8215570) at /home/zhangsan/jdk/src/hotspot/share/opto/output.cpp:411
+#12 0x00007ffff63d2f8e in Compile::Code_Gen (this=0x7fffc8217bf0) at /home/zhangsan/jdk/src/hotspot/share/opto/compile.cpp:2775
+#13 0x00007ffff63c9dd8 in Compile::Compile (this=0x7fffc8217bf0, ci_env=0x7fffc8218960, target=0x7fff9c051f60, osr_bci=-1, subsume_loads=true, do_escape_analysis=true, eliminate_boxing=true, 
+    do_locks_coarsening=true, install_code=true, directive=0x7ffff01bf500) at /home/zhangsan/jdk/src/hotspot/share/opto/compile.cpp:826
+#14 0x00007ffff62ad2ce in C2Compiler::compile_method (this=0x7ffff02b3220, env=0x7fffc8218960, target=0x7fff9c051f60, entry_bci=-1, install_code=true, directive=0x7ffff01bf500)
+    at /home/zhangsan/jdk/src/hotspot/share/opto/c2compiler.cpp:107
+#15 0x00007ffff63e7850 in CompileBroker::invoke_compiler_on_method (task=0x7ffff03e5ec0) at /home/zhangsan/jdk/src/hotspot/share/compiler/compileBroker.cpp:2291
+#16 0x00007ffff63e635f in CompileBroker::compiler_thread_loop () at /home/zhangsan/jdk/src/hotspot/share/compiler/compileBroker.cpp:1964
+#17 0x00007ffff6407a6b in CompilerThread::thread_entry (thread=0x7ffff02b3840, __the_thread__=0x7ffff02b3840) at /home/zhangsan/jdk/src/hotspot/share/compiler/compilerThread.cpp:59
+#18 0x00007ffff6eb9ec1 in JavaThread::thread_main_inner (this=0x7ffff02b3840) at /home/zhangsan/jdk/src/hotspot/share/runtime/thread.cpp:1263
+#19 0x00007ffff6eb9d53 in JavaThread::run (this=0x7ffff02b3840) at /home/zhangsan/jdk/src/hotspot/share/runtime/thread.cpp:1246
+#20 0x00007ffff6eb760a in Thread::call_run (this=0x7ffff02b3840) at /home/zhangsan/jdk/src/hotspot/share/runtime/thread.cpp:361
+#21 0x00007ffff6bee329 in thread_native_entry (thread=0x7ffff02b3840) at /home/zhangsan/jdk/src/hotspot/os/linux/os_linux.cpp:720
+#22 0x00007ffff7d61590 in start_thread (arg=0x7fffc8219640) at pthread_create.c:463
+#23 0x00007ffff7eb6223 in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:95
+
