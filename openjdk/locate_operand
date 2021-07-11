@@ -1,0 +1,24 @@
+#0  Assembler::locate_operand (inst=0x7ffff5a8d940 " \f", which=32767) at /home/zhangsan/jdk/src/hotspot/cpu/x86/assembler_x86.cpp:713
+#1  0x00007ffff6122e1a in Assembler::check_relocation (this=0x7ffff0029d20, rspec=..., format=0) at /home/zhangsan/jdk/src/hotspot/cpu/x86/assembler_x86.cpp:1189
+#2  0x00007ffff61582da in Assembler::emit_data64 (this=0x7ffff0029d20, data=140737343592200, rspec=..., format=0) at /home/zhangsan/jdk/src/hotspot/cpu/x86/assembler_x86.cpp:9596
+#3  0x00007ffff615bbc8 in Assembler::mov_literal64 (this=0x7ffff0029d20, dst=0x7, imm64=140737343592200, rspec=...) at /home/zhangsan/jdk/src/hotspot/cpu/x86/assembler_x86.cpp:10305
+#4  0x00007ffff6a70729 in MacroAssembler::lea (this=0x7ffff0029d20, dst=0x7, src=...) at /home/zhangsan/jdk/src/hotspot/cpu/x86/macroAssembler_x86.cpp:646
+#5  0x00007ffff6a712dd in MacroAssembler::stop (this=0x7ffff0029d20, msg=0x7ffff75f1708 "StubRoutines::forward exception: no pending exception (1)")
+    at /home/zhangsan/jdk/src/hotspot/cpu/x86/macroAssembler_x86.cpp:802
+#6  0x00007ffff6e0bce1 in StubGenerator::generate_forward_exception (this=0x7ffff5a8d820) at /home/zhangsan/jdk/src/hotspot/cpu/x86/stubGenerator_x86_64.cpp:522
+#7  0x00007ffff6e34c00 in StubGenerator::generate_initial (this=0x7ffff5a8d820) at /home/zhangsan/jdk/src/hotspot/cpu/x86/stubGenerator_x86_64.cpp:7378
+#8  0x00007ffff6e36363 in StubGenerator::StubGenerator (this=0x7ffff5a8d820, code=0x7ffff5a8d8e0, all=false) at /home/zhangsan/jdk/src/hotspot/cpu/x86/stubGenerator_x86_64.cpp:7733
+#9  0x00007ffff6e09636 in StubGenerator_generate (code=0x7ffff5a8d8e0, all=false) at /home/zhangsan/jdk/src/hotspot/cpu/x86/stubGenerator_x86_64.cpp:7743
+#10 0x00007ffff6e366b7 in StubRoutines::initialize1 () at /home/zhangsan/jdk/src/hotspot/share/runtime/stubRoutines.cpp:222
+#11 0x00007ffff6e373c1 in stubRoutines_init1 () at /home/zhangsan/jdk/src/hotspot/share/runtime/stubRoutines.cpp:365
+#12 0x00007ffff66de5af in init_globals () at /home/zhangsan/jdk/src/hotspot/share/runtime/init.cpp:121
+#13 0x00007ffff6ebefd3 in Threads::create_vm (args=0x7ffff5a8dd50, canTryAgain=0x7ffff5a8dc43) at /home/zhangsan/jdk/src/hotspot/share/runtime/thread.cpp:2808
+#14 0x00007ffff67e43f4 in JNI_CreateJavaVM_inner (vm=0x7ffff5a8dda8, penv=0x7ffff5a8ddb0, args=0x7ffff5a8dd50) at /home/zhangsan/jdk/src/hotspot/share/prims/jni.cpp:3592
+#15 0x00007ffff67e474d in JNI_CreateJavaVM (vm=0x7ffff5a8dda8, penv=0x7ffff5a8ddb0, args=0x7ffff5a8dd50) at /home/zhangsan/jdk/src/hotspot/share/prims/jni.cpp:3680
+#16 0x00007ffff7fb7a0f in InitializeJVM (pvm=0x7ffff5a8dda8, penv=0x7ffff5a8ddb0, ifn=0x7ffff5a8de00) at /home/zhangsan/jdk/src/java.base/share/native/libjli/java.c:1541
+#17 0x00007ffff7fb4532 in JavaMain (_args=0x7fffffffa980) at /home/zhangsan/jdk/src/java.base/share/native/libjli/java.c:415
+#18 0x00007ffff7fbb417 in ThreadJavaMain (args=0x7fffffffa980) at /home/zhangsan/jdk/src/java.base/unix/native/libjli/java_md.c:651
+#19 0x00007ffff7d61590 in start_thread (arg=0x7ffff5a8e640) at pthread_create.c:463
+#20 0x00007ffff7eb6223 in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:95
+(gdb) p/x inst
+
