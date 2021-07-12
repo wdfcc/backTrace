@@ -1,0 +1,13 @@
+0xffffffff8100db4a __x86_pmu_enable_event(): ...x86/events/intel/../perf_event.h, line 842	
+0xffffffff8100db4a intel_pmu_enable_event(): ../arch/x86/events/intel/core.c, line 2260	
+0xffffffff810076ca x86_pmu_start(): ../arch/x86/events/core.c, line 1348	
+0xffffffff810076ca x86_pmu_start(): ../arch/x86/events/core.c, line 1348	
+0xffffffff812a80af perf_adjust_freq_unthr_context(): ../kernel/events/core.c, line 3732	
+0xffffffff812a80af perf_event_task_tick(): ../kernel/events/core.c, line 3862	
+0xffffffff81174187 scheduler_tick(): ../include/linux/spinlock.h, line 211	
+0xffffffff811cebf2 update_process_times(): ../kernel/time/timer.c, line 1731	
+0xffffffff811e0709 tick_sched_handle(): ../kernel/time/tick-sched.c, line 171	
+0xffffffff811e098d tick_sched_timer(): ../kernel/time/tick-sched.c, line 1303	
+0xffffffff811cf8e7 __run_hrtimer(): ../kernel/time/hrtimer.c, line 1517	
+
+
